@@ -1,0 +1,14 @@
+site:
+  title: Tremorsys home
+  start_page: azurearchitecturestarterpack::index.adoc
+content:
+  sources:
+  - url: https://github.com/tremorscript/ProjectStarterPack.git 
+    branches: main
+  - url: https://github.com/tremorscript/AzureArchitectureStarterPack.git
+    branches: [main]
+    start_path: docs
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
