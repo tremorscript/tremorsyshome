@@ -21,3 +21,6 @@ ui:
       static_files:
       - .nojekyll
   - path: .nojekyll
+antora:
+  extensions:
+  - '@antora/lunr-extension'
