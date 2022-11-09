@@ -8,7 +8,16 @@ content:
   - url: https://github.com/tremorscript/AzureArchitectureStarterPack.git
     branches: [main]
     start_path: docs
+  - url: https://github.com/tremorscript/ReferenceGuides.git
+    branches: [main]
+    start_path: docs
 ui:
   bundle:
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
     snapshot: true
+  supplemental_files:
+  - path: ui.yml
+    contents: |
+      static_files:
+      - .nojekyll
+  - path: .nojekyll
