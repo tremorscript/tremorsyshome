@@ -1,9 +1,12 @@
 site:
   title: Tremorsys home
-  start_page: azurearchitecturestarterpack::index.adoc
+  start_page: home::index.adoc
   url: https://tremorscript.github.io/tremorsyshome
 content:
   sources:
+  - url: .
+    branches: HEAD
+    start_path: home
   - url: https://github.com/tremorscript/ProjectStarterPack.git 
     branches: main
   - url: https://github.com/tremorscript/AzureArchitectureStarterPack.git
