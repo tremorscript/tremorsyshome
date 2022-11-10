@@ -1,7 +1,6 @@
 site:
   title: Tremorsys home
   start_page: homesite::index.adoc
-  url: https://tremorsys.com
 content:
   sources:
   - url: .
