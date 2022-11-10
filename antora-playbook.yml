@@ -1,6 +1,6 @@
 site:
   title: Tremorsys home
-  start_page: azurearchitecturestarterpack::index.adoc
+  start_page: homesite::index.adoc
   url: https://tremorscript.github.io/tremorsyshome
 content:
   sources:
