@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>FSharp Reference :: Tremorsys home</title>
-    <link rel="canonical" href="https://tremorsys.com/referenceguides/0.1/FSharp/overview.html">
+    <title>Yield Method :: Tremorsys home</title>
+    <link rel="canonical" href="https://tremorsys.com/referenceguides/0.1/FSharp/YieldMethod.html">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -49,7 +49,7 @@
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="overview.html">FSharp Reference</a>
 <ul class="nav-list">
@@ -87,7 +87,7 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="DoMethod.html">Do Method</a>
   </li>
-  <li class="nav-item" data-depth="3">
+  <li class="nav-item is-current-page" data-depth="3">
     <a class="nav-link" href="YieldMethod.html">Yield Method</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -156,22 +156,67 @@
   <ul>
     <li><a href="../index.html">Reference Guides</a></li>
     <li><a href="overview.html">FSharp Reference</a></li>
+    <li>Computation Expressions</li>
+    <li><a href="YieldMethod.html">Yield Method</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/FSharp/pages/overview.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/FSharp/pages/YieldMethod.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">FSharp Reference</h1>
+<h1 class="page">Yield Method</h1>
 <div class="paragraph">
-<p>This is my personal reference guide to FSharp.
-People from whom I have shamelessly and blatantly copied.
-- fsharpforfunandprofit
-- Kit Eason
-- Mark Seeman</p>
+<p>The MSDN documentation says that it has the signature 'T &#8594; M&lt;'T&gt;, which is exactly the same as the signature for the Return method.
+It must take an unwrapped value and wrap it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">type TraceBuilder() =
+
+    member this.Bind(x,f) =
+        match x with
+        | None -&gt;
+            printfn "Binding with None. Exiting"
+        | Some a -&gt;
+            printfn "Binding with Some(%A). Continuing" a
+        Option.bind f x
+
+    member this.Return(x) =
+        printfn "Returning an unwrapped %A as an option" x
+        Some x
+
+    member this.ReturnFrom(x) =
+        printfn "Returning an option (%A) directly" x
+        x
+
+    member this.Zero() =
+        printfn "Zero"
+        None
+
+    member this.Yield(x) =
+        printfn "Yield an unwrapped %A as an option" x
+        Some x
+
+    member this.YieldFrom(x) =
+        printfn "Yield an option (%A) directly" x
+        x
+
+//make a new instance
+let trace = new TraceBuilder()
+
+    //test
+    trace {
+        yield! Some 1
+    } |&gt; printfn "Result for yield: %A"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If return and yield are basically the same thing, why are there two different keywords?<br>
+The answer is mainly so that you can enforce appropriate syntax by implementing one but not the other.<br>
+For example, the seq expression does allow yield but doesn’t allow return, while the async does allow return, but does not allow yield.</p>
 </div>
 </article>
   </div>

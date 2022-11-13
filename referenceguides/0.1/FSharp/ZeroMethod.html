@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>FSharp Reference :: Tremorsys home</title>
-    <link rel="canonical" href="https://tremorsys.com/referenceguides/0.1/FSharp/overview.html">
+    <title>Zero Method :: Tremorsys home</title>
+    <link rel="canonical" href="https://tremorsys.com/referenceguides/0.1/FSharp/ZeroMethod.html">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -49,7 +49,7 @@
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="overview.html">FSharp Reference</a>
 <ul class="nav-list">
@@ -155,23 +155,84 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Reference Guides</a></li>
-    <li><a href="overview.html">FSharp Reference</a></li>
+    <li><a href="ZeroMethod.html">Zero Method</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/FSharp/pages/overview.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/FSharp/pages/ZeroMethod.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">FSharp Reference</h1>
+<h1 class="page">Zero Method</h1>
 <div class="paragraph">
-<p>This is my personal reference guide to FSharp.
-People from whom I have shamelessly and blatantly copied.
-- fsharpforfunandprofit
-- Kit Eason
-- Mark Seeman</p>
+<p>What value should you use for Zero?</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Does the workflow have a concept of “success” or “failure”? If so, use the “failure” value for Zero.</p>
+</li>
+<li>
+<p>Does the workflow have a concept of “sequential processing”? That is, in your workflow you do one step and then another, with some processing behind the scenes. In normal F# code, an expression that did not return anything explicitly would evaluate to unit. So to parallel this case, your Zero should be the wrapped version of unit.</p>
+</li>
+<li>
+<p>Is the workflow primarily concerned with manipulating data structures? If so, Zero should be the “empty” data structure.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">module Sample3_IntroducingZero =
+    type TraceBuilder() =
+
+        member this.Bind(x,f) =
+            match x with
+            | None -&gt;
+                printfn "Binding with None. Exiting"
+            | Some a -&gt;
+                printfn "Binding with Some(%A). Continuing" a
+            Option.bind f x
+
+        member this.Return(x) =
+            printfn "Returning an unwrapped %A as an option" x
+            Some x
+
+        member this.ReturnFrom(x) =
+            printfn "Returning an option (%A) directly" x
+            x
+
+        member this.Zero() =
+            printfn "Zero"
+            None
+
+    // make an instance of the workflow
+    let trace = new TraceBuilder()
+
+    //test
+    trace {
+        printfn "hello world"
+    } |&gt; printfn "Result for simple expression: %A"
+
+    trace {
+        if false then return 1
+    } |&gt; printfn "Result for if without else: %A"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The test code makes it clear that Zero is being called behind the scenes.
+And None is the return value for the expression as whole.</p>
+</div>
+<div class="paragraph">
+<p>You not required to have a Zero, but only if it makes sense in the context of the workflow.
+For example seq does not allow zero, but async does:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">//let s = seq {printfn "zero" }    // Error
+let a = async {printfn "zero" }  // OK</code></pre>
+</div>
 </div>
 </article>
   </div>

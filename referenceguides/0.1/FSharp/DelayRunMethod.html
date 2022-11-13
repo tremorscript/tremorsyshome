@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>FSharp Reference :: Tremorsys home</title>
-    <link rel="canonical" href="https://tremorsys.com/referenceguides/0.1/FSharp/overview.html">
+    <title>Delay and Run Method :: Tremorsys home</title>
+    <link rel="canonical" href="https://tremorsys.com/referenceguides/0.1/FSharp/DelayRunMethod.html">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -49,7 +49,7 @@
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="overview.html">FSharp Reference</a>
 <ul class="nav-list">
@@ -93,7 +93,7 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="CombineMethod.html">Combine method</a>
   </li>
-  <li class="nav-item" data-depth="3">
+  <li class="nav-item is-current-page" data-depth="3">
     <a class="nav-link" href="DelayRunMethod.html">Delay and Run Method</a>
   </li>
 </ul>
@@ -156,22 +156,84 @@
   <ul>
     <li><a href="../index.html">Reference Guides</a></li>
     <li><a href="overview.html">FSharp Reference</a></li>
+    <li>Computation Expressions</li>
+    <li><a href="DelayRunMethod.html">Delay and Run Method</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/FSharp/pages/overview.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/FSharp/pages/DelayRunMethod.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">FSharp Reference</h1>
+<h1 class="page">Delay and Run Method</h1>
 <div class="paragraph">
-<p>This is my personal reference guide to FSharp.
-People from whom I have shamelessly and blatantly copied.
-- fsharpforfunandprofit
-- Kit Eason
-- Mark Seeman</p>
+<p>Avoiding unnecessary evaluations.</p>
+</div>
+<div class="paragraph">
+<p>We want to use the “return” keyword to return early and stop any more processing being done.<br>
+return and yield do not generate an early return from a computation expression.<br>
+The entire computation expression, all the way to the last curly brace, is always evaluated and results in a single value.</p>
+</div>
+<div class="paragraph">
+<p>This is a problem, because you might get unwanted side effects and your code is doing something unnecessary, which might cause performance problems.</p>
+</div>
+<div class="paragraph">
+<p>Use the delay method to do this.<br>
+Any result from Return or Yield is immediately wrapped in a “delay” function like this, and then you can choose whether to run it or not.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">module TraceBuilder =
+
+    type TraceBuilder() =
+
+        member this.Bind(m, f) =
+           match m with
+           | None -&gt;
+               printfn "Binding with None. Exiting."
+           | Some a -&gt;
+               printfn "Binding with Some(%A). Continuing" a
+           Option.bind f m
+
+        member this.Return(x) =
+           printfn "Return an unwrapped %A as an option" x
+           Some x
+
+        member this.Zero() =
+           printfn "Zero"
+           None
+
+        member this.Combine (a,b) =
+           printfn "Returning early with %A. Ignoring second part: %A" a b
+           a
+
+        member this.Run(funcToRun) =
+           let runResult = funcToRun()
+           runResult // return the result of running the delayed function
+
+        member this.Delay(f) =
+            printfn "Delay"
+            f
+
+    //make a new instance
+    let trace = new TraceBuilder()
+
+    (*
+        Assign the output of the computation expression to a function value, say f, and then evaluate it.
+    *)
+    let f = trace {
+        printfn "Part 1: about to return 1"
+        return 1
+        printfn "Part 2: after return has happened"
+        }
+    f |&gt; printfn "Result for Part1 without Part2: %A"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The Run method exists for exactly this reason.<br>
+It is called as the final step in the process of evaluating a computation expression, and can be used to undo the delay.</p>
 </div>
 </article>
   </div>

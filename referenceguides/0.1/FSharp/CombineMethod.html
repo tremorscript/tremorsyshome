@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Combine method :: Tremorsys home</title>
+    <link rel="canonical" href="https://tremorsys.com/referenceguides/0.1/FSharp/CombineMethod.html">
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://tremorsys.com">Tremorsys home</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="referenceguides" data-version="0.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Reference Guides</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Reference Guides</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="overview.html">FSharp Reference</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Computation Expressions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="LogBuilder.html">Log Builder</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="MaybeBuilder.html">Maybe Builder</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="OrElseBuilder.html">OrElse Builder</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="IntroducingBind.html">Introducing Bind</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="WrapperTypes.html">Wrapper Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="WorkflowRulesForWrapperTypes.html">Rules for workflows that use wrapper types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="ComputationExpressionComposition.html">Composition of computation expression</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="ListWrapperTypes.html">List Wrapper Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="IdentityWrapperTypes.html">Identity Wrapper Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="DoMethod.html">Do Method</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="YieldMethod.html">Yield Method</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="CombineMethod.html">Combine method</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="DelayRunMethod.html">Delay and Run Method</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Reference Guides</span>
+    <span class="version">0.1</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../../azurearchitecturestarterpack/1/index.html">Azure Architecture Starter Pack</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../azurearchitecturestarterpack/1/index.html">1-beta.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../homesite/1.0.0/index.html">Home page</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../homesite/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../projectstarterpack/1.0.0/inline-text-formatting.html">New Project Starter Pack</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../projectstarterpack/1.0.0/inline-text-formatting.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../index.html">Reference Guides</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../homesite/1.0.0/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Reference Guides</a></li>
+    <li><a href="overview.html">FSharp Reference</a></li>
+    <li>Computation Expressions</li>
+    <li><a href="CombineMethod.html">Combine method</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/FSharp/pages/CombineMethod.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Combine method</h1>
+<div class="sect1">
+<h2 id="_why_do_we_need_combine_method"><a class="anchor" href="#_why_do_we_need_combine_method"></a>Why do we need combine method</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_the_problem_with_2_yields"><a class="anchor" href="#_the_problem_with_2_yields"></a>The problem with 2 yields</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">type TraceBuilder() =
+
+    member this.Bind(x,f) =
+        match x with
+        | None -&gt;
+            printfn "Binding with None. Exiting"
+        | Some a -&gt;
+            printfn "Binding with Some(%A). Continuing" a
+        Option.bind f x
+
+    member this.Return(x) =
+        printfn "Returning an unwrapped %A as an option" x
+        Some x
+
+    member this.ReturnFrom(x) =
+        printfn "Returning an option (%A) directly" x
+        x
+
+    member this.Zero() =
+        printfn "Zero"
+        None
+
+    member this.Yield(x) =
+        printfn "Yield an unwrapped %A as an option" x
+        Some x
+
+    member this.YieldFrom(x) =
+        printfn "Yield an option (%A) directly" x
+        x
+    member this.Combine(a,b) =
+        match a,b with
+           | Some a', Some b' -&gt;
+               printfn "combining %A and %A" a' b'
+               Some (a' + b')
+           | Some a', None -&gt;
+               printfn "combining %A with None" a'
+               Some a'
+           | None, Some b' -&gt;
+               printfn "combining None with %A" b'
+               Some b'
+           | None, None -&gt;
+               printfn "combining None with None"
+               None
+
+    member this.Delay(f) =
+        printfn "Delay"
+        f()
+
+//make a new instance
+let trace = new TraceBuilder()
+
+let trace2 x y = trace.Delay(fun () -&gt;
+                    trace.Combine(trace.Yield(x), trace.Delay(fun () -&gt;
+                        trace.Yield(y))))
+
+//test
+trace {
+    yield 1
+    yield 2
+} |&gt; printfn "Result for yield then yield: %A"
+
+let value1 = trace2 1 2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The Combine method only has two parameters. So what happens when you combine more than two values?<br>
+A subtle but important point is that they are combined “backwards”, starting from the last value.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">module ListBuilder =
+
+    type ListBuilder() =
+        member this.Bind(m, f) =
+            m |&gt; List.collect f
+
+        member this.Zero() =
+            printfn "Zero"
+            []
+
+        member this.Yield(x) =
+            printfn "Yield an unwrapped %A as a list" x
+            [x]
+
+        member this.YieldFrom(m) =
+            printfn "Yield a list (%A) directly" m
+            m
+
+        member this.For(m,f) =
+            printfn "For %A" m
+            this.Bind(m,f)
+
+        member this.Combine (a,b) =
+            printfn "combining %A and %A" a b
+            List.concat [a;b]
+
+        member this.Delay(f) =
+            printfn "Delay"
+            f()
+
+    // make an instance of the workflow
+    let listbuilder = new ListBuilder()
+
+    listbuilder {
+        yield 1
+        yield 2
+        yield 3
+        yield 4
+        } |&gt; printfn "Result for yield x 4: %A"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>What F# converts to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">let listBuilder4 x y a b = listbuilder.Delay(fun () -&gt;
+                                        listbuilder.Combine(listbuilder.Yield(x), listbuilder.Delay(fun () -&gt;
+                                        listbuilder.Combine(listbuilder.Yield(y), listbuilder.Delay(fun () -&gt;
+                                        listbuilder.Combine(listbuilder.Yield(a), listbuilder.Delay(fun () -&gt;
+                                        listbuilder.Yield(b))))))))
+let value2 = listBuilder4 1 2 3 4</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_implementing_combine_for_workflows_with_success_or_failure"><a class="anchor" href="#_implementing_combine_for_workflows_with_success_or_failure"></a>Implementing Combine for workflows with "success" or "failure"</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If the workflow has some concept of "success" or "failure", then a standard approach is:<br>
+- If the first expression "succeeds" then use that value.<br>
+- Otherwise use the value of the second expression.<br></p>
+</div>
+<div class="paragraph">
+<p>This approach is useful for chaining together a series of "or else" expressions where the first success "wins" and becomes the overall result.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_implementing_combine_for_worflows_with_sequential_steps"><a class="anchor" href="#_implementing_combine_for_worflows_with_sequential_steps"></a>Implementing Combine for worflows with sequential steps</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If the workflow has the concept of sequential steps, then the overall result is just the value of the last step, and all the previous steps are evaluated only for their side effects.</p>
+</div>
+<div class="paragraph">
+<p>In normal F#, this would be written:<br>
+do some expression<br>
+do some other expression<br>
+final expression</p>
+</div>
+<div class="paragraph">
+<p>In normal F#, each expression (other than the last) evaluates to the unit value.</p>
+</div>
+<div class="paragraph">
+<p>The equivalent approach for computation expression is to treat each expression (other than the last) as a wrapped unit value, and "pass it into" the next expression, and so on, until you reach the last expression.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">module TraceBuilder1 =
+
+    type TraceBuilder1 () =
+
+        member this.Bind(x,f) =
+            match x with
+            | None -&gt;
+                printfn "Binding with None. Exiting"
+            | Some a -&gt;
+                printfn "Binding with Some(%A). Continuing" a
+            Option.bind f x
+
+        member this.Return(x) =
+            Some x
+
+        member this.Zero() =
+            printfn "Zero"
+            this.Return () //unit not None
+
+        member this.Combine(a,b) =
+            printfn "Combining %A with %A" a b
+            this.Bind(a, fun () -&gt; b)
+
+        member this.Delay(f) =
+            printfn "Delay"
+            f()
+
+    // make a new instance
+    let trace = new TraceBuilder1()
+
+    trace {
+       if true then printfn "hello......"
+       if false then printfn ".......world"
+       return 1
+    } |&gt; printfn "Result for sequential combine: %A"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>F# converts the above code to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">//What F# converts to
+let expr1 = fun () -&gt;
+                if false then printfn "hello......";
+                trace.Zero();
+let expr2 = fun () -&gt;
+                if true then printfn "......world";
+                trace.Zero();
+
+let value1 = trace.Delay(fun () -&gt;
+                        trace.Combine(expr1(), trace.Delay(fun () -&gt;
+                            trace.Combine(expr2(), trace.Delay(fun () -&gt;
+                                trace.Return(1))))))</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_implementing_combine_for_workflows_that_build_data_structures"><a class="anchor" href="#_implementing_combine_for_workflows_that_build_data_structures"></a>Implementing combine for workflows that build data structures</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this case, Combine should merge the two data structures in whatever way is appropriate.<br>
+And the Zero method should create an empty data structure, if needed.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_guidelines_for_mixing_combine_and_zero"><a class="anchor" href="#_guidelines_for_mixing_combine_and_zero"></a>Guidelines for mixing "Combine" and "Zero"</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We have looked at different implementations for Combine for option types.<br>
+- The first one used options as "success/failure" indicators, when the first success "won".<br>
+  In this case Zero was defined as None<br>
+- The second one was sequential. In this case Zero was defined as Some ()</p>
+</div>
+<div class="paragraph">
+<p>There is a useful rule that connects Zero and Combine<br>
+Rule:- Combine(a,Zero) should be the same as Combine(Zero,a) which should be the same as just a</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

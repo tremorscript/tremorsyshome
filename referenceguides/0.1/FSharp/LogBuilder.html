@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>FSharp Reference :: Tremorsys home</title>
-    <link rel="canonical" href="https://tremorsys.com/referenceguides/0.1/FSharp/overview.html">
+    <title>Log Builder :: Tremorsys home</title>
+    <link rel="canonical" href="https://tremorsys.com/referenceguides/0.1/FSharp/LogBuilder.html">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -49,7 +49,7 @@
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="overview.html">FSharp Reference</a>
 <ul class="nav-list">
@@ -57,7 +57,7 @@
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Computation Expressions</span>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="3">
+  <li class="nav-item is-current-page" data-depth="3">
     <a class="nav-link" href="LogBuilder.html">Log Builder</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -156,22 +156,84 @@
   <ul>
     <li><a href="../index.html">Reference Guides</a></li>
     <li><a href="overview.html">FSharp Reference</a></li>
+    <li>Computation Expressions</li>
+    <li><a href="LogBuilder.html">Log Builder</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/FSharp/pages/overview.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/FSharp/pages/LogBuilder.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">FSharp Reference</h1>
+<h1 class="page">Log Builder</h1>
 <div class="paragraph">
-<p>This is my personal reference guide to FSharp.
-People from whom I have shamelessly and blatantly copied.
-- fsharpforfunandprofit
-- Kit Eason
-- Mark Seeman</p>
+<p>Let&#8217;s say we have some code, and we want to log each step.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">let loggedWorkflow =
+    let x = 42
+    log x
+    let y = 43
+    log y
+    let z = x + y
+    log z
+    //return
+    z</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>But it is annoying to have to explicitly write all the log statements each time.
+Is there a way to hide them?
+A computation expression can do that.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">type LoggingBuilder() =
+    let log p = printfn "expression is %A" p
+
+    member this.Bind(x, f) =
+        log x
+        f x
+
+    member this.Return(x) =
+        x</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next we create an instance of the type, logger in this case.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">let logger = new LoggingBuilder()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>So with this logger value, we can rewrite the original logging example like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>let loggedWorkflow1 =
+    logger {
+        let! x = 42
+        let! y = 43
+        let! z = x + y
+        return z
+    }</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>F# internally converts this to the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">let value = logger.Bind(42, fun x -&gt;
+                                logger.Bind(43, fun y -&gt;
+                                    logger.Bind(x + y, fun z -&gt; z)
+                                    ))</code></pre>
+</div>
 </div>
 </article>
   </div>

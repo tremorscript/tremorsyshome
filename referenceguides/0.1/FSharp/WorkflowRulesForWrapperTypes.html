@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>FSharp Reference :: Tremorsys home</title>
-    <link rel="canonical" href="https://tremorsys.com/referenceguides/0.1/FSharp/overview.html">
+    <title>Rules for workflows that use wrapper types :: Tremorsys home</title>
+    <link rel="canonical" href="https://tremorsys.com/referenceguides/0.1/FSharp/WorkflowRulesForWrapperTypes.html">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -49,7 +49,7 @@
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="overview.html">FSharp Reference</a>
 <ul class="nav-list">
@@ -72,7 +72,7 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="WrapperTypes.html">Wrapper Types</a>
   </li>
-  <li class="nav-item" data-depth="3">
+  <li class="nav-item is-current-page" data-depth="3">
     <a class="nav-link" href="WorkflowRulesForWrapperTypes.html">Rules for workflows that use wrapper types</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -156,22 +156,30 @@
   <ul>
     <li><a href="../index.html">Reference Guides</a></li>
     <li><a href="overview.html">FSharp Reference</a></li>
+    <li>Computation Expressions</li>
+    <li><a href="WorkflowRulesForWrapperTypes.html">Rules for workflows that use wrapper types</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/FSharp/pages/overview.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/FSharp/pages/WorkflowRulesForWrapperTypes.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">FSharp Reference</h1>
-<div class="paragraph">
-<p>This is my personal reference guide to FSharp.
-People from whom I have shamelessly and blatantly copied.
-- fsharpforfunandprofit
-- Kit Eason
-- Mark Seeman</p>
+<h1 class="page">Rules for workflows that use wrapper types</h1>
+<div class="ulist">
+<ul>
+<li>
+<p>Rule 1: If you start with an unwrapped value, and then you wrap it (using return ),then unwrap it (using bind ), you should always get back the original unwrapped value.</p>
+</li>
+<li>
+<p>Rule 2: If you start with a wrapped value, and then you unwrap it (using bind ), then wrap it (using return ), you should always get back the original wrapped value.</p>
+</li>
+<li>
+<p>Rule 3: If you create a child workflow, it must produce the same result as if you had "inlined" the logic in the main workflow.</p>
+</li>
+</ul>
 </div>
 </article>
   </div>
