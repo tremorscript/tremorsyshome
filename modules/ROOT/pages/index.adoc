@@ -1,3 +1,30 @@
 = Home Page
+:navtitle: Home
+:title: Home
 
-This is the home page
+== Introduction
+Hello my name is Trelston Moraes and welcome to my personal documentation website.
+
+It is more like a personal knowledge management website.
+
+At this point of time, it is still a work in progress with 5 important sections that I have detailed below:
+
+== Project Starter Pack (WIP)
+
+I have 15 years of experience in developing and deploying small, medium and large enterprise application using the dotnet platorm. Things have changed a lot obviously since I first started. The aim of this section is for me to answer the question - "If I were to start a new project today. How will I proceed?". I would like to answer this question not only with a sample project but also a sample process from development to deployment that the team will follow. So, I would like to answer this question not just with code but also a process. For this, I am going to use the https://microsoft.github.io/code-with-engineering-playbook/[Microsoft Engineering Playbook]. While this playbook, is quite abstract, my intention is to make it more concrete with scenarios and walkthroughs. My idea is that a developer who will join the team will do these walkthroughs will understand the process, the architecture and the code of my project.
+
+== Architecture Starter Pack (WIP)
+
+Here i intend to go through all the architecture style documented in https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/[Azure Architecture Styles] and have a terraform file created for each for ease of deployment to Azure
+
+== Study Notes (WIP)
+
+These are all the notes I take while studying a particular topic or blog posts. I randomly study different topics at different time and I want to document what I study and also be easily searchable. Now, I normally have everything in https://obsidian.md/[Obsidian] or https://pinboard.in/[pinboard] but here I can make it more discoverable and refine my knowledge.
+
+== Products
+
+This is the product section. These are the free products, I am working on.
+
+== Resume
+
+Here you will find my resume.
