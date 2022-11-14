@@ -247,7 +247,8 @@ let value1 = trace2 1 2</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The Combine method only has two parameters. So what happens when you combine more than two values?<br>
+<p>The Combine method only has two parameters.<br>
+So what happens when you combine more than two values?<br>
 A subtle but important point is that they are combined “backwards”, starting from the last value.</p>
 </div>
 <div class="listingblock">
@@ -386,10 +387,10 @@ final expression</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">//What F# converts to
 let expr1 = fun () -&gt;
-                if false then printfn "hello......";
+                if true then printfn "hello......";
                 trace.Zero();
 let expr2 = fun () -&gt;
-                if true then printfn "......world";
+                if false then printfn "......world";
                 trace.Zero();
 
 let value1 = trace.Delay(fun () -&gt;

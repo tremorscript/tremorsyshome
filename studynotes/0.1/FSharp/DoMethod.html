@@ -176,15 +176,16 @@
 <article class="doc">
 <h1 class="page">Do Method</h1>
 <div class="paragraph">
-<p>Operations with and without '!'<br>
-The difference is easy to remember when you realize that the operations without a “!” always have unwrapped types on the right hand side, while the ones with a “!” always have wrapped types.</p>
+<p>Operations with and without <strong>'!'</strong></p>
 </div>
 <div class="paragraph">
-<p>The “!” versions are particularly important for composition, because the wrapped type can be the result of another computation expression of the same type.</p>
+<p>Operations without a <strong>“!”</strong> always have unwrapped types on the right hand side,<br>
+while the ones with a <strong>“!”</strong> always have wrapped types.</p>
 </div>
 <div class="paragraph">
-<p>In normal F#, do is just like let, except that the expression doesn&#8217;t return anything useful (namely, a unit value).<br>
-Inside a computation expression, do! is very similar. Just as let! passes a wrapped result to the Bind method, so does do!, except that in the case of do! the “result” is the unit value, and so a wrapped version of unit is passed to the bind method.</p>
+<p>In normal F#, <strong>do</strong> is just like <strong>let</strong>, except that the expression returns a unit value.<br>
+Inside a computation expression, <strong>do!</strong> is very similar.<br>
+Just as <strong>let!</strong> passes a wrapped result to the Bind method, so does <strong>do!</strong>, except that in the case of <strong>do!</strong> the “result” is the unit value, and so a wrapped version of unit is passed to the bind method.</p>
 </div>
 <div class="listingblock">
 <div class="content">
