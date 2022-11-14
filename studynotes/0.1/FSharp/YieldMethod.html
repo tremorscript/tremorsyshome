@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>List Wrapper Types :: Tremorsys home</title>
-    <link rel="canonical" href="https://tremorsys.com/referenceguides/0.1/FSharp/ListWrapperTypes.html">
+    <title>Yield Method :: Tremorsys home</title>
+    <link rel="canonical" href="https://tremorsys.com/studynotes/0.1/FSharp/YieldMethod.html">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -33,17 +33,17 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="referenceguides" data-version="0.1">
+<div class="nav-container" data-component="studynotes" data-version="0.1">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="../index.html">Reference Guides</a></h3>
+    <h3 class="title"><a href="../index.html">Study Notes</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../index.html">Reference Guides</a>
+    <a class="nav-link" href="../index.html">Study Notes</a>
   </li>
 </ul>
   </li>
@@ -51,7 +51,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="overview.html">FSharp Reference</a>
+    <a class="nav-link" href="overview.html">FSharp Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
@@ -78,7 +78,7 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="ComputationExpressionComposition.html">Composition of computation expression</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="3">
+  <li class="nav-item" data-depth="3">
     <a class="nav-link" href="ListWrapperTypes.html">List Wrapper Types</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -87,7 +87,7 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="DoMethod.html">Do Method</a>
   </li>
-  <li class="nav-item" data-depth="3">
+  <li class="nav-item is-current-page" data-depth="3">
     <a class="nav-link" href="YieldMethod.html">Yield Method</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -114,7 +114,7 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
-    <span class="title">Reference Guides</span>
+    <span class="title">Study Notes</span>
     <span class="version">0.1</span>
   </div>
   <ul class="components">
@@ -143,7 +143,7 @@
       </ul>
     </li>
     <li class="component is-current">
-      <a class="title" href="../index.html">Reference Guides</a>
+      <a class="title" href="../index.html">Study Notes</a>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="../index.html">0.1</a>
@@ -161,122 +161,69 @@
   <a href="../../../homesite/1.0.0/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="../index.html">Reference Guides</a></li>
-    <li><a href="overview.html">FSharp Reference</a></li>
+    <li><a href="../index.html">Study Notes</a></li>
+    <li><a href="overview.html">FSharp Notes</a></li>
     <li>Computation Expressions</li>
-    <li><a href="ListWrapperTypes.html">List Wrapper Types</a></li>
+    <li><a href="YieldMethod.html">Yield Method</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/FSharp/pages/ListWrapperTypes.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/FSharp/pages/YieldMethod.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">List Wrapper Types</h1>
-<div class="sect1">
-<h2 id="_list_workflow"><a class="anchor" href="#_list_workflow"></a>List Workflow</h2>
-<div class="sectionbody">
+<h1 class="page">Yield Method</h1>
 <div class="paragraph">
-<p>The bind function “unwraps” the type, and applies the continuation function to the unwrapped value.<br></p>
-</div>
-<div class="paragraph">
-<p>The continuation function passed into bind is required to have a certain signature.<br>
-It takes an unwrapped type, but it produces a wrapped type.</p>
-</div>
-<div class="paragraph">
-<p>In other words, the continuation function must always create a new list as its result.</p>
-</div>
-<div class="paragraph">
-<p>We can now create a “list workflow”.</p>
-</div>
-<div class="paragraph">
-<p>Bind applies the continuation function to each element of the passed in list, and then flattens the resulting list of lists into a one-level list. List.collect is a library function that does exactly that.<br>
-Return converts from unwrapped to wrapped. In this case, that just means wrapping a single element in a list.</p>
+<p>The MSDN documentation says that it has the signature 'T &#8594; M&lt;'T&gt;, which is exactly the same as the signature for the Return method.
+It must take an unwrapped value and wrap it.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">module Sample1 =
-    type ListWorkflowBuilder() =
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">type TraceBuilder() =
 
-        member this.Bind(list,f) =
-            list |&gt; List.collect f
+    member this.Bind(x,f) =
+        match x with
+        | None -&gt;
+            printfn "Binding with None. Exiting"
+        | Some a -&gt;
+            printfn "Binding with Some(%A). Continuing" a
+        Option.bind f x
 
-        member this.Return(x) =
-            [x]
+    member this.Return(x) =
+        printfn "Returning an unwrapped %A as an option" x
+        Some x
 
-    let listWorkflow = new ListWorkflowBuilder()
+    member this.ReturnFrom(x) =
+        printfn "Returning an option (%A) directly" x
+        x
 
-    let added =
-        listWorkflow {
-            let! i = [1;2;3]
-            let! j = [10;11;12]
-            return i + j
-        }
+    member this.Zero() =
+        printfn "Zero"
+        None
 
-    printfn "added=%A" added</code></pre>
+    member this.Yield(x) =
+        printfn "Yield an unwrapped %A as an option" x
+        Some x
+
+    member this.YieldFrom(x) =
+        printfn "Yield an option (%A) directly" x
+        x
+
+//make a new instance
+let trace = new TraceBuilder()
+
+    //test
+    trace {
+        yield! Some 1
+    } |&gt; printfn "Result for yield: %A"</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>What F# does behind the scenes is:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">    let addedM = listWorkflow.Bind([1;2;3], fun x -&gt;
-                                listWorkflow.Bind([10;11;12], fun y -&gt;
-                                    listWorkflow.Return (x + y)))
-
-    printfn "added=%A" addedM</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_syntactic_sugar_for_for"><a class="anchor" href="#_syntactic_sugar_for_for"></a>Syntactic sugar for "for"</h2>
-<div class="sectionbody">
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">// let version
-let! i = [1;2;3] in [some expression]
-
-// for..in..do version
-for i in [1;2;3] do [some expression]</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>We need to add a For method to our builder class.<br>
-It generally has exactly the same implementation as the normal Bind method, but is required to accept the sequence type.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">module Sample2 =
-    type ListWorkflowBuilder() =
-
-        member this.Bind(lst,f) =
-            lst |&gt; List.collect f
-
-        member this.Return(x) =
-            [x]
-
-        member this.For(lst, f) =
-            this.Bind(lst, f)
-
-    let listWorkflow = new ListWorkflowBuilder()
-
-    let multiplied =
-        listWorkflow {
-            for i in [1;2;3] do
-            for j in [10;11;12] do
-                return i * j
-        }
-
-    printfn "multiplied: %A" multiplied
-
-    //For is the same as bind but it needs to accept the sequence type.</code></pre>
-</div>
-</div>
-</div>
+<p>If return and yield are basically the same thing, why are there two different keywords?<br>
+The answer is mainly so that you can enforce appropriate syntax by implementing one but not the other.<br>
+For example, the seq expression does allow yield but doesn’t allow return, while the async does allow return, but does not allow yield.</p>
 </div>
 </article>
   </div>

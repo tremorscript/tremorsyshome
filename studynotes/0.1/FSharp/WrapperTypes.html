@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Introducing Bind :: Tremorsys home</title>
-    <link rel="canonical" href="https://tremorsys.com/referenceguides/0.1/FSharp/IntroducingBind.html">
+    <title>Wrapper Types :: Tremorsys home</title>
+    <link rel="canonical" href="https://tremorsys.com/studynotes/0.1/FSharp/WrapperTypes.html">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -33,17 +33,17 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="referenceguides" data-version="0.1">
+<div class="nav-container" data-component="studynotes" data-version="0.1">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="../index.html">Reference Guides</a></h3>
+    <h3 class="title"><a href="../index.html">Study Notes</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../index.html">Reference Guides</a>
+    <a class="nav-link" href="../index.html">Study Notes</a>
   </li>
 </ul>
   </li>
@@ -51,7 +51,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="overview.html">FSharp Reference</a>
+    <a class="nav-link" href="overview.html">FSharp Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
@@ -66,10 +66,10 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="OrElseBuilder.html">OrElse Builder</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="3">
+  <li class="nav-item" data-depth="3">
     <a class="nav-link" href="IntroducingBind.html">Introducing Bind</a>
   </li>
-  <li class="nav-item" data-depth="3">
+  <li class="nav-item is-current-page" data-depth="3">
     <a class="nav-link" href="WrapperTypes.html">Wrapper Types</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -114,7 +114,7 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
-    <span class="title">Reference Guides</span>
+    <span class="title">Study Notes</span>
     <span class="version">0.1</span>
   </div>
   <ul class="components">
@@ -143,7 +143,7 @@
       </ul>
     </li>
     <li class="component is-current">
-      <a class="title" href="../index.html">Reference Guides</a>
+      <a class="title" href="../index.html">Study Notes</a>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="../index.html">0.1</a>
@@ -161,134 +161,140 @@
   <a href="../../../homesite/1.0.0/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="../index.html">Reference Guides</a></li>
-    <li><a href="overview.html">FSharp Reference</a></li>
+    <li><a href="../index.html">Study Notes</a></li>
+    <li><a href="overview.html">FSharp Notes</a></li>
     <li>Computation Expressions</li>
-    <li><a href="IntroducingBind.html">Introducing Bind</a></li>
+    <li><a href="WrapperTypes.html">Wrapper Types</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/FSharp/pages/IntroducingBind.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/FSharp/pages/WrapperTypes.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Introducing Bind</h1>
+<h1 class="page">Wrapper Types</h1>
 <div class="paragraph">
-<p>The let! expression is syntactic sugar for a Bind method.</p>
+<p>One of the major uses of computation expressions is to implicitly unwrap and rewrap values that are stored in some sort of wrapper type.</p>
 </div>
 <div class="paragraph">
-<p>In other words, if we chain a number of let! expressions together like this:<br>
-let! x = 1<br>
-let! y = 2<br>
-let! z = x + y<br></p>
-</div>
-<div class="paragraph">
-<p>Bind(1, fun x &#8594;<br>
-Bind(2, fun y &#8594;<br>
-Bind(x + y, fun z &#8594;<br>
-etc</p>
-</div>
-<div class="paragraph">
-<p>Computation expressions are just a way to create nice syntax for something that we could do ourselves.</p>
-</div>
-<div class="paragraph">
-<p>We’ve used four different approaches for the “safe divide” example so far.<br>
-Let’s put them together side by side and compare them once more.</p>
+<p>Say we are accessing a database, and we want to capture the result in a Success/Error union type:</p>
 </div>
 <div class="listingblock">
-<div class="title">First the original version, using an explicit workflow:</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">module DivideByExplicit =
-let divideBy bottom top =
- if bottom = 0
- then None
- else Some(top/bottom)
-
-let divideByWorkflow x y w z =
- let a = x |&gt; divideBy y
- match a with
- | None -&gt; None // give up
- | Some a' -&gt; // keep going
-   let b = a' |&gt; divideBy w
-   match b with
-   | None -&gt; None // give up
-   | Some b' -&gt; // keep going
-    let c = b' |&gt; divideBy z
-    match c with
-    | None -&gt; None // give up
-    | Some c' -&gt; // keep going
-     //return
-     Some c'</code></pre>
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">type DbResult&lt;'a&gt; =
+    | Success of 'a
+    | Error of string</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>We then use this type in our database access methods.</p>
 </div>
 <div class="listingblock">
-<div class="title">Next, using our own version of “bind” (a.k.a. “pipeInto”)</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">module DivideByWithBindFunction =
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">let getCustomerId name =
+    if name = ""
+    then Error "getCustomerId failed"
+    else Success "Cust42"
 
-    let divideBy bottom top =
-        if bottom = 0
-        then None
-        else Some(top/bottom)
+let getLastOrderForCustomer custId =
+    if custId = ""
+    then Error "getLastOrderForCustomer failed"
+    else Success "Order123"
 
-    let bind (m,f) =
-        Option.bind f m
-
-    let return' x = Some x
-
-    let divideByWorkflow x y w z =
-        bind (x |&gt; divideBy y, fun a -&gt;
-        bind (a |&gt; divideBy w, fun b -&gt;
-        bind (b |&gt; divideBy z, fun c -&gt;
-        return' c
-        )))</code></pre>
+let getLastProductForOrder orderId =
+    if orderId = ""
+    then Error "getLastProductForOrder failed"
+    else Success "Product456"</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Now lets say we want to chain these calls together.</p>
+</div>
+<div class="paragraph">
+<p>Here is the most explicit way of doing it.<br>
+As you can see, we have to have pattern matching at each step.</p>
 </div>
 <div class="listingblock">
-<div class="title">Next, using a computation expression:</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">module DivideByWithCompExpr =
-
-    let divideBy bottom top =
-        if bottom = 0
-        then None
-        else Some(top/bottom)
-
-    type MaybeBuilder() =
-        member this.Bind(m, f) = Option.bind f m
-        member this.Return(x) = Some x
-
-    let maybe = new MaybeBuilder()
-
-    let divideByWorkflow x y w z =
-        maybe
-            {
-            let! a = x |&gt; divideBy y
-            let! b = a |&gt; divideBy w
-            let! c = b |&gt; divideBy z
-            return c
-            }</code></pre>
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">let product =
+    let r1 = getCustomerId "Alice"
+    match r1 with
+    | Error _ -&gt; r1
+    | Success custId -&gt;
+        let r2 = getLastOrderForCustomer custId
+        match r2 with
+        | Error _ -&gt; r2
+        | Success orderId -&gt;
+            let r3 = getLastProductForOrder orderId
+            match r3 with
+            | Error _ -&gt; r3
+            | Success productId -&gt;
+                printfn "Product is %s" productId
+                r3</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Really ugly code. And the top-level flow has been submerged in the error handling logic.</p>
+</div>
+<div class="paragraph">
+<p>Computation expressions to the rescue! We can write one that handles the branching of Success/Error behind the scenes:</p>
 </div>
 <div class="listingblock">
-<div class="title">And finally, using bind as an infix operation:</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">module DivideByWithBindOperator =
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">type DbResultBuilder() =
 
-    let divideBy bottom top =
-        if bottom = 0
-        then None
-        else Some(top/bottom)
+    member this.Bind(x,f) =
+        match x with
+        | Error _ -&gt; x
+        | Success y -&gt;
+            printfn "\tSuccessful: %s" y
+            f y
 
-    let (&gt;&gt;=) m f = Option.bind f m
+    member this.Return(x) =
+        Success x
 
-    let divideByWorkflow x y w z =
-        x |&gt; divideBy y
-        &gt;&gt;= divideBy w
-        &gt;&gt;= divideBy z</code></pre>
+let dbResult = new DbResultBuilder();</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>And with this workflow, we can focus on the big picture and write much cleaner code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">let product' =
+    dbResult {
+        let! custId = getCustomerId "Alice"
+        let! orderId = getLastOrderForCustomer custId
+        let! productId = getLastProductForOrder orderId
+        printfn "Product is %s" productId
+        return productId
+    }
+
+printfn "%A" product</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And if there are errors, the workflow traps them nicely and tells us where the error was:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">let product'' =
+    dbResult {
+        let! custId = getCustomerId "Alice"
+        let! orderId = getLastOrderForCustomer "" //error
+        let! productId = getLastProductForOrder orderId
+        printfn "Product is %s" productId
+        return productId
+    }
+
+printfn "%A" product</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Every computation expression must have an associated wrapper type.<br>
+And the wrapper type is often designed to go hand-in-hand with the workflow that we want to manage.</p>
 </div>
 </article>
   </div>

@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Identity Wrapper Types :: Tremorsys home</title>
-    <link rel="canonical" href="https://tremorsys.com/referenceguides/0.1/FSharp/IdentityWrapperTypes.html">
+    <title>Log Builder :: Tremorsys home</title>
+    <link rel="canonical" href="https://tremorsys.com/studynotes/0.1/FSharp/LogBuilder.html">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -33,17 +33,17 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="referenceguides" data-version="0.1">
+<div class="nav-container" data-component="studynotes" data-version="0.1">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="../index.html">Reference Guides</a></h3>
+    <h3 class="title"><a href="../index.html">Study Notes</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../index.html">Reference Guides</a>
+    <a class="nav-link" href="../index.html">Study Notes</a>
   </li>
 </ul>
   </li>
@@ -51,13 +51,13 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="overview.html">FSharp Reference</a>
+    <a class="nav-link" href="overview.html">FSharp Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Computation Expressions</span>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="3">
+  <li class="nav-item is-current-page" data-depth="3">
     <a class="nav-link" href="LogBuilder.html">Log Builder</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -81,7 +81,7 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="ListWrapperTypes.html">List Wrapper Types</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="3">
+  <li class="nav-item" data-depth="3">
     <a class="nav-link" href="IdentityWrapperTypes.html">Identity Wrapper Types</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -114,7 +114,7 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
-    <span class="title">Reference Guides</span>
+    <span class="title">Study Notes</span>
     <span class="version">0.1</span>
   </div>
   <ul class="components">
@@ -143,7 +143,7 @@
       </ul>
     </li>
     <li class="component is-current">
-      <a class="title" href="../index.html">Reference Guides</a>
+      <a class="title" href="../index.html">Study Notes</a>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="../index.html">0.1</a>
@@ -161,86 +161,86 @@
   <a href="../../../homesite/1.0.0/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="../index.html">Reference Guides</a></li>
-    <li><a href="overview.html">FSharp Reference</a></li>
+    <li><a href="../index.html">Study Notes</a></li>
+    <li><a href="overview.html">FSharp Notes</a></li>
     <li>Computation Expressions</li>
-    <li><a href="IdentityWrapperTypes.html">Identity Wrapper Types</a></li>
+    <li><a href="LogBuilder.html">Log Builder</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/FSharp/pages/IdentityWrapperTypes.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/FSharp/pages/LogBuilder.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Identity Wrapper Types</h1>
+<h1 class="page">Log Builder</h1>
 <div class="paragraph">
-<p>Every computation expression must have an associated wrapper type.</p>
-</div>
-<div class="paragraph">
-<p>But what about the logging example in the previous post? There was no wrapper type there.<br>
-There was a let! that did things behind the scenes, but the input type was the same as the output type.<br>
-The type was left unchanged.</p>
-</div>
-<div class="paragraph">
-<p>The short answer to this is that you can treat any type as its own “wrapper”.</p>
-</div>
-<div class="paragraph">
-<p>If you have a type such as List&lt;T&gt;, it is in fact not a “real” type at all.<br>
-List&lt;int&gt; is a real type, and List&lt;string&gt; is a real type.<br>
-But List&lt;T&gt; on its own is incomplete.</p>
-</div>
-<div class="paragraph">
-<p>One way to think about List&lt;T&gt; is that it is a function, not a type.<br>
-And like any function it takes a parameter, in this case a “type parameter”.<br>
-Which is why the concept that .NET developers call “generics” is known as “parametric polymorphism” in computer science terminology.</p>
-</div>
-<div class="paragraph">
-<p>Once we grasp the concept of functions that generate one type from another type (called “type constructors”), we can see that what we really mean by a “wrapper type” is just a type constructor.</p>
-</div>
-<div class="paragraph">
-<p>But if a “wrapper type” is just a function that maps one type to another type,<br>
-surely a function that maps a type to the same type fits into this category? And indeed it does.<br>
-The “identity” function for types fits our definition and can be used as a wrapper type for computation expressions.</p>
-</div>
-<div class="paragraph">
-<p>We can define the “identity workflow” as the simplest possible implementation of a workflow builder.</p>
+<p>Let&#8217;s say we have some code, and we want to log each step.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">type IdentityBuilder() =
-    member this.Bind(x,f) = f x
-    member this.Return(x) = x
-    member this.ReturnFrom(x) = x
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">let loggedWorkflow =
+    let x = 42
+    log x
+    let y = 43
+    log y
+    let z = x + y
+    log z
+    //return
+    z</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>But it is annoying to have to explicitly write all the log statements each time.
+Is there a way to hide them?
+A computation expression can do that.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">type LoggingBuilder() =
+    let log p = printfn "expression is %A" p
 
-let identity = new IdentityBuilder()
+    member this.Bind(x, f) =
+        log x
+        f x
 
-let result = identity {
-    let! x = 1
-    let! y = 2
-    return x + y
-}</code></pre>
+    member this.Return(x) =
+        x</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>With this in place, you can see that the logging example discussed earlier is just the identity workflow with some logging added in.</p>
+<p>Next we create an instance of the type, logger in this case.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">let logger = new LoggingBuilder()</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>A major use of computation expressions is to unwrap and rewrap values that are stored in some sort of wrapper type.</p>
+<p>So with this logger value, we can rewrite the original logging example like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>let loggedWorkflow1 =
+    logger {
+        let! x = 42
+        let! y = 43
+        let! z = x + y
+        return z
+    }</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>You can easily compose computation expressions, because the output of a Return can be fed to the input of a Bind.</p>
+<p>F# internally converts this to the following:</p>
 </div>
-<div class="paragraph">
-<p>Every computation expression must have an associated wrapper type.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">let value = logger.Bind(42, fun x -&gt;
+                                logger.Bind(43, fun y -&gt;
+                                    logger.Bind(x + y, fun z -&gt; z)
+                                    ))</code></pre>
 </div>
-<div class="paragraph">
-<p>Any type with a generic parameter can be used as a wrapper type, even lists.</p>
-</div>
-<div class="paragraph">
-<p>When creating workflows, you should ensure that your implementation conforms to the three sensible rules about wrapping and
-unwrapping and composition.</p>
 </div>
 </article>
   </div>

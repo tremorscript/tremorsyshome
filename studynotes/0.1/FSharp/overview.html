@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Composition of computation expression :: Tremorsys home</title>
-    <link rel="canonical" href="https://tremorsys.com/referenceguides/0.1/FSharp/ComputationExpressionComposition.html">
+    <title>FSharp Notes :: Tremorsys home</title>
+    <link rel="canonical" href="https://tremorsys.com/studynotes/0.1/FSharp/overview.html">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -33,25 +33,25 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="referenceguides" data-version="0.1">
+<div class="nav-container" data-component="studynotes" data-version="0.1">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="../index.html">Reference Guides</a></h3>
+    <h3 class="title"><a href="../index.html">Study Notes</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../index.html">Reference Guides</a>
+    <a class="nav-link" href="../index.html">Study Notes</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item is-current-page" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="overview.html">FSharp Reference</a>
+    <a class="nav-link" href="overview.html">FSharp Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
@@ -75,7 +75,7 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="WorkflowRulesForWrapperTypes.html">Rules for workflows that use wrapper types</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="3">
+  <li class="nav-item" data-depth="3">
     <a class="nav-link" href="ComputationExpressionComposition.html">Composition of computation expression</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -114,7 +114,7 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
-    <span class="title">Reference Guides</span>
+    <span class="title">Study Notes</span>
     <span class="version">0.1</span>
   </div>
   <ul class="components">
@@ -143,7 +143,7 @@
       </ul>
     </li>
     <li class="component is-current">
-      <a class="title" href="../index.html">Reference Guides</a>
+      <a class="title" href="../index.html">Study Notes</a>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="../index.html">0.1</a>
@@ -161,67 +161,24 @@
   <a href="../../../homesite/1.0.0/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="../index.html">Reference Guides</a></li>
-    <li><a href="overview.html">FSharp Reference</a></li>
-    <li>Computation Expressions</li>
-    <li><a href="ComputationExpressionComposition.html">Composition of computation expression</a></li>
+    <li><a href="../index.html">Study Notes</a></li>
+    <li><a href="overview.html">FSharp Notes</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/FSharp/pages/ComputationExpressionComposition.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/FSharp/pages/overview.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Composition of computation expression</h1>
+<h1 class="page">FSharp Notes</h1>
 <div class="paragraph">
-<p>One of the major uses of computation expressions is to implicitly unwrap and rewrap values that are stored in some sort of wrapper type.</p>
-</div>
-<div class="paragraph">
-<p>Every computation expression must have an associated wrapper type.<br>
-This wrapper type is used in both Bind and Return, which leads to a key benefit:<br>
-the output of a Return can be fed to the input of a Bind</p>
-</div>
-<div class="paragraph">
-<p>In other words, because a workflow returns a wrapper type, and because let! consumes a wrapper type, you can put a “child” workflow on the right hand side of a let! expression.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">let subworkflow0 = myworkflow { return 42 }
-let subworkflow1 = myworkflow { return 43 }
-
-let aWrappedValue =
-    myworkflow {
-        let! unwrappedValue1 = subworkflow1
-        let! unwrappedValue2 = subworkflow2
-        return unwrappedValue1 + unwrappedValue2
-        }
-
-let aWrappedValue =
-myworkflow {
-    let! unwrappedValue1 = myworkflow {
-        let! x = myworkflow { return 1 }
-        return x
-        }
-    let! unwrappedValue2 = myworkflow {
-        let! y = myworkflow { return 2 }
-        return y
-        }
-    return unwrappedValue1 + unwrappedValue2
-    }</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Sometimes we have a function that already returns a wrapped value, and we want to return it directly.
-return is no good for this, because it requires an unwrapped type as input.</p>
-</div>
-<div class="paragraph">
-<p>The solution is a variant on return called return!, which takes a wrapped type as input and returns it.</p>
-</div>
-<div class="paragraph">
-<p>The corresponding method in the “builder” class is called ReturnFrom.
-Typically the implementation just returns the wrapped type “as is”</p>
+<p>This is my personal study notes for FSharp.
+People from whom I have shamelessly and blatantly copied.
+* <a href="https://fsharpforfunandprofit.com/">Scott Wlaschin</a>
+* <a href="https://www.udemy.com/user/kit-eason/">Kit Eason</a>
+* <a href="https://blog.ploeh.dk/about/">Mark Seemann</a></p>
 </div>
 </article>
   </div>
