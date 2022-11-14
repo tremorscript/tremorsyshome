@@ -1,4 +1,4 @@
 * xref:index.adoc[]
 * xref:azurearchitecturestarterpack::index.adoc[]
 * xref:projectstarterpack::inline-text-formatting.adoc[]
-* xref:referenceguides::index.adoc[]
+* xref:studynotes::index.adoc[]
