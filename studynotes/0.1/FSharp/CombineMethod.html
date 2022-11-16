@@ -109,6 +109,13 @@
   </li>
 </ul>
   </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../Devops/devopsfordevelopers.html">Devops for Asp.Net Core developers</a>
+  </li>
+</ul>
+  </li>
 </ul>
   </nav>
 </div>
@@ -176,10 +183,10 @@
 <article class="doc">
 <h1 class="page">Combine method</h1>
 <div class="sect1">
-<h2 id="_why_do_we_need_combine_method"><a class="anchor" href="#_why_do_we_need_combine_method"></a><a class="link" href="#_why_do_we_need_combine_method">Why do we need combine method</a></h2>
+<h2 id="_why_do_we_need_combine_method"><a class="anchor" href="#_why_do_we_need_combine_method"></a>Why do we need combine method</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_the_problem_with_2_yields"><a class="anchor" href="#_the_problem_with_2_yields"></a><a class="link" href="#_the_problem_with_2_yields">The problem with 2 yields</a></h3>
+<h3 id="_the_problem_with_2_yields"><a class="anchor" href="#_the_problem_with_2_yields"></a>The problem with 2 yields</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">type TraceBuilder() =
@@ -311,7 +318,7 @@ let value2 = listBuilder4 1 2 3 4</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_implementing_combine_for_workflows_with_success_or_failure"><a class="anchor" href="#_implementing_combine_for_workflows_with_success_or_failure"></a><a class="link" href="#_implementing_combine_for_workflows_with_success_or_failure">Implementing Combine for workflows with "success" or "failure"</a></h2>
+<h2 id="_implementing_combine_for_workflows_with_success_or_failure"><a class="anchor" href="#_implementing_combine_for_workflows_with_success_or_failure"></a>Implementing Combine for workflows with "success" or "failure"</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If the workflow has some concept of "success" or "failure", then a standard approach is:<br>
@@ -324,7 +331,7 @@ let value2 = listBuilder4 1 2 3 4</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_implementing_combine_for_worflows_with_sequential_steps"><a class="anchor" href="#_implementing_combine_for_worflows_with_sequential_steps"></a><a class="link" href="#_implementing_combine_for_worflows_with_sequential_steps">Implementing Combine for worflows with sequential steps</a></h2>
+<h2 id="_implementing_combine_for_worflows_with_sequential_steps"><a class="anchor" href="#_implementing_combine_for_worflows_with_sequential_steps"></a>Implementing Combine for worflows with sequential steps</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If the workflow has the concept of sequential steps, then the overall result is just the value of the last step, and all the previous steps are evaluated only for their side effects.</p>
@@ -402,7 +409,7 @@ let value1 = trace.Delay(fun () -&gt;
 </div>
 </div>
 <div class="sect1">
-<h2 id="_implementing_combine_for_workflows_that_build_data_structures"><a class="anchor" href="#_implementing_combine_for_workflows_that_build_data_structures"></a><a class="link" href="#_implementing_combine_for_workflows_that_build_data_structures">Implementing combine for workflows that build data structures</a></h2>
+<h2 id="_implementing_combine_for_workflows_that_build_data_structures"><a class="anchor" href="#_implementing_combine_for_workflows_that_build_data_structures"></a>Implementing combine for workflows that build data structures</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In this case, Combine should merge the two data structures in whatever way is appropriate.<br>
@@ -411,7 +418,7 @@ And the Zero method should create an empty data structure, if needed.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_guidelines_for_mixing_combine_and_zero"><a class="anchor" href="#_guidelines_for_mixing_combine_and_zero"></a><a class="link" href="#_guidelines_for_mixing_combine_and_zero">Guidelines for mixing "Combine" and "Zero"</a></h2>
+<h2 id="_guidelines_for_mixing_combine_and_zero"><a class="anchor" href="#_guidelines_for_mixing_combine_and_zero"></a>Guidelines for mixing "Combine" and "Zero"</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>We have looked at different implementations for Combine for option types.<br>
