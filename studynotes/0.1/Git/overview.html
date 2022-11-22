@@ -510,6 +510,130 @@ git push -u origin main <i class="conum" data-value="3"></i><b>(3)</b></code></p
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_commit_best_practices"><a class="anchor" href="#_commit_best_practices"></a>Commit Best Practices</h2>
+<div class="sectionbody">
+<div class="ulist">
+<div class="title">commit guidelines</div>
+<ul>
+<li>
+<p>Make small commits and commit often.</p>
+</li>
+<li>
+<p>Commit complete and well tested code.</p>
+</li>
+<li>
+<p>Don&#8217;t mix whitespace changes with functional code changes.</p>
+</li>
+<li>
+<p>Write good commit messages.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">commit message guidelines</div>
+<ul>
+<li>
+<p>Why is it necessary? (Fix a bug, increase performance, add a feature)</p>
+</li>
+<li>
+<p>How does it address the issue? For short and obvious changes, this can be omitted.</p>
+</li>
+<li>
+<p>What effects does this change have? (may include benchmarks, side effects etc)</p>
+</li>
+<li>
+<p>What limitations does the current code have? (not necessary, but helps if you can think about it)</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">commit message considerations</div>
+<ul>
+<li>
+<p>Don&#8217;t assume that the code is self-evident/self-documenting.</p>
+</li>
+<li>
+<p>Finding it difficult to summarize your commit? Maybe it includes more than one bug fix or logical change. Consider splitting the commits using <code>git add -p</code></p>
+</li>
+<li>
+<p>It should be possible to review a change request without reading the contents of the bug or task. Don&#8217;t assume the reviwer understands the problem.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">commit message structure</div>
+<ul>
+<li>
+<p>Separate subject from body with a blank line</p>
+</li>
+<li>
+<p>Limit the subject line to 50 characters</p>
+</li>
+<li>
+<p>Capitalize the subject line</p>
+</li>
+<li>
+<p>Do not end the subject line with period</p>
+</li>
+<li>
+<p>Use the imperative mood in the subject line (Fix typo in log vs. Fixed typo in log or Misc fixes in log code)</p>
+</li>
+<li>
+<p>Wrap the body at 72 characters</p>
+</li>
+<li>
+<p>Use the body to explain what and why vs. how</p>
+</li>
+<li>
+<p>Reference fixed issues with <a href="https://docs.github.com/en/enterprise/2.16/user/github/managing-your-work-on-github/closing-issues-using-keywords" target="_blank" rel="noopener">closing keywords</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">commit message sample</div>
+<p>===
+Add code review recipe for Go</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Helps teams automate linting and build verification for go projects.</p>
+</li>
+<li>
+<p>Also gives a list of items to verify for go code reviews.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The PR does not add info about VS Code extensions for go, this will
+be added in issue #124</p>
+</div>
+<div class="paragraph">
+<p>Closes: #123
+===</p>
+</div>
+<div class="paragraph">
+<p>You can specify which editor you would like to use for commit messages.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">git config --global core.editor "code --wait"</code></pre>
+</div>
+</div>
+<div class="ulist">
+<div class="title">sample contributing.md files</div>
+<ul>
+<li>
+<p><a href="https://github.com/thoughtbot/factory_bot_rails/blob/master/CONTRIBUTING.md">Factory Bot rails</a></p>
+</li>
+<li>
+<p><a href="https://github.com/puppetlabs/puppet/blob/main/CONTRIBUTING.md">Puppet</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </article>
   </div>
 </main>
