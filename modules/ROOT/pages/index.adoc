@@ -1,7 +1,6 @@
 = Home Page
 :navtitle: Home
 :title: Home
-:sectlinks:
 
 == Introduction
 Hello my name is Trelston Moraes and welcome to my personal documentation website.

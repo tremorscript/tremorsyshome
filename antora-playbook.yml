@@ -1,7 +1,7 @@
 site:
-  title: Tremorsys home
+  title: Tremorscript
   start_page: homesite::index.adoc
-  url: https://tremorsys.com
+  url: https://tremorscript.com
 content:
   sources:
   - url: .
