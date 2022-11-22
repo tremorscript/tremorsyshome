@@ -634,6 +634,72 @@ be added in issue #124</p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_versioning"><a class="anchor" href="#_versioning"></a>Versioning</h2>
+<div class="sectionbody">
+<div class="openblock">
+<div class="title">Version numbers</div>
+<div class="content">
+<div class="paragraph">
+<p><code>major.minor[.build[.revision]]</code></p>
+</div>
+<div class="paragraph">
+<p>Upon CI build these version numbers are generated.
+During CD release components are pushed to a component repository such as Nuget, npm, docker hub where a history of different versions is being kept.</p>
+</div>
+<div class="paragraph">
+<p>Each build the version number is incremented at the last digit.</p>
+</div>
+<div class="paragraph">
+<p>Updating the major / minor version indicates changes of the API / interfaces / contracts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Major Version: A breaking change</p>
+</li>
+<li>
+<p>Minor Version: A backwards-compatible minor change</p>
+</li>
+<li>
+<p>Build / Revision: No API change, just a different build.s</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">Semantic Versioning</div>
+<div class="content">
+<div class="paragraph">
+<p>Semantic Versioning is a concept of calculating the version number automatically based on a certain source code repository.</p>
+</div>
+<div class="paragraph">
+<p>The semver tool looks at a GIT source control branch and comes up with a repeatable and unique version number based on</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>number of commits since last major or minor release</p>
+</li>
+<li>
+<p>commit messages</p>
+</li>
+<li>
+<p>tags</p>
+</li>
+<li>
+<p>branch names</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Run semvar during the CI process to make each build uniquely identifiable.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </article>
   </div>
 </main>
