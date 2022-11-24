@@ -190,10 +190,8 @@
 <div class="sect1">
 <h2 id="_subsystems_of_iot"><a class="anchor" href="#_subsystems_of_iot"></a>Subsystems of IoT</h2>
 <div class="sectionbody">
-<h3 id="_core_subsystems" class="discrete">Core Subsystems</h3>
-<div class="paragraph">
-<p>The Internet of Things is a network of Internet connected devices that communicate embedded sensor data to the cloud for centralized processing.</p>
-</div>
+<div class="sect2">
+<h3 id="_core_subsystems"><a class="anchor" href="#_core_subsystems"></a>Core Subsystems</h3>
 <div class="paragraph">
 <p>An IoT solution architecture consists of the following subsystems:</p>
 </div>
@@ -209,7 +207,7 @@
 <p>A cloud gateway service, or hub, that provides device management capabilities.</p>
 </li>
 <li>
-<p>The gateway service, or hub, must securely accept data from the devices.</p>
+<p>The cloud gateway service, or hub, must securely accept data from the devices.</p>
 </li>
 <li>
 <p>Stream processors consume data from the hub.</p>
@@ -232,37 +230,39 @@
 <div class="content">
 <img src="https://learn.microsoft.com/en-us/training/wwl-azure/introduction-iot-solution-architecture/media/m01-l02-core-subsystems-iot-architecture-8158ad9e.png" alt="m01 l02 core subsystems iot architecture 8158ad9e">
 </div>
-<div class="title">Figure 1. Source: Micorsoft Learn, Core Subsystems</div>
+<div class="title">Figure 1. Source: Microsoft Learn, Core Subsystems</div>
 </div>
-<h3 id="_optional_subsystems" class="discrete">Optional Subsystems</h3>
+</div>
+<div class="sect2">
+<h3 id="_optional_subsystems"><a class="anchor" href="#_optional_subsystems"></a>Optional Subsystems</h3>
 <div class="paragraph">
 <p>Many IoT apps will include subsystems for the following:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Edge devices</strong> to manage access and information flow</p>
+<p><strong>IoT Edge Devices</strong> to manage access and information flow</p>
 </li>
 <li>
 <p>They may help with device provisioning, data filtering, batching and aggregation, buffering of data, protocol translation, event rules processing etc.</p>
 </li>
 <li>
-<p><strong>Data transformation subsystem</strong> for manipulation and aggregation of the telemetry stream either before or after it is received by the cloud gateway service (the IoT hub).</p>
+<p><strong>Data Transformation Subsystem</strong> for manipulation and aggregation of the telemetry stream either before or after it is received by the cloud gateway service (the IoT hub).</p>
 </li>
 <li>
 <p>Manipulation can include protocol transformation (for example, converting binary data to json) etc.</p>
 </li>
 <li>
-<p><strong>Bulk device provisioning</strong> for deploying fleet of devices.</p>
+<p><strong>Bulk Device Provisioning</strong> for deploying fleet of devices.</p>
 </li>
 <li>
-<p><strong>User management subsystem</strong> for specifying groups and users who can perform action on devices (for example, updating firmware etc).</p>
+<p><strong>User Management Subsystem</strong> for specifying groups and users who can perform action on devices (for example, updating firmware etc).</p>
 </li>
 <li>
-<p><strong>ML subsystem</strong> to learn from data and experiences and to act without being explicitly programmed.</p>
+<p><strong>ML Subsystem</strong> to learn from data and experiences and to act without being explicitly programmed.</p>
 </li>
 <li>
-<p>Hot/warm/cold storage paths.</p>
+<p>Hot/warm/cold <strong>storage</strong> paths.</p>
 </li>
 </ul>
 </div>
@@ -271,6 +271,7 @@
 <img src="https://learn.microsoft.com/en-us/training/wwl-azure/introduction-iot-solution-architecture/media/m01-l02-optional-subsystems-iot-architecture-416c18f0.png" alt="m01 l02 optional subsystems iot architecture 416c18f0">
 </div>
 <div class="title">Figure 2. Source: Micorsoft Learn, Optional Subsystems</div>
+</div>
 </div>
 </div>
 </div>
@@ -283,7 +284,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Storage includes in-memory caches, temp queues and permanent archives(database)</p>
+<p>Storage includes in-memory caches, temp queues and permanent archives(database).</p>
 </li>
 <li>
 <p>Routing makes the decision on what data should go to which target and when. Targets include storage, analysis processes and action.</p>
@@ -292,11 +293,11 @@
 <p>Analyis is used to run the data records through a set of conditions and can produce different output data records.</p>
 </li>
 <li>
-<p>Original data records and post-analysis output data records are stored and available for display and may trigger actions such as sending email, sms</p>
+<p>Original data records and post-analysis output data records are stored and available for display and may trigger actions such as sending email, sms etc.</p>
 </li>
 </ul>
 </div>
-<h3 id="_scenarios" class="discrete">Scenarios</h3>
+<h3 id="_data_flow_scenarios" class="discrete">Data flow Scenarios</h3>
 <div class="ulist">
 <div class="title">Scenario 1</div>
 <ul>
@@ -315,7 +316,7 @@
 <div class="content">
 <img src="https://learn.microsoft.com/en-us/training/wwl-azure/introduction-iot-solution-architecture/media/m01-l02-data-flow-1-b3c3a3af.png" alt="m01 l02 data flow 1 b3c3a3af">
 </div>
-<div class="title">Figure 3. Source: Micorsoft Learn</div>
+<div class="title">Figure 3. Source: Microsoft Learn</div>
 </div>
 <div class="ulist">
 <div class="title">Scenario 2</div>
@@ -335,7 +336,7 @@
 <div class="content">
 <img src="https://learn.microsoft.com/en-us/training/wwl-azure/introduction-iot-solution-architecture/media/m01-l02-data-flow-2-1385659c.png" alt="m01 l02 data flow 2 1385659c">
 </div>
-<div class="title">Figure 4. Source: Micorsoft Learn</div>
+<div class="title">Figure 4. Source: Microsoft Learn</div>
 </div>
 <div class="ulist">
 <div class="title">Scenario 3</div>
@@ -355,7 +356,7 @@
 <div class="content">
 <img src="https://learn.microsoft.com/en-us/training/wwl-azure/introduction-iot-solution-architecture/media/m01-l02-data-flow-3-0a8e4444.png" alt="m01 l02 data flow 3 0a8e4444">
 </div>
-<div class="title">Figure 5. Source: Micorsoft Learn</div>
+<div class="title">Figure 5. Source: Microsoft Learn</div>
 </div>
 </div>
 </div>
@@ -371,22 +372,22 @@
 <p>Security Requirements</p>
 </li>
 <li>
-<p>User management and auditing</p>
+<p>User Management and Auditing</p>
 </li>
 <li>
-<p>Device connectivity</p>
+<p>Device Connectivity</p>
 </li>
 <li>
-<p>In-transit telemetry</p>
+<p>In-transit Telemetry</p>
 </li>
 <li>
-<p>At rest security</p>
+<p>At-rest Security</p>
 </li>
 <li>
-<p>Logging and monitoring for individual subsystems and the application</p>
+<p>Logging and Monitoring for individual subsystems and the application</p>
 </li>
 <li>
-<p>High availability</p>
+<p>High Availability</p>
 </li>
 <li>
 <p>Disaster Recovery</p>
@@ -406,41 +407,40 @@
 <div class="sectionbody">
 <h3 id="_ip_enabled_iot_devices" class="discrete">IP-enabled IoT devices</h3>
 <div class="paragraph">
-<p>An IP-enabled device is, simply, a device that can establish a connection to a network and have a unique identity on that network.
-It can use that connection to communicate with an IoT hub.
+<p>An IP-enabled device is, simply, a device that can establish a connection to a network and have a unique identity on that network.<br>
 IP-enabled devices are deployed in scenarios where data needs to be collected, delivered, and analyzed in real-time, or periodically.</p>
 </div>
 <h3 id="_non_ip_enabled_devices" class="discrete">Non-IP enabled devices</h3>
 <div class="paragraph">
-<p>A device does not need to be directly IP-enabled in order to be part of the solution.
-They can connect to other devices like a field gateway (IoT Edge device).
+<p>A device does not need to be directly IP-enabled in order to be part of the solution.<br>
+They can connect to other devices like a field gateway (IoT Edge device).<br>
 These devices can use protocols like CoAP5, OPC or technologies like Bluetooth, ZigBee to connect to other hardware.</p>
 </div>
 <h3 id="_sensors" class="discrete">Sensors</h3>
 <div class="paragraph">
-<p>A sensor is a circuit (or device) that collects a specific type of data about the physical environment.
-A smart sensor is a device that gathers input and processes that information locally before communicating message data.</p>
+<p>A sensor is a circuit (or device) that collects a specific type of data about the physical environment.<br>
+A <strong>smart sensor</strong> is a device that gathers input and processes that information locally before communicating message data.</p>
 </div>
 <h3 id="_iot_edge_devices_and_field_gateways" class="discrete">IoT Edge devices and field gateways</h3>
 <div class="paragraph">
-<p>A field gateway is a specialized device-appliance or general-purpose software that:</p>
+<p>A <strong>field gateway</strong> is a specialized device-appliance or a general-purpose software that:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>acts as a communication enabler</p>
+<p>acts as a communication enabler.</p>
 </li>
 <li>
-<p>May act as a local device control system and device data processing hub</p>
+<p>may act as a local device control system and device data processing hub.</p>
 </li>
 <li>
-<p>can perform local processing</p>
+<p>can perform local processing.</p>
 </li>
 <li>
-<p>can control functions that are directed back toward the child devices that are connected to it.</p>
+<p>can control functions that are directed back towards the child devices that are connected to it.</p>
 </li>
 <li>
-<p>can be used to filter or aggregate device telemetry</p>
+<p>can be used to filter or aggregate device telemetry.</p>
 </li>
 </ul>
 </div>
@@ -458,7 +458,8 @@ A smart sensor is a device that gathers input and processes that information loc
 <div class="sect1">
 <h2 id="_review_azure_iot_technologies"><a class="anchor" href="#_review_azure_iot_technologies"></a>Review Azure IoT technologies</h2>
 <div class="sectionbody">
-<h3 id="_managed_apaas_solutions" class="discrete">Managed aPaaS solutions</h3>
+<div class="sect2">
+<h3 id="_managed_apaas_solutions"><a class="anchor" href="#_managed_apaas_solutions"></a>Managed aPaaS solutions</h3>
 <div class="paragraph">
 <p>Application platform as a service (aPaas) provides a cloud environment to build, manage, and deliver applications to customers.</p>
 </div>
@@ -468,83 +469,66 @@ A smart sensor is a device that gathers input and processes that information loc
 <div class="paragraph">
 <p>It delivers built-in disaster recovery, multitenancy, global availability, and a predictable cost structure.</p>
 </div>
-<h3 id="_flexible_paas_solutions" class="discrete">Flexible PaaS solutions</h3>
-<div class="paragraph">
-<p>You can tailor Azure hardware and software tools to a specific task or job function. You are responsible for scaling and configuration. The underlying infrastructure as a service (IaaS) is taken care for you.</p>
 </div>
-<h4 id="_iot_edge_and_azure_sphere" class="discrete">IoT edge and Azure Sphere</h4>
+<div class="sect2">
+<h3 id="_flexible_paas_solutions"><a class="anchor" href="#_flexible_paas_solutions"></a>Flexible PaaS solutions</h3>
+<div class="paragraph">
+<p>You can tailor Azure hardware and software tools to a specific task or job function.<br>
+You are responsible for scaling and configuration.<br>
+The underlying infrastructure as a service (IaaS) is taken care for you.</p>
+</div>
+<div class="sect3">
+<h4 id="_iot_edge_and_azure_sphere"><a class="anchor" href="#_iot_edge_and_azure_sphere"></a>IoT Edge and Azure Sphere</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Develop your IoT devices using one of the Azure IoT starter kits or choose a device to use from the Azure Certified for IoT device catalog.</p>
+<p>Develop your <strong>IoT devices</strong> using one of the <strong>Azure IoT starter kits</strong> or choose a device to use from the <strong>Azure Certified for IoT device</strong> catalog.</p>
 </li>
 <li>
 <p>SDKs are available for multiple programming languages.</p>
 </li>
 <li>
-<p>IoT plug and play can simplify how you create embedded code for your devices.</p>
+<p><strong>IoT Plug and Play</strong> can simplify how you create embedded code for your devices.</p>
 </li>
 <li>
-<p>It enables solution developers to integrate devices with their solutions without writing any embedded code.</p>
-</li>
-<li>
-<p>It is a device capability model schema that describes the device capabilities. Use this model to generate embedded code.</p>
-</li>
-<li>
-<p>Azure IoT Edge enables offloading parts of your workload from the cloud to the devices.</p>
+<p><strong>Azure IoT Edge</strong> enables offloading parts of your workload from the cloud to the devices.</p>
 </li>
 <li>
 <p>It can reduce latency, reduce the amount of data exchanged with the cloud, and enable offline scenarios.</p>
 </li>
 <li>
-<p>Azure Sphere is a secured, high-level app platform with built-in communication and security features for internet connected devices</p>
+<p><strong>Azure Sphere</strong> is a secured, high-level app platform with built-in communication and security features for internet connected devices.</p>
 </li>
 <li>
 <p>It includes a secured microcontroller unit, a custom linux-based operating system, and a cloud based security service which provides continuous, renewable security.</p>
 </li>
 </ul>
 </div>
-<h4 id="_iot_hub" class="discrete">IoT Hub</h4>
+</div>
+<div class="sect3">
+<h4 id="_iot_hub"><a class="anchor" href="#_iot_hub"></a>IoT Hub</h4>
 <div class="paragraph">
-<p>IoT hub service enables reliable and secure bidirectional communications between millions of IoT devices and a cloud based solution.</p>
+<p><strong>IoT hub</strong> service enables reliable and secure bidirectional communications between millions of IoT devices and a cloud based solution.</p>
 </div>
 <div class="paragraph">
-<p>IoT Hub Device Provision system is a helper service that provides zero-touch, just-in-time provisioning of devices to the right IoT hub without requiring human intervention.</p>
+<p><strong>IoT Hub Device Provision System</strong> is a helper service that provides zero-touch, just-in-time provisioning of devices to the right IoT hub without requiring human intervention.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_azure_digital_twins"><a class="anchor" href="#_azure_digital_twins"></a>Azure Digital Twins</h3>
+<div class="paragraph">
+<p>IoT Central uses <strong>Azure Digital Twins</strong> to synchronize devices and data in the real world with the digital models that enable users to monitor and manage those connected devices.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_azure_stream_azure_data_explorer_and_azure_maps"><a class="anchor" href="#_azure_stream_azure_data_explorer_and_azure_maps"></a>Azure Stream, Azure Data Explorer and Azure Maps</h3>
+<div class="paragraph">
+<p><strong>Azure Stream Analytics</strong> and <strong>Azure Data Explorer</strong> can be used to process, query, analyze, and visualize data.</p>
 </div>
 <div class="paragraph">
-<p>It helps meet the following implementation challenges:</p>
+<p><strong>Azure Maps</strong> is a collection of geospatial services that use fresh mapping data to provide accurate geographic context to web and mobile applications.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>High-volume device connectivity and management</p>
-</li>
-<li>
-<p>High-volume telemetry ingestion</p>
-</li>
-<li>
-<p>Command and control of devices</p>
-</li>
-<li>
-<p>Device security enforcement</p>
-</li>
-</ul>
-</div>
-<h3 id="_azure_digital_twins" class="discrete">Azure Digital Twins</h3>
-<div class="paragraph">
-<p>Azure Digital Twins is an IoT service that enables you to model a physical environment.<br>
-It uses a spatial intelligence graph to model the relationships between people, spaces, and devices.<br>
-By corelating data across the digital and physical worlds you can create contextually aware solutions.</p>
-</div>
-<div class="paragraph">
-<p>Iot Central uses digital twins to synchronize devices and data in the real world with the digital models that enable users to monitor and manage those connected devices.</p>
-</div>
-<h3 id="_azure_stream_azure_data_explorer_and_azure_maps" class="discrete">Azure Stream, Azure Data Explorer and Azure Maps</h3>
-<div class="paragraph">
-<p>Azure Stream Analytics and Azure Data Explorer can be used to process, query, analyze, and visualize data.</p>
-</div>
-<div class="paragraph">
-<p>Azure Maps is a collection of geospatial services that use fresh mapping data to provide accurate geographic context to web and mobile applications.</p>
 </div>
 </div>
 </div>
@@ -581,7 +565,8 @@ By corelating data across the digital and physical worlds you can create context
 <div class="sect1">
 <h2 id="_cloud_service_components_of_an_iot_solution"><a class="anchor" href="#_cloud_service_components_of_an_iot_solution"></a>Cloud service components of an IoT solution</h2>
 <div class="sectionbody">
-<h3 id="_cloud_gateways" class="discrete">Cloud Gateways</h3>
+<div class="sect2">
+<h3 id="_cloud_gateways"><a class="anchor" href="#_cloud_gateways"></a>Cloud Gateways</h3>
 <div class="paragraph">
 <p>A cloud gateway enables you to manage your IoT devices and brokers the communication with other cloud services.</p>
 </div>
@@ -615,11 +600,9 @@ By corelating data across the digital and physical worlds you can create context
 </div>
 <h3 id="_data_storage_options" class="discrete">Data storage options</h3>
 <div class="paragraph">
-<p>Some architectures may demand a multi-tiered approach with some data being stored on the device, some on an on-premise database and some on the cloud.</p>
-</div>
-<div class="paragraph">
 <p>Data is often time-series data. It is common to split data into "warm" and "cold" data stores.<br>
-The <strong>warm data</strong> holds recent data that needs to be access with low latency. You can decide the duration range (for example, the last day, week, or month)<br>
+The <strong>warm data</strong> holds recent data that needs to be accessed with low latency.<br>
+You can decide the duration range (for example, the last day, week, or month)<br>
 Data stored in <strong>cold storage</strong> is historical data.</p>
 </div>
 <div class="imageblock">
@@ -628,14 +611,20 @@ Data stored in <strong>cold storage</strong> is historical data.</p>
 </div>
 <div class="title">Figure 8. Source Microsoft Learn</div>
 </div>
-<h3 id="_analytics" class="discrete">Analytics</h3>
+</div>
+<div class="sect2">
+<h3 id="_analytics"><a class="anchor" href="#_analytics"></a>Analytics</h3>
 <div class="paragraph">
-<p>Without analytics, data collected from IoT would be too voluminous and unstructured to visualize or gain insights.
+<p>Without analytics, data collected from IoT would be too voluminous and unstructured to visualize or gain insights.<br>
 Analytic services enable architects to build meaningful relationships between sets of data in order to make it easier to manage.</p>
 </div>
-<h3 id="_data_visualization" class="discrete">Data visualization</h3>
+</div>
+<div class="sect2">
+<h3 id="_data_visualization"><a class="anchor" href="#_data_visualization"></a>Data visualization</h3>
 <div class="paragraph">
-<p>Data visualization tools can take input from various data streams and combine them into "dashboards" that can be used to tell a story about the data that was collected. Ultimately, getting more out of your data is the goal of IoT.</p>
+<p>Data visualization tools can take input from various data streams and combine them into "dashboards" that can be used to tell a story about the data that was collected.<br>
+Ultimately, getting more out of your data is the goal of IoT.</p>
+</div>
 </div>
 </div>
 </div>
@@ -654,7 +643,7 @@ Analytic services enable architects to build meaningful relationships between se
 <p>per-device authentication enables each device to connect securely to IoT hub and be managed securely by IoT hub.</p>
 </li>
 <li>
-<p>You can control device access and per-device level connection.</p>
+<p>You can control user device access and per-device level connection.</p>
 </li>
 <li>
 <p>IoT Hub Device Provisioning Service automatically provisions devices to the correct IoT Hub when the device first boots up.</p>
@@ -681,12 +670,12 @@ Analytic services enable architects to build meaningful relationships between se
 <p>IoT Hub can scale to millions of devices and can handle millions of events per second.</p>
 </div>
 <div class="paragraph">
-<p>IoT Hub has built-in routing and can setup automatic, rules-based message fan-out:</p>
+<p>IoT Hub has <strong>built-in routing</strong> and can setup automatic, rules-based message fan-out:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Use message routing to control where your hub send device telemetry.</p>
+<p>Use message routing to control where your hub sends device telemetry.</p>
 </li>
 <li>
 <p>Can route messages to multiple endpoints at no extra cost.</p>
@@ -702,7 +691,7 @@ Analytic services enable architects to build meaningful relationships between se
 <div class="ulist">
 <ul>
 <li>
-<p>Azure Event Grid to help your business to quickly react to critical events</p>
+<p>Azure Event Grid to help your business to quickly react to critical events.</p>
 </li>
 <li>
 <p>Azure Logic Apps to automate business processes.</p>
@@ -711,7 +700,7 @@ Analytic services enable architects to build meaningful relationships between se
 <p>Azure Machine Learning to add machine learning and AI models.</p>
 </li>
 <li>
-<p>Azure Stream Analytics to run real-time analytic computations on the data</p>
+<p>Azure Stream Analytics to run real-time analytic computations on the data.</p>
 </li>
 </ul>
 </div>
@@ -724,7 +713,7 @@ Analytic services enable architects to build meaningful relationships between se
 <p>Store, synchronize, and query device metadata and state information for all your devices.</p>
 </li>
 <li>
-<p>Set device state either per-device or based on some common characteristic</p>
+<p>Set device state either per-device or based on some common characteristic.</p>
 </li>
 <li>
 <p>Automatically respond to a device-reported state change.</p>
@@ -756,18 +745,12 @@ Analytic services enable architects to build meaningful relationships between se
 </ul>
 </div>
 <div class="paragraph">
-<p>A device can be said to be provisioned only when the above two steps have applied.</p>
-</div>
-<div class="paragraph">
 <p>Features:-</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p>Secure attestation support for both X.509 and TPM-based identities</p>
-</li>
-<li>
-<p>Enrollment list containing the devices that may register and their configurations which can be updated.</p>
 </li>
 <li>
 <p>Multiple allocation policies to control how the DPS assigns devices to IoT hubs.</p>
@@ -795,10 +778,10 @@ Analytic services enable architects to build meaningful relationships between se
 <p>Load-balancing devices across multiple hubs.</p>
 </li>
 <li>
-<p>Connecting devices to a particular IoT solution depending on use case or sales data</p>
+<p>Connecting devices to a particular IoT solution depending on use case.</p>
 </li>
 <li>
-<p>Connecting a device to the IoT hub with the lowest latency</p>
+<p>Connecting a device to the IoT hub with the lowest latency.</p>
 </li>
 <li>
 <p>Reprovisioning based on a change in the device.</p>
@@ -828,17 +811,22 @@ Analytic services enable architects to build meaningful relationships between se
 </li>
 </ul>
 </div>
-<h4 id="_basic_tier" class="discrete">Basic Tier</h4>
+<div class="sect3">
+<h4 id="_basic_tier"><a class="anchor" href="#_basic_tier"></a>Basic Tier</h4>
 <div class="paragraph">
 <p>The basic tier enables a subset of features and is intended for IoT solutions that only need uni-directional communication from devices to the cloud.<br>
 If your IoT solution is based around collecting data from devices and analyzing it centrally, then the basic tier is probably right for you.</p>
 </div>
-<h4 id="_standard_tier" class="discrete">Standard Tier</h4>
+</div>
+<div class="sect3">
+<h4 id="_standard_tier"><a class="anchor" href="#_standard_tier"></a>Standard Tier</h4>
 <div class="paragraph">
 <p>The standard tier of IoT Hubs enables all features, and is required for any IoT solutions that want to make use of the bi-directional communication capabilities.<br>
 If you would like to control IoT devices remotely or distribute some of your workloads onto the devices themselves, then you should consider the standard tier.</p>
 </div>
-<h4 id="_message_throughtput" class="discrete">Message throughtput</h4>
+</div>
+<div class="sect3">
+<h4 id="_message_throughtput"><a class="anchor" href="#_message_throughtput"></a>Message throughtput</h4>
 <div class="paragraph">
 <p>Message traffic is measured for your IoT hub on a per-unit basis.<br>
 When you create an IoT hub, you choose its tier and edition, and set the number of units available.<br>
@@ -875,7 +863,9 @@ You can purchase up to 200 units for the B1, B2, S1, or S2 edition, or up to 10 
 </tr>
 </tbody>
 </table>
-<h4 id="_partitions" class="discrete">Partitions</h4>
+</div>
+<div class="sect3">
+<h4 id="_partitions"><a class="anchor" href="#_partitions"></a>Partitions</h4>
 <div class="paragraph">
 <p>Partions can be used to reduce contentions that could occur when concurrently reading and writing to event streams.<br>
 The partition limit is chosen when IoT hub is created.<br>
@@ -885,10 +875,13 @@ The number of partitions is directly related to the number of concurrent readers
 <div class="paragraph">
 <p>The default value of four partitions should be used unless specified by the architect.</p>
 </div>
-<h4 id="_tier_upgrade" class="discrete">Tier upgrade</h4>
+</div>
+<div class="sect3">
+<h4 id="_tier_upgrade"><a class="anchor" href="#_tier_upgrade"></a>Tier upgrade</h4>
 <div class="paragraph">
 <p>You can upgrade from the basic tier to the standard tier without interrupting your existing operations.
 You cannot downgrade to a lower tier. You can move from S2 to S1 but not from S1 to B1 tier.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -913,7 +906,8 @@ Examples of endpoint types:</p>
 </li>
 </ul>
 </div>
-<h5 id="_built_in_endpoints" class="discrete">Built-in endpoints</h5>
+<div class="sect3">
+<h4 id="_built_in_endpoints"><a class="anchor" href="#_built_in_endpoints"></a>Built-in endpoints</h4>
 <div class="imageblock">
 <div class="content">
 <img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-iot-hub-properties/media/m02-l04-iot-hub-endpoints-413257e2.png" alt="m02 l04 iot hub endpoints 413257e2">
@@ -983,7 +977,9 @@ Examples of endpoint types:</p>
 </li>
 </ul>
 </div>
-<h4 id="_custom_endpoints" class="discrete">Custom endpoints</h4>
+</div>
+<div class="sect3">
+<h4 id="_custom_endpoints"><a class="anchor" href="#_custom_endpoints"></a>Custom endpoints</h4>
 <div class="paragraph">
 <p>These endpoints act as service endpoints and are used as sinks for message routes.<br>
 Devices cannot write directly to these custom endpoints.</p>
@@ -1010,6 +1006,7 @@ Devices cannot write directly to these custom endpoints.</p>
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="_security_concepts"><a class="anchor" href="#_security_concepts"></a>Security Concepts</h2>
 <div class="sectionbody">
@@ -1019,26 +1016,31 @@ Devices cannot write directly to these custom endpoints.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Azure AD. It provides identity-based authentication and fine-grained authorization with Azure RBAC. It supports only IoT hub service api&#8217;s only.</p>
+<p><strong>Azure AD</strong>. It provides identity-based authentication and fine-grained authorization with Azure RBAC. It supports only IoT hub service api&#8217;s.</p>
 </li>
 <li>
-<p>SAS. It lets you group permissions and grant them to applications using access keys and signed security tokens.</p>
+<p><strong>SAS</strong>. It lets you group permissions and grant them to applications using access keys and signed security tokens.</p>
 </li>
 <li>
-<p>Per-device security credentials. Each IoT Hub contains an identity registry. For each device in this registry, you can configure security credentials that grant DeviceConnect permissions scoped to the device&#8217;s endpoints.</p>
+<p><strong>Per-device security credentials</strong>. Each IoT Hub contains an identity registry. For each device in this registry, you can configure security credentials that grant DeviceConnect permissions scoped to the device&#8217;s endpoints.</p>
 </li>
 </ul>
 </div>
-<h3 id="_access_control_and_permissions" class="discrete">Access Control and Permissions</h3>
+<div class="sect2">
+<h3 id="_access_control_and_permissions"><a class="anchor" href="#_access_control_and_permissions"></a>Access Control and Permissions</h3>
 <div class="paragraph">
 <p>Use shared access policies for IoT hub-level access.<br>
 Use the individual device credentials to scope access to that device only.</p>
 </div>
-<h3 id="_authentication" class="discrete">Authentication</h3>
-<div class="paragraph">
-<p>Azure IoT hub grants access to endpoints by verifying a token against the shared access policies and identity registry security credentials.<br></p>
 </div>
-<h3 id="_security_tokens" class="discrete">Security tokens</h3>
+<div class="sect2">
+<h3 id="_authentication"><a class="anchor" href="#_authentication"></a>Authentication</h3>
+<div class="paragraph">
+<p>Azure IoT hub grants access to endpoints by verifying a token against the shared access policies and identity registry security credentials.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_security_tokens"><a class="anchor" href="#_security_tokens"></a>Security tokens</h3>
 <div class="paragraph">
 <p>IoT Hub uses security tokens to authenticate devices and services to avoid sending keys on the wire.<br>
 Security tokens are limited in time validity and scope.<br>
@@ -1057,7 +1059,9 @@ Some scenarios do require you to use security tokens directly. Example:</p>
 <div class="paragraph">
 <p>IoT hub also allows devices to authenticate with IoT Hub using X.509 certificates.</p>
 </div>
-<h3 id="_supported_x_509_certificates" class="discrete">Supported X.509 certificates</h3>
+</div>
+<div class="sect2">
+<h3 id="_supported_x_509_certificates"><a class="anchor" href="#_supported_x_509_certificates"></a>Supported X.509 certificates</h3>
 <div class="paragraph">
 <p>You can verify using X.509 certificates by uploading either a certificate thumbprint or a certificate authority(CA) to Azure IoT Hub.<br>
 Authentication using certificate thumbprints only verifies that the presented thumbprint matches the configured thumbprint.<br>
@@ -1081,6 +1085,7 @@ Authentication using certificate authority validates the certificate chain.</p>
 </div>
 <div class="paragraph">
 <p>A device may either use an X.509 certificate or a security token for authentication, but not both.</p>
+</div>
 </div>
 </div>
 </div>
