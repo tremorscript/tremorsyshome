@@ -403,7 +403,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_iot_hardware_componenents"><a class="anchor" href="#_iot_hardware_componenents"></a>IoT Hardware componenents</h2>
+<h2 id="_iot_hardware_components"><a class="anchor" href="#_iot_hardware_components"></a>IoT Hardware components</h2>
 <div class="sectionbody">
 <h3 id="_ip_enabled_iot_devices" class="discrete">IP-enabled IoT devices</h3>
 <div class="paragraph">
@@ -598,7 +598,9 @@ The underlying infrastructure as a service (IaaS) is taken care for you.</p>
 </div>
 <div class="title">Figure 7. Source Microsoft Learn</div>
 </div>
-<h3 id="_data_storage_options" class="discrete">Data storage options</h3>
+</div>
+<div class="sect2">
+<h3 id="_data_storage_options"><a class="anchor" href="#_data_storage_options"></a>Data storage options</h3>
 <div class="paragraph">
 <p>Data is often time-series data. It is common to split data into "warm" and "cold" data stores.<br>
 The <strong>warm data</strong> holds recent data that needs to be accessed with low latency.<br>
@@ -1086,6 +1088,836 @@ Authentication using certificate authority validates the certificate chain.</p>
 <div class="paragraph">
 <p>A device may either use an X.509 certificate or a security token for authentication, but not both.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_iot_device_lifecycle_terms_and_concepts"><a class="anchor" href="#_iot_device_lifecycle_terms_and_concepts"></a>IoT Device Lifecycle Terms and Concepts</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For Azure IoT, there are five stages within the device lifecycle:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Plan: Enable operators to create a device metadata scheme that enables them to query for, and target a group of devices for bulk management operations. You can use the device twin to store this device metadata in the form of tags and properties.</p>
+</li>
+<li>
+<p>Provision: Securely provision new devices to IoT Hub and enable operators to immediately discover device capabilities.</p>
+</li>
+<li>
+<p>Configure: Facilitate bulk configuration changes and firmware updates to devices while maintaining both health and security.</p>
+</li>
+<li>
+<p>Monitor: Monitor overall device collection health, the status of ongoing operations, and alert operators to issues that might require attention.</p>
+</li>
+<li>
+<p>Retire: Replace or decommission devices after a failure, upgrade cycle, or at the end of the service lifetime.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_device_identity_and_registration"><a class="anchor" href="#_device_identity_and_registration"></a>Device Identity and Registration</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_identity_registry"><a class="anchor" href="#_identity_registry"></a>Identity Registry</h3>
+<div class="paragraph">
+<p>A device must have an entry in the IoT Hub identity registry before it can connect to an IoT Hub.</p>
+</div>
+<div class="paragraph">
+<p>The deviceID is case-sensitive.</p>
+</div>
+<div class="paragraph">
+<p>The identity registry is a REST-capable collection of device identity resources.</p>
+</div>
+<div class="paragraph">
+<p>IoT Hub creates a set of resources for every device in the identity registry such as the queue that contains in-flight cloud-to-device messages.</p>
+</div>
+<div class="paragraph">
+<p>Use the identity registry when you need to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Provision devices that connect to your IoT hub.</p>
+</li>
+<li>
+<p>Control per-device access to your hub&#8217;s device-facing endpoints.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_module_identity"><a class="anchor" href="#_module_identity"></a>Module Identity</h3>
+<div class="paragraph">
+<p>You can create module identities under a device identity.</p>
+</div>
+<div class="paragraph">
+<p>Each module identity can be configured with an independent connection to IoT hub.</p>
+</div>
+<div class="paragraph">
+<p>You can seperate access control permissions.</p>
+</div>
+<div class="paragraph">
+<p>You can create up to 20 module identites under a device identity.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_identity_registry_operations"><a class="anchor" href="#_identity_registry_operations"></a>Identity registry operations</h3>
+<div class="paragraph">
+<p>Identity registry exposes the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create device or module identity</p>
+</li>
+<li>
+<p>Update device or module identity</p>
+</li>
+<li>
+<p>Retreive device or module identity</p>
+</li>
+<li>
+<p>Delete device or module identity</p>
+</li>
+<li>
+<p>List up to 1000 identities</p>
+</li>
+<li>
+<p>Export device identities to Azure blob storage</p>
+</li>
+<li>
+<p>Import device identities from Azure blob storage</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_device_creation"><a class="anchor" href="#_device_creation"></a>Device Creation</h3>
+<div class="paragraph">
+<p>You need to specify the Device ID and the authentication type when creating a new device.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_device_twins"><a class="anchor" href="#_device_twins"></a>Device Twins</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Device Twins are json documents managed by IoT Hub that store device state information associated with a physical device.<br>
+This information includes metadata, configurations, and conditions.<br>
+Azure IoT Hub maintains a device twin for each registered device.</p>
+</div>
+<div class="paragraph">
+<p>Device twins are implicity created and deleted when a device identity is created or deleted in IoT Hub.</p>
+</div>
+<div class="paragraph">
+<p>A device twin is a JSON document that includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Tags. A solution back end can read from and write to. Tags are not visible to device apps.</p>
+</li>
+<li>
+<p>Desired properties. The solution back end can set desired properties, and the device app can read them. The device app can also receive notifications of changes in the desired properties.</p>
+</li>
+<li>
+<p>Reported properties. The device app can set reported properties, and the solution back end can read and query them.</p>
+</li>
+<li>
+<p>Device identity properties. The read-only properties from the corresponding device identity stored in the identity registry</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-iot-device-lifecycle-concepts/media/m02-l01-device-twin-diagram-03c0f21f.png" alt="m02 l01 device twin diagram 03c0f21f">
+</div>
+<div class="title">Figure 10. Source Microsoft Learn</div>
+</div>
+<div class="listingblock">
+<div class="title">Sample JSON</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "deviceId": "devA",
+    "etag": "AAAAAAAAAAc=",
+    "status": "enabled",
+    "statusReason": "provisioned",
+    "statusUpdateTime": "0001-01-01T00:00:00",
+    "connectionState": "connected",
+    "lastActivityTime": "2015-02-30T16:24:48.789Z",
+    "cloudToDeviceMessageCount": 0,
+    "authenticationType": "sas",
+    "x509Thumbprint": {
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+    },
+    "version": 2,
+    "tags": {
+        "$etag": "123",
+        "deploymentLocation": {
+            "building": "43",
+            "floor": "1"
+        }
+    },
+    "properties": {
+        "desired": {
+            "telemetryConfig": {
+                "sendFrequency": "5m"
+            },
+            "$metadata": {...},
+            "$version": 1
+        },
+        "reported": {
+            "telemetryConfig": {
+                "sendFrequency": "5m",
+                "status": "success"
+            },
+            "batteryLevel": 55,
+            "$metadata": {...},
+            "$version": 4
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_usage"><a class="anchor" href="#_usage"></a>Usage</h3>
+<div class="paragraph">
+<p>Use device twins to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Store device-specific metadata in the cloud. For example, the deployment location of a vending machine.</p>
+</li>
+<li>
+<p>Report current state information such as available capabilities and conditions from your device app. For example, a device is connected to your IoT hub over cellular or WiFi.</p>
+</li>
+<li>
+<p>Synchronize the state of long-running workflows between device app and back-end app. For example, when the solution back end specifies the new firmware version to install, and the device app reports the various stages of the update process.</p>
+</li>
+<li>
+<p>Query your device metadata, configuration, or state.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The best way to implement device twins within cloud solutions applications is through the Azure IoT SDKs.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_module_identity_and_module_twins"><a class="anchor" href="#_module_identity_and_module_twins"></a>Module identity and module twins</h3>
+<div class="paragraph">
+<p>Each module identity implicitly generates a module twin.</p>
+</div>
+<div class="paragraph">
+<p>Module twins are JSON documents that store module information including metadata, configurations, and conditions.</p>
+</div>
+<div class="paragraph">
+<p>SDKs enable you to create modules where each one opens an independent connection to IoT Hub.<br>
+This helps you to use seperate namespaces for different components on your device.<br>
+For example, if your vending machine has 3 different sensors controlled by different departments in your company, you can create a module for each sensor.<br>
+This way, each department is only able to create jobs or direct methods for the sensor that they control, avoiding conflicts and user errors.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_device_monitoring"><a class="anchor" href="#_device_monitoring"></a>Device monitoring</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Device monitoring is used to track the overall device collection health, the status of ongoing operations, and to alert operators to issues that might require their attention.<br>
+You can program devices to update their device twins and report real-time operating conditions and status of update operations.</p>
+</div>
+<div class="paragraph">
+<p>Device twin desired and reported properties can be used to monitor a target condition, target content, or device metrics.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the target condition defines the scope of device twins to be updated. It is specified as a query on twin tags and/or reported properties.</p>
+</li>
+<li>
+<p>the target content defines the desired properties to be added or updated in the targeted device twins. The content includes a path to the section of desired properties to be changed.</p>
+</li>
+<li>
+<p>The metrics define the summary counts of various configuration states such as Success, In Progress, and Error.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_device_retirements"><a class="anchor" href="#_device_retirements"></a>Device Retirements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use the IoT Hub identity registry for securely revoking device identities and credentials.</p>
+</div>
+<div class="paragraph">
+<p>You can disable devices by updating the status property of an identity in the identity registry.</p>
+</div>
+<div class="paragraph">
+<p>The disable feature is not available for modules.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_device_configuration_and_communication_protocols"><a class="anchor" href="#_device_configuration_and_communication_protocols"></a>Device Configuration and Communication Protocols</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_protocols"><a class="anchor" href="#_protocols"></a>Protocols</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Protocol</th>
+<th class="tableblock halign-left valign-top">When you should use this protocol.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MQTT MQTT over WebSocket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use with devices that have their own per-device credentials.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AMQP AMQP over websocket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use on field gateways and cloud gateways to take advantage of connection multiplexing across devices.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use for devices that support other protocols.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_ports"><a class="anchor" href="#_ports"></a>Ports</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Protocol</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Port</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MQTT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8883</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MQTT over WebSockets</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AMQP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5671</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AMQP over WebSockets</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_devices_and_device_provisioning"><a class="anchor" href="#_devices_and_device_provisioning"></a>Devices and Device Provisioning</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_provisioning_process"><a class="anchor" href="#_provisioning_process"></a>Provisioning Process</h3>
+<div class="paragraph">
+<p>There are two phases in the provisioning/deployment process for a device:-</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The manufacturing phase in which the device is created and prepared at the factory.</p>
+</li>
+<li>
+<p>The cloud setup phase in which the Device Provisioning Service is configured for automated provisioning.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_manufacturing_process_phase"><a class="anchor" href="#_manufacturing_process_phase"></a>Manufacturing Process phase</h4>
+<div class="paragraph">
+<p>In this step, the device is programmed with the provisioning service information, enabling it to call the provisioning service to get its connection info/IoT solution assignment when it is switched on.</p>
+</div>
+<div class="paragraph">
+<p>Also, in this step, the manufacturer supplies the device deployer/operator with the identifying key information for the device.<br>
+This could be an X.509 certificate or the public portion of a trusted platform module. Supplying that information could be as simple as confirming that all devices have an X.509 certificate generated from a signing certificate provided by the device deployer/operator, or as complicated as extracting the public portion of a trusted platform module (TPM) endorsement key from each TPM device. <br>
+These services are offered by many silicon manufacturers today.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cloud_setup_phase"><a class="anchor" href="#_cloud_setup_phase"></a>Cloud setup phase</h4>
+<div class="paragraph">
+<p>This step is about configuring the cloud for proper automatic provisioning.</p>
+</div>
+<div class="paragraph">
+<p>There are two types of users involved.<br>
+A device operator - someone who knows how devices are intially set up.<br>
+A solution operator - someonw who knows how devices are to be split among the IoT hubs.</p>
+</div>
+<div class="paragraph">
+<p>A one-time initial setup of the provisioning service must occur.<br>
+It is done by the solution operator.</p>
+</div>
+<div class="paragraph">
+<p>The device operator then needs to enroll the device.<br>
+The device operator takes the key identifying information from the manufacturer and adds it to the enrollment list.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_linked_iot_hubs"><a class="anchor" href="#_linked_iot_hubs"></a>Linked IoT Hubs</h4>
+<div class="paragraph">
+<p>The Device Provisioning Service can only provision devices to IoT hubs that have been linked to it.</p>
+</div>
+<div class="paragraph">
+<p>Linking an IoT hub to an instance of the DPS gives the service read/write permissions to the IoT hub&#8217;s device registry with the link.</p>
+</div>
+<div class="paragraph">
+<p>A DPS can register a device ID and set the initial configuration in the device twin.</p>
+</div>
+<div class="paragraph">
+<p>Linked IoT hubs may be in any Azure region.</p>
+</div>
+<div class="paragraph">
+<p>You may link hubs in other subscriptions to your provisioning service.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_allocation_policy"><a class="anchor" href="#_allocation_policy"></a>Allocation policy</h4>
+<div class="paragraph">
+<p>The service level setting that determines how DPS assigns devices to an IoT hub.</p>
+</div>
+<div class="paragraph">
+<p>There are there supported policies:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Evenly weighted distribution. The default setting. Linked IoT hubs are equally likely to have devices provisioned to them.</p>
+</li>
+<li>
+<p>Lowest Latency. Devices are provisioned to an IoT hub with the lowest latency.</p>
+</li>
+<li>
+<p>Static Configuration via the enrollment list: specification of the desired IoT hub in the enrollment list takes priority over the service-level allocation policy.</p>
+</li>
+<li>
+<p>Custom (Use Azure Function): A custom allocation policy using custom code in an Azure function.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_enrollment"><a class="anchor" href="#_enrollment"></a>Enrollment</h4>
+<div class="paragraph">
+<p>An enrollment is the record of devices that may register through autoprovisioning.</p>
+</div>
+<div class="paragraph">
+<p>Two types of enrollments are supported:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Group enrollment: Recommended for a large number of devices that share a desired intial configuration, or for devices all going to the same tenant.</p>
+</li>
+<li>
+<p>Individual enrollment: Recommended for devices that require unique intial configurations, or for devices that can only authenticate using SAS tokens via TPM attestation.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Enrollment record contains information about the device or group of devices:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The attestation mechanism used by the device.</p>
+</li>
+<li>
+<p>The optional intial desired configuration.</p>
+</li>
+<li>
+<p>Desired IoT hub.</p>
+</li>
+<li>
+<p>The desired device ID.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_registration"><a class="anchor" href="#_registration"></a>Registration</h4>
+<div class="paragraph">
+<p>A registration is the record of a device successfully registering/provisioning to an IoT Hub via the Device Provisioning Service.</p>
+</div>
+<div class="paragraph">
+<p>Registration records are created automatically; they can be deleted, but they cannot be updated.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_operations"><a class="anchor" href="#_operations"></a>Operations</h4>
+<div class="paragraph">
+<p>Operations are the billing unit of the Device Provisioning Service.</p>
+</div>
+<div class="paragraph">
+<p>One operation is the successful completion of one instruction to the service.</p>
+</div>
+<div class="paragraph">
+<p>Operations include device registrations and re-registrations; service-side changes such as adding enrollment list entries, and updating enrollment list entries.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_device_enrollment_concepts"><a class="anchor" href="#_device_enrollment_concepts"></a>Device Enrollment Concepts</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The manufacturer is responsible for encoding the device identity info, and the Device Provisioning Service registration URL.</p>
+</div>
+<div class="sect2">
+<h3 id="_id_scope"><a class="anchor" href="#_id_scope"></a>ID Scope</h3>
+<div class="paragraph">
+<p>The ID scope is assigned to a DPS when it is created by the user.</p>
+</div>
+<div class="paragraph">
+<p>It is used to uniquely identify the specific provisioning service the device will register through.</p>
+</div>
+<div class="paragraph">
+<p>The ID scope is generated by the service and is immutable, which guarantees uniquess.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_registration_id"><a class="anchor" href="#_registration_id"></a>Registration ID</h3>
+<div class="paragraph">
+<p>The registration ID uniquely identifies a device in the Device Provisioning Service.</p>
+</div>
+<div class="paragraph">
+<p>The registration ID must be unique in the provisioning service ID scope.</p>
+</div>
+<div class="paragraph">
+<p>Each device must have a registration ID.</p>
+</div>
+<div class="paragraph">
+<p>The registration ID is alphanumeric, case insensitive, and may contain special characters including colon, period, underscore, and hyphen.</p>
+</div>
+<div class="paragraph">
+<p>When TPM attestation is used, the registration ID is provided by the TPM itself.</p>
+</div>
+<div class="paragraph">
+<p>When X.509-based attestation is used, the registration ID is provided by the subject name of the certificate.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_device_id"><a class="anchor" href="#_device_id"></a>Device ID</h3>
+<div class="paragraph">
+<p>The device ID is the ID as it appears in IoT Hub.</p>
+</div>
+<div class="paragraph">
+<p>The desired ID may be set in the enrollment entry.</p>
+</div>
+<div class="paragraph">
+<p>Setting the desired ID is only supported in individual enrollments.</p>
+</div>
+<div class="paragraph">
+<p>If no desired device ID is specified in the enrollment list, the registration ID is used as the device ID when registering the device.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_attestation_mechanism"><a class="anchor" href="#_attestation_mechanism"></a>Attestation mechanism</h3>
+<div class="paragraph">
+<p>An attestation mechanism is a method used for confirming a device&#8217;s identity.</p>
+</div>
+<div class="paragraph">
+<p>IoT Hub uses "authentication scheme" for a similar concept in that service.</p>
+</div>
+<div class="paragraph">
+<p>The DPS supports the following forms of attestation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>X.509 certificates based on the standard X.509 certificate authentication flow.</p>
+</li>
+<li>
+<p>Trusted Platform Module (TPM) based on a nonce challenge, using the TPM standard for keys to present a signed Shared Access Signature (SAS) token. TPM attestation does not require a physical TPM on the device, but the service expects to attest using the endorsement key per the TPM spec.</p>
+</li>
+<li>
+<p>Symmetric Key based on shared access signature (SAS) security tokens, which include a hashed signature and an embedded expiration.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A hardware security module (HSM) is recommended for secure, hardware-based storage of device secrets, and is the most secure form of secret storage.<br>
+Both X.509 certificates and SAS tokens can be stored in HSM.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_enrollment_types"><a class="anchor" href="#_enrollment_types"></a>Enrollment Types</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_individual_enrollments"><a class="anchor" href="#_individual_enrollments"></a>Individual Enrollments</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>It is an entry for a single device that may register.</p>
+</li>
+<li>
+<p>Individual enrollments may use X.509 certificates or SAS tokens as attestation mechanisms.</p>
+</li>
+<li>
+<p>Individual enrollments may have the desired IoT hub device ID specified.</p>
+</li>
+<li>
+<p>Individual enrollments are recommended for devices with unique initial configurations, or for devices that can only use SAS tokens via TPM or virtual TPM as the attestation mechanism.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_group_enrollments"><a class="anchor" href="#_group_enrollments"></a>Group Enrollments</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>An enrollment group is a group of devices that share a specific attestation mechanism.</p>
+</li>
+<li>
+<p>Enrollment groups support both X.509 and symmetric keys.</p>
+</li>
+<li>
+<p>All devices in the X.509 enrollment group present X.509 certificates that have been signed by the same root or intermediate Certificate Authority(CA).</p>
+</li>
+<li>
+<p>Each device in the symmetric key enrollment group present SAS tokens derived from the group symmetric key.</p>
+</li>
+<li>
+<p>The enrollment group name and certificate name must be alphanumeric, lowercase, and may contain hyphens.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_x_509_certificate_attestation"><a class="anchor" href="#_x_509_certificate_attestation"></a>X.509 Certificate Attestation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>X.509 certificates are typically arranged in a certificate chain of trust in which each certificate in the chain is signed by the private key of the next higher certificate, and so on, terminating in a self-signed root certificate.<br>
+This arrangement establishes a delegated chain of trust from the root certificate generated by a trusted root certificate authority (CA) down through each intermediate CA to the end-entity "leaf" certificate installed on the device.</p>
+</div>
+<div class="paragraph">
+<p>Often the certificate chain represents some logical or physical heirarchy associated with devices.<br>
+For example, a manufacturer may:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Issue a self-signed root CA certificate.</p>
+</li>
+<li>
+<p>Use the root certificate to generate a unique intermediate CA certificate for each factory.</p>
+</li>
+<li>
+<p>Use each factory&#8217;s certificate to generate a unique intermediate CA certificate for each production line in the plant.</p>
+</li>
+<li>
+<p>And finally, use the production line certificate to generate a unique device (end-entity) certificate for each device manufactured on the line.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_root_certificate"><a class="anchor" href="#_root_certificate"></a>Root Certificate</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>A root certificate is a self-signed X.509 certificate representing a certificate authority (CA).</p>
+</li>
+<li>
+<p>It is the terminus, or trust anchor, of the certificate chain.</p>
+</li>
+<li>
+<p>Root certificates can be self-issued by an organization or purchased from a root certificate authority.</p>
+</li>
+<li>
+<p>The root certificate can also be referred to as a root CA certificate.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_intermediate_certificate"><a class="anchor" href="#_intermediate_certificate"></a>Intermediate Certificate</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>An intermediate certificate is an X.509 certificate, which has been signed by the root certificate (or by another intermediate certificate with the root certificate in its chain).</p>
+</li>
+<li>
+<p>The last intermediate certificate in a chain is used to sign the leaf certificate.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_end_entity_leaf_certificate"><a class="anchor" href="#_end_entity_leaf_certificate"></a>End-entity "leaf" certificate</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The leaf certificate, or end-entity certificate, identifies the certificate holder.</p>
+</li>
+<li>
+<p>It has the root certificate in its certificate chain and zero or more intermediate certificates.</p>
+</li>
+<li>
+<p>The leaf certificate is not used to to sign any other certificates.</p>
+</li>
+<li>
+<p>It uniquely identifies the device to the provisioning service and is sometimes referred to as the device certificate.</p>
+</li>
+<li>
+<p>During authentication, the device uses the private key associated with its certificate to respond to a proof of possession challenge from the service.</p>
+</li>
+<li>
+<p>Leaf certificates used with an Individual enrollment entry have a requirement that the Subject Name must be set to the registration ID of the Individual Enrollment entry.</p>
+</li>
+<li>
+<p>Leaf certificates used with an Enrollment group entry should have the Subject Name set to the desired device ID, which will be shown in the Registration Records for the authenticated device in the enrollment group.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_controlling_device_access_to_the_provisioning_service_with_x_509_certificates"><a class="anchor" href="#_controlling_device_access_to_the_provisioning_service_with_x_509_certificates"></a>Controlling device access to the provisioning service with X.509 certificates</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The provisioning service exposes two types of enrollment entry that you can use to control access for devices that use the X.509 attestation mechanism:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Individual enrollment entries are configured with the device certificate associated with a specific device. These entries control enrollments for specific devices.</p>
+</li>
+<li>
+<p>Enrollment group entries are associated with a specific intermediate or root CA certificate. These entries control enrollments for all devices that have that intermediate or root certificate in their certificate chain.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When a device connects to a provisioning service, if an individual enrollment for the device exists, the provisioning service applies that entry.<br>
+If there is no individual enrollment for the device and an enrollment group for the first intermediate certificate in the device&#8217;s certificate chain exists, the service applies that entry, and so on, up the chain to the root. The service applies the first applicable entry such that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the first enrollment entry found is enabled, the service provisions the device.</p>
+</li>
+<li>
+<p>If the first enrollment entry found is disabled, the service does not provision the device.</p>
+</li>
+<li>
+<p>If no enrollment entry is found for any of the certificates in the device&#8217;s certificate chain, the service does not provision the device.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This mechanism and the hierarchical structure of certificate chains provides powerful flexibility in how you can control access for both individual devices and groups of devices.</p>
+</div>
+<div class="paragraph">
+<p>For example, imagine five devices with the following certificate:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Device 1: root certificate &#8594; certificate A &#8594; device 1 certificate</p>
+</li>
+<li>
+<p>Device 2: root certificate &#8594; certificate A &#8594; device 2 certificate</p>
+</li>
+<li>
+<p>Device 3: root certificate &#8594; certificate A &#8594; device 3 certificate</p>
+</li>
+<li>
+<p>Device 4: root certificate &#8594; certificate B &#8594; device 4 certificate</p>
+</li>
+<li>
+<p>Device 5: root certificate &#8594; certificate B &#8594; device 5 certificate</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Intially, you can create a single enabled group enrollment entry for the root certificate to enable access for all five devices.<br>
+If certificate B later becomes compromised, you can create a disabled enrollment group entry for certificate B to prevent Device 4 and Device 5 from enrolling.<br>
+If still later Device 3 becomes compromised, you can create a disabled individual enrollment entry for its certificate.<br>
+This revokes access for Device 3, but still allows Device 1 and Device 2 to enroll.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hardware_security_module"><a class="anchor" href="#_hardware_security_module"></a>Hardware Security Module</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>The hardware security module, or HSM, is used for secure, hardware based storage of device secrets, and is the most secure form of secret storage.<br></p>
+</li>
+<li>
+<p>Both X.509 certificates and SAS tokens can be stored in the HSM.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_trusted_platform_module"><a class="anchor" href="#_trusted_platform_module"></a>Trusted Platform Module</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>TPM refers to a standard for securely storing keys used to authenticate the platform.</p>
+</li>
+<li>
+<p>TPM can also refer to the I/O interface used to interact with the modules implementing the standard.</p>
+</li>
+<li>
+<p>TPMs can exist as discrete hardware, integrated hardware, firmware-based, or software-based.</p>
+</li>
+<li>
+<p>Device Provisioning service only supports TPM 2.0</p>
+</li>
+<li>
+<p>TPM attestation is based on a nonce challenge, which uses the endorsement and storage root keys to present a signed Shared Access Signature (SAS) token.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_endorsement_key"><a class="anchor" href="#_endorsement_key"></a>Endorsement Key</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>*</p>
 </div>
 </div>
 </div>
