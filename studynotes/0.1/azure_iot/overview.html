@@ -270,7 +270,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_data_flow_and_processing"><a class="anchor" href="#_data_flow_and_processing"></a>Data flow and processing</h2>
+<h2 id="_data_flow_and_processing"><a class="anchor" href="#_data_flow_and_processing"></a>Data flow and Processing</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>There are four categories of stages (storage, routing, analysis, action/display):</p>
@@ -293,9 +293,7 @@
 </div>
 <div class="openblock">
 <div class="content">
-<div class="paragraph">
-<p>Data flow Scenarios</p>
-</div>
+<h3 id="_data_flow_scenarios" class="discrete">Data flow Scenarios</h3>
 <hr>
 <div class="ulist">
 <div class="title">Scenario 1</div>
@@ -362,7 +360,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_cross_cutting_architectural_needs"><a class="anchor" href="#_cross_cutting_architectural_needs"></a>Cross-cutting architectural needs</h2>
+<h2 id="_cross_cutting_architectural_needs"><a class="anchor" href="#_cross_cutting_architectural_needs"></a>Cross-cutting Architectural Needs</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Cross-cutting architectural needs:</p>
@@ -404,35 +402,60 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_iot_hardware_components"><a class="anchor" href="#_iot_hardware_components"></a>IoT Hardware components</h2>
+<h2 id="_iot_hardware_components"><a class="anchor" href="#_iot_hardware_components"></a>IoT Hardware Components</h2>
 <div class="sectionbody">
 <h3 id="_ip_enabled_iot_devices" class="discrete">IP-enabled IoT devices</h3>
-<div class="paragraph">
-<p>An IP-enabled device is, simply, a device that can establish a connection to a network and have a unique identity on that network.<br>
-IP-enabled devices are deployed in scenarios where data needs to be collected, delivered, and analyzed in real-time, or periodically.</p>
+<hr>
+<div class="ulist">
+<ul>
+<li>
+<p>An IP-enabled device is a device that can establish a connection to a network.</p>
+</li>
+<li>
+<p>It has a unique identity on that network.</p>
+</li>
+<li>
+<p>They are deployed in scenarios where data needs to be collected, delivered, and analyzed in real-time, or periodically.</p>
+</li>
+</ul>
 </div>
 <h3 id="_non_ip_enabled_devices" class="discrete">Non-IP enabled devices</h3>
-<div class="paragraph">
-<p>A device does not need to be directly IP-enabled in order to be part of the solution.<br>
-They can connect to other devices like a field gateway (IoT Edge device).<br>
-These devices can use protocols like CoAP5, OPC or technologies like Bluetooth, ZigBee to connect to other hardware.</p>
+<hr>
+<div class="ulist">
+<ul>
+<li>
+<p>These devices connect to a field gateway (IoT Edge device).</p>
+</li>
+<li>
+<p>These devices can use protocols like CoAP5, OPC or technologies like Bluetooth, ZigBee to connect to an edge device.</p>
+</li>
+</ul>
 </div>
 <h3 id="_sensors" class="discrete">Sensors</h3>
-<div class="paragraph">
-<p>A sensor is a circuit (or device) that collects a specific type of data about the physical environment.<br>
-A <strong>smart sensor</strong> is a device that gathers input and processes that information locally before communicating message data.</p>
+<hr>
+<div class="ulist">
+<ul>
+<li>
+<p>A sensor is a circuit (or device) that collects a specific type of data about the physical environment.</p>
+</li>
+<li>
+<p>A <strong>smart sensor</strong> is a device that gathers the input and then processes that information locally before forwarding the data.</p>
+</li>
+</ul>
 </div>
-<h3 id="_iot_edge_devices_and_field_gateways" class="discrete">IoT Edge devices and field gateways</h3>
-<div class="paragraph">
+<h3 id="_iot_edge_devices_and_field_gateways" class="discrete">IoT Edge devices and Field gateways</h3>
+<hr>
+<div class="ulist">
+<ul>
+<li>
 <p>A <strong>field gateway</strong> is a specialized device-appliance or a general-purpose software that:</p>
-</div>
 <div class="ulist">
 <ul>
 <li>
 <p>acts as a communication enabler.</p>
 </li>
 <li>
-<p>may act as a local device control system and device data processing hub.</p>
+<p>may act as a local device control system.</p>
 </li>
 <li>
 <p>can perform local processing.</p>
@@ -443,16 +466,13 @@ A <strong>smart sensor</strong> is a device that gathers input and processes tha
 <li>
 <p>can be used to filter or aggregate device telemetry.</p>
 </li>
+<li>
+<p>may help with device provisioning, buffering of data, protocol translation, and event processing rules.</p>
+</li>
 </ul>
 </div>
-<div class="paragraph">
-<p>The scope of a field gateway includes the field gateway itself and all devices that are attached to it.</p>
-</div>
-<div class="paragraph">
-<p>Gateways may help with device provisioning, data filtering, batching and aggregation, buffering of data, protocol translation, and event processing rules.</p>
-</div>
-<div class="paragraph">
-<p>NAT devices or firewalls do not qualify as field gateways since they are not explicit connection or session terminals, but rather route (or deny) connections or sessions made through them.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
