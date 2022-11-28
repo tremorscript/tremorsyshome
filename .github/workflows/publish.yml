@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Setup Node.js environment
-        uses: setup-node@v3.5.1
+        uses: actions/setup-node@v3.5.1
         with:
           node-version: '16'
       - name: Install Antora and the Antora Lunr Extension
