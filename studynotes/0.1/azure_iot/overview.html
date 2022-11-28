@@ -188,10 +188,8 @@
 <article class="doc">
 <h1 class="page">Azure IoT</h1>
 <div class="sect1">
-<h2 id="_subsystems_of_iot"><a class="anchor" href="#_subsystems_of_iot"></a>Subsystems of IoT</h2>
+<h2 id="_core_subsystems_of_iot"><a class="anchor" href="#_core_subsystems_of_iot"></a>Core Subsystems of IoT</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_core_subsystems"><a class="anchor" href="#_core_subsystems"></a>Core Subsystems</h3>
 <div class="paragraph">
 <p>An IoT solution architecture consists of the following subsystems:</p>
 </div>
@@ -207,19 +205,19 @@
 <p>A cloud gateway service, or hub, that provides device management capabilities.</p>
 </li>
 <li>
-<p>The cloud gateway service, or hub, must securely accept data from the devices.</p>
+<p>A cloud gateway service, or hub, that securely accepts data from the devices.</p>
 </li>
 <li>
-<p>Stream processors consume data from the hub.</p>
+<p>Stream processors that consume data from the hub.</p>
 </li>
 <li>
-<p>Stream processors also integrate with business processes.</p>
+<p>Stream processors can integrate with business processes.</p>
 </li>
 <li>
-<p>They also place the data into storage.</p>
+<p>Stream processors can place the data into storage.</p>
 </li>
 <li>
-<p>A user interface to visualize telemetry data and facilitate device management.</p>
+<p>A user interface to visualize telemetry data and to facilitate device management.</p>
 </li>
 </ul>
 </div>
@@ -230,13 +228,12 @@
 <div class="content">
 <img src="https://learn.microsoft.com/en-us/training/wwl-azure/introduction-iot-solution-architecture/media/m01-l02-core-subsystems-iot-architecture-8158ad9e.png" alt="m01 l02 core subsystems iot architecture 8158ad9e">
 </div>
-<div class="title">Figure 1. Source: Microsoft Learn, Core Subsystems</div>
-</div>
+<div class="title">Figure 1. Source: Microsoft Learn, Core Subsystems of IoT</div>
 </div>
 <div class="sect2">
-<h3 id="_optional_subsystems"><a class="anchor" href="#_optional_subsystems"></a>Optional Subsystems</h3>
+<h3 id="_optional_subsystems_of_iot"><a class="anchor" href="#_optional_subsystems_of_iot"></a>Optional Subsystems of IoT</h3>
 <div class="paragraph">
-<p>Many IoT apps will include subsystems for the following:</p>
+<p>Many IoT apps will also include subsystems for the following:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -244,16 +241,13 @@
 <p><strong>IoT Edge Devices</strong> to manage access and information flow</p>
 </li>
 <li>
-<p>They may help with device provisioning, data filtering, batching and aggregation, buffering of data, protocol translation, event rules processing etc.</p>
+<p><strong>IoT Edge Devices</strong> may help with device provisioning, data filtering, batching and aggregation, buffering of data, protocol translation, event rules processing etc.</p>
 </li>
 <li>
 <p><strong>Data Transformation Subsystem</strong> for manipulation and aggregation of the telemetry stream either before or after it is received by the cloud gateway service (the IoT hub).</p>
 </li>
 <li>
-<p>Manipulation can include protocol transformation (for example, converting binary data to json) etc.</p>
-</li>
-<li>
-<p><strong>Bulk Device Provisioning</strong> for deploying fleet of devices.</p>
+<p><strong>Bulk Device Provisioning</strong> for deploying a fleet of devices.</p>
 </li>
 <li>
 <p><strong>User Management Subsystem</strong> for specifying groups and users who can perform action on devices (for example, updating firmware etc).</p>
@@ -262,7 +256,7 @@
 <p><strong>ML Subsystem</strong> to learn from data and experiences and to act without being explicitly programmed.</p>
 </li>
 <li>
-<p>Hot/warm/cold <strong>storage</strong> paths.</p>
+<p><strong>Hot/Warm/Cold Storage</strong> paths.</p>
 </li>
 </ul>
 </div>
@@ -270,7 +264,7 @@
 <div class="content">
 <img src="https://learn.microsoft.com/en-us/training/wwl-azure/introduction-iot-solution-architecture/media/m01-l02-optional-subsystems-iot-architecture-416c18f0.png" alt="m01 l02 optional subsystems iot architecture 416c18f0">
 </div>
-<div class="title">Figure 2. Source: Micorsoft Learn, Optional Subsystems</div>
+<div class="title">Figure 2. Source: Micorsoft Learn, Optional Subsystems of IoT</div>
 </div>
 </div>
 </div>
@@ -284,20 +278,22 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Storage includes in-memory caches, temp queues and permanent archives(database).</p>
+<p><strong>Storage</strong> includes in-memory caches, temp queues and databases.</p>
 </li>
 <li>
-<p>Routing makes the decision on what data should go to which target and when. Targets include storage, analysis processes and action.</p>
+<p><strong>Routing</strong> makes the decision on what data should go to which target and when. Targets include storage, analysis processes and action.</p>
 </li>
 <li>
-<p>Analyis is used to run the data records through a set of conditions and can produce different output data records.</p>
+<p><strong>Analysis</strong> is used to run the data records through a set of conditions and can produce different output data records.</p>
 </li>
 <li>
-<p>Original data records and post-analysis output data records are stored and available for display and may trigger actions such as sending email, sms etc.</p>
+<p>Data records are stored and available for <strong>display</strong> and may trigger <strong>actions</strong> such as sending email, sms etc.</p>
 </li>
 </ul>
 </div>
-<h3 id="_data_flow_scenarios" class="discrete">Data flow Scenarios</h3>
+<div class="openblock">
+<div class="title">Data flow Scenarios</div>
+<div class="content">
 <div class="ulist">
 <div class="title">Scenario 1</div>
 <ul>
@@ -357,6 +353,8 @@
 <img src="https://learn.microsoft.com/en-us/training/wwl-azure/introduction-iot-solution-architecture/media/m01-l02-data-flow-3-0a8e4444.png" alt="m01 l02 data flow 3 0a8e4444">
 </div>
 <div class="title">Figure 5. Source: Microsoft Learn</div>
+</div>
+</div>
 </div>
 </div>
 </div>
