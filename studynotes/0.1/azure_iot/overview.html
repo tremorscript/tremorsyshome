@@ -230,8 +230,11 @@
 </div>
 <div class="title">Figure 1. Source: Microsoft Learn, Core Subsystems of IoT</div>
 </div>
-<div class="sect2">
-<h3 id="_optional_subsystems_of_iot"><a class="anchor" href="#_optional_subsystems_of_iot"></a>Optional Subsystems of IoT</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_optional_subsystems_of_iot"><a class="anchor" href="#_optional_subsystems_of_iot"></a>Optional Subsystems of IoT</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Many IoT apps will also include subsystems for the following:</p>
 </div>
@@ -265,7 +268,6 @@
 <img src="https://learn.microsoft.com/en-us/training/wwl-azure/introduction-iot-solution-architecture/media/m01-l02-optional-subsystems-iot-architecture-416c18f0.png" alt="m01 l02 optional subsystems iot architecture 416c18f0">
 </div>
 <div class="title">Figure 2. Source: Micorsoft Learn, Optional Subsystems of IoT</div>
-</div>
 </div>
 </div>
 </div>
@@ -1927,7 +1929,7 @@ You can decide the duration range (for example, the last day, week, or month).</
 </div>
 </div>
 <div class="sect1">
-<h2 id="_x_509_certificate_attestation"><a class="anchor" href="#_x_509_certificate_attestation"></a>X.509 Certificate Attestation</h2>
+<h2 id="_x_509_certificate_attestation_process"><a class="anchor" href="#_x_509_certificate_attestation_process"></a>X.509 Certificate Attestation Process</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -2189,7 +2191,7 @@ You can decide the duration range (for example, the last day, week, or month).</
 </div>
 </div>
 <div class="sect1">
-<h2 id="_trusted_platform_module_tpm_attestation"><a class="anchor" href="#_trusted_platform_module_tpm_attestation"></a>Trusted Platform Module (TPM) Attestation</h2>
+<h2 id="_trusted_platform_module_tpm_attestation_process"><a class="anchor" href="#_trusted_platform_module_tpm_attestation_process"></a>Trusted Platform Module (TPM) Attestation Process</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -2279,8 +2281,8 @@ You can decide the duration range (for example, the last day, week, or month).</
 </div>
 <div class="title">Figure 12. Source Microsoft Learn</div>
 </div>
-<div class="sect2">
-<h3 id="_nonce_challenge"><a class="anchor" href="#_nonce_challenge"></a>Nonce challenge</h3>
+<h3 id="_nonce_challenge" class="discrete">Nonce challenge</h3>
+<hr>
 <div class="ulist">
 <ul>
 <li>
@@ -2297,9 +2299,8 @@ You can decide the duration range (for example, the last day, week, or month).</
 </div>
 <div class="title">Figure 13. Source Microsoft Learn</div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_validate_the_nonce_and_receive_credentials"><a class="anchor" href="#_validate_the_nonce_and_receive_credentials"></a>Validate the nonce and receive credentials</h3>
+<h3 id="_validate_the_nonce_and_receive_credentials" class="discrete">Validate the nonce and receive credentials</h3>
+<hr>
 <div class="ulist">
 <ul>
 <li>
@@ -2321,7 +2322,6 @@ You can decide the duration range (for example, the last day, week, or month).</
 </div>
 </div>
 </div>
-</div>
 <div class="sect1">
 <h2 id="_symmetric_key_attestation"><a class="anchor" href="#_symmetric_key_attestation"></a>Symmetric Key Attestation</h2>
 <div class="sectionbody">
@@ -2338,8 +2338,8 @@ You can decide the duration range (for example, the last day, week, or month).</
 </li>
 </ul>
 </div>
-<div class="sect2">
-<h3 id="_symmetric_key_creation"><a class="anchor" href="#_symmetric_key_creation"></a>Symmetric Key Creation</h3>
+<h3 id="_symmetric_key_creation" class="discrete">Symmetric Key Creation</h3>
+<hr>
 <div class="ulist">
 <ul>
 <li>
@@ -2356,9 +2356,8 @@ You can decide the duration range (for example, the last day, week, or month).</
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_sas_tokens"><a class="anchor" href="#_sas_tokens"></a>SAS tokens</h3>
+<h3 id="_sas_tokens" class="discrete">SAS tokens</h3>
+<hr>
 <div class="paragraph">
 <p>SAS tokens have the following form:-<br>
 <code>SharedAccessSignature sig={signature}&amp;se={expiry}&amp;skn={policyName}&amp;sr={URL-encoded-resourceURI}</code></p>
@@ -2384,7 +2383,6 @@ You can decide the duration range (for example, the last day, week, or month).</
 </div>
 </div>
 </div>
-</div>
 <div class="sect1">
 <h2 id="_the_device_provisioning_process"><a class="anchor" href="#_the_device_provisioning_process"></a>The Device Provisioning Process</h2>
 <div class="sectionbody">
@@ -2404,10 +2402,10 @@ You can decide the duration range (for example, the last day, week, or month).</
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Device manufacturer adds the device registration information to the enrollment list in the Azure portal</p>
+<p>Device manufacturer adds the device registration information to the enrollment list in the Azure portal.</p>
 </li>
 <li>
-<p>Device contacts the DPS set at the factory. The device passes identifying information to the DPS to prove its identity.</p>
+<p>Device contacts the DPS set/embedded at the factory. The device passes identifying information to the DPS to prove its identity.</p>
 </li>
 <li>
 <p>The DPS validates the identity of the device by validating the registration ID and key against the enrollment list entry using either a nonce challenge (TPM) or X.509 certificates.</p>
@@ -2429,8 +2427,11 @@ You can decide the duration range (for example, the last day, week, or month).</
 </li>
 </ol>
 </div>
-<div class="sect2">
-<h3 id="_autoprovisioning_operation"><a class="anchor" href="#_autoprovisioning_operation"></a>Autoprovisioning Operation</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_autoprovisioning_operation"><a class="anchor" href="#_the_autoprovisioning_operation"></a>The Autoprovisioning Operation</h2>
+<div class="sectionbody">
 <div class="imageblock">
 <div class="content">
 <img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-device-provisioning-service-terms-concepts/media/m03-l01-auto-provisioning-diagram-aac3c12a.png" alt="m03 l01 auto provisioning diagram aac3c12a">
@@ -2443,27 +2444,26 @@ You can decide the duration range (for example, the last day, week, or month).</
 <p><strong>Encode identity and registration URL</strong> - the manufacturer is responsible for encoding the device identity info, and the DPS registration URL</p>
 </li>
 <li>
-<p><strong>Provide device identity</strong> the manufacturer is responsible for communicating it to the operator or directly enrolling it to the DPS.</p>
+<p><strong>Provide device identity</strong> - the manufacturer is responsible for communicating it to the operator or directly enrolling it to the DPS.</p>
 </li>
 <li>
-<p><strong>Configure autoprovisioning</strong> a one-time configuration of the Azure IoT Hub and IoT Hub Device Provisioning Service instances, establishing them and creating linkage between them.</p>
+<p><strong>Configure autoprovisioning</strong> - a one-time configuration of the Azure IoT Hub and IoT Hub Device Provisioning Service instances, establishing them and creating linkage between them.</p>
 </li>
 <li>
-<p><strong>Enroll device identity</strong> Identity is based on the attestation mechanism the device is designed to use, which allows the provisioning service to attest to the device&#8217;s authenticity during registration</p>
+<p><strong>Enroll device identity</strong> - Identity is based on the attestation mechanism the device is designed to use, which allows the provisioning service to attest to the device&#8217;s authenticity during registration</p>
 </li>
 <li>
-<p><strong>Build/Deploy registration software.</strong> The Developer is responsible for building and deploying the registration software to the device, using the appropriate SDK.</p>
+<p><strong>Build/Deploy registration software.</strong> - The Developer is responsible for building and deploying the registration software to the device, using the appropriate SDK.</p>
 </li>
 <li>
-<p><strong>Bootup and register.</strong> initiated upon boot up by registration software, which is built using a Device Provisioning Service client SDK appropriate for the device and attestation mechanism.Upon successful registration, the device is provided with its IoT Hub unique device ID and connection information, allowing it to pull its initial configuration and begin the telemetry process.</p>
+<p><strong>Bootup and register.</strong> - Initiated upon boot up by registration software, which is built using a Device Provisioning Service client SDK appropriate for the device and attestation mechanism. Upon successful registration, the device is provided with its IoT Hub unique device ID and connection information, allowing it to pull its initial configuration and begin the telemetry process.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
-</div>
 <div class="sect1">
-<h2 id="_reprovisioning_process"><a class="anchor" href="#_reprovisioning_process"></a>Reprovisioning process</h2>
+<h2 id="_the_reprovisioning_process"><a class="anchor" href="#_the_reprovisioning_process"></a>The Reprovisioning Process</h2>
 <div class="sectionbody">
 
 </div>
