@@ -2465,7 +2465,734 @@ You can decide the duration range (for example, the last day, week, or month).</
 <div class="sect1">
 <h2 id="_the_reprovisioning_process"><a class="anchor" href="#_the_reprovisioning_process"></a>The Reprovisioning Process</h2>
 <div class="sectionbody">
-
+<h3 id="_reprovisioning_scenarios" class="discrete">Reprovisioning Scenarios</h3>
+<hr>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Latency
+</td>
+<td class="hdlist2">
+<p>As a device moves between locations, network latency can be improved by having the device migrated closed to the IoT hub.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Multi-tenancy
+</td>
+<td class="hdlist2">
+<p>A device may be reassigned to a new customer within an IoT solution. This new customer may use a different IoT hub.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Solution change
+</td>
+<td class="hdlist2">
+<p>A device could be moved into a new or updated IoT solution. This may require an IoT hub change.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Quarantine
+</td>
+<td class="hdlist2">
+<p>A device that is malfunctioning, compromised, or out-of-date may be reassigned to an IoT hub that can only update and get back in compliance. Once the device is functioning properly, it&#8217;s then migrated back to its main hub.</p>
+</td>
+</tr>
+</table>
+</div>
+<h3 id="_device_state_data" class="discrete">Device State Data</h3>
+<hr>
+<div class="ulist">
+<ul>
+<li>
+<p>Device state data is composed of the device twin and device capabilities.</p>
+</li>
+<li>
+<p>This data is stored in the Device Provisioning Service instance and the IoT hub that a device is assigned to</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-device-provisioning-service-terms-concepts/media/m03-l01-device-provisioning-service-reprovisioning-state-1-0f06266f.png" alt="m03 l01 device provisioning service reprovisioning state 1 0f06266f">
+</div>
+</div>
+<div class="paragraph">
+<p>When a device is initially provisioned with a DPS instance, the following steps are done:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The device sends a provisioning request to a DPS instance.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>The service instance authenticates the device identity based on an enrollment entry.</p>
+</li>
+<li>
+<p>It then creates the initial configuration of the device state data.</p>
+</li>
+<li>
+<p>The service instance assigns the device to an IoT hub based on the enrollment configuration.</p>
+</li>
+<li>
+<p>It then returns that IoT hub assignment to the device.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The provisioning service instance gives a copy of any intial device state data to the assigned IoT hub.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>The device connects to the assigned IoT hub and begins operations.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Over time, the device state data on the IoT hub may be updated by device operations and back-end operations.</p>
+</li>
+<li>
+<p>The initial device state information stored in the DPS instance stays untouched.</p>
+</li>
+<li>
+<p>This untouched device state data is the initial configuration.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-device-provisioning-service-terms-concepts/media/m03-l01-device-provisioning-service-reprovisioning-state-2-ccaf3d23.png" alt="m03 l01 device provisioning service reprovisioning state 2 ccaf3d23">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>As a device moves between IoT hubs, it may also be necessary to migrate device state updated on the previous IoT hub over to the new IoT hub.</p>
+</li>
+<li>
+<p>This migration is supported by reprovisioning policies in the DPS.</p>
+</li>
+</ul>
+</div>
+<h3 id="_reprovisioning_policies" class="discrete">Reprovisioning policies</h3>
+<hr>
+<div class="ulist">
+<ul>
+<li>
+<p>A device usually supports a method to manually trigger provisioning on demand.</p>
+</li>
+<li>
+<p>The reprovisioning policy on an enrollment entry determines how the DPS handles provisioning requests.</p>
+</li>
+<li>
+<p>The policy also determines whether device state data should be migrated during reprovisioning.</p>
+</li>
+<li>
+<p>The same policies are available for individual enrollments and enrollment groups:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-device-provisioning-service-terms-concepts/media/m03-l01-device-provisioning-service-reprovisioning-state-3-499f65e7.png" alt="m03 l01 device provisioning service reprovisioning state 3 499f65e7">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Reprovision and migrate data:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This policy is the default for new enrollment entries.</p>
+</li>
+<li>
+<p>This policy takes action when devices associated with the enrollment entry submint a new request (1).</p>
+</li>
+<li>
+<p>The updated device state information from that initial IoT hub will be migrated over to the new IoT hub (2).</p>
+</li>
+<li>
+<p>During migration, the device&#8217;s status will be reported as Assigning.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-device-provisioning-service-terms-concepts/media/m03-l01-device-provisioning-service-reprovisioning-state-4-bb4ef6ea.png" alt="m03 l01 device provisioning service reprovisioning state 4 bb4ef6ea">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Reprovision and reset to initial config:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This policy takes action when devices associated with the enrollment entry submit a new provisioning request (1).</p>
+</li>
+<li>
+<p>The initial configuration data that the provisioning service instance received when the device was provisioned is provided to the new IoT hub (2).</p>
+</li>
+<li>
+<p>During migration, the device&#8217;s status will be reported as Assigning.</p>
+</li>
+<li>
+<p>This policy is often used for a factory reset without changing IoT hubs.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Never reprovision: The device is never reassigned to a different hub. This policy is provided for managing backwards compatibility.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_azure_cli_commands_for_dps"><a class="anchor" href="#_azure_cli_commands_for_dps"></a>Azure CLI Commands for DPS</h2>
+<div class="sectionbody">
+<h3 id="_dps_service_commands" class="discrete">DPS Service Commands</h3>
+<hr>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service Commands</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps create</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create an Azure IoT Hub DPS instance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps delete</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete an Azure IoT Hub DPS instance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List Azure IoT Hub Device Provisioning Service instances.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps show</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Get the details of an Azure IoT Hub Device Provisioning instance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps update</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update an Azure IoT Hub Device Provisioning Service instance.</p></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_access_policy_commands" class="discrete">Access Policy Commands</h3>
+<hr>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Access Policy Commands</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps access-policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Manage Azure IoT Hub DPS access policies.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps access-policy create</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create a new shared access policy in an Azure IoT Hub DPS instance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps access-policy delete</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete a shared access policies in an Azure IoT Hub DPS instance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps access-policy list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List all shared access policies in an Azure IoT Hub DPS.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps access-policy show</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Show details of a shared access policy in an Azure IoT Gub DPS instance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps access-policy update</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update a shared access policy in an Azure IoT Hub DPS instance.</p></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_certificate_commands" class="discrete">Certificate Commands</h3>
+<hr>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps certificate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Manage Azure IoT Hub DPS certificates.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps certificate create</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create/upload an Azure IoT Hub DPS certificate.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps certificate delete</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete an Azure IoT Hub DPS certificate.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps certificate generate-verification-code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Generate a verification code for an Azure IoT Hub DPS certificate.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps certificate list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List all certificates contained within an Azure IoT Gub dps</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps certificate show</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Show information about a particular Azure IoT Hub DPS certificate.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps certificate update</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update an Azure IoT Hub DPS certificate</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps certificate verify</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Verify an Azure IoT Hub DPS certificate.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Linked Hub Commands</p>
+</div>
+<hr>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Linked Hub Commands</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Descriptions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps linked-hub</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Manage Azure IoT Hub DPS linked IoT hubs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps linked-hub create</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create a linked IoT hub in an Azure IoT Hub DPS instance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps linked-hub delete</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update (delete) a linked IoT hub in an Azure IoT Hub DPS instance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps linked-hub list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List all linked IoT hubs in an Azure IoT DPS instance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps linked-hub show</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Show details of a linked IoT hub in an Azure IoT Hub DPS instance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az iot dps linked-hub update</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update a linked IoT hub in an Azure IoT Hub DPS instance.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_device_provisioning_sdk"><a class="anchor" href="#_device_provisioning_sdk"></a>Device Provisioning SDK</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Azure Provisioning device and service SDKs for C# can be downloaded from NuGet as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Provisioning Device Client SDK</p>
+</li>
+<li>
+<p>Provisioning Service Client SDK</p>
+</li>
+</ul>
+</div>
+<h3 id="_provisioning_device_sdk" class="discrete">Provisioning Device SDK</h3>
+<hr>
+<div class="ulist">
+<ul>
+<li>
+<p>This SDK supports the following protocols: MQTT, MQTT-WS, AMQP, AMQP-WS, and HTTPS.</p>
+</li>
+<li>
+<p>TPM Individual Enrollment:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This SDK supports connecting your device to the DPS via individual enrollment using TPM.</p>
+</li>
+<li>
+<p>TPM over MQTT (and MQTT-WS) is currrently not supported by the DPS</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>X.509 Indivicual Enrollment:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This SDK supports connecting your device to the DPS via individual enrollment using X.509 root certificate.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>X.509 Enrollment Group</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This SDK supports connecting your device to the DPS via individual enrollment using X.509 leaf certificate.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>WebSocket support for MQTT/AMQP is limited to .NET Framework 4.x</p>
+</li>
+</ul>
+</div>
+<h3 id="_provisioning_service_sdk" class="discrete">Provisioning Service SDK</h3>
+<hr>
+<div class="ulist">
+<ul>
+<li>
+<p>This SDK can be used to programmatically enroll devices.</p>
+</li>
+<li>
+<p>CRUD Operation with TPM Individual Enrollment</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Programmatically manage device enrollment using TPM with the service SDK.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Bulk CRUD Operation with TPM Individual Enrollment</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Programmatically manage device enrollment using TPM with the service SDK.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>CRUD Operation with X.509 Individual Enrollment</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Programmatically manage device enrollment using X.509 individual enrollment with the service SDK.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>CRUD Operation with X.509 Group Enrollment</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Programmatically manage device enrollment using X.509 group enrollment with the service SDK.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Query enrollments</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Programmatically query registration states with the service SDK.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_trusted_platform_module_tpm_simulator"><a class="anchor" href="#_trusted_platform_module_tpm_simulator"></a>Trusted Platform Module (TPM) Simulator</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>In production, TPM is located on the device, either as discrete hardware, integrated hardware, or firmware-based.</p>
+</li>
+<li>
+<p>In testing phase, a software-based TPM simulator is provided to developers.</p>
+</li>
+<li>
+<p>This simulator is only available on the Windows platform for now.</p>
+</li>
+<li>
+<p>Clone the Github repository: <code>git clone <a href="https://github.com/Azure/azure-iot-sdk-java.git" class="bare">https://github.com/Azure/azure-iot-sdk-java.git</a></code>.</p>
+</li>
+<li>
+<p>Navigate to the TPM simulator folder under <code>azure-iot-sdk-java/provisioning/provisioning-tool/tpm-simulator/</code>.</p>
+</li>
+<li>
+<p>Run Simulator.exe prior to running any client application for provisioning device.</p>
+</li>
+<li>
+<p>Let the simulator run in the background throughout the provisioning process to obtain registration ID and Endorsement Key. Both values are only valid for one instance of the run.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_x_509_certificate_generator"><a class="anchor" href="#_x_509_certificate_generator"></a>X.509 certificate Generator</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>For production environment, purchase an X.509 CA certificate from a public root certificate authority.</p>
+</li>
+<li>
+<p>For testing environment, you can generate an X.509 root certificate or X.509 certificate chain using:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>OpenSSL: You can use scripts for certificate generation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Node.js</p>
+</li>
+<li>
+<p>Powershell or Bash</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Device Identity Composition Engine (DICE) Enulator: DICE can be used for cryptographic device identity and attestation based on TLS protocol and X.509 client certificates.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/en-us/azure/iot-hub/tutorial-x509-openssl" class="bare">https://learn.microsoft.com/en-us/azure/iot-hub/tutorial-x509-openssl</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_access_control_to_dps"><a class="anchor" href="#_access_control_to_dps"></a>Access control to DPS</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>The DPS uses permissions to grant access to each endpoint.</p>
+</li>
+<li>
+<p>Permissions limit the access to a service instance based on functionality.</p>
+</li>
+<li>
+<p>For example, a backend app must include a token that contains security credentials along with every message it sends to the service.</p>
+</li>
+<li>
+<p>You can grant permissions in the following ways:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Shared access authorization policies. Shared access policies can grant any combination of permissions.</p>
+</li>
+<li>
+<p>A newly created provisioning service has the <code>provisioningserviceowner</code> policy set as the default policy. It is a policy with all permissions.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="_authentication_2" class="discrete">Authentication</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>DPS grants access to endpoints by verifying a token against the shared access policies.</p>
+</li>
+<li>
+<p>Security credentials, such as symmetric keys, are never sent over the wire.</p>
+</li>
+</ul>
+</div>
+<h3 id="_security_tokens_2" class="discrete">Security tokens</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The DPS uses security tokens to authenticate services to avoid sending keys on the wire.</p>
+</li>
+<li>
+<p>Security tokens are limited in time validity and scope.</p>
+</li>
+<li>
+<p>DPS SDKs automatically generate tokens without requiring any special configuration.</p>
+</li>
+</ul>
+</div>
+<h3 id="_security_token_structure" class="discrete">Security Token Structure</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Use security tokens to grant time-bounded access for services to specific functionality in IoT Device Provisioning Service.</p>
+</li>
+<li>
+<p>To get authorization to connect to the provisioning service, services must send security tokens signed with either a shared access or symmetric key.</p>
+</li>
+<li>
+<p>A token signed with a shared access key grants access to all the functionality associated with the shared access policy permissions.</p>
+</li>
+<li>
+<p>The security token has the following format:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SharedAccessSignature sig={signature}&amp;se={expiry}&amp;skn={policyName}&amp;sr={URL-encoded-resourceURI}</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="_use_security_tokens_from_service_components" class="discrete">Use security tokens from service components</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Service components can only generate security tokens using shared access policies granting the appropriate permissions.</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Endpoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Functionality</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{your-service}.azure-devices-provisioning.net/enrollments</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides device enrollment operations with the Device Provisioning Service.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{your-service}.azure-devices-provisioning.net/enrollmentGroups</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides operations for managing device enrollment groups.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{your-service}.azure-devices-provisioning.net/registrations/{id}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides operations for retrieving and managing the status of device registrations.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p>As an example, a service generated using a pre-created shared access policy named <code>enrollmentread</code> would create a token with the following parameters:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>resource URI: <code>{mydps}.azure-devices-provisioning.net</code>,</p>
+</li>
+<li>
+<p>signing key: one of the keys of the <code>enrollmentread</code> policy,</p>
+</li>
+<li>
+<p>policy name: <code>enrollmentread</code>,</p>
+</li>
+<li>
+<p>an expiration time</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The result, which would grant access to read all enrollment records, would be:</p>
+</div>
+<div class="paragraph">
+<p><code>SharedAccessSignature sr=mydps.azure-devices-
+provisioning.net&amp;sig=JdyscqTpXdEJs49elIUCcohw2DlFDR3zfH5KqGJo4r4%3D&amp;se=1456973447&amp;skn=enrollmentread</code></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_device_provisioning_service_2"><a class="anchor" href="#_device_provisioning_service_2"></a>Device Provisioning Service</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Permission</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ServiceConfig</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Grants access to change the service configurations. This permissions is used by backend cloud services.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EnrollmentRead</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Grants read access to the device enrollments and enrollment groups. This permission is used by backend cloud services.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EnrollmentWrite</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Grants write access to the device enrollments and enrollment groups. This permission is used by backend cloud services.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RegistrationStatusRead</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Grants read access to the device registration status. This permission is used by backend cloud services.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RegistrationStatusWrite</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Grants delete access to the device registration status. This permission is used by backend cloud services.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </article>
