@@ -878,10 +878,22 @@ You can decide the duration range (for example, the last day, week, or month).</
 <div class="sect1">
 <h2 id="_iot_hub_tiers"><a class="anchor" href="#_iot_hub_tiers"></a>IoT Hub Tiers</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>*To evaluate which IoT Hub tier is right for you solution, consider the following two questions:
-<strong> What features do I plan to use?
-</strong> How much data do I plan to move daily?</p>
+<div class="ulist">
+<ul>
+<li>
+<p>To evaluate which IoT Hub tier is right for you solution, consider the following two questions:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What features do I plan to use?</p>
+</li>
+<li>
+<p>How much data do I plan to move daily?</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <h3 id="_basic_tier" class="discrete">Basic Tier</h3>
 <hr>
@@ -964,7 +976,10 @@ You can decide the duration range (for example, the last day, week, or month).</
 <div class="ulist">
 <ul>
 <li>
-<p>Partions can be used to reduce contentions that could occur when concurrently reading and writing to event streams. * The partition limit is chosen when IoT hub is created.</p>
+<p>Partions can be used to reduce contentions that could occur when concurrently reading and writing to event streams.</p>
+</li>
+<li>
+<p>The partition limit is chosen when IoT hub is created.</p>
 </li>
 <li>
 <p>The maximum partition limit is 32 but most IoT hubs only need 4 partitions.</p>
@@ -1025,23 +1040,23 @@ You can decide the duration range (for example, the last day, week, or month).</
 <p><strong>Resource provider</strong>. It exposes an Azure Resource Manager interface. This interface enables Azure subscription owners to create and delete IoT hubs, and to update IoT hub properties.</p>
 </li>
 <li>
-<p><strong>Device identity management</strong>. A set of HTTPS REST endpoints to manage device identities. Device identities are used for device authentication and access control.</p>
+<p><strong>Device identity management</strong>. A set of Https REST endpoints to manage device identities. Device identities are used for device authentication and access control.</p>
 </li>
 <li>
-<p><strong>Device twin management</strong>. A set of HTTPS REST endpoints to query and update device twins.</p>
+<p><strong>Device twin management</strong>. A set of Https REST endpoints to query and update device twins.</p>
 </li>
 <li>
-<p><strong>Jobs management</strong> HTTS REST endpoint to query and manage jobs.</p>
+<p><strong>Jobs management</strong>. Https REST endpoint to query and manage jobs.</p>
 </li>
 <li>
 <p><strong>Device endpoints</strong>. For each device, a set of endpoints are exposed</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Send device-to-cloud messages</p>
+<p>Send device-to-cloud messages.</p>
 </li>
 <li>
-<p>Receive cloud-to-device messages</p>
+<p>Receive cloud-to-device messages.</p>
 </li>
 <li>
 <p>Initiate file uploads - a device uses this endpoint to receive an Azure storage SAS URI from IoT Hub to upload a file.</p>
@@ -1056,7 +1071,7 @@ You can decide the duration range (for example, the last day, week, or month).</
 </div>
 </li>
 <li>
-<p><strong>Service endpoints</strong>. Exposes a set of endpoints for your solution back end to communicate with your devices. With one exception, these endpoints are only exposed using the AMQP protocols. The method invocation endpoint is exposed over the HTTPS protocol.</p>
+<p><strong>Service endpoints</strong>. Exposes a set of endpoints for your solution back end to communicate with your devices. With one exception, these endpoints are only exposed using the AMQP protocols. The method invocation endpoint is exposed over the Https protocol.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1121,13 +1136,13 @@ You can decide the duration range (for example, the last day, week, or month).</
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Azure AD</strong>. It provides identity-based authentication and fine-grained authorization with Azure RBAC. It supports only IoT hub service api&#8217;s.</p>
+<p><strong>Azure AD</strong> - It provides identity-based authentication and fine-grained authorization with Azure RBAC. It supports only IoT hub service api&#8217;s.</p>
 </li>
 <li>
-<p><strong>SAS</strong>. It lets you group permissions and grant them to applications using access keys and signed security tokens.</p>
+<p><strong>SAS</strong> - It lets you group permissions and grant them to applications using access keys and signed security tokens.</p>
 </li>
 <li>
-<p><strong>Per-device security credentials</strong>. Each IoT Hub contains an identity registry. For each device in this registry, you can configure security credentials that grant DeviceConnect permissions scoped to the device&#8217;s endpoints.</p>
+<p><strong>Per-device security credentials</strong> - Each IoT Hub contains an identity registry. For each device in this registry, you can configure security credentials that grant DeviceConnect permissions scoped to the device&#8217;s endpoints.</p>
 </li>
 </ul>
 </div>
@@ -1185,7 +1200,7 @@ You can decide the duration range (for example, the last day, week, or month).</
 <div class="ulist">
 <ul>
 <li>
-<p>You can verify using X.509 certificates by uploading either a certificate thumbprint or a certificate authority(CA) to Azure IoT Hub.</p>
+<p>You can verify using X.509 certificates by uploading either a certificate thumbprint or a certificate authority (CA) to Azure IoT Hub.</p>
 </li>
 <li>
 <p>Authentication using certificate thumbprints only verifies that the presented thumbprint matches the configured thumbprint.</p>
@@ -3193,6 +3208,233 @@ provisioning.net&amp;sig=JdyscqTpXdEJs49elIUCcohw2DlFDR3zfH5KqGJo4r4%3D&amp;se=1
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configure_verified_ca_certificates"><a class="anchor" href="#_configure_verified_ca_certificates"></a>Configure Verified CA Certificates</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>A verified X.509 Certificate Authority (CA) certificate is a CA certificate that has been uploaded and registered to your provisioning service and has gone through proof-of-possession with the service.</p>
+</li>
+</ul>
+</div>
+<h3 id="_proof_of_possession_process" class="discrete">Proof-of-Possession Process</h3>
+<hr>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Get a unique verification code generated by the provisioning service for your X.509 CA certificate. You can do this from the Azure portal.</p>
+</li>
+<li>
+<p>Create an X.509 verification certificate with the verification code as its subject and sign the certificate with the private key associated with your X.509 certificate.</p>
+</li>
+<li>
+<p>Upload the signed verification certificate to the service. The service validates the verification certificate using the public portion of the CA certificate to be verified, thus proving that you are in possession of the CA certificate&#8217;s private key.</p>
+</li>
+</ol>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Verifying certificate ownership ensures the uploader of the certificate is in possession of the certificate&#8217;s private key.</p>
+</li>
+<li>
+<p>Verification prevents a malicious actor sniffing your traffic from extracting an intermediate certificate and using that certificate to create an enrollment group in their own provisioning service, effectively hijacking your devices.</p>
+</li>
+<li>
+<p>By proving ownership of the root or an intermediate certificate in a certificate chain, you are proving that you have permission to generate leaf certificates for the devices that will be registering as part of that enrollment group.</p>
+</li>
+<li>
+<p>For this reason, the root or intermediate certificate configured in an enrollment group must either be a verified certificate or must roll up to a verified certificate in the certificate chain a device presents when it authenticates with the service.</p>
+</li>
+</ul>
+</div>
+<h3 id="_register_and_get_the_verification_code" class="discrete">Register and get the verification code</h3>
+<hr>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the Azure portal, navigate to your provisioning service and open Certificates from the left-hand menu.</p>
+</li>
+<li>
+<p>Select Add to add a new certificate.</p>
+</li>
+<li>
+<p>Enter a friendly display name for your certificate.</p>
+</li>
+<li>
+<p>Browse to your .cer or .pem file that represents the public part of your X.509 certificate.</p>
+</li>
+<li>
+<p>Select Upload.</p>
+</li>
+<li>
+<p>Once you get a notification that your certificate is successfully uploaded, Select Save.</p>
+</li>
+<li>
+<p>Select the certificate that you added in the previous step.</p>
+</li>
+<li>
+<p>In Certificate Details, select Generate Verification code.</p>
+</li>
+<li>
+<p>The provisioning service creates a verification code that you can use to validate the certificate ownership.</p>
+</li>
+<li>
+<p>Copy the code to your clipboard.</p>
+</li>
+</ol>
+</div>
+<h3 id="_digitally_sign_the_verification_code_to_create_a_verification_certificate" class="discrete">Digitally sign the verification code to create a verification certificate</h3>
+<hr>
+<div class="ulist">
+<ul>
+<li>
+<p>You need to sign the Verification Code with the private key associated with your X.509 CA certificate, which generates a signature.</p>
+</li>
+<li>
+<p>This process is known as Proof of possession and results in a signed verification certificate.</p>
+</li>
+<li>
+<p>The Azure IoT Hub C SDK provides Powershell (Windows) and Bash (Linux) scripts to help you create CA and leaf certificates for development and to perform proof-of-possession using a verification code.</p>
+</li>
+<li>
+<p>You download the files relevant to your system to a working folder and follow the instructions in the Managing CA certificates readme to perform proof-of-possession on a CA certificate.</p>
+</li>
+<li>
+<p>The Azure IoT Hub C# SDK contains the Group Certificate Verification Sample, which you can use to do proof-of-possession.</p>
+</li>
+<li>
+<p>The Powershell and Bash scripts provided in the documentation and SDKs rely on OpenSSL.</p>
+</li>
+<li>
+<p>You may also use OpenSSL or other third-party tools to help you do proof-of-possession.</p>
+</li>
+</ul>
+</div>
+<h3 id="_upload_the_signed_verification_certificate" class="discrete">Upload the signed verification certificate</h3>
+<hr>
+<div class="ulist">
+<ul>
+<li>
+<p>Upload the resulting signature as a verification certificate to your provisioning service in the portal.</p>
+</li>
+<li>
+<p>In Certificate Details on the Azure portal, use the File Explorer icon next to the Verification Certificate .pem or .cer file field to upload the signed verification certificate from your system.</p>
+</li>
+<li>
+<p>Once the certificate is successfully uploaded, select Verify. The STATUS of your certificate changes to Verified in the Certificate Explorer list.</p>
+</li>
+<li>
+<p>Select Refresh if it does not update automatically.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_roll_device_certificates"><a class="anchor" href="#_roll_device_certificates"></a>Roll Device Certificates</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>During the lifecycle of your IoT solution, you will need to roll certificates.</p>
+</li>
+<li>
+<p>It could be because of a security breach or certificate expirations.</p>
+</li>
+<li>
+<p>Rolling device certificates will involve updating the certificate stored on the device and the IoT hub.</p>
+</li>
+<li>
+<p>The device can then reprovision itself with the IoT hub using normal autoprovisioning with the DPS.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_roll_the_certificate_on_the_device"><a class="anchor" href="#_roll_the_certificate_on_the_device"></a>Roll the certificate on the device</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Certificates on a device should always be stored in a safe place like a HSM.</p>
+</li>
+<li>
+<p>If you are managing your own device certificates, make sure both old and new leaf certificates have the same Common Name (CN).</p>
+</li>
+<li>
+<p>By having the same CN, the device can reprovision itself without creating a duplicate registration record.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/en-us/azure/iot-dps/how-to-roll-certificates" class="bare">https://learn.microsoft.com/en-us/azure/iot-dps/how-to-roll-certificates</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_deprovisioning_process"><a class="anchor" href="#_the_deprovisioning_process"></a>The Deprovisioning process</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Deprovisioning a device involves two steps:
+* Disenroll the device from your provisioning service, to prevent future autoprovisioning.
+<strong> To learn how to disenroll a device, see <a href="https://learn.microsoft.com/en-us/azure/iot-dps/how-to-revoke-device-access-portal" class="bare">https://learn.microsoft.com/en-us/azure/iot-dps/how-to-revoke-device-access-portal</a>
+</strong> To learn how to disenroll a device programmatically using one of the provisioning SDKs, see <a href="https://learn.microsoft.com/en-us/azure/iot-dps/quick-enroll-device-x509?pivots=programming-language-csharp" class="bare">https://learn.microsoft.com/en-us/azure/iot-dps/quick-enroll-device-x509?pivots=programming-language-csharp</a>
+** Deregister the device from your IoT Hub, to prevent future communications and data transfer.</p>
+</div>
+<div class="paragraph">
+<p>The exact steps you take to deprovision a device depends on its attestation mechanism and its applicable enrollment entry with your provisioning service.</p>
+</div>
+<div class="paragraph">
+<p>Deprovisioning enrollment groups requires you to consider two scenarios:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To deprovision all of the devices that have been provisioned through an enrollment group:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Disable the enrollment group to blocklist its signing certificate.</p>
+</li>
+<li>
+<p>Use the list of provisioned devices for that enrollment group to disable or delete each device from the identity registry of its respective IoT hub</p>
+</li>
+<li>
+<p>After disabling or deleting all devices from their respective IoT hubs, you can optionally delete the enrollment group.</p>
+</li>
+<li>
+<p>Be aware, though, that, if you delete the enrollment group and there is an enabled enrollment group for a signing certificate higher up in the certificate chain of one or more of the devices, those devices can re-enroll.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>To deprovision a single device from an enrollment group:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a disabled individual enrollment for its leaf (device) certificate.</p>
+</li>
+<li>
+<p>This revokes access to the provisioning service for that device while still permitting access for other devices that have the enrollment group&#8217;s signing certificate in their chain.</p>
+</li>
+<li>
+<p>Do not delete the disabled individual enrollment for the device.</p>
+</li>
+<li>
+<p>Doing so will allow the device to re-enroll through the enrollment group.</p>
+</li>
+<li>
+<p>Use the list of provisioned devices for that enrollment group to find the IoT hub that the device was provisioned to and disable or delete it from theat hub&#8217;s identity registry.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </article>
