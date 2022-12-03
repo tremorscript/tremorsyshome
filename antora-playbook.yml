@@ -2,6 +2,9 @@ site:
   title: Tremorscript
   start_page: homesite::index.adoc
   url: https://tremorscript.com
+urls:
+  latest_version_segment_strategy: redirect:to
+  latest_version_segment: current
 content:
   sources:
   - url: .
@@ -12,7 +15,7 @@ content:
     branches: [main]
     start_path: docs
   - url: https://github.com/tremorscript/ReferenceGuides.git
-    branches: [main]
+    branches: main
     start_path: docs
 ui:
   bundle:
