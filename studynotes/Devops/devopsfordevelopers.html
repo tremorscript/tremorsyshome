@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Devops for Asp.Net Core developers :: Tremorscript</title>
+    <link rel="canonical" href="https://tremorscript.com/studynotes/Devops/devopsfordevelopers.html">
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://tremorscript.com">Tremorscript</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="studynotes" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Study Notes</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Study Notes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../FSharp/overview.html">FSharp Notes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Computation Expressions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/LogBuilder.html">Log Builder</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/MaybeBuilder.html">Maybe Builder</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/OrElseBuilder.html">OrElse Builder</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/IntroducingBind.html">Introducing Bind</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/WrapperTypes.html">Wrapper Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/WorkflowRulesForWrapperTypes.html">Rules for workflows that use wrapper types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/ComputationExpressionComposition.html">Composition of computation expression</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/ListWrapperTypes.html">List Wrapper Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/IdentityWrapperTypes.html">Identity Wrapper Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/DoMethod.html">Do Method</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/YieldMethod.html">Yield Method</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/CombineMethod.html">Combine method</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/DelayRunMethod.html">Delay and Run Method</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../Git/overview.html">Git Notes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="devopsfordevelopers.html">Devops for Asp.Net Core developers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../azure_iot/overview.html">Azure IoT</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Study Notes</span>
+    <span class="version">default</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../azurearchitecturestarterpack/current/index.html">Azure Architecture Starter Pack</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../azurearchitecturestarterpack/current/index.html">1-beta.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../homesite/current/index.html">Home page</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../homesite/current/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../projectstarterpack/current/inline-text-formatting.html">New Project Starter Pack</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../projectstarterpack/current/inline-text-formatting.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../index.html">Study Notes</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">default</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../homesite/current/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Study Notes</a></li>
+    <li><a href="devopsfordevelopers.html">Devops for Asp.Net Core developers</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/Devops/pages/devopsfordevelopers.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Devops for Asp.Net Core developers</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This is my study notes for the book <a href="https://learn.microsoft.com/en-us/dotnet/architecture/devops-for-aspnet-developers/">DevOps for ASP.NET Core Developers</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_a_web_service_app"><a class="anchor" href="#_create_a_web_service_app"></a>Create a web service app</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">webappname=mywebapp$RANDOM <i class="conum" data-value="1"></i><b>(1)</b>
+az group create --location centralus --name AzureTutorial <i class="conum" data-value="2"></i><b>(2)</b>
+az appservice plan create --name $webappname --resource-group AzureTutorial --sku S1 <i class="conum" data-value="3"></i><b>(3)</b>
+az webapp create --name $webappname --resource-group AzureTutorial --plan $webappname <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Declare a variable to store your web app&#8217;s name.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Create a resource group.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Create an App Service plan in the S1 tier.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Create the web app resource</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_deploy_from_local_git_repository_to_azure_web_app"><a class="anchor" href="#_deploy_from_local_git_repository_to_azure_web_app"></a>Deploy from local git repository to azure web app</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">az webapp config appsettings set --name $webappname --resource-group AzureTutorial --settings DEPLOYMENT_BRANCH=main <i class="conum" data-value="1"></i><b>(1)</b>
+az webapp deployment user set --user-name REPLACE_WITH_USER_NAME --password REPLACE_WITH_PASSWORD <i class="conum" data-value="2"></i><b>(2)</b>
+echo Git deployment URL: $(az webapp deployment source config-local-git --name $webappname --resource-group AzureTutorial --query url --output tsv) <i class="conum" data-value="3"></i><b>(3)</b>
+echo Web app URL: http://$webappname.azurewebsites.net <i class="conum" data-value="4"></i><b>(4)</b>
+git remote add azure-prod GIT_DEPLOYMENT_URL <i class="conum" data-value="5"></i><b>(5)</b>
+git push azure-prod main <i class="conum" data-value="6"></i><b>(6)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Set the deployment branch to main in the appsettings configuration.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Set the deployment credentials. These deployment credentials apply to all the web apps in your subscription.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Configure the web app to accept deployments from local Git and display the Git deployment URL.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Display the web app URL. Browse to this URL to see the blank web app.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Add the remote URL to the local repository.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Push the local default branch (main) to the azure-prod remote&#8217;s deployment branch (main).</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_deploy_using_deployment_slots"><a class="anchor" href="#_deploy_using_deployment_slots"></a>Deploy using deployment slots</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">az webapp deployment slot create --name $webappname --resource-group AzureTutorial --slot staging <i class="conum" data-value="1"></i><b>(1)</b>
+az webapp config appsettings set --name $webappname --resource-group AzureTutorial --slot staging --settings DEPLOYMENT_BRANCH=main <i class="conum" data-value="2"></i><b>(2)</b>
+echo Git deployment URL for staging: $(az webapp deployment source config-local-git --name $webappname --resource-group AzureTutorial --slot staging --query url --output tsv) <i class="conum" data-value="3"></i><b>(3)</b>
+echo Staging web app URL: http://$webappname-staging.azurewebsites.net <i class="conum" data-value="4"></i><b>(4)</b>
+git remote add azure-staging &lt;Git_staging_deployment_URL&gt; <i class="conum" data-value="5"></i><b>(5)</b>
+git push azure-staging main <i class="conum" data-value="6"></i><b>(6)</b>
+az webapp deployment slot swap --name $webappname --resource-group AzureTutorial --slot staging <i class="conum" data-value="7"></i><b>(7)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Create a deployment slot with the name staging.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Set the deployment branch to main in the appsettings configuration.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Configure the staging slot to use deployment from local Git and get the staging deployment URL.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Display the staging slot&#8217;s URL. Browse to the URL to see the empty staging slot.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Add the remote URL for staging to the local Git repository.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Push the local default branch (main) to the azure-staging remote&#8217;s deployment branch (main).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>swap the verified/warmed-up staging slot into production.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_azure_devops_pipeline"><a class="anchor" href="#_azure_devops_pipeline"></a>Azure Devops Pipeline</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a new Create an Azure DevOps organization. <a href="https://go.microsoft.com/fwlink/?LinkId=307137" class="bare" target="_blank" rel="noopener">https://go.microsoft.com/fwlink/?LinkId=307137</a></p>
+</li>
+<li>
+<p>Create a team project in Azure DevOps organization</p>
+</li>
+<li>
+<p>Configure a self-hosted agent if necessary. Organization Settings and then Pipelines &gt; Parallel jobs. If you see value 0 under Microsoft-hosted that means you need a Self-hosted agent to run your pipeline</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/en-us/dotnet/architecture/devops-for-aspnet-developers/cicd#grant-azure-devops-access-to-the-github-repository" target="_blank" rel="noopener">Grant Azure DevOps access to the GitHub repository</a></p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/en-us/dotnet/architecture/devops-for-aspnet-developers/cicd#create-the-build-definition" target="_blank" rel="noopener">Create the build definition</a></p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/en-us/dotnet/architecture/devops-for-aspnet-developers/cicd#create-the-release-pipeline" target="_blank" rel="noopener">Create the release pipeline</a></p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/en-us/dotnet/architecture/devops-for-aspnet-developers/cicd#commit-changes-to-github-and-automatically-deploy-to-azure" target="_blank" rel="noopener">Commit changes to GitHub and automatically deploy to Azure</a></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>

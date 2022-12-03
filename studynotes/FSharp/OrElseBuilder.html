@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>OrElse Builder :: Tremorscript</title>
+    <link rel="canonical" href="https://tremorscript.com/studynotes/FSharp/OrElseBuilder.html">
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://tremorscript.com">Tremorscript</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="studynotes" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Study Notes</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Study Notes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="overview.html">FSharp Notes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Computation Expressions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="LogBuilder.html">Log Builder</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="MaybeBuilder.html">Maybe Builder</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="OrElseBuilder.html">OrElse Builder</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="IntroducingBind.html">Introducing Bind</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="WrapperTypes.html">Wrapper Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="WorkflowRulesForWrapperTypes.html">Rules for workflows that use wrapper types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="ComputationExpressionComposition.html">Composition of computation expression</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="ListWrapperTypes.html">List Wrapper Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="IdentityWrapperTypes.html">Identity Wrapper Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="DoMethod.html">Do Method</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="YieldMethod.html">Yield Method</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="CombineMethod.html">Combine method</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="DelayRunMethod.html">Delay and Run Method</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../Git/overview.html">Git Notes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../Devops/devopsfordevelopers.html">Devops for Asp.Net Core developers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../azure_iot/overview.html">Azure IoT</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Study Notes</span>
+    <span class="version">default</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../azurearchitecturestarterpack/current/index.html">Azure Architecture Starter Pack</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../azurearchitecturestarterpack/current/index.html">1-beta.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../homesite/current/index.html">Home page</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../homesite/current/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../projectstarterpack/current/inline-text-formatting.html">New Project Starter Pack</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../projectstarterpack/current/inline-text-formatting.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../index.html">Study Notes</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">default</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../homesite/current/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Study Notes</a></li>
+    <li><a href="overview.html">FSharp Notes</a></li>
+    <li>Computation Expressions</li>
+    <li><a href="OrElseBuilder.html">OrElse Builder</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/FSharp/pages/OrElseBuilder.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">OrElse Builder</h1>
+<div class="paragraph">
+<p>OrElseBuilder is useful if you have chains of "or/else" statements.</p>
+</div>
+<div class="paragraph">
+<p>Sometimes the flow of control depends on a series of "or else" tests.<br>
+Try one thing, and if that succeeds, you&#8217;re done.<br>
+Otherwise try another thing, and if that fails, try a third thing, and so on.</p>
+</div>
+<div class="paragraph">
+<p>Say that we have three dictionaries and we want to find the value corresponding to a key.<br>
+Each lookup might succeed or fail, so we need to chain the lookups in a series.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">let map1 = [("1", "One"); ("2", "Two")] |&gt; Map.ofList
+let map2 = [("A", "Alice"); ("B", "Bob")] |&gt; Map.ofList
+let map3 = [("CA", "California"); ("NY", "New York")] |&gt; Map.ofList
+
+let multiLookup key =
+    match map1.TryFind key with
+    | Some result1 -&gt; Some result1 //success
+    | None -&gt; //failure
+        match map2.TryFind key with
+        | Some result2 -&gt; Some result2 //success
+        | None -&gt; //failure
+            match map3.TryFind key with
+            | Some result3 -&gt; Some result3 //success
+            | None -&gt; None //failure</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Because everything is an expression in F# we can&#8217;t do an early return, we have to cascade all the tests in a single expression.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">multiLookup "A" |&gt; printfn "Result for A is %A"
+multiLookup "CA" |&gt; printfn "Result for CA is %A"
+multiLookup "X" |&gt; printfn "Result for X is %A"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here is an "or else" builder that allows us to simplify these kinds of lookups.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">type OrElseBuilder() =
+    member this.ReturnFrom(x) =
+        x
+
+    member this.Combine (a,b) =
+        match a with
+        | Some _ -&gt;
+            a   // a succeeds -- use it
+        | None -&gt;
+            b     // a fails -- use b instead
+
+    member this.Delay(f) = f()
+
+let orElse = new OrElseBuilder()
+
+let multiLookupM key = orElse {
+    return! map1.TryFind key
+    return! map2.TryFind key
+    return! map3.TryFind key
+}
+
+multiLookupM "A" |&gt; printfn "Result for A is %A"
+multiLookupM "CA" |&gt; printfn "Result for CA is %A"
+multiLookupM "X" |&gt; printfn "Result for X is %A"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Internally, F# converts the above expression into something like the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">let multiLookupExpanded key =
+    orElse.Delay(fun () -&gt;
+    orElse.Combine(orElse.ReturnFrom(map1.TryFind key),
+    orElse.Delay(fun () -&gt;
+    orElse.Combine(orElse.ReturnFrom(map2.TryFind key),
+    orElse.Delay(fun () -&gt; orElse.ReturnFrom(map3.TryFind key))))))</code></pre>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>
