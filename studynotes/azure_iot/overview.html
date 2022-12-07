@@ -187,6 +187,85 @@
 </aside>
 <article class="doc">
 <h1 class="page">Azure IoT</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_core_subsystems_of_iot">Core Subsystems of IoT</a></li>
+<li><a href="#_optional_subsystems_of_iot">Optional Subsystems of IoT</a></li>
+<li><a href="#_data_flow_and_processing">Data flow and Processing</a></li>
+<li><a href="#_cross_cutting_architectural_needs">Cross-cutting Architectural Needs</a></li>
+<li><a href="#_iot_hardware_components">IoT Hardware Components</a></li>
+<li><a href="#_review_azure_iot_technologies">Review Azure IoT Technologies</a></li>
+<li><a href="#_iot_device_software_options">IoT device software options</a></li>
+<li><a href="#_cloud_service_components_of_an_iot_solution">Cloud Service Components of an IoT solution</a></li>
+<li><a href="#_iot_hub_2">IoT Hub</a></li>
+<li><a href="#_device_provisioning_service">Device Provisioning Service</a></li>
+<li><a href="#_iot_hub_tiers">IoT Hub Tiers</a></li>
+<li><a href="#_message_throughtput_basics">Message Throughtput Basics</a></li>
+<li><a href="#_partition_basics">Partition Basics</a></li>
+<li><a href="#_iot_hub_endpoint_basics">IoT Hub Endpoint Basics</a></li>
+<li><a href="#_security_concepts">Security Concepts</a></li>
+<li><a href="#_iot_device_lifecycle_terms_and_concepts">IoT Device Lifecycle Terms and Concepts</a></li>
+<li><a href="#_device_identity_and_registration">Device Identity and Registration</a></li>
+<li><a href="#_device_twins_concept">Device Twins Concept</a></li>
+<li><a href="#_module_identity_and_module_twins">Module Identity and Module Twins</a></li>
+<li><a href="#_device_monitoring">Device Monitoring</a></li>
+<li><a href="#_device_retirements">Device Retirements</a></li>
+<li><a href="#_device_configuration_and_communication_protocols">Device Configuration and Communication Protocols</a></li>
+<li><a href="#_devices_and_device_provisioning">Devices and Device Provisioning</a></li>
+<li><a href="#_device_enrollment_concepts">Device Enrollment Concepts</a></li>
+<li><a href="#_device_enrollment_types">Device Enrollment Types</a></li>
+<li><a href="#_x_509_certificate_attestation_process">X.509 Certificate Attestation Process</a></li>
+<li><a href="#_controlling_device_access_to_the_provisioning_service_with_x_509_certificates">Controlling device access to the provisioning service with X.509 certificates</a></li>
+<li><a href="#_hardware_security_module">Hardware Security Module</a></li>
+<li><a href="#_trusted_platform_module_tpm_attestation_process">Trusted Platform Module (TPM) Attestation Process</a></li>
+<li><a href="#_symmetric_key_attestation">Symmetric Key Attestation</a></li>
+<li><a href="#_the_device_provisioning_process">The Device Provisioning Process</a></li>
+<li><a href="#_the_autoprovisioning_operation">The Autoprovisioning Operation</a></li>
+<li><a href="#_the_reprovisioning_process">The Reprovisioning Process</a></li>
+<li><a href="#_azure_cli_commands_for_dps">Azure CLI Commands for DPS</a></li>
+<li><a href="#_device_provisioning_sdk">Device Provisioning SDK</a></li>
+<li><a href="#_trusted_platform_module_tpm_simulator">Trusted Platform Module (TPM) Simulator</a></li>
+<li><a href="#_x_509_certificate_generator">X.509 certificate Generator</a></li>
+<li><a href="#_access_control_to_dps">Access control to DPS</a></li>
+<li><a href="#_device_provisioning_service_2">Device Provisioning Service</a></li>
+<li><a href="#_configure_verified_ca_certificates">Configure Verified CA Certificates</a></li>
+<li><a href="#_roll_device_certificates">Roll Device Certificates</a>
+<ul class="sectlevel2">
+<li><a href="#_roll_the_certificate_on_the_device">Roll the certificate on the device</a></li>
+</ul>
+</li>
+<li><a href="#_the_deprovisioning_process">The Deprovisioning process</a></li>
+<li><a href="#_manage_disenrollment">Manage Disenrollment</a></li>
+<li><a href="#_how_to_provision_for_multitenancy">How to provision for multitenancy</a></li>
+<li><a href="#_common_message_format">Common Message Format</a></li>
+<li><a href="#_message_routing">Message Routing</a></li>
+<li><a href="#_message_routing_query_syntax">Message Routing Query Syntax</a></li>
+<li><a href="#_message_processing_options_and_constraints">Message processing options and constraints</a></li>
+<li><a href="#_iot_hub_quotas_and_throttling">IoT Hub quotas and throttling</a></li>
+<li><a href="#_azure_iot_edge">Azure IoT Edge</a></li>
+<li><a href="#_iot_edge_runtime">IoT Edge Runtime</a></li>
+<li><a href="#_iot_edge_agent">IoT Edge Agent</a></li>
+<li><a href="#_azure_iot_edge_modules">Azure IoT Edge modules</a></li>
+<li><a href="#_module_twin_properties">Module Twin Properties</a></li>
+<li><a href="#_iot_edge_security_manager">IoT Edge Security Manager</a></li>
+<li><a href="#_iot_edge_certificates_and_module_identity">IoT Edge certificates and module identity</a></li>
+<li><a href="#_iot_edge_deployment_concepts">IoT Edge Deployment Concepts</a></li>
+<li><a href="#_iot_edge_deployment_manifest">IoT Edge deployment manifest</a>
+<ul class="sectlevel2">
+<li><a href="#_examine_pre_deployment_considerations">Examine pre-deployment considerations</a></li>
+</ul>
+</li>
+<li><a href="#_iot_edge_gateway_device_configuration">IoT Edge Gateway Device Configuration</a></li>
+<li><a href="#_iot_edge_module_development">IoT Edge Module Development</a></li>
+<li><a href="#_module_development_and_testing">Module Development and Testing</a></li>
+<li><a href="#_offline_and_local_storage_capabilities">Offline and Local Storage Capabilities</a></li>
+<li><a href="#_azure_blob_storage_on_iot_edge">Azure Blob Storage on IoT Edge</a></li>
+<li><a href="#_manage_iot_devices_by_using_iot_hub_and_apps">Manage IoT devices by using IoT Hub and apps</a></li>
+<li><a href="#_device_configuration_using_device_twins">Device Configuration using Device Twins</a></li>
+<li><a href="#_digital_twins">Digital Twins</a></li>
+</ul>
+</div>
 <div class="sect1">
 <h2 id="_core_subsystems_of_iot"><a class="anchor" href="#_core_subsystems_of_iot"></a>Core Subsystems of IoT</h2>
 <div class="sectionbody">
@@ -5339,6 +5418,3812 @@ await client.SendEventAsync("output1", message);</code></pre>
 <p>For example, if you deploy a module to a device called <code>Hannover01</code>, the IoT Edge runtime creates a corresponding module identity called <code>/devices/Hannover01/modules/insight</code>.</p>
 </li>
 </ul>
+</div>
+<div class="ulist">
+<div class="title">Module Twins</div>
+<ul>
+<li>
+<p>Each module instance also has a corresponding module twin that you can use to configure the module instance.</p>
+</li>
+<li>
+<p>The instance and the twin are associated with each other through the module identity.</p>
+</li>
+<li>
+<p>A module twin is a JSON document that stores module information and configuration properties.</p>
+</li>
+<li>
+<p>The structure of a module twin is the same as a device twin.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-csharp hljs" data-lang="csharp">// Create a ModuleClient object. This ModuleClient will act on behalf of a
+// module since it is created with a module's connection string instead
+// of a device connection string.
+ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings);
+await client.OpenAsync();
+
+// Get the module twin
+Twin twin = await client.GetTwinAsync();</code></pre>
+</div>
+</div>
+<div class="ulist">
+<div class="title">Offline Capabilities</div>
+<ul>
+<li>
+<p>Azure IoT Edge modules can operate offline indefinitely after syncing with IoT Hub at least once.</p>
+</li>
+<li>
+<p>IoT Edge devices can also extend this offline capability to other IoT devices.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_module_twin_properties"><a class="anchor" href="#_module_twin_properties"></a>Module Twin Properties</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>The module twins for the IoT Edge hub and IoT Edge agent modules provide properties that can be used to manage module communication and lifecycle.</p>
+</li>
+<li>
+<p>Each module twin includes:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Desired properties.</strong> - The solution backend can set desired properties, and the module can read them. The module can also receive notifications of changes in the desired properties. Desired properties are used along with reported properties to synchronize module configuration or conditions.</p>
+</li>
+<li>
+<p><strong>Reported properties.</strong> - The module can set reported properties, and the solution backend can read and query them. Reported properties are used along with desired properties to synchronize module configuration or conditions.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Edge Agent desired properties</div>
+<ul>
+<li>
+<p>The module twin for the IoT Edge agent is called $edgeAgent and coordinates the communications between the IoT Edge agent running on a device and IoT Hub.</p>
+</li>
+<li>
+<p>The desired properties are set when applying a deployment manifest on a specific device as part of a single-device or at-scale deployment.</p>
+</li>
+<li>
+<p>You can find a list of properties and what they do at this location: <a href="https://learn.microsoft.com/en-us/training/modules/examine-azure-iot-edge-environment/5-module-twin-properties-of-edge-runtime-modules" class="bare">https://learn.microsoft.com/en-us/training/modules/examine-azure-iot-edge-environment/5-module-twin-properties-of-edge-runtime-modules</a></p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Edge Agent Reported Properties</div>
+<ul>
+<li>
+<p>The IoT Edge agent reported properties include three main pieces of information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The status of the application of the last-seen desired properties;</p>
+</li>
+<li>
+<p>The status of the modules currently running on the device, as reported by the IoT Edge agent; and</p>
+</li>
+<li>
+<p>A copy of the desired properties currently running on the device.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>This last piece of information, a copy of the current desired properties, is useful to tell whether the device has applied the latest desired properties or is still running a previous deployment manifest.</p>
+</li>
+<li>
+<p>You can find a list of properties and what they do at this location: <a href="https://learn.microsoft.com/en-us/training/modules/examine-azure-iot-edge-environment/5-module-twin-properties-of-edge-runtime-modules" class="bare">https://learn.microsoft.com/en-us/training/modules/examine-azure-iot-edge-environment/5-module-twin-properties-of-edge-runtime-modules</a></p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">EdgeHub desired properties</div>
+<ul>
+<li>
+<p>The module twin for the IoT Edge hub is called <code>$edgeHub`</code> and coordinates the communications between the IoT Edge hub running on a device and IoT Hub.</p>
+</li>
+<li>
+<p>The desired properties are set when applying a deployment manifest on a specific device as part of a single-device or at-scale deployment.</p>
+</li>
+<li>
+<p>You can find a list of properties and what they do at this location: <a href="https://learn.microsoft.com/en-us/training/modules/examine-azure-iot-edge-environment/5-module-twin-properties-of-edge-runtime-modules" class="bare">https://learn.microsoft.com/en-us/training/modules/examine-azure-iot-edge-environment/5-module-twin-properties-of-edge-runtime-modules</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_iot_edge_security_manager"><a class="anchor" href="#_iot_edge_security_manager"></a>IoT Edge Security Manager</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>The Azure IoT Edge security manager is a well-bounded security core for protecting the IoT Edge device and all its components by abstracting the secure silicon hardware.</p>
+</li>
+<li>
+<p>It is the focal point for security hardening and provides technology integration point to original equipment manufacturers (OEM).</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-azure-iot-edge-environment/media/m06-l01-iot-edge-iot-edge-security-manager-45164d81.png" alt="m06 l01 iot edge iot edge security manager 45164d81">
+</div>
+<div class="title">Figure 17. Microsoft Learn</div>
+</div>
+<div class="paragraph">
+<p>The responsibilities of the IoT Edge security manager include, but aren&#8217;t limited to:
+* Secured and measured bootstrapping of the Azure IoT Edge device.
+* Device identity provisioning and transition of trust where applicable.
+* Host and protect device components of cloud services like Device Provisioning Service.
+* Securely provision IoT Edge modules with unique identities.
+* Gatekeeper to device hardware root of trust through notary services.
+* Monitor the integrity of IoT Edge operations at runtime.</p>
+</div>
+<div class="paragraph">
+<p>IoT Edge security manager includes three components:
+* IoT Edge security daemon.
+* Hardware security module platform abstraction Layer (HSM PAL).
+* Optional but highly recommended hardware silicon root of trust or HSM.</p>
+</div>
+<h3 id="_iot_edge_security_daemon" class="discrete">IoT Edge security daemon</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The IoT Edge security daemon is responsible for the logical operations of IoT Edge security manager.</p>
+</li>
+<li>
+<p>The IoT Edge security daemon follows two core principles: maximize operational integrity, and minimize bloat and churn.</p>
+</li>
+</ul>
+</div>
+<h4 id="_maximize_operational_integrity" class="discrete">Maximize operational integrity</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Physical access is always a threat to IoT devices.</p>
+</li>
+<li>
+<p>Hardware root of trust plays an important role in defending the integrity of the IoT Edge security daemon.</p>
+</li>
+<li>
+<p>Hardware root of trust come in two varieties:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Secure elements for the protection of sensitive information like secrets and cryptographic keys.</p>
+</li>
+<li>
+<p>Secure enclaves for the protection of secrets like keys, and sensitive workloads like metering and billing.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Two kinds of execution environments exist to use hardware root of trust:
+* The standard or rich execution environment (REE) that relies on the use of secure elements to protect sensitive information.
+* The trusted execution environment (TEE) that relies on the use of secure enclave technology to protect sensitive information and offer protection to software execution.</p>
+</div>
+<div class="paragraph">
+<p>For devices using secure enclaves as hardware root of trust, sensitive logic within IoT Edge security daemon should be inside the enclave.</p>
+</div>
+<div class="paragraph">
+<p>Non-sensitive portions of the security daemon can be outside of the TEE.</p>
+</div>
+<h4 id="_minimize_bloat_and_churn" class="discrete">Minimize bloat and churn</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>For the highest level of trust, the IoT Edge security daemon can tightly couple with the device hardware root of trust and operate as native code.</p>
+</li>
+</ul>
+</div>
+<h3 id="_architecture_of_iot_edge_security_daemon" class="discrete">Architecture of IoT Edge security daemon</h3>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-azure-iot-edge-environment/media/m06-l01-iot-edge-iot-edge-security-daemon-37de8171.png" alt="m06 l01 iot edge iot edge security daemon 37de8171">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The IoT Edge security daemon takes advantage of any available hardware root of trust technology for security hardening.</p>
+</li>
+<li>
+<p>It also allows for split-world operation between a standard/rich execution environment (REE) and a trusted execution environment (TEE) when hardware technologies offer trusted execution environments.</p>
+</li>
+<li>
+<p>Role-specific interfaces enable the major components of IoT Edge to assure the integrity of the IoT Edge device and its operations</p>
+</li>
+</ul>
+</div>
+<h3 id="_cloud_interface" class="discrete">Cloud Interface</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The cloud interface allows the IoT Edge security daemon to access cloud services such as cloud compliments to device security like security renewal.</p>
+</li>
+<li>
+<p>For example, the IoT Edge security daemon currently uses this interface to access the Azure IoT Hub Device Provisioning Service for device identity lifecycle management.</p>
+</li>
+</ul>
+</div>
+<h3 id="_management_api" class="discrete">Management API</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>IoT Edge security daemon offers a management API, which is called by the IoT Edge agent when creating/starting/stopping/removing an IoT Edge module.</p>
+</li>
+<li>
+<p>The security daemon stores “registrations” for all active modules.</p>
+</li>
+<li>
+<p>These registrations map a module’s identity to some properties of the module.</p>
+</li>
+<li>
+<p>A few examples for these properties are the process identifier (pid) of the process running in the container or the hash of the docker container’s contents.</p>
+</li>
+<li>
+<p>These properties are used by the workload API to verify that the caller is authorized to perform an action.</p>
+</li>
+<li>
+<p>The management API is a privileged API, callable only from the IoT Edge agent.</p>
+</li>
+<li>
+<p>Since the IoT Edge security daemon bootstraps and starts the IoT Edge agent, it can create an implicit registration for the IoT Edge agent, after it has attested that the IoT Edge agent has not been tampered with.</p>
+</li>
+<li>
+<p>The same attestation process that the workload API uses also restricts access to the management API to only the IoT Edge agent.</p>
+</li>
+</ul>
+</div>
+<h3 id="_container_api" class="discrete">Container API</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The container API interacts with the container system in use for module management, like Moby or Docker.</p>
+</li>
+</ul>
+</div>
+<h3 id="_workload_api" class="discrete">Workload API</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The workload API is accessible to all modules.</p>
+</li>
+<li>
+<p>It provides proof of identity, either as an HSM rooted signed token or an X509 certificate, and the corresponding trust bundle to a module.</p>
+</li>
+<li>
+<p>The trust bundle contains CA certificates for all the other servers that the modules should trust.</p>
+</li>
+<li>
+<p>The IoT Edge security daemon uses an attestation process to guard this API.</p>
+</li>
+<li>
+<p>When a module calls this API, the security daemon attempts to find a registration for the identity.</p>
+</li>
+<li>
+<p>If successful, it uses the properties of the registration to measure the module.</p>
+</li>
+<li>
+<p>If the result of the measurement process matches the registration, a new proof of identity is generated.</p>
+</li>
+<li>
+<p>The corresponding CA certificates (trust bundle) are returned to the module.</p>
+</li>
+<li>
+<p>The module uses this certificate to connect to IoT Hub, other modules, or start a server.</p>
+</li>
+<li>
+<p>When the signed token or certificate nears expiration, it&#8217;s the responsibility of the module to request a new certificate.</p>
+</li>
+</ul>
+</div>
+<h3 id="_integration_and_maintenance" class="discrete">Integration and maintenance</h3>
+<div class="paragraph">
+<p>Microsoft maintains the main code base for the IoT Edge security daemon on GitHub.</p>
+</div>
+<h4 id="_installation_and_updates" class="discrete">Installation and updates</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Installation and updates of the IoT Edge security daemon are managed through the operating system&#8217;s package management system.</p>
+</li>
+<li>
+<p>IoT Edge devices with hardware root of trust should provide extra hardening to the integrity of the daemon by managing its lifecycle through the secure boot and updates management systems.</p>
+</li>
+</ul>
+</div>
+<h4 id="_versioning" class="discrete">Versioning</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The IoT Edge runtime tracks and reports the version of the IoT Edge security daemon.</p>
+</li>
+<li>
+<p>The version is reported as the runtime.platform.version attribute of the IoT Edge agent module reported property.</p>
+</li>
+</ul>
+</div>
+<h3 id="_hardware_security_module_platform_abstraction_layer_hsm_pal" class="discrete">Hardware security module platform abstraction layer (HSM PAL)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The HSM PAL abstracts all root of trust hardware to isolate the developer or user of IoT Edge from their complexities.</p>
+</li>
+<li>
+<p>It includes a combination of application programming interface (API) and trans-domain communication procedures, for example communication between a standard execution environment and a secure enclave.</p>
+</li>
+<li>
+<p>The actual implementation of the HSM PAL depends on the specific secure hardware in use.</p>
+</li>
+<li>
+<p>Its existence enables the use of virtually any secure silicon hardware.</p>
+</li>
+</ul>
+</div>
+<h3 id="_secure_silicon_root_of_trust_hardware" class="discrete">Secure silicon root of trust hardware</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Secure silicon is necessary to anchor trust inside the IoT Edge device hardware.</p>
+</li>
+<li>
+<p>Secure silicon come in variety to include Trusted Platform Module (TPM), embedded Secure Element (eSE), Arm TrustZone, Intel SGX, and custom secure silicon technologies.</p>
+</li>
+<li>
+<p>The use of secure silicon root of trust in devices is recommended given the threats associated with physical accessibility of IoT devices.</p>
+</li>
+</ul>
+</div>
+<h3 id="_iot_edge_security_manager_integration_and_maintenance" class="discrete">IoT Edge security manager integration and maintenance</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The IoT Edge security manager aims to identify and isolate the components that defend the security and integrity of the Azure IoT Edge platform for custom hardening.</p>
+</li>
+<li>
+<p>Third parties, like device makers, should make use of custom security features available with their device hardware.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_iot_edge_certificates_and_module_identity"><a class="anchor" href="#_iot_edge_certificates_and_module_identity"></a>IoT Edge certificates and module identity</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>To establish a secure TLS connection, the IoT Edge hub module presents a server certificate chain to connecting clients in order for them to verify its identity.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The IoT Edge certificates discussed in this topic and the Azure IoT Hub certificates that the hub uses to authenticate devices are two different things.</p>
+</li>
+<li>
+<p>This topic discusses the certificates that are used to secure connections between the different components on an IoT Edge device or between an IoT Edge device and any leaf devices.</p>
+</li>
+<li>
+<p>You may also use certificates to authenticate your IoT Edge device to IoT Hub.</p>
+</li>
+<li>
+<p>Those authentication certificates are different</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<h3 id="_iot_edge_certificates" class="discrete">IoT Edge certificates</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>There are two common scenarios for setting up certificates on an IoT Edge device.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Sometimes the end user, or operator, of a device purchases a generic device made by a manufacturer then manages the certificates themselves.</p>
+</li>
+<li>
+<p>Other times, the manufacturer works under contract to build a custom device for the operator and does some initial certificate signing before handing off the device.</p>
+</li>
+<li>
+<p>The IoT Edge certificate design attempts to take both scenarios into account.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>There may be zero, one, or many intermediate signing certificates between the root CA certificate and the device CA certificate, depending on the number of entities involved.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-azure-iot-edge-environment/media/m06-l01-iot-edge-edge-certs-general-july2022-a0d39603.png" alt="m06 l01 iot edge edge certs general july2022 a0d39603">
+</div>
+</div>
+<h3 id="_certificate_authority" class="discrete">Certificate authority</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The certificate authority, or 'CA' for short, is an entity that issues digital certificates.</p>
+</li>
+<li>
+<p>A certificate authority acts as a trusted third party between the owner, and the receiver of the certificate.</p>
+</li>
+<li>
+<p>A digital certificate certifies the ownership of a public key by the receiver of the certificate.</p>
+</li>
+<li>
+<p>The certificate chain of trust works by initially issuing a root certificate, which is the basis for trust in all certificates issued by the authority.</p>
+</li>
+<li>
+<p>Afterwards, the owner can use the root certificate to issue more intermediate certificates ('leaf' certificates).</p>
+</li>
+</ul>
+</div>
+<h3 id="_root_ca_certificate" class="discrete">Root CA certificate</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>A root CA certificate is the root of trust of the entire process.</p>
+</li>
+<li>
+<p>In production scenarios, this CA certificate can be purchased from a trusted commercial certificate authority like Baltimore, Verisign, or DigiCert.</p>
+</li>
+<li>
+<p>Should you have complete control over the devices connecting to your IoT Edge devices, it&#8217;s possible to use a corporate level certificate authority.</p>
+</li>
+<li>
+<p>In either event, the entire certificate chain from the IoT Edge hub up rolls up to it, so the leaf IoT devices must trust the root certificate.</p>
+</li>
+<li>
+<p>You can store the root CA certificate either in the trusted root certificate authority store, or provide the certificate details in your application code.</p>
+</li>
+</ul>
+</div>
+<h3 id="_intermediate_certificates" class="discrete">Intermediate certificates</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>In a typical manufacturing process for creating secure devices, root CA certificates are rarely used directly, primarily because of the risk of leakage or exposure.</p>
+</li>
+<li>
+<p>The root CA certificate creates and digitally signs one or more intermediate CA certificates.</p>
+</li>
+<li>
+<p>There may only be one, or there may be a chain of these intermediate certificates.</p>
+</li>
+<li>
+<p>Scenarios that would require a chain of intermediate certificates include:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A hierarchy of departments within a manufacturer.</p>
+</li>
+<li>
+<p>Multiple companies involved serially in the production of a device.</p>
+</li>
+<li>
+<p>A customer buying a root CA and deriving a signing certificate for the manufacturer to sign the devices they make on that customer&#8217;s behalf.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>In any case, the manufacturer uses an intermediate CA certificate at the end of this chain to sign the device CA certificate placed on the end device.</p>
+</li>
+<li>
+<p>Generally, these intermediate certificates are closely guarded at the manufacturing plant. They undergo strict processes, both physical and electronic for their usage.</p>
+</li>
+</ul>
+</div>
+<h3 id="_edge_ca_certificate" class="discrete">Edge CA certificate</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The edge (device) CA certificate is generated from and signed by the final intermediate CA certificate in the process.</p>
+</li>
+<li>
+<p>This certificate is installed on the IoT Edge device itself, preferably in secure storage such as a hardware security module (HSM).</p>
+</li>
+<li>
+<p>In addition, an edge CA certificate uniquely identifies an IoT Edge device.</p>
+</li>
+<li>
+<p>The edge CA certificate can sign other certificates.</p>
+</li>
+</ul>
+</div>
+<h3 id="_iot_edge_hub_server_certificate" class="discrete">IoT Edge hub server certificate</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The IoT Edge hub server certificate is the actual certificate presented to leaf devices and modules for identity verification during establishment of the TLS connection required by IoT Edge.</p>
+</li>
+<li>
+<p>This certificate presents the full chain of signing certificates used to generate it up to the root CA certificate, which the leaf IoT device must trust.</p>
+</li>
+<li>
+<p>When generated by IoT Edge, the common name (CN), of this IoT Edge hub certificate is set to the 'hostname' property in the config file after conversion to lower case.</p>
+</li>
+</ul>
+</div>
+<h3 id="_production_implications" class="discrete">Production Implications</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>A reasonable question might be "why does IoT Edge need the 'workload CA' extra certificate?</p>
+</li>
+<li>
+<p>Couldn&#8217;t it use the device CA certificate to directly generate the IoT Edge hub server certificate?".</p>
+</li>
+<li>
+<p>Technically, it could. However, the purpose of this "workload" intermediate certificate is to separate concerns between the device manufacturer and the device operator.</p>
+</li>
+<li>
+<p>Imagine a scenario where an IoT Edge device is sold or transferred from one customer to another.</p>
+</li>
+<li>
+<p>You would likely want the device CA certificate provided by the manufacturer to be immutable.</p>
+</li>
+<li>
+<p>However, the "workload" certificates specific to operation of the device should be wiped and recreated for the new deployment.</p>
+</li>
+<li>
+<p>Because manufacturing and operation processes are separated, consider the following implications when preparing production devices:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>With any certificate-based process, the root CA certificate and all intermediate CA certificates should be secured and monitored during the entire process of rolling out an IoT Edge device.</p>
+</li>
+<li>
+<p>The IoT Edge device manufacturer should have strong processes in place for proper storage and usage of their intermediate certificates.</p>
+</li>
+<li>
+<p>In addition, the device CA certificate should be kept in as secure storage as possible on the device itself, preferably a hardware security module.</p>
+</li>
+<li>
+<p>The IoT Edge hub server certificate is presented by IoT Edge hub to the connecting client devices and modules.</p>
+</li>
+<li>
+<p>The common name (CN) of the device CA certificate must not be the same as the "hostname" that will be used in the config file on the IoT Edge device.</p>
+</li>
+<li>
+<p>The name used by clients to connect to IoT Edge (for example, via the GatewayHostName parameter of the connection string or the CONNECT command in MQTT) can&#8217;t be the same as the common name used in the device CA certificate.</p>
+</li>
+<li>
+<p>This restriction is because the IoT Edge hub presents its entire certificate chain for verification by clients.</p>
+</li>
+<li>
+<p>If the IoT Edge hub server certificate and the device CA certificate both have the same CN, you get in a verification loop and the certificate invalidates.</p>
+</li>
+<li>
+<p>Because the device CA certificate is used by the IoT Edge security daemon to generate the final IoT Edge certificates, it must itself be a signing certificate, meaning it has certificate signing capabilities.</p>
+</li>
+<li>
+<p>Applying "V3 Basic constraints CA:True" to the device CA certificate automatically sets up the required key usage properties.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="_devtest_implications" class="discrete">Dev/Test implications</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>To ease development and test scenarios, Microsoft provides a set of convenience scripts for generating non-production certificates suitable for IoT Edge in the transparent gateway scenario.</p>
+</li>
+<li>
+<p>The following commands generate the "root CA certificate" and a single "intermediate CA certificate":</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">./certGen.sh create_root_and_intermediate</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">New-CACertsCertChain rsa</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Likewise, these commands generate the "Device CA Certificate".</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">./certGen.sh create_edge_device_ca_certificate "&lt;gateway device name&gt;"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">New-CACertsEdgeDeviceCA "&lt;gateway device name&gt;"</code></pre>
+</div>
+</div>
+<h3 id="_example_of_iot_edge_certificate_hierarchy" class="discrete">Example of IoT Edge certificate hierarchy</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>To illustrate an example of this certificate path, the following screenshot is from a working IoT Edge device set up as a transparent gateway.</p>
+</li>
+<li>
+<p>OpenSSL is used to connect to the IoT Edge hub, validate, and dump out the certificates.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-azure-iot-edge-environment/media/m06-l01-iot-edge-iot-edge-cert-chain-july2022-854acc7a.png" alt="m06 l01 iot edge iot edge cert chain july2022 854acc7a">
+</div>
+</div>
+<div class="paragraph">
+<p>You can see the hierarchy of certificate depth represented in the screenshot:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Heirarchy</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Root CA Certificate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Azure IoT Hub CA Cert Test Only</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intermediate CA Certificate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Azure IoT Hub intermediate certification test only.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edge CA Certificate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>iotgateway.ca</code> ("iotgateway" was passed in as the &lt; gateway host name &gt; to the convenience scripts).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IoT Edge Hub Server Certificate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>iotedgegw.local</code> (matches the 'hostname' from config.yaml).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_iot_edge_deployment_concepts"><a class="anchor" href="#_iot_edge_deployment_concepts"></a>IoT Edge Deployment Concepts</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Azure IoT Edge devices follow a device lifecycle that is similar to other types of IoT devices:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Provision new IoT Edge devices by imaging a device with an OS and installing the IoT Edge runtime.</p>
+</li>
+<li>
+<p>Configure the devices to run IoT Edge modules, and then monitor their health.</p>
+</li>
+<li>
+<p>Finally, retire devices when they are replaced or become obsolete.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Azure IoT Edge provides two ways to configure the modules to run on IoT Edge devices:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>One for development and fast iterations on a single device.</p>
+</li>
+<li>
+<p>One for managing large fleets of IoT Edge devices.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Both approaches can be implemented either programmatically or by using the Azure portal.</p>
+</div>
+<div class="paragraph">
+<p>We use the term <strong>IoT Edge automatic deployments</strong> to refer to configuration and monitoring stages for fleets of devices.</p>
+</div>
+<div class="paragraph">
+<p>When targeting groups or a large number of devices, you can use tags in the device twins to specify which devices you&#8217;d like your modules deployed to.</p>
+</div>
+<div class="paragraph">
+<p>At a high level, IoT Edge automatic deployments include the following steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>An operator defines a deployment that describes a set of modules and the target devices. Each deployment has a deployment manifest that reflects this information.</p>
+</li>
+<li>
+<p>The IoT Hub service communicates with all targeted devices to configure them with the desired modules.</p>
+</li>
+<li>
+<p>The IoT Hub service retrieves status from the IoT Edge devices and makes them available to the operator. For example, an operator can see when an IoT Edge device is not configured successfully or if a module fails during runtime.</p>
+</li>
+<li>
+<p>At any time, new IoT Edge devices that meet the targeting conditions are configured for the deployment. For example, a deployment that targets all IoT Edge devices in Washington State automatically configures a new IoT Edge device once it is provisioned and added to the Washington State device group.</p>
+</li>
+</ol>
+</div>
+<h3 id="_deployment" class="discrete">Deployment</h3>
+<div class="paragraph">
+<p>An IoT Edge automatic deployment works by configuring an IoT Edge deployment manifest to include a list of modules with the corresponding initialization parameters.</p>
+</div>
+<div class="paragraph">
+<p>Once an IoT Edge device receives a deployment manifest, it downloads and installs the container images from the respective container repositories, and configures them accordingly.</p>
+</div>
+<div class="paragraph">
+<p>Once a deployment is created, an operator can monitor the deployment status to see whether targeted devices are correctly configured.</p>
+</div>
+<div class="paragraph">
+<p>Only IoT Edge devices can be configured with a deployment. The following prerequisites must be on the device before it can receive the deployment:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The base operating system.</p>
+</li>
+<li>
+<p>A container management system, like Moby or Docker.</p>
+</li>
+<li>
+<p>Provisioning of the IoT Edge runtime.</p>
+</li>
+</ul>
+</div>
+<h4 id="_deployment_manifest" class="discrete">Deployment manifest</h4>
+<div class="paragraph">
+<p>A deployment manifest is a JSON document that describes the modules to be configured on the targeted IoT Edge devices.</p>
+</div>
+<div class="paragraph">
+<p>It contains the configuration metadata for all the modules, including the required system modules.</p>
+</div>
+<div class="paragraph">
+<p>The configuration metadata for each module includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Version.</p>
+</li>
+<li>
+<p>Type.</p>
+</li>
+<li>
+<p>Status (for example, running or stopped).</p>
+</li>
+<li>
+<p>Restart policy.</p>
+</li>
+<li>
+<p>Image and container registry.</p>
+</li>
+<li>
+<p>Routes for data input and output.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If the module image is stored in a private container registry, the IoT Edge agent holds the registry credentials.</p>
+</div>
+<h4 id="_target_condition" class="discrete">Target condition</h4>
+<div class="paragraph">
+<p>The target condition is continuously evaluated throughout the lifetime of the deployment.</p>
+</div>
+<div class="paragraph">
+<p>Any new devices that meet the requirements are included, and any existing devices that no longer do are removed.</p>
+</div>
+<div class="paragraph">
+<p>The deployment is reactivated if the service detects any target condition change.</p>
+</div>
+<div class="paragraph">
+<p>Use any Boolean condition on device twins tags or deviceId to select the target devices.</p>
+</div>
+<div class="paragraph">
+<p>If you want to use condition with tags, you need to add "tags":{} section in the device twin under the same level as properties.</p>
+</div>
+<div class="paragraph">
+<p>Target condition examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>deviceId ='linuxprod1'</p>
+</li>
+<li>
+<p>tags.environment ='prod'</p>
+</li>
+<li>
+<p>tags.environment = 'prod' AND tags.location = 'westus'</p>
+</li>
+<li>
+<p>tags.environment = 'prod' OR tags.location = 'westus'</p>
+</li>
+<li>
+<p>tags.operator = 'John' AND tags.environment = 'prod' AND NOT deviceId = 'linuxprod1'</p>
+</li>
+<li>
+<p>properties.reported.devicemodel = '4000x'</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Here are some constraints when you construct a target condition:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In device twin, you can only build a target condition using tags, reported properties, or deviceId.</p>
+</li>
+<li>
+<p>Double quotes aren&#8217;t allowed in any portion of the target condition. Use single quotes.</p>
+</li>
+<li>
+<p>Single quotes represent the values of the target condition. Therefore, you must escape the single quote with another single quote if it&#8217;s part of the device name. For example, to target a device called "operator&#8217;s Device", write deviceId='operator''sDevice'.</p>
+</li>
+<li>
+<p>Numbers, letters, and the following characters are allowed in target condition values: <code>-:.+%_#*?!(),=@;$</code>.</p>
+</li>
+</ul>
+</div>
+<h4 id="_priority" class="discrete">Priority</h4>
+<div class="paragraph">
+<p>A priority defines whether a deployment should be applied to a targeted device relative to other deployments.</p>
+</div>
+<div class="paragraph">
+<p>A deployment priority is a positive integer, with larger numbers denoting higher priority.</p>
+</div>
+<div class="paragraph">
+<p>If an IoT Edge device is targeted by more than one deployment, the deployment with the highest priority applies.</p>
+</div>
+<div class="paragraph">
+<p>Deployments with lower priorities are not applied, nor are they merged.</p>
+</div>
+<div class="paragraph">
+<p>If a device is targeted with two or more deployments with equal priority, the most recently created deployment (determined by the creation timestamp) applies.</p>
+</div>
+<h4 id="_labels" class="discrete">Labels</h4>
+<div class="paragraph">
+<p>Labels are string key/value pairs that you can use to filter and group deployments.</p>
+</div>
+<div class="paragraph">
+<p>A deployment may have multiple labels.</p>
+</div>
+<div class="paragraph">
+<p>Labels are optional and do no impact the actual configuration of IoT Edge devices.</p>
+</div>
+<h4 id="_metrics" class="discrete">Metrics</h4>
+<div class="paragraph">
+<p>By default, all deployments report on four metrics:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Targeted</strong> shows the IoT Edge devices that match the Deployment targeting condition.</p>
+</li>
+<li>
+<p><strong>Applied</strong> shows the targeted IoT Edge devices that are not targeted by another deployment of higher priority.</p>
+</li>
+<li>
+<p><strong>Reporting Success</strong> shows the IoT Edge devices that have reported that the modules have been deployed successfully.</p>
+</li>
+<li>
+<p><strong>Reporting Failure</strong> shows the IoT Edge devices that have reported that one or more modules haven&#8217;t been deployed successfully. To further investigate the error, connect remotely to those devices and view the log files.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can define your own custom metrics to help monitor and manage the deployment.</p>
+</div>
+<div class="paragraph">
+<p>Metrics provide summary counts of the various states that devices may report back as a result of applying a deployment configuration.</p>
+</div>
+<div class="paragraph">
+<p>Metrics can query edgeHub module twin reported properties, like lastDesiredStatus or lastConnectTime.</p>
+</div>
+<h3 id="_phased_rollout" class="discrete">Phased rollout</h3>
+<div class="paragraph">
+<p>A phased rollout is an overall process whereby an operator deploys changes to a broadening set of IoT Edge devices.</p>
+</div>
+<div class="paragraph">
+<p>The goal is to make changes gradually to reduce the risk of making wide scale breaking changes.</p>
+</div>
+<div class="paragraph">
+<p>A phased rollout is executed in the following phases and steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Establish a test environment of IoT Edge devices by provisioning them and setting a device twin tag like <code>tag.environment='test'</code>. The test environment should mirror the production environment that the deployment will eventually target.</p>
+</li>
+<li>
+<p>Create a deployment including the desired modules and configurations. The targeting condition should target the test IoT Edge device environment.</p>
+</li>
+<li>
+<p>Validate the new module configuration in the test environment.</p>
+</li>
+<li>
+<p>Update the deployment to include a subset of production IoT Edge devices by adding a new tag to the targeting condition. Also, ensure that the priority for the deployment is higher than other deployments currently targeted to those devices.</p>
+</li>
+<li>
+<p>Verify that the deployment succeeded on the targeted IoT Devices by viewing the deployment status.</p>
+</li>
+<li>
+<p>Update the deployment to target all remaining production IoT Edge devices.</p>
+</li>
+</ol>
+</div>
+<h3 id="_layered_deployment" class="discrete">Layered deployment</h3>
+<div class="paragraph">
+<p>Layered deployments are automatic deployments that can be combined together to reduce the number of unique deployments that need to be created.</p>
+</div>
+<div class="paragraph">
+<p>Layered deployments are useful in scenarios where the same modules are reused in different combinations in many automatic deployments.</p>
+</div>
+<div class="paragraph">
+<p>Layered deployments target devices based on tags in the device twins.</p>
+</div>
+<div class="paragraph">
+<p>Layered deployments also have priorities assigned to them, but instead of using the priority to determine which deployment is applied to a device, the priority determines how multiple deployments are ranked on a device.</p>
+</div>
+<div class="paragraph">
+<p>For example, if two layered deployments have a module or a route with the same name, the layered deployment with the higher priority will be applied while the lower priority is overwritten.</p>
+</div>
+<div class="paragraph">
+<p>The system runtime modules, edgeAgent and edgeHub, are not configured as part of a layered deployment.</p>
+</div>
+<div class="paragraph">
+<p>Any IoT Edge device targeted by a layered deployment needs a standard automatic deployment applied to it first.</p>
+</div>
+<div class="paragraph">
+<p>The automatic deployment provides the base upon which layered deployments can be added.</p>
+</div>
+<div class="paragraph">
+<p>An IoT Edge device can apply one and only one standard automatic deployment, but it can apply multiple layered automatic deployments.</p>
+</div>
+<div class="paragraph">
+<p>Any layered deployments targeting a device must have a higher priority than the automatic deployment for that device.</p>
+</div>
+<div class="paragraph">
+<p>For example, consider the following scenario of a company that manages buildings.</p>
+</div>
+<div class="paragraph">
+<p>With standard automatic deployments, the company needs to create individual deployments for all the module combinations that their buildings need.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">image</dt>
+<dd>
+<p><a href="https://learn.microsoft.com/en-us/training/wwl-azure/examine-iot-edge-device-deployment/media/m06-l03-layered-deployment-1-a39f9bda.png" class="bare">https://learn.microsoft.com/en-us/training/wwl-azure/examine-iot-edge-device-deployment/media/m06-l03-layered-deployment-1-a39f9bda.png</a></p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>However, once the company switches to layered automatic deployments they find that they can create the same module combinations for their buildings with fewer deployments to manage. Each module has its own layered deployment, and the device tags identify which modules get added to each building.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-iot-edge-device-deployment/media/m06-l03-layered-deployment-2-06d76fe9.png" alt="m06 l03 layered deployment 2 06d76fe9">
+</div>
+</div>
+<h3 id="_rollback" class="discrete">Rollback</h3>
+<div class="paragraph">
+<p>Deployments can be rolled back if you receive errors or misconfigurations.</p>
+</div>
+<div class="paragraph">
+<p>Deleting a deployment doesn&#8217;t remove the modules from targeted devices.</p>
+</div>
+<div class="paragraph">
+<p>There must be another deployment that defines a new configuration for the devices, even if it&#8217;s an empty deployment.</p>
+</div>
+<div class="paragraph">
+<p>Perform rollbacks in the following sequence:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Confirm that a second deployment is also targeted at the same device set. If the goal of the rollback is to remove all modules, the second deployment should not include any modules.</p>
+</li>
+<li>
+<p>Modify or remove the target condition expression of the deployment you wish to roll back so that the devices no longer meet the targeting condition.</p>
+</li>
+<li>
+<p>Verify that the rollback succeeded by viewing the deployment status.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The rolled-back deployment should no longer show status for the devices that were rolled back.</p>
+</li>
+<li>
+<p>The second deployment should now include deployment status for the devices that were rolled back.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_iot_edge_deployment_manifest"><a class="anchor" href="#_iot_edge_deployment_manifest"></a>IoT Edge deployment manifest</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The deployment manifest tells your device which modules to install and how to configure them to work together.</p>
+</div>
+<div class="paragraph">
+<p>The deployment manifest is a JSON document that describes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The IoT Edge agent module twin, which includes three components.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The container image for each module that runs on the device.</p>
+</li>
+<li>
+<p>The credentials to access private container registries that contain module images.</p>
+</li>
+<li>
+<p>Instructions for how each module should be created and managed.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The IoT Edge hub module twin, which includes how messages flow between modules and eventually to IoT Hub.</p>
+</li>
+<li>
+<p>Optionally, the desired properties of any other module twins.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>All IoT Edge devices must be configured with a deployment manifest.</p>
+</div>
+<div class="paragraph">
+<p>A newly installed IoT Edge runtime reports an error code until configured with a valid manifest.</p>
+</div>
+<div class="paragraph">
+<p>You can create a deployment manifest using the Azure IoT Edge portal, REST APIs, or the IoT Hub Service SDK.</p>
+</div>
+<h3 id="_create_a_deployment_manifest" class="discrete">Create a deployment manifest</h3>
+<div class="paragraph">
+<p>At a high level, a deployment manifest is a list of module twins that are configured with their desired properties.</p>
+</div>
+<div class="paragraph">
+<p>A deployment manifest tells an IoT Edge device (or a group of devices) which modules to install and how to configure them.</p>
+</div>
+<div class="paragraph">
+<p>Deployment manifests include the desired properties for each module twin.</p>
+</div>
+<div class="paragraph">
+<p>IoT Edge devices report back the reported properties for each module.</p>
+</div>
+<div class="paragraph">
+<p>Two modules are required in every deployment manifest: <code>$edgeAgent</code>, and <code>$edgeHub</code>.</p>
+</div>
+<div class="paragraph">
+<p>These modules are part of the IoT Edge runtime that manages the IoT Edge device and the modules running on it.</p>
+</div>
+<div class="paragraph">
+<p>In addition to the two runtime modules, you can add up to 50 modules of your own to run on an IoT Edge device.</p>
+</div>
+<div class="paragraph">
+<p>A deployment manifest that contains only the IoT Edge runtime (edgeAgent and edgeHub) is valid.</p>
+</div>
+<div class="paragraph">
+<p>Deployment manifests follow this structure:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "modulesContent": {
+        "$edgeAgent": { // required
+            "properties.desired": {
+                // desired properties of the Edge agent
+                // includes the image URIs of all modules
+                // includes container registry credentials
+            }
+        },
+        "$edgeHub": { //required
+            "properties.desired": {
+                // desired properties of the Edge hub
+                // includes the routing information between modules, and to IoT Hub
+            }
+        },
+        "module1": {  // optional
+            "properties.desired": {
+                // desired properties of module1
+            }
+        },
+        "module2": {  // optional
+            "properties.desired": {
+                // desired properties of module2
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<h3 id="_configure_modules" class="discrete">Configure modules</h3>
+<div class="paragraph">
+<p>The IoT Edge agent is the runtime component that manages installation, updates, and status reporting for an IoT Edge device.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, the <code>$edgeAgent</code> module twin requires the configuration and management information for all modules.</p>
+</div>
+<div class="paragraph">
+<p>For a complete list of properties that can or must be included, see <a href="https://learn.microsoft.com/en-us/azure/iot-edge/module-edgeagent-edgehub?view=iotedge-1.4">Properties of the IoT Edge agent and IoT Edge hub module twins</a>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>$edgeAgent</code> properties follow this structure:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"$edgeAgent": {
+    "properties.desired": {
+        "schemaVersion": "1.1",
+        "runtime": {
+            "settings":{
+                "registryCredentials":{
+                      // give the edge agent access to
+                      // container images that aren't public
+                }
+            }
+        },
+        "systemModules": {
+            "edgeAgent": {
+                // configuration and management details
+            },
+            "edgeHub": {
+                // configuration and management details
+            }
+        },
+        "modules": {
+            "module1": { // optional
+                // configuration and management details
+            },
+            "module2": { // optional
+                // configuration and management details
+            }
+        }
+    }
+},</code></pre>
+</div>
+</div>
+<h3 id="_declare_routes" class="discrete">Declare routes</h3>
+<div class="paragraph">
+<p>The IoT Edge hub manages communication between modules, IoT Hub, and any leaf devices.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, the <code>$edgeHub</code> module twin contains a desired property called routes that declares how messages are passed within a deployment.</p>
+</div>
+<div class="paragraph">
+<p>You can have multiple routes within the same deployment.</p>
+</div>
+<div class="paragraph">
+<p>Routes are declared in the <code>$edgeHub</code> desired properties with the following syntax:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"$edgeHub": {
+    "properties.desired": {
+        "routes": {
+            "route1": "FROM &lt;source&gt; WHERE &lt;condition&gt; INTO &lt;sink&gt;",
+            "route2": "FROM &lt;source&gt; WHERE &lt;condition&gt; INTO &lt;sink&gt;"
+        },
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Every route needs a source and a sink, but the condition is an optional piece that you can use to filter messages.</p>
+</div>
+<h4 id="_source" class="discrete">Source</h4>
+<div class="paragraph">
+<p>The source specifies where the messages come from.</p>
+</div>
+<div class="paragraph">
+<p>IoT Edge can route messages from modules or leaf devices.</p>
+</div>
+<div class="paragraph">
+<p>Using the IoT SDKs, modules can declare specific output queues for their messages using the ModuleClient class.</p>
+</div>
+<div class="paragraph">
+<p>Output queues aren&#8217;t necessary, but are helpful for managing multiple routes.</p>
+</div>
+<div class="paragraph">
+<p>Leaf devices can use the DeviceClient class of the IoT SDKs to send messages to IoT Edge gateway devices in the same way that they would send messages to IoT Hub.</p>
+</div>
+<div class="paragraph">
+<p>The source property can be any of the following values:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Source</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All device-to-cloud messages or twin change notifications from any module or leaf device.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/twinChangeNotifications</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any twin change (reported properties) coming from any module or leaf device.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/messages/*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any device-to-cloud message sent by a module through some or no output, or by a leaf device.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/messages/modules/*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any device-to-cloud message sent by a module through some or no output.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/messages/modules/&lt;moduleId&gt;/*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any device-to-cloud message sent by a specific module through some or no output.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/messages/modules/&lt;moduleId&gt;/outputs/*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any device-to-cloud message sent by a specific module through some output.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/messages/modules/&lt;moduleId&gt;/outputs/&lt;output&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any device-to-cloud message sent by a specific module through a specific output.</p></td>
+</tr>
+</tbody>
+</table>
+<h4 id="_condition" class="discrete">Condition</h4>
+<div class="paragraph">
+<p>The condition is optional in a route declaration.</p>
+</div>
+<div class="paragraph">
+<p>If you want to pass all messages from the source to the sink, just leave out the WHERE clause entirely.</p>
+</div>
+<div class="paragraph">
+<p>Or you can use the IoT Hub query language to filter for certain messages or message types that satisfy the condition.</p>
+</div>
+<div class="paragraph">
+<p>IoT Edge routes don&#8217;t support filtering messages based on twin tags or properties.</p>
+</div>
+<div class="paragraph">
+<p>The messages that pass between modules in IoT Edge are formatted the same as the messages that pass between your devices and Azure IoT Hub.</p>
+</div>
+<div class="paragraph">
+<p>All messages are formatted as JSON and have systemProperties, appProperties, and body parameters.</p>
+</div>
+<div class="paragraph">
+<p>You can build queries around any of the three parameters with the following syntax:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>System properties: <code>$&lt;propertyName&gt;</code> or <code>\{$&lt;propertyName&gt;}</code></p>
+</li>
+<li>
+<p>Application properties: <code>&lt;propertyName&gt;</code></p>
+</li>
+<li>
+<p>Body properties: <code>$body.&lt;propertyName&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>An example that is specific to IoT Edge is when you want to filter for messages that arrived at a gateway device from a leaf device.</p>
+</div>
+<div class="paragraph">
+<p>Messages that come from modules include a system property called <strong>connectionModuleId</strong>.</p>
+</div>
+<div class="paragraph">
+<p>So if you want to route messages from leaf devices directly to IoT Hub, use the following route to exclude module messages:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream</code></pre>
+</div>
+</div>
+<h4 id="_sink" class="discrete">Sink</h4>
+<div class="paragraph">
+<p>The sink defines where the messages are sent.</p>
+</div>
+<div class="paragraph">
+<p>Only modules and IoT Hub can receive messages.</p>
+</div>
+<div class="paragraph">
+<p>Messages can&#8217;t be routed to other devices.</p>
+</div>
+<div class="paragraph">
+<p>There are no wildcard options in the sink property.</p>
+</div>
+<div class="paragraph">
+<p>The sink property can be any of the following values:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Sink</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$upstream</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Send the message to IoT Hub.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BrokeredEndpoint("/modules/&lt;moduleId&gt;/inputs/&lt;input&gt;")</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Send the message to a specific input of a specific module.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>IoT Edge provides at-least-once guarantees.</p>
+</div>
+<div class="paragraph">
+<p>The IoT Edge hub stores messages locally in case a route can&#8217;t deliver the message to its sink.</p>
+</div>
+<div class="paragraph">
+<p>For example, if the IoT Edge hub can&#8217;t connect to IoT Hub, or the target module isn&#8217;t connected.</p>
+</div>
+<div class="paragraph">
+<p>IoT Edge hub stores the messages up to the time specified in the <code>storeAndForwardConfiguration.timeToLiveSecs</code> property of the IoT Edge hub desired properties.</p>
+</div>
+<h3 id="_define_or_update_desired_properties" class="discrete">Define or update desired properties</h3>
+<div class="paragraph">
+<p>The deployment manifest specifies desired properties for each module deployed to the IoT Edge device.</p>
+</div>
+<div class="paragraph">
+<p>Desired properties in the deployment manifest overwrite any desired properties currently in the module twin.</p>
+</div>
+<div class="paragraph">
+<p>If you do not specify a module twin&#8217;s desired properties in the deployment manifest, IoT Hub won&#8217;t modify the module twin in any way.</p>
+</div>
+<div class="paragraph">
+<p>Instead, you can set the desired properties programmatically.</p>
+</div>
+<div class="paragraph">
+<p>The same mechanisms that allow you to modify device twins are used to modify module twins.</p>
+</div>
+<h3 id="_deployment_manifest_example" class="discrete">Deployment manifest example</h3>
+<div class="paragraph">
+<p>The following example shows what a valid deployment manifest document may look like.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "modulesContent": {
+    "$edgeAgent": {
+      "properties.desired": {
+        "schemaVersion": "1.1",
+        "runtime": {
+          "type": "docker",
+          "settings": {
+            "minDockerVersion": "v1.25",
+            "loggingOptions": "",
+            "registryCredentials": {
+              "ContosoRegistry": {
+                "username": "myacr",
+                "password": "&lt;password&gt;",
+                "address": "myacr.azurecr.io"
+              }
+            }
+          }
+        },
+        "systemModules": {
+          "edgeAgent": {
+            "type": "docker",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
+              "createOptions": "{}"
+            }
+          },
+          "edgeHub": {
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
+              "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
+            }
+          }
+        },
+        "modules": {
+          "SimulatedTemperatureSensor": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+              "createOptions": "{}"
+            }
+          },
+          "filtermodule": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "myacr.azurecr.io/filtermodule:latest",
+              "createOptions": "{}"
+            }
+          }
+        }
+      }
+    },
+    "$edgeHub": {
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "routes": {
+          "sensorToFilter": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+          "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
+        },
+        "storeAndForwardConfiguration": {
+          "timeToLiveSecs": 10
+        }
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_examine_pre_deployment_considerations"><a class="anchor" href="#_examine_pre_deployment_considerations"></a>Examine pre-deployment considerations</h3>
+<div class="paragraph">
+<p>When you&#8217;re ready to take your IoT Edge solution from development into production, having a checklist will help you to ensure that your solution is configured for ongoing performance.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Each section below begins by dividing associated work into two sections: important to complete before going to production, or helpful for you to know. This distinction is helpful when prioritizing efforts.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<h4 id="_device_configuration" class="discrete">Device Configuration</h4>
+<div class="paragraph">
+<p>IoT Edge devices can be anything from a Raspberry Pi to a laptop to a virtual machine running on a server.</p>
+</div>
+<div class="paragraph">
+<p>You may have access to the device either physically or through a virtual connection, or it may be isolated for extended periods of time.</p>
+</div>
+<div class="paragraph">
+<p>Either way, you want to make sure that it&#8217;s configured to work appropriately.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Important</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Install production certificates.</p>
+</li>
+<li>
+<p>Have a device management plan.</p>
+</li>
+<li>
+<p>Use Moby as the container engine.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Helpful</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Choose upstream protocol.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h5 id="_install_production_certificates" class="discrete">Install production certificates</h5>
+<div class="paragraph">
+<p>Every IoT Edge device in production needs a device certificate authority (CA) certificate installed on it.</p>
+</div>
+<div class="paragraph">
+<p>That CA certificate is then declared to the IoT Edge runtime in the config.yaml file.</p>
+</div>
+<div class="paragraph">
+<p>To make development and testing easier, the IoT Edge runtime creates temporary certificates if no certificates are declared in the config.yaml file.</p>
+</div>
+<div class="paragraph">
+<p>However, these temporary certificates expire after three months and aren&#8217;t secure for production scenarios.</p>
+</div>
+<div class="paragraph">
+<p>The steps for configuring the certificates are the same whether the device is going to be used as a gateway or not.</p>
+</div>
+<div class="paragraph">
+<p>You can generate sample certificates for testing, but never use sample certificates in production.</p>
+</div>
+<h5 id="_have_a_device_management_plan" class="discrete">Have a device management plan</h5>
+<div class="paragraph">
+<p>Before you put any device in production you should know how you&#8217;re going to manage future updates.</p>
+</div>
+<div class="paragraph">
+<p>For an IoT Edge device, the list of components to update may include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Device firmware.</p>
+</li>
+<li>
+<p>Operating system libraries.</p>
+</li>
+<li>
+<p>Container engine, like Moby.</p>
+</li>
+<li>
+<p>IoT Edge daemon.</p>
+</li>
+<li>
+<p>CA certificates.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The current methods for updating the IoT Edge daemon require physical or SSH access to the IoT Edge device.</p>
+</div>
+<div class="paragraph">
+<p>If you have many devices to update, consider adding the update steps to a script or use an automation tool like Ansible.</p>
+</div>
+<h5 id="_use_moby_as_the_container_engine" class="discrete">Use Moby as the container engine</h5>
+<div class="paragraph">
+<p>A container engine is a prerequisite for any IoT Edge device.</p>
+</div>
+<div class="paragraph">
+<p>Only moby-engine is supported in production.</p>
+</div>
+<div class="paragraph">
+<p>Other container engines, like Docker, do work with IoT Edge and it&#8217;s ok to use these engines for development.</p>
+</div>
+<div class="paragraph">
+<p>The moby-engine can be redistributed when used with Azure IoT Edge, and Microsoft provides servicing for this engine.</p>
+</div>
+<h5 id="_choose_upstream_protocol" class="discrete">Choose upstream protocol</h5>
+<div class="paragraph">
+<p>The protocol (and therefore the port used) for upstream communication to IoT Hub can be configured for both the IoT Edge agent and the IoT Edge hub.</p>
+</div>
+<div class="paragraph">
+<p>The default protocol is AMQP, but you may want to change that depending on your network setup.</p>
+</div>
+<div class="paragraph">
+<p>The two runtime modules both have an UpstreamProtocol environment variable.</p>
+</div>
+<div class="paragraph">
+<p>The valid values for the variable are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>MQTT</p>
+</li>
+<li>
+<p>AMQP</p>
+</li>
+<li>
+<p>MQTTWS</p>
+</li>
+<li>
+<p>AMQPWS</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Configure the UpstreamProtocol variable for the IoT Edge agent in the config.yaml file on the device itself.</p>
+</div>
+<div class="paragraph">
+<p>For example, if your IoT Edge device is behind a proxy server that blocks AMQP ports, you may need to configure the IoT Edge agent to use AMQP over WebSocket (AMQPWS) to establish the initial connection to IoT Hub.</p>
+</div>
+<div class="paragraph">
+<p>Once your IoT Edge device connects, be sure to continue configuring the UpstreamProtocol variable for both runtime modules in future deployments.</p>
+</div>
+<div class="paragraph">
+<p>An example of this process is provided in <a href="https://learn.microsoft.com/en-us/azure/iot-edge/how-to-configure-proxy-support?view=iotedge-1.4">Configure an IoT Edge device to communicate through a proxy server</a>.</p>
+</div>
+<h3 id="_deployment_2" class="discrete">Deployment</h3>
+<div class="paragraph">
+<p>For your Deployment checklist, the following items fall into the helpful category.</p>
+</div>
+<h4 id="_be_consistent_with_upstream_protocol" class="discrete">Be consistent with upstream protocol</h4>
+<div class="paragraph">
+<p>If you configured the IoT Edge agent on your IoT Edge device to use a different protocol than the default AMQP, then you should declare the same protocol in all future deployments.</p>
+</div>
+<div class="paragraph">
+<p>For example, if your IoT Edge device is behind a proxy server that blocks AMQP ports, you probably configured the device to connect over AMQP over WebSocket (AMQPWS).</p>
+</div>
+<div class="paragraph">
+<p>When you deploy modules to the device, configure the same AMQPWS protocol for the IoT Edge agent and IoT Edge hub, or else the default AMQP will override the settings and prevent you from connecting again.</p>
+</div>
+<div class="paragraph">
+<p>You only have to configure the UpstreamProtocol environment variable for the IoT Edge agent and IoT Edge hub modules.</p>
+</div>
+<div class="paragraph">
+<p>Any other modules adopt whatever protocol is set in the runtime modules.</p>
+</div>
+<h4 id="_set_up_host_storage_for_system_modules" class="discrete">Set up host storage for system modules</h4>
+<div class="paragraph">
+<p>The IoT Edge hub and agent modules use local storage to maintain state and enable messaging between modules, devices, and the cloud.</p>
+</div>
+<div class="paragraph">
+<p>For better reliability and performance, configure the system modules to use storage on the host filesystem.</p>
+</div>
+<h4 id="_reduce_memory_space_used_by_iot_edge_hub" class="discrete">Reduce memory space used by IoT Edge hub</h4>
+<div class="paragraph">
+<p>If you&#8217;re deploying constrained devices with limited memory available, you can configure IoT Edge hub to run in a more streamlined capacity and use less disk space.</p>
+</div>
+<div class="paragraph">
+<p>These configurations do limit the performance of the IoT Edge hub, however, so find the right balance that works for your solution.</p>
+</div>
+<div class="paragraph">
+<p>Three guidelines that you can follow are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Don&#8217;t optimize for performance on constrained devices.</p>
+</li>
+<li>
+<p>Disable unused protocols.</p>
+</li>
+<li>
+<p>Do not use debug versions of module images.</p>
+</li>
+</ul>
+</div>
+<h3 id="_container_management" class="discrete">Container management</h3>
+<div class="paragraph">
+<p>For your Container management checklist, the following items fall into the important category.</p>
+</div>
+<h4 id="_use_tags_to_manage_versions" class="discrete">Use tags to manage versions</h4>
+<div class="paragraph">
+<p>A tag is a docker concept that you can use to distinguish between versions of docker containers.</p>
+</div>
+<div class="paragraph">
+<p>Tags are suffixes like 1.0 that go on the end of a container repository.</p>
+</div>
+<div class="paragraph">
+<p>For example, mcr.microsoft.com/azureiotedge-agent:1.0.</p>
+</div>
+<div class="paragraph">
+<p>Tags are mutable and can be changed to point to another container at any time, so your team should agree on a convention to follow as you update your module images moving forward.</p>
+</div>
+<div class="paragraph">
+<p>Tags also help you to enforce updates on your IoT Edge devices.</p>
+</div>
+<div class="paragraph">
+<p>When you push an updated version of a module to your container registry, increment the tag.</p>
+</div>
+<div class="paragraph">
+<p>Then, push a new deployment to your devices with the tag incremented.</p>
+</div>
+<div class="paragraph">
+<p>The container engine will recognize the incremented tag as a new version and will pull the latest module version down to your device.</p>
+</div>
+<h4 id="_tags_for_the_iot_edge_runtime" class="discrete">Tags for the IoT Edge runtime</h4>
+<div class="paragraph">
+<p>The IoT Edge agent and IoT Edge hub images are tagged with the IoT Edge version that they are associated with.</p>
+</div>
+<div class="paragraph">
+<p>here are two different ways to use tags with the runtime images:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Rolling tags - Use only the first two values of the version number to get the latest image that matches those digits. For example, 1.1 is updated whenever there&#8217;s a new release to point to the latest 1.1.x version. If the container runtime on your IoT Edge device pulls the image again, the runtime modules are updated to the latest version. Deployments from the Azure portal default to rolling tags. This approach is suggested for development purposes.</p>
+</li>
+<li>
+<p>Specific tags - Use all three values of the version number to explicitly set the image version. For example, 1.1.0 won&#8217;t change after its initial release. You can declare a new version number in the deployment manifest when you&#8217;re ready to update. This approach is suggested for production purposes.</p>
+</li>
+</ul>
+</div>
+<h3 id="_networking" class="discrete">Networking</h3>
+<div class="paragraph">
+<p>For your Networking checklist, the following items fall into the helpful category.</p>
+</div>
+<h4 id="_review_outboundinbound_configuration" class="discrete">Review outbound/inbound configuration</h4>
+<div class="paragraph">
+<p>Communication channels between Azure IoT Hub and IoT Edge are always configured to be outbound.</p>
+</div>
+<div class="paragraph">
+<p>For most IoT Edge scenarios, only three connections are necessary.</p>
+</div>
+<div class="paragraph">
+<p>The container engine needs to connect with the container registry (or registries) that holds the module images.</p>
+</div>
+<div class="paragraph">
+<p>The IoT Edge runtime needs to connect with IoT Hub to retrieve device configuration information, and to send messages and telemetry.</p>
+</div>
+<div class="paragraph">
+<p>And if you use automatic provisioning, the IoT Edge daemon needs to connect to the Device Provisioning Service.</p>
+</div>
+<h4 id="_allow_connections_from_iot_edge_devices" class="discrete">Allow connections from IoT Edge devices</h4>
+<div class="paragraph">
+<p>If your networking setup requires that you explicitly permit connections made from IoT Edge devices, review the following list of IoT Edge components:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>IoT Edge agent opens a persistent AMQP/MQTT connection to IoT Hub, possibly over WebSockets.</p>
+</li>
+<li>
+<p>IoT Edge hub opens a single persistent AMQP connection or multiple MQTT connections to IoT Hub, possibly over WebSockets.</p>
+</li>
+<li>
+<p>IoT Edge daemon makes intermittent HTTPS calls to IoT Hub.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In all three cases, the DNS name would match the pattern *.azure-devices.net.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, the Container engine makes calls to container registries over HTTPS.</p>
+</div>
+<div class="paragraph">
+<p>To retrieve the IoT Edge runtime container images, the DNS name is mcr.microsoft.com.</p>
+</div>
+<div class="paragraph">
+<p>The container engine connects to other registries as configured in the deployment.</p>
+</div>
+<h4 id="_configure_communication_through_a_proxy" class="discrete">Configure communication through a proxy</h4>
+<div class="paragraph">
+<p>If your devices are going to be deployed on a network that uses a proxy server, they need to be able to communicate through the proxy to reach IoT Hub and container registries.</p>
+</div>
+<h3 id="_solution_management" class="discrete">Solution Management</h3>
+<div class="paragraph">
+<p>For your Solution management checklist, the following items fall into the helpful category.</p>
+</div>
+<h4 id="_set_up_logs_and_diagnostics" class="discrete">Set up logs and diagnostics</h4>
+<div class="paragraph">
+<p>On Linux, the IoT Edge daemon uses journals as the default logging driver.</p>
+</div>
+<div class="paragraph">
+<p>You can use the command-line tool <code>journalctl</code> to query the daemon logs.</p>
+</div>
+<div class="paragraph">
+<p>On Windows, the IoT Edge daemon uses PowerShell diagnostics.</p>
+</div>
+<div class="paragraph">
+<p>Use <code>Get-IoTEdgeLog</code> to query logs from the daemon.</p>
+</div>
+<div class="paragraph">
+<p>IoT Edge modules use the JSON driver for logging, which is the default.</p>
+</div>
+<div class="paragraph">
+<p>When you&#8217;re testing an IoT Edge deployment, you can usually access your devices to retrieve logs and troubleshoot.</p>
+</div>
+<div class="paragraph">
+<p>In a deployment scenario, you may not have that option.</p>
+</div>
+<div class="paragraph">
+<p>Consider how you&#8217;re going to gather information about your devices in production.</p>
+</div>
+<div class="paragraph">
+<p>One option is to use a logging module that collects information from the other modules and sends it to the cloud.</p>
+</div>
+<h4 id="_place_limits_on_log_size" class="discrete">Place limits on log size</h4>
+<div class="paragraph">
+<p>By default the Moby container engine does not set container log size limits.</p>
+</div>
+<div class="paragraph">
+<p>Over time this can lead to the device filling up with logs and running out of disk space.</p>
+</div>
+<h3 id="_consider_tests_and_cicd_pipelines" class="discrete">Consider tests and CI/CD pipelines</h3>
+<div class="paragraph">
+<p>For the most efficient IoT Edge deployment scenario, consider integrating your production deployment into your testing and CI/CD pipelines.</p>
+</div>
+<div class="paragraph">
+<p>Azure IoT Edge supports multiple CI/CD platforms, including Azure DevOps.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_iot_edge_gateway_device_configuration"><a class="anchor" href="#_iot_edge_gateway_device_configuration"></a>IoT Edge Gateway Device Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Gateways in IoT Edge solutions provide device connectivity and edge analytics to IoT devices that otherwise wouldn&#8217;t have those capabilities.</p>
+</div>
+<div class="paragraph">
+<p>Azure IoT Edge can be used to satisfy all needs for an IoT gateway regardless of whether they are related to connectivity, identity, or edge analytics.</p>
+</div>
+<div class="paragraph">
+<p>Gateway patterns refer to characteristics of downstream device connectivity and device identity, not how device data is processed on the gateway.</p>
+</div>
+<h3 id="_iot_edge_device_gateway_patterns" class="discrete">IoT Edge device gateway patterns</h3>
+<div class="paragraph">
+<p>There are three patterns for using an IoT Edge device as a gateway: transparent, protocol translation, and identity translation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Transparent</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Devices that theoretically could connect to IoT Hub can connect to a gateway device instead.</p>
+</li>
+<li>
+<p>The downstream devices have their own IoT Hub identities and are using any of the MQTT, AMQP, or HTTP protocols.</p>
+</li>
+<li>
+<p>The gateway simply passes communications between the devices and IoT Hub.</p>
+</li>
+<li>
+<p>The devices are unaware that they are communicating with the cloud via a gateway, and a user interacting with the devices in IoT Hub is unaware of the intermediate gateway device.</p>
+</li>
+<li>
+<p>Thus, the gateway is transparent.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Protocol translation</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Also known as an opaque gateway pattern, devices that do not support MQTT, AMQP, or HTTP can use a gateway device to send data to IoT Hub on their behalf.</p>
+</li>
+<li>
+<p>The gateway understands the protocol used by the downstream devices and is the only device that has an identity in IoT Hub.</p>
+</li>
+<li>
+<p>All information looks like it is coming from one device, the gateway.</p>
+</li>
+<li>
+<p>Downstream devices must embed extra identifying information in their messages if cloud applications want to analyze the data on a per-device basis.</p>
+</li>
+<li>
+<p>Additionally, IoT Hub primitives like twins and methods are only available for the gateway device, not downstream devices.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Identity translation</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Devices that cannot connect to IoT Hub directly can connect to a gateway device instead.</p>
+</li>
+<li>
+<p>The gateway provides IoT Hub identity and protocol translation on behalf of the downstream devices.</p>
+</li>
+<li>
+<p>The gateway is smart enough to understand the protocol used by the downstream devices, provide them identity, and translate IoT Hub primitives.</p>
+</li>
+<li>
+<p>Downstream devices appear in IoT Hub as first-class devices with twins and methods.</p>
+</li>
+<li>
+<p>A user can interact with the devices in IoT Hub and is unaware of the intermediate gateway device.</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">image</dt>
+<dd>
+<p><a href="https://learn.microsoft.com/en-us/training/wwl-azure/examine-iot-edge-gateway-device-configuration/media/m06-l03-iot-edge-gateway-8836b3a3.png" class="bare">https://learn.microsoft.com/en-us/training/wwl-azure/examine-iot-edge-gateway-device-configuration/media/m06-l03-iot-edge-gateway-8836b3a3.png</a></p>
+</dd>
+</dl>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="_use_cases" class="discrete">Use Cases</h3>
+<div class="paragraph">
+<p>All gateway patterns provide the following benefits:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Analytics at the edge</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Use AI services locally to process data coming from downstream devices without sending full-fidelity telemetry to the cloud.</p>
+</li>
+<li>
+<p>Find and react to insights locally and only send a subset of data to IoT Hub.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Downstream device isolation</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The gateway device can shield all downstream devices from exposure to the Internet.</p>
+</li>
+<li>
+<p>It can sit in between an OT network that does not have connectivity and an IT network that provides access to the web.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Connection multiplexing</p>
+<div class="ulist">
+<ul>
+<li>
+<p>All devices connecting to IoT Hub through an IoT Edge gateway use the same underlying connection.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Traffic smoothing</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The IoT Edge device will automatically implement exponential backoff if IoT Hub throttles traffic, while persisting the messages locally.</p>
+</li>
+<li>
+<p>This benefit makes your solution resilient to spikes in traffic.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Offline support</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The gateway device stores messages and twin updates that cannot be delivered to IoT Hub.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="_downstream_device_authentication" class="discrete">downstream device authentication</h3>
+<div class="paragraph">
+<p><a href="https://learn.microsoft.com/en-us/training/modules/examine-iot-edge-gateway-device-configuration/3-authenticate-downstream-device" class="bare">https://learn.microsoft.com/en-us/training/modules/examine-iot-edge-gateway-device-configuration/3-authenticate-downstream-device</a></p>
+</div>
+<h3 id="_examine_a_transparent_gateway_configuration_scenario" class="discrete">Examine a transparent gateway configuration scenario</h3>
+<div class="paragraph">
+<p><a href="https://learn.microsoft.com/en-us/training/modules/examine-iot-edge-gateway-device-configuration/4-configure-connection-for-downstream-device" class="bare">https://learn.microsoft.com/en-us/training/modules/examine-iot-edge-gateway-device-configuration/4-configure-connection-for-downstream-device</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_iot_edge_module_development"><a class="anchor" href="#_iot_edge_module_development"></a>IoT Edge Module Development</h2>
+<div class="sectionbody">
+<h3 id="_iot_edge_runtime_environment" class="discrete">IoT Edge runtime environment</h3>
+<div class="paragraph">
+<p>The IoT Edge runtime provides the infrastructure to integrate the functionality of multiple IoT Edge modules and to deploy them onto IoT Edge devices.</p>
+</div>
+<div class="paragraph">
+<p>At a high level, any program can be packaged as an IoT Edge module.</p>
+</div>
+<div class="paragraph">
+<p>However, to take full advantage of IoT Edge communication and management functionalities, a program running in a module can use the Azure IoT Device SDK to connect to the local IoT Edge hub.</p>
+</div>
+<h3 id="_connecting_to_iot_edge_hub_from_a_module" class="discrete">Connecting to IoT Edge hub from a module</h3>
+<div class="paragraph">
+<p>Connecting to the local IoT Edge hub from a module involves two steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a ModuleClient instance in your application.</p>
+</li>
+<li>
+<p>Make sure your application accepts the certificate presented by the IoT Edge hub on that device.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>To use IoT Edge routing over AMQP or MQTT, you can use the ModuleClient from the Azure IoT SDK.</p>
+</div>
+<div class="paragraph">
+<p>Create a ModuleClient instance to connect your module to the IoT Edge hub running on the device, similar to how DeviceClient instances connect IoT devices to IoT Hub.</p>
+</div>
+<h3 id="_iot_hub_primitives" class="discrete">IoT Hub primitives</h3>
+<div class="paragraph">
+<p>IoT Hub sees a module instance analogously to a device, in the sense that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It has a module twin that is distinct and isolated from the device twin and the other module twins of that device.</p>
+</li>
+<li>
+<p>It can send device-to-cloud messages.</p>
+</li>
+<li>
+<p>It can receive direct methods targeted specifically at its identity.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Currently, modules cannot receive cloud-to-device messages or use the file upload feature.</p>
+</div>
+<div class="paragraph">
+<p>When writing a module, you can connect to the IoT Edge hub and use IoT Hub primitives as you would when using IoT Hub with a device application.</p>
+</div>
+<div class="paragraph">
+<p>The only difference between IoT Edge modules and IoT device applications is that you have to refer to the module identity instead of the device identity.</p>
+</div>
+<h3 id="_device_to_cloud_messages" class="discrete">Device-to-cloud messages</h3>
+<div class="paragraph">
+<p>An IoT Edge module can send messages to the cloud via the IoT Edge hub that acts as a local broker and propagates messages to the cloud.</p>
+</div>
+<div class="paragraph">
+<p>To enable complex processing of device-to-cloud messages, an IoT Edge module can also intercept and process messages sent by other modules or devices to its local IoT Edge hub and send new messages with processed data.</p>
+</div>
+<div class="paragraph">
+<p>Chains of IoT Edge modules can thus be created to build local processing pipelines.</p>
+</div>
+<div class="paragraph">
+<p>To send device-to-cloud telemetry messages using routing, use the ModuleClient of the Azure IoT SDK.</p>
+</div>
+<div class="paragraph">
+<p>With the Azure IoT SDK, each module has the concept of module input and output endpoints, which map to special MQTT topics.</p>
+</div>
+<div class="paragraph">
+<p>Use the ModuleClient.sendMessageAsync method and it will send messages on the output endpoint of your module.</p>
+</div>
+<div class="paragraph">
+<p>Then configure a route in edgeHub to send this output endpoint to IoT Hub.</p>
+</div>
+<div class="paragraph">
+<p>To process messages using routing, first set up a route to send messages coming from another endpoint (module or device) to the input endpoint of your module, then listen for messages on the input endpoint of your module.</p>
+</div>
+<div class="paragraph">
+<p>Each time a new message comes back, a callback function is triggered by the Azure IoT SDK.</p>
+</div>
+<div class="paragraph">
+<p>Process your message with this callback function and optionally send new messages on your module endpoint queue.</p>
+</div>
+<h3 id="_twins" class="discrete">Twins</h3>
+<div class="paragraph">
+<p>Twins are one of the primitives provided by IoT Hub.</p>
+</div>
+<div class="paragraph">
+<p>There are JSON documents that store state information including metadata, configurations, and conditions.</p>
+</div>
+<div class="paragraph">
+<p>Each module or device has its own twin.</p>
+</div>
+<div class="paragraph">
+<p>To get a module twin with the Azure IoT SDK, call the ModuleClient.getTwin method.</p>
+</div>
+<div class="paragraph">
+<p>To get a module twin with any MQTT client, slightly more work is involved since getting a twin is not a typical MQTT pattern.</p>
+</div>
+<div class="paragraph">
+<p>To receive a module twin patch with the Azure IoT SDK, implement a callback function and register it with the ModuleClient.moduleTwinCallback method from the Azure IoT SDK so that your callback function is triggered each time that a twin patch comes in.</p>
+</div>
+<div class="paragraph">
+<p>To receive a module twin patch with any MQTT client, the process is similar to receiving full twins: a client needs to subscribe to special IoT Hub topic $iothub/twin/PATCH/properties/desired/#.</p>
+</div>
+<div class="paragraph">
+<p>After the subscription is made, when IoT Hub sends a change of the desired section of the twin, the client receives it.</p>
+</div>
+<h3 id="_receive_direct_methods" class="discrete">Receive direct methods</h3>
+<div class="paragraph">
+<p>To receive a direct method with the Azure IoT SDK, implement a callback function and register it with the ModuleClient.methodCallback method from the Azure IoT SDK so that your callback function is triggered each time that a direct method comes in.</p>
+</div>
+<div class="paragraph">
+<p>To receive a direct method with any MQTT client, the process is similar to receiving twin patches.</p>
+</div>
+<div class="paragraph">
+<p>The client needs to confirm back that it has received the call and can send back some information at the same time.</p>
+</div>
+<h3 id="_iot_edge_runtime_supported_systems" class="discrete">IoT Edge runtime supported systems</h3>
+<div class="paragraph">
+<p>It is important to understand which systems and components are supported by IoT Edge, whether officially or in preview.</p>
+</div>
+<div class="paragraph">
+<p>For the full list of IoT Edge releases and support documentation, see: <a href="https://learn.microsoft.com/en-us/azure/iot-edge/support?view=iotedge-1.4">Azure IoT Edge supported systems</a></p>
+</div>
+<div class="paragraph">
+<div class="title">Container Engines</div>
+<p>Azure IoT Edge modules are implemented as containers, so IoT Edge needs a container engine to launch them.</p>
+</div>
+<div class="paragraph">
+<p>Microsoft provides a container engine, moby-engine, to fulfill this requirement.</p>
+</div>
+<div class="paragraph">
+<p>This container engine is based on the Moby open-source project.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-iot-edge-module-development/media/m07-l01-edge-modules-containers-only-moby-production-addd36ef.png" alt="m07 l01 edge modules containers only moby production addd36ef">
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Operating Systems</div>
+<p>Operating systems are grouped into tiers that represent the level of support users can expect.</p>
+</div>
+<div class="paragraph">
+<p>Tier 1 systems are supported. For tier 1 systems, Microsoft:
+* Has this operating system in automated tests.
+* Provides installation packages for them.</p>
+</div>
+<div class="paragraph">
+<p>Tier 2 systems are compatible with Azure IoT Edge and can be used relatively easily. For tier 2 systems:
+* Microsoft has done some preliminary testing on the platforms or knows of a partner successfully running Azure IoT Edge on the platform.
+* Installation packages for other platforms may work on these platforms.</p>
+</div>
+<div class="paragraph">
+<p>The family of the host OS must always match the family of the guest OS used inside a module&#8217;s container.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">image</dt>
+<dd>
+<p><a href="https://learn.microsoft.com/en-us/training/wwl-azure/examine-iot-edge-module-development/media/m07-l01-edge-modules-containers-edge-device-8fc429bd.png" class="bare">https://learn.microsoft.com/en-us/training/wwl-azure/examine-iot-edge-module-development/media/m07-l01-edge-modules-containers-edge-device-8fc429bd.png</a></p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<div class="title">Virtual Machines</div>
+<p>Azure IoT Edge can be run in virtual machines.</p>
+</div>
+<div class="paragraph">
+<p>Using a virtual machine as an IoT Edge device is common when customers want to augment existing infrastructure with edge intelligence.</p>
+</div>
+<div class="paragraph">
+<p>The family of the host VM OS must match the family of the guest OS used inside a module&#8217;s container.</p>
+</div>
+<div class="paragraph">
+<p>Azure IoT Edge is agnostic of the underlying virtualization technology and works in VMs powered by platforms like Hyper-V and vSphere.</p>
+</div>
+<div class="paragraph">
+<div class="title">Minimum system requirements</div>
+<p>Azure IoT Edge runs great on devices as small as a Raspberry Pi3 to server grade hardware.</p>
+</div>
+<div class="paragraph">
+<p>Choosing the right hardware for your scenario depends on the workloads that you want to run.</p>
+</div>
+<div class="paragraph">
+<p>Making the final device decision can be complicated; however, you can easily start prototyping a solution on traditional laptops or desktops.</p>
+</div>
+<div class="paragraph">
+<p>Experience while prototyping will help guide your final device selection. Questions you should consider include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>How many modules are in your workload?</p>
+</li>
+<li>
+<p>How many layers do your modules’ containers share?</p>
+</li>
+<li>
+<p>In what language are your modules written?</p>
+</li>
+<li>
+<p>How much data will your modules be processing?</p>
+</li>
+<li>
+<p>Do your modules need any specialized hardware for accelerating their workloads?</p>
+</li>
+<li>
+<p>What are the desired performance characteristics of your solution?</p>
+</li>
+<li>
+<p>What is your hardware budget?</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_module_development_and_testing"><a class="anchor" href="#_module_development_and_testing"></a>Module Development and Testing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Azure IoT Edge moves your existing business logic to devices operating at the edge.</p>
+</div>
+<div class="paragraph">
+<p>To prepare your applications and workloads to run as IoT Edge modules, you need to build them as containers.</p>
+</div>
+<div class="paragraph">
+<p>In any IoT Edge solution, there are at least two machines to consider.</p>
+</div>
+<div class="paragraph">
+<p>One is the IoT Edge device (or devices) itself, which runs the IoT Edge module.</p>
+</div>
+<div class="paragraph">
+<p>The other is the development machine that you use to build, test, and deploy modules.</p>
+</div>
+<div class="paragraph">
+<p>For testing purposes, the two machines can be the same. You can run IoT Edge on your development machine and deploy modules to it.</p>
+</div>
+<div class="paragraph">
+<div class="title">Operating Systems</div>
+<p>For developing for IoT Edge, you can use most operating systems that can run a container engine.</p>
+</div>
+<div class="paragraph">
+<p>The container engine is a requirement on the development machine to build your modules as containers and push them to a container registry.</p>
+</div>
+<div class="paragraph">
+<p>The operating system of your development machine doesn&#8217;t have to match the operating system of your IoT Edge device.</p>
+</div>
+<div class="paragraph">
+<p>However, the container operating system must be consistent between development machine and IoT Edge device.</p>
+</div>
+<div class="paragraph">
+<p>For example, you can develop modules on a Windows machine and deploy them to a Linux device.</p>
+</div>
+<div class="paragraph">
+<p>The Windows machine needs to run Linux containers to build the modules for the Linux device.</p>
+</div>
+<div class="paragraph">
+<div class="title">Container Engine</div>
+<p>The central concept of IoT Edge is that you can remotely deploy your business and cloud logic to devices by packaging it into containers.</p>
+</div>
+<div class="paragraph">
+<p>To build containers, you need a container engine on your development machine.</p>
+</div>
+<div class="paragraph">
+<p>The only supported container engine for IoT Edge devices in production is Moby.</p>
+</div>
+<div class="paragraph">
+<p>However, any container engine compatible with the Open Container Initiative, like Docker, is capable of building IoT Edge module images.</p>
+</div>
+<div class="paragraph">
+<div class="title">Development Tools</div>
+<p>Both Visual Studio and Visual Studio Code have add-on extensions to help develop IoT Edge solutions.</p>
+</div>
+<div class="paragraph">
+<p>These extensions provide language-specific templates to help create and deploy new IoT Edge scenarios.</p>
+</div>
+<div class="paragraph">
+<p>The Azure IoT Edge extensions for Visual Studio and Visual Studio Code help you code, build, deploy, and debug your IoT Edge solutions.</p>
+</div>
+<div class="paragraph">
+<p>You can create an entire IoT Edge solution that contains multiple modules, and the extensions automatically update a deployment manifest template with each new module addition.</p>
+</div>
+<div class="paragraph">
+<p>With the extensions, you can also manage your IoT devices from within Visual Studio or Visual Studio Code.</p>
+</div>
+<div class="paragraph">
+<p>Deploy modules to a device, monitor the status, and view messages as they arrive at IoT Hub.</p>
+</div>
+<div class="paragraph">
+<p>Both extensions use the IoT EdgeHub dev tool to enable local running and debugging of modules on your development machine as well.</p>
+</div>
+<div class="paragraph">
+<div class="title">IoT Edge Dev Tools</div>
+<p>The Azure IoT Edge dev tool simplifies IoT Edge development with command-line abilities.</p>
+</div>
+<div class="paragraph">
+<p>This tool provides CLI commands to develop, debug, and test modules.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>The IoT Edge dev tool works with your development system, whether you've manually installed the dependencies on your machine or are using the IoT Edge dev container.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>https://github.com/Azure/iotedgedev/wiki</pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Testing Tools</div>
+<p>Several testing tools exist to help you simulate IoT Edge devices or debug modules more efficiently.</p>
+</div>
+<div class="paragraph">
+<p>Only the IoT Edge runtime is supported for production deployments, but the following tools allow you to simulate or easily create IoT Edge devices for development and testing purposes.</p>
+</div>
+<div class="paragraph">
+<p>These tools aren&#8217;t mutually exclusive, but can work together for a complete development experience.</p>
+</div>
+<div class="paragraph">
+<div class="title">IoT EdgeHub dev tool</div>
+<p>The Azure IoT EdgeHub dev tool provides a local development and debug experience.</p>
+</div>
+<div class="paragraph">
+<p>The tool helps start IoT Edge modules without the IoT Edge runtime so that you can create, develop, test, run, and debug IoT Edge modules and solutions locally.</p>
+</div>
+<div class="paragraph">
+<p>You don&#8217;t have to push images to a container registry and deploy them to a device for testing.</p>
+</div>
+<div class="paragraph">
+<p>The IoT EdgeHub dev tool was designed to work in tandem with the Visual Studio and Visual Studio Code extensions, and it works with the IoT Edge dev tool.</p>
+</div>
+<div class="paragraph">
+<p>It supports inner loop development and outer loop testing, so it integrates with the DevOps tools.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://pypi.org/project/iotedgehubdev/" class="bare">https://pypi.org/project/iotedgehubdev/</a></p>
+</div>
+<div class="paragraph">
+<div class="title">IoT Edge dev container</div>
+<p>The Azure IoT Edge dev container is a Docker container that has all the dependencies that you need for IoT Edge development.</p>
+</div>
+<div class="paragraph">
+<p>This container makes it easy to get started with whichever language you want to develop in, including C#, Python, Node.js, and Java.</p>
+</div>
+<div class="paragraph">
+<p>All you need to install is a container engine, like Docker or Moby, to pull the container to your development machine.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://hub.docker.com/r/microsoft/iotedgedev/" class="bare">https://hub.docker.com/r/microsoft/iotedgedev/</a></p>
+</div>
+<div class="paragraph">
+<div class="title">IoT Edge runtime in a container</div>
+<p>The IoT Edge runtime in a container provides a complete runtime that takes your device connection string as an environment variable.</p>
+</div>
+<div class="paragraph">
+<p>This container enables you to test IoT Edge modules and scenarios on a system that may not support the runtime natively, like macOS.</p>
+</div>
+<div class="paragraph">
+<p>Any modules that you deploy will be started outside of the runtime container.</p>
+</div>
+<div class="paragraph">
+<p>If you want the runtime and any deployed modules to exist within the same container, consider the IoT Edge device container instead.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/toolboc/azure-iot-edge-device-container" class="bare">https://github.com/toolboc/azure-iot-edge-device-container</a></p>
+</div>
+<div class="paragraph">
+<div class="title">IoT Edge device container</div>
+<p>The IoT Edge device container is a complete IoT Edge device, ready to be launched on any machine with a container engine.</p>
+</div>
+<div class="paragraph">
+<p>The device container includes the IoT Edge runtime and a container engine itself.</p>
+</div>
+<div class="paragraph">
+<p>Each instance of the container is a fully functional self-provisioning IoT Edge device.</p>
+</div>
+<div class="paragraph">
+<p>The device container supports remote debugging of modules, as long as there is a network route to the module.</p>
+</div>
+<div class="paragraph">
+<p>The device container is good for quickly creating large numbers of IoT Edge devices to test at-scale scenarios or Azure Pipelines.</p>
+</div>
+<div class="paragraph">
+<p>It also supports deployment to kubernetes via helm.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/toolboc/azure-iot-edge-device-container" class="bare">https://github.com/toolboc/azure-iot-edge-device-container</a></p>
+</div>
+<div class="paragraph">
+<div class="title">Module Development Process</div>
+<p><a href="https://learn.microsoft.com/en-us/training/modules/examine-iot-edge-module-development/6-develop-custom-modules-visual-studio-code" class="bare">https://learn.microsoft.com/en-us/training/modules/examine-iot-edge-module-development/6-develop-custom-modules-visual-studio-code</a></p>
+</div>
+<div class="paragraph">
+<div class="title">Module Debugging Process</div>
+<p><a href="https://learn.microsoft.com/en-us/training/modules/examine-iot-edge-module-development/7-debug-edge-modules" class="bare">https://learn.microsoft.com/en-us/training/modules/examine-iot-edge-module-development/7-debug-edge-modules</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_offline_and_local_storage_capabilities"><a class="anchor" href="#_offline_and_local_storage_capabilities"></a>Offline and Local Storage Capabilities</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Azure IoT Edge supports extended offline operations on your IoT Edge devices, and enables offline operations on non-IoT Edge child devices too.</p>
+</div>
+<div class="paragraph">
+<p>As long as an IoT Edge device has had one opportunity to connect to IoT Hub, it and any child devices can continue to function with intermittent or no Internet connection.</p>
+</div>
+<div class="paragraph">
+<p>When an IoT Edge device goes into offline mode, the IoT Edge hub takes on three roles.</p>
+</div>
+<div class="paragraph">
+<p>First, it stores any messages that would go upstream and saves them until the device reconnects.</p>
+</div>
+<div class="paragraph">
+<p>Second, it acts on behalf of IoT Hub to authenticate modules and child devices so that they can continue to operate.</p>
+</div>
+<div class="paragraph">
+<p>Third, it enables communication between child devices that normally would go through IoT Hub.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows how an IoT Edge scenario operates in offline mode:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Configure devices</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>IoT Edge devices automatically have offline capabilities enabled.</p>
+</li>
+<li>
+<p>To extend that capability to other IoT devices, you need to declare a parent-child relationship between the devices in IoT Hub.</p>
+</li>
+<li>
+<p>Then, you configure the child devices to trust their assigned parent device and route the device-to-cloud communications through the parent as a gateway.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Sync with IoT Hub</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>At least once after installation of the IoT Edge runtime, the IoT Edge device needs to be online to sync with IoT Hub.</p>
+</li>
+<li>
+<p>In this sync, the IoT Edge device gets details about any child devices assigned to it.</p>
+</li>
+<li>
+<p>The IoT Edge device also securely updates its local cache to enable offline operations and retrieves settings for local storage of telemetry messages.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Go offline</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>While disconnected from IoT Hub, the IoT Edge device, its deployed modules, and any children IoT devices can operate indefinitely.</p>
+</li>
+<li>
+<p>Modules and child devices can start and restart by authenticating with the IoT Edge hub while offline.</p>
+</li>
+<li>
+<p>Telemetry bound upstream to IoT Hub is stored locally.</p>
+</li>
+<li>
+<p>Communication between modules or between child IoT devices is maintained through direct methods or messages.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Reconnect and resync with IoT Hub</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Once the connection with IoT Hub is restored, the IoT Edge device syncs again.</p>
+</li>
+<li>
+<p>Locally stored messages are delivered in the same order in which they were stored.</p>
+</li>
+<li>
+<p>Any differences between the desired and reported properties of the modules and devices are reconciled.</p>
+</li>
+<li>
+<p>The IoT Edge device updates any changes to its set of assigned child IoT devices.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Restrictions and limits</div>
+<p>The extended offline capabilities described here are available in IoT Edge version 1.0.7 or higher.</p>
+</div>
+<div class="paragraph">
+<p>Existing IoT Edge devices that don&#8217;t have extended offline capabilities can&#8217;t be upgraded by changing the runtime version, but must be reconfigured with a new IoT Edge device identity to gain these features.</p>
+</div>
+<div class="paragraph">
+<p>IoT Edge devices and their assigned child devices can function indefinitely offline after the initial, one-time sync.</p>
+</div>
+<div class="paragraph">
+<p>However, storage of messages depends on the time to live (TTL) setting and the available disk space for storing the messages.</p>
+</div>
+<h3 id="_set_up_parent_and_child_devices" class="discrete">Set up parent and child devices</h3>
+<div class="paragraph">
+<p>For an IoT Edge device to extend its extended offline capabilities to child IoT devices, you need to complete two steps.</p>
+</div>
+<div class="paragraph">
+<p>First, declare the parent-child relationships in the Azure portal.</p>
+</div>
+<div class="paragraph">
+<p>Second, create a trust relationship between the parent device and any child devices, then configure device-to-cloud communications to go through the parent as a gateway.</p>
+</div>
+<div class="paragraph">
+<div class="title">Assign Child Devices</div>
+<p>Child devices can be any non-IoT Edge device registered to the same IoT Hub.</p>
+</div>
+<div class="paragraph">
+<p>Parent devices can have multiple child devices, but a child device only has one parent.</p>
+</div>
+<div class="paragraph">
+<p>There are three options to set child devices to an edge device: through the Azure portal, using the Azure CLI, or using the IoT Hub service SDK.</p>
+</div>
+<div class="paragraph">
+<div class="title">Option 1: IoT Hub Portal</div>
+<p>You can declare the parent-child relationship when creating a new device.</p>
+</div>
+<div class="paragraph">
+<p>Or for existing devices, you can declare the relationship from the device details page of either the parent IoT Edge device or the child IoT device.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-offline-local-storage-capabilities/media/m06-l03-edge-gateway-manage-child-devices-b7de833f.png" alt="m06 l03 edge gateway manage child devices b7de833f">
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Option 2: Use the az command-line tool</div>
+<p>Using the Azure command-line interface with IoT extension (v0.7.0 or newer), you can manage parent child relationships with the device-identity subcommands.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p># Set IoT Edge parent device
+egde_device="edge-device1"</p>
+</div>
+<div class="paragraph">
+<p># Get All IoT Devices
+device_list=$(az iot hub query \
+        --hub-name replace-with-hub-name \
+        --subscription replace-with-sub-name \
+        --resource-group replace-with-rg-name \
+        -q "SELECT * FROM devices WHERE capabilities.iotEdge = false" \
+        --query 'join(`, `, [].deviceId)' -o tsv)</p>
+</div>
+<div class="paragraph">
+<p># Add all IoT devices to IoT Edge (as child)
+az iot hub device-identity add-children \
+  --device-id $egde_device \
+  --child-list $device_list \
+  --hub-name replace-with-hub-name \
+  --resource-group replace-with-rg-name \
+  --subscription replace-with-sub-name</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Option 3: Use IoT Hub Service SDK</div>
+<p>Finally, you can manage parent child relationships programmatically using either C#, Java or Node.js IoT Hub Service SDK.</p>
+</div>
+<div class="paragraph">
+<div class="title">Set up the parent device as a gateway</div>
+<p>You can think of a parent/child relationship as a transparent gateway, where the child device has its own identity in IoT Hub but communicates through the cloud via its parent.</p>
+</div>
+<div class="paragraph">
+<p>For secure communication, the child device needs to be able to verify that the parent device comes from a trusted source.</p>
+</div>
+<div class="paragraph">
+<p>Otherwise, third-parties could set up malicious devices to impersonate parents and intercept communications.</p>
+</div>
+<div class="paragraph">
+<div class="title">Specify DNS servers</div>
+<p>To improve robustness, it is highly recommended you specify the DNS server addresses used in your environment.</p>
+</div>
+<div class="paragraph">
+<p>To set your DNS server for IoT Edge, either set DNS server address in container engine settings or per module in the IoT Edge deployment.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see the resolution for <strong>Edge Agent module continually reports 'empty config file' and no modules start on device</strong> in the troubleshooting article <a href="https://learn.microsoft.com/en-us/azure/iot-edge/troubleshoot">Troubleshoot your IoT Edge device</a>.</p>
+</div>
+<div class="paragraph">
+<div class="title">Optional offline settings</div>
+<p>If your devices go offline, the IoT Edge parent device stores all device-to-cloud messages until the connection is reestablished.</p>
+</div>
+<div class="paragraph">
+<p>The IoT Edge hub module manages the storage and forwarding of offline messages.</p>
+</div>
+<div class="paragraph">
+<p>For devices that may go offline for extended periods of time, optimize performance by configuring two IoT Edge hub settings.</p>
+</div>
+<div class="paragraph">
+<p>First, increase the time to live setting so that the IoT Edge hub will keep messages long enough for your device to reconnect. Then, add more disk space for message storage.</p>
+</div>
+<div class="paragraph">
+<div class="title">Time to live</div>
+<p>The time to live setting is the amount of time (in seconds) that a message can wait to be delivered before it expires.</p>
+</div>
+<div class="paragraph">
+<p>The default is 7200 seconds (two hours).</p>
+</div>
+<div class="paragraph">
+<p>The maximum value is only limited by the maximum value of an integer variable, which is around 2 billion.</p>
+</div>
+<div class="paragraph">
+<p>This setting is a desired property of the IoT Edge hub, which is stored in the module twin.</p>
+</div>
+<div class="paragraph">
+<p>You can configure it in the Azure portal or directly in the deployment manifest.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>"$edgeHub": {
+    "properties.desired": {
+        "schemaVersion": "1.0",
+        "routes": {},
+        "storeAndForwardConfiguration": {
+            "timeToLiveSecs": 7200
+        }
+    }
+}</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>There are several things to consider when configuring the Message Time-to-Live (TTL) for theEdge Hub ($edgeHub) module.</p>
+</div>
+<div class="paragraph">
+<p>When the IoT Edge Device is disconnected, the messages are stored on the local device.</p>
+</div>
+<div class="paragraph">
+<p>You need to calculate how much data will be stored during the TTL period, and make sure there is enough storage on the device for that much data.</p>
+</div>
+<div class="paragraph">
+<p>The amount of storage and TTL configured will need to meet the solutions requirements if you want to avoid the loss of important data.</p>
+</div>
+<div class="paragraph">
+<p>The storage location can be configured using a <strong>HostConfig</strong> object.</p>
+</div>
+<div class="paragraph">
+<div class="title">Host storage for system modules</div>
+<p>Messages and module state information are stored in the IoT Edge hub&#8217;s local container filesystem by default.</p>
+</div>
+<div class="paragraph">
+<p>For improved reliability, especially when operating offline, you can also dedicate storage on the host IoT Edge device.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_azure_blob_storage_on_iot_edge"><a class="anchor" href="#_azure_blob_storage_on_iot_edge"></a>Azure Blob Storage on IoT Edge</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Azure Blob Storage on IoT Edge provides a block blob storage solution at the edge.</p>
+</div>
+<div class="paragraph">
+<p>A blob storage module on your IoT Edge device behaves like an Azure block blob service, except the block blobs are stored locally on your IoT Edge device.</p>
+</div>
+<div class="paragraph">
+<p>You can access your blobs using the same Azure storage SDK methods or block blob API calls that you&#8217;re already used to.</p>
+</div>
+<div class="paragraph">
+<p>A blob storage module is useful in the following scenarios:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Where data needs to be stored locally until it can be processed or transferred to the cloud. This data can be videos, images, finance data, hospital data, or any other unstructured data.</p>
+</li>
+<li>
+<p>When devices are located in a place with limited connectivity.</p>
+</li>
+<li>
+<p>When you want to efficiently process the data locally to get low latency access to the data, such that you can respond to emergencies as quickly as possible.</p>
+</li>
+<li>
+<p>When you want to reduce bandwidth costs and avoid transferring terabytes of data to the cloud. You can process the data locally and send only the processed data to the cloud.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Azure SQL Edge is another local storage option for IoT Edge devices.
+Azure SQL Edge is an optimized relational database engine geared for IoT and IoT Edge deployments.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To understand how to setup and configure Azure Blob Storage follow the <a href="https://learn.microsoft.com/en-us/training/modules/examine-offline-local-storage-capabilities/3-azure-blob-storage-iot-edge">link</a></p>
+</div>
+<div class="paragraph">
+<div class="title">Module access to local storage</div>
+<p>In addition to storing data using Azure storage services or in your device&#8217;s container storage, you can also dedicate storage on the host IoT Edge device itself for improved reliability, especially when operating offline.</p>
+</div>
+<div class="paragraph">
+<p>To understand how to use and configure module access to local storage. Please read the link <a href="https://learn.microsoft.com/en-us/training/modules/examine-offline-local-storage-capabilities/4-module-access-local-storage">here</a></p>
+</div>
+<div class="paragraph">
+<p>In addition to using the container create options to enable access to local/host storage, scenarios that come up most often when building IoT Edge solutions include:
+* Map host port to module port
+* Restrict module memory and CPU usage</p>
+</div>
+<div class="paragraph">
+<p>You can find detailed information for implementing these scenarios here: <a href="https://learn.microsoft.com/en-us/azure/iot-edge/how-to-use-create-options">How to configure container create options for IoT Edge modules.</a></p>
+</div>
+<div class="paragraph">
+<p>You can find more details about create options from docker docs <a href="https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate" class="bare">https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_manage_iot_devices_by_using_iot_hub_and_apps"><a class="anchor" href="#_manage_iot_devices_by_using_iot_hub_and_apps"></a>Manage IoT devices by using IoT Hub and apps</h2>
+<div class="sectionbody">
+<h3 id="_device_management_patterns" class="discrete">Device Management Patterns</h3>
+<div class="paragraph">
+<p>Back-end apps can use Azure IoT Hub primitives, such as device twins and direct methods, to remotely start and monitor device management actions on devices.</p>
+</div>
+<h4 id="_patterns" class="discrete">Patterns</h4>
+<div class="paragraph">
+<p>IoT Hub enables the following set of device management patterns.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Reboot</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>The back-end app informs the device through a direct method that it has initiated a reboot.</p>
+</li>
+<li>
+<p>The device uses the reported properties to update the reboot status of the device.</p>
+<div class="openblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-device-management-concepts-methods/media/m08-l01-device-management-reboot-pattern-67a697c2.png" alt="m08 l01 device management reboot pattern 67a697c2">
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Factory Reset</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>The back-end app informs the device through a direct method that it has initiated a factory reset.</p>
+</li>
+<li>
+<p>The device uses the reported properties to update the factory reset status of the device.</p>
+<div class="openblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-device-management-concepts-methods/media/m08-l01-device-management-factory-reset-pattern-ae2bcf97.png" alt="m08 l01 device management factory reset pattern ae2bcf97">
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Configuration</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>The back-end app uses the desired properties to configure software running on the device.</p>
+</li>
+<li>
+<p>The device uses the reported properties to update configuration status of the device.</p>
+<div class="openblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-device-management-concepts-methods/media/m08-l01-device-management-configuration-pattern-b0be34d8.png" alt="m08 l01 device management configuration pattern b0be34d8">
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Firmware update</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>The back-end app uses an automatic device management configuration to select the devices to receive the update, to tell the devices where to find the update, and to monitor the update process.</p>
+</li>
+<li>
+<p>The device initiates a multistep process to download, verify, and apply the firmware image, and then reboot the device before reconnecting to the IoT Hub service.</p>
+</li>
+<li>
+<p>Throughout the multistep process, the device uses the reported properties to update the progress and status of the device.</p>
+<div class="openblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-device-management-concepts-methods/media/m08-l01-device-management-firmware-update-pattern-3deee818.png" alt="m08 l01 device management firmware update pattern 3deee818">
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Reporting progress and status</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>The solution back end runs device twin queries, across a set of devices, to report on the status and progress of actions running on the devices.</p>
+<div class="openblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-device-management-concepts-methods/media/m08-l01-device-management-reporting-progress-status-pattern-970ff9d5.png" alt="m08 l01 device management reporting progress status pattern 970ff9d5">
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<h4 id="_approaches" class="discrete">Approaches</h4>
+<div class="paragraph">
+<p>You can use a direct method to initiate device management actions (such as reboot, factory reset, and firmware update) from a back-end app in the cloud.</p>
+</div>
+<div class="paragraph">
+<p>The device is responsible for:
+* Handling the method request sent from IoT Hub.
+* Initiating the corresponding device-specific action on the device.
+* Providing status updates through reported properties to IoT Hub.</p>
+</div>
+<div class="paragraph">
+<p>You can use a back-end app in the cloud to run device twin queries to set a device twin desired property or to report on the progress of your device management actions.</p>
+</div>
+<div class="paragraph">
+<p>The device is responsible for:
+* Handling the property changed event and updating the local variables that correspond to the device twin desired property.
+* Communicating the device twin reported property setting to IoT hub after the updated desired property has been implemented successfully.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_device_configuration_using_device_twins"><a class="anchor" href="#_device_configuration_using_device_twins"></a>Device Configuration using Device Twins</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Configuring devices from your back-end service is a core component of most device management solutions.</p>
+</div>
+<div class="paragraph">
+<p>To synchronize state information between a device and an IoT hub, you use device twins.</p>
+</div>
+<div class="paragraph">
+<p>A desired property is set by a back-end application and read by a device.</p>
+</div>
+<div class="paragraph">
+<p>A reported property is set by a device and read by a back-end application.</p>
+</div>
+<div class="paragraph">
+<p>Device Twins also include a tag that is set by a back-end application, but is never sent to the device.</p>
+</div>
+<div class="paragraph">
+<p>You use tags to provide descriptive information, such as location, or to help organize/differentiate your devices.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-device-management-concepts-methods/media/m08-l01-device-management-using-device-twin-properties-4defa110.png" alt="m08 l01 device management using device twin properties 4defa110">
+</div>
+</div>
+<h3 id="_device_twin_properties" class="discrete">Device Twin Properties</h3>
+<div class="paragraph">
+<p>Consider the following "properties" section of a device twin document:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>"properties": {
+        "desired": {
+            "telemetryConfig": {
+                "sendFrequency": "5m"
+            },
+            "$metadata" : {&#8230;&#8203;},
+            "$version": 1
+        },
+        "reported": {
+            "telemetryConfig": {
+                "sendFrequency": "5m",
+                "status": "success"
+            },
+            "$metadata" : {&#8230;&#8203;},
+            "$version": 4
+        }
+    }</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>telemetryConfig</code> device twin desired and reported properties are used by the solution back end and the device app to synchronize the telemetry configuration for this device.</p>
+</div>
+<div class="paragraph">
+<p>An update to the device configuration could be implemented as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The solution back end sets the desired property with the desired configuration value.</p>
+</li>
+<li>
+<p>The device app is notified of the change immediately if connected, or at the first reconnect.</p>
+</li>
+<li>
+<p>The device app then reports the updated configuration (or an error condition using the <code>status</code> property).</p>
+</li>
+<li>
+<p>The solution back end can track the results of the configuration operation across many devices by querying device twins.</p>
+</li>
+</ol>
+</div>
+<h4 id="_back_end_operations" class="discrete">Back-end operations</h4>
+<div class="paragraph">
+<p>The solution back end operates on the device twin using the following atomic operations, exposed through HTTPS:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Retrieve device twin by ID.</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>This operation returns the device twin document, including tags and desired and reported system properties.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Partially update device twin</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>This operation enables the solution back end to partially update the tags or desired properties in a device twin.</p>
+</li>
+<li>
+<p>The partial update is expressed as a JSON document that adds or updates any property.</p>
+</li>
+<li>
+<p>Properties set to <code>null</code> are removed.</p>
+</li>
+<li>
+<p>The following example creates a new desired property with value <code>{"newProperty": "newValue"}</code>, overwrites the existing value of existingProperty with <code>"otherNewValue"</code>, and removes <code>otherOldProperty</code>. No other changes are made to existing desired properties or tags:</p>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>{
+        "properties": {
+            "desired": {
+                "newProperty": {
+                    "nestedProperty": "newValue"
+                },
+                "existingProperty": "otherNewValue",
+                "otherOldProperty": null
+            }
+        }
+}</p>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Replace desired properties</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>This operation enables the solution back end to completely overwrite all existing desired properties and substitute a new JSON document for <code>properties/desired</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Replace tags</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>This operation enables the solution back end to completely overwrite all existing tags and substitute a new JSON document for <code>tags</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Receive twin notifications.</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>This operation allows the solution back end to be notified when the twin is modified.</p>
+</li>
+<li>
+<p>To do so, your IoT solution needs to create a route and to set the Data Source equal to twinChangeEvents.</p>
+</li>
+<li>
+<p>By default, no such routes pre-exist, so no twin notifications are sent. If the rate of change is too high, or for other reasons such as internal failures, the IoT Hub might send only one notification that contains all changes.</p>
+</li>
+<li>
+<p>Therefore, if your application needs reliable auditing and logging of all intermediate states, you should use device-to-cloud messages.</p>
+</li>
+<li>
+<p>The twin notification message includes properties and body.</p>
+</li>
+<li>
+<p><strong>Properties</strong> The properties for a twin notification message are shown in the following table.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In addition to these operations, the solution back end can:
+* Query the device twins using the SQL-like IoT Hub query language.
+* Perform operations on large set of device twins using jobs.</p>
+</div>
+<h4 id="_device_operations" class="discrete">Device operations</h4>
+<div class="paragraph">
+<p>The device app operates on the device twin using the following atomic operations:
+* <strong>Retrieve device twin.</strong>
+**</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_digital_twins"><a class="anchor" href="#_digital_twins"></a>Digital Twins</h2>
+<div class="sectionbody">
+<h3 id="_environment_and_service_goals" class="discrete">Environment and service goals</h3>
+<div class="paragraph">
+<p>Azure Digital Twins is a platform as a service (PaaS) offering that enables the creation of knowledge graphs (a way to integrate information extracted from multiple data sources).</p>
+</div>
+<div class="paragraph">
+<p>In the case of Azure Digital Twins, the knowledge graph is based on interconnected digital entities that combine to represent a larger, interactive environment.</p>
+</div>
+<div class="paragraph">
+<p>The size and complexity of the environment is dependent upon your business needs, and could represent things like buildings, factories, farms, energy networks, railways, stadiums, and more—even entire cities.</p>
+</div>
+<div class="paragraph">
+<p>The digital entities defined within your environment, which are referred to as digital twins within an Azure Digital Twins solution, can be used to gain insights that drive better products, optimized operations, reduced costs, and breakthrough customer experiences.</p>
+</div>
+<div class="paragraph">
+<p>Azure Digital Twins can be used to build customized, connected solutions that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Model any environment, and bring digital twins to life in a scalable and secure manner.</p>
+</li>
+<li>
+<p>Connect assets such as IoT devices and existing business systems</p>
+</li>
+<li>
+<p>Use a robust event system to build dynamic business logic and data processing.</p>
+</li>
+<li>
+<p>Integrate with Azure data, analytics, and AI services to help you track the past and then predict the future.</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Digital twins (in Azure Digital Twins) and device twins (in IoT Hub) may sound similar, but they are two different things.</p>
+</li>
+<li>
+<p>IoT Hub device twins often focus on describing the aspects and capabilities of a device itself</p>
+</li>
+<li>
+<p>Digital twins are more conceptual representations that can store user-defined insights about a digital entity or many related entities.</p>
+</li>
+<li>
+<p>Entities that could be representing a device or many related devices.</p>
+</li>
+<li>
+<p>It is also worth noting that IoT Hub device twins can be connected to Azure Digital Twins (the service) as part of an end-to-end solution that represents devices across services.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<h4 id="_simple_azure_digital_twins_environment_scenario" class="discrete">Simple Azure Digital Twins environment scenario</h4>
+<div class="paragraph">
+<p>iamge::https://learn.microsoft.com/en-us/training/wwl-azure/examine-components-azure-digital-twins-solution/media/m11-l02-simple-twins-environment-fb572ff0.png[]</p>
+</div>
+<div class="paragraph">
+<p>Consider the following example where we define an environment that represents a small building (the Azure Digital Twins graph shown above).</p>
+</div>
+<div class="paragraph">
+<p>In this example, our building is composed of digital twins that represent the floors of the building, and the rooms on each floor.</p>
+</div>
+<div class="paragraph">
+<p>The lines on the Graph that connect a Floor to a Room are called relationships.</p>
+</div>
+<div class="paragraph">
+<p>Relationships help to define how our digital twins are related to one another.</p>
+</div>
+<div class="paragraph">
+<p>In this case, the relationship tells us that a floor “contains” rooms.</p>
+</div>
+<div class="paragraph">
+<p>The graph shows that our building has two floors, and each floor contains one room, but our environment could be expanded to include more floors and more rooms on each floor, or we could create more levels of detail, such as adding digital twins that represent digital entities within the rooms.</p>
+</div>
+<h3 id="_services_and_data_workflows_that_form_an_azure_digital_twins_solution" class="discrete">Services and data workflows that form an Azure Digital Twins solution</h3>
+<div class="paragraph">
+<p>Azure Digital Twins is typically used together with other services to create flexible, connected solutions that use your data in various workflows.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Using event routes, Azure Digital Twins can receive data from upstream services such as IoT Hub or Logic Apps, which are used to deliver telemetry and notifications.</p>
+</li>
+<li>
+<p>Azure Digital Twins can also route data to downstream services, such as Azure Maps and Time Series Insights, for storage, workflow integration, analytics, and more.</p>
+</li>
+</ul>
+</div>
+<h4 id="_data_ingress" class="discrete">Data Ingress</h4>
+<div class="paragraph">
+<p>Azure Digital Twins can be driven with data and events from any service—IoT Hub, Logic Apps, your own custom service, and more.</p>
+</div>
+<div class="paragraph">
+<p>This capability allows you to collect telemetry from physical devices in your environment, and process this data using the Azure Digital Twins graph in the cloud.</p>
+</div>
+<div class="paragraph">
+<p>Instead of having a built-in IoT Hub behind the scenes, Azure Digital Twins allows you to "bring your own" IoT Hub to use with the service.</p>
+</div>
+<div class="paragraph">
+<p>You can use an existing IoT Hub you currently have in production, or deploy a new one to be used for this purpose.</p>
+</div>
+<div class="paragraph">
+<p>This capability gives you full access to all of the device management capabilities of IoT Hub.</p>
+</div>
+<div class="paragraph">
+<p>To ingest data from any source into Azure Digital Twins, use an Azure function.</p>
+</div>
+<h4 id="_data_egress_services" class="discrete">Data egress services</h4>
+<div class="paragraph">
+<p>Azure Digital Twins can send data to connected endpoints. Supported endpoints can be:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Event Hubs</p>
+</li>
+<li>
+<p>Event Grids</p>
+</li>
+<li>
+<p>Service Bus</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Endpoints are attached to Azure Digital Twins using management APIs or the Azure portal.</p>
+</div>
+<div class="paragraph">
+<p>There are many other services where you may want to ultimately direct your data, such as Azure Storage, Azure Maps, or Time Series Insights.</p>
+</div>
+<div class="paragraph">
+<p>To send your data to services like these, attach the destination service to an endpoint.</p>
+</div>
+<div class="paragraph">
+<p>For example, if you are also using Azure Maps and want to correlate location with your Azure Digital Twins twin graph, you can use Azure Functions with Event Grid to establish communication between all the services in your deployment.</p>
+</div>
+<h4 id="_azure_digital_twins_in_a_solution_context" class="discrete">Azure Digital Twins in a solution context</h4>
+<div class="paragraph">
+<p>Azure Digital Twins is commonly used in combination with other Azure services as part of a larger IoT solution.</p>
+</div>
+<div class="paragraph">
+<p>A complete solution using Azure Digital Twins may contain the following parts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Azure Digital Twins service instance. The Azure Digital Twins service stores your twin graph with its state and orchestrates event processing.</p>
+</li>
+<li>
+<p>One or more client apps that may be used when building the Azure Digital Twins solution (to create digital entities and a topology, or to extract insights from the twin graph).</p>
+</li>
+<li>
+<p>One or more external compute resources to process events generated by Azure Digital Twins, or by connected data sources such as devices. One common way to provide compute resources is via Azure Functions.</p>
+</li>
+<li>
+<p>An IoT hub to provide device management and IoT data stream capabilities.</p>
+</li>
+<li>
+<p>Downstream services to handle tasks such as workflow integration (like Logic Apps, cold storage, time series integration, or analytics).</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-components-azure-digital-twins-solution/media/m11-l02-adt-solution-services-24939866.png" alt="m11 l02 adt solution services 24939866">
+</div>
+</div>
+<h3 id="_azure_digital_twins_models" class="discrete">Azure Digital Twins models</h3>
+<div class="paragraph">
+<p>In an Azure Digital Twins solution, Models provide the blueprint that is used to create the digital twin entities within your Azure Digital Twins environment.</p>
+</div>
+<div class="paragraph">
+<p>Consider this example of an Azure Digital Twins environment expressed as a graph.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-components-azure-digital-twins-solution/media/m11-l02-simple-twins-environment-fb572ff0.png" alt="m11 l02 simple twins environment fb572ff0">
+</div>
+</div>
+<div class="paragraph">
+<p>The nodes that you see in this graph are the digital twin instances that were created using the corresponding Model (either a Floor or a Room model).</p>
+</div>
+<div class="paragraph">
+<p>Models have names (such as Floor, Room, or TemperatureSensor), and contain elements such as properties, telemetry/events, and relationships that describe how the digital twin entities are related to each other within your environment.</p>
+</div>
+<h4 id="_elements_of_a_model" class="discrete">Elements of a model</h4>
+<div class="paragraph">
+<p>Azure Digital Twins models are defined using the Digital Twins Definition Language (DTDL), which is expressed using a JSON-style coding format.</p>
+</div>
+<div class="paragraph">
+<p>Within a model definition, the top-level code item is an Interface, which encapsulates the entire model.</p>
+</div>
+<div class="paragraph">
+<p>A DTDL model interface may contain zero, one, or many of each of the following fields:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Property</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Properties are data fields that represent the state of an entity.</p>
+</li>
+<li>
+<p>Like the properties in many object-oriented programming languages.</p>
+</li>
+<li>
+<p>Properties have backing storage and can be read at any time.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Telemetry</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Telemetry fields represent measurements or events, and are often used to describe device sensor readings.</p>
+</li>
+<li>
+<p>Unlike properties, telemetry is not stored on a digital twin; it is a series of time-bound data events that need to be handled as they occur.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Component</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Components allow you to build your model interface as an assembly of other interfaces, if you want.</p>
+</li>
+<li>
+<p>An example of a component is a frontCamera interface (and another component interface backCamera) that are used in defining a model for a phone.</p>
+</li>
+<li>
+<p>You must first define an interface for frontCamera as though it were its own model, and then you can reference it when defining Phone.</p>
+</li>
+<li>
+<p>Use a component to describe something that is an integral part of your solution but doesn&#8217;t need a separate identity, and doesn&#8217;t need to be created, deleted, or rearranged in the twin graph independently.</p>
+</li>
+<li>
+<p>If you want entities to have independent existences in the twin graph, represent them as separate digital twins of different models, connected by relationships</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Relationship</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Relationships let you represent how a digital twin can be involved with other digital twins.</p>
+</li>
+<li>
+<p>Relationships can represent different semantic meanings, such as contains ("floor contains room"), cools ("hvac cools room"), isBilledTo ("compressor is billed to user"), etc.</p>
+</li>
+<li>
+<p>Relationships allow the solution to provide a graph of interrelated entities.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h4 id="_differentiating_between_property_and_telemetry_fields" class="discrete">Differentiating between property and telemetry fields</h4>
+<div class="paragraph">
+<p>Since property and telemetry fields could both represent numeric data, it may not be obvious when or where each should be used.</p>
+</div>
+<div class="paragraph">
+<p>Here is some more guidance on distinguishing between DTDL property and telemetry fields in Azure Digital Twins.</p>
+</div>
+<div class="paragraph">
+<p>The difference between properties and telemetry for Azure Digital Twins models is as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Properties</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Properties are expected to have backing storage (a stored and accessible value).</p>
+</li>
+<li>
+<p>You can read a property at any time and retrieve its value.</p>
+</li>
+<li>
+<p>If the property is writeable, you can also assign a value to the property.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Telemetry</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Telemetry is more like a stream of events; it’s a set of data messages that have short lifespans.</p>
+</li>
+<li>
+<p>If you don&#8217;t monitor for a telemetry event and take actions when it happens, there is no trace of the event at a later time.</p>
+</li>
+<li>
+<p>You can&#8217;t come back to it and read it later.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>In C# terms, telemetry is like a C# event.</p>
+</li>
+<li>
+<p>In IoT terms, telemetry is typically a data value sent by a device at a specified time interval.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h4 id="_applying_property_and_telemetry_fields_in_an_iot_context" class="discrete">Applying property and telemetry fields in an IoT context</h4>
+<div class="paragraph">
+<p>When designing a model, a telemetry field is often used in models that represent IoT devices.</p>
+</div>
+<div class="paragraph">
+<p>In this case, you will typically monitor incoming device data and take actions as the data arrives.</p>
+</div>
+<div class="paragraph">
+<p>A property field is used most often when designing a model because properties provide you with backing storage and the ability to read and query the data fields.</p>
+</div>
+<h4 id="_property_and_telemetry_fields_example" class="discrete">Property and telemetry fields example</h4>
+<div class="paragraph">
+<p>Consider the following example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-components-azure-digital-twins-solution/media/m11-l02-telemetry-property-fields-twins-model-89781ba3.png" alt="m11 l02 telemetry property fields twins model 89781ba3">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>IoT hub: IoT device with temperature sensor is connected to IoT hub.</p>
+</li>
+<li>
+<p>Azure Digital Twins model - telemetry field: Azure Function is used to deliver IoT telemetry data to Azure Digital Twins device twin (temp01).</p>
+</li>
+<li>
+<p>Azure Digital Twins model - property field: Monitor temp01 telemetry field events and capture “last received” value and “last received time” value. Store values in last_received and last_received_time property fields.</p>
+</li>
+<li>
+<p>Query model properties: Query as needed to extract most recently reported temperature and time.</p>
+</li>
+</ul>
+</div>
+<h3 id="_digital_twins_definition_language" class="discrete">Digital Twins Definition Language</h3>
+<div class="paragraph">
+<p>Models for Azure Digital Twins are defined using the Digital Twins Definition Language (DTDL), which is based on JSON-LD and is programming-language independent.</p>
+</div>
+<h4 id="_implementation_specifics" class="discrete">Implementation Specifics</h4>
+<div class="paragraph">
+<p>For a DTDL model to be compatible with Azure Digital Twins, it must meet these requirements.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>All top-level DTDL elements in a model must be of type interface.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Azure Digital Twins model APIs can receive JSON objects that represent either an interface or an array of interfaces.</p>
+</li>
+<li>
+<p>As a result, no other DTDL element types are allowed at the top level.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>DTDL for Azure Digital Twins must not define any commands.</p>
+</li>
+<li>
+<p>Azure Digital Twins only allows a single level of component nesting.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This requirement means that an interface that&#8217;s being used as a component can&#8217;t have any components itself.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Interfaces can&#8217;t be defined inline within other DTDL interfaces; they must be defined as separate top-level entities with their own IDs.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Then, when another interface wants to include that interface as a component or through inheritance, it can reference its ID.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h4 id="_example_model_code" class="discrete">Example model code</h4>
+<div class="paragraph">
+<p>Twin type models can be written in any text editor.</p>
+</div>
+<div class="paragraph">
+<p>Consider a solar system environment that contains models for planets, each with a name, a mass, and a temperature.</p>
+</div>
+<div class="paragraph">
+<p>Each of the planets may also interact with moons that are their satellites, and the planets may contain craters.</p>
+</div>
+<div class="paragraph">
+<p>In the DTDL code example below, the Planet model expresses connections to these other entities by referencing two external models—Moon and Crater.</p>
+</div>
+<div class="paragraph">
+<p>These external models are also defined in the example code below, but are kept simple so as not to detract from the primary Planet example.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>[
+{
+  "@id": "dtmi:com:contoso:Planet;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "displayName": "Planet",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "name",
+      "schema": "string"
+    },
+    {
+      "@type": "Property",
+      "name": "mass",
+      "schema": "double"
+    },
+    {
+      "@type": "Telemetry",
+      "name": "Temperature",
+      "schema": "double"
+    },
+    {
+      "@type": "Relationship",
+      "name": "satellites",
+      "target": "dtmi:com:contoso:Moon;1"
+    },
+    {
+      "@type": "Component",
+      "name": "deepestCrater",
+      "schema": "dtmi:com:contoso:Crater;1"
+    }
+  ]
+},
+{
+  "@id": "dtmi:com:contoso:Crater;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2"
+},
+{
+  "@id": "dtmi:com:contoso:Moon;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2"
+}
+]</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The fields of the model are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>@id</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>An identifier for the model. Must be in the following format: dtmi:&lt;domain&gt;:&lt;unique model identifier&gt;;&lt;model version number&gt;</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>@type</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Identifies the kind of information being described. For an interface, the type is Interface.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>@context</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Sets the context for the JSON document. Models should use the following: dtmi:dtdl:context;2</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>@displayName</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) Allows you to give the model a friendly name if desired.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>contents</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>All remaining interface data is placed here, as an array of attribute definitions.</p>
+</li>
+<li>
+<p>Each attribute must provide an @type (Property, Telemetry, Command, Relationship, or Component) to identify the type of interface information it describes, and then a set of properties that define the actual attribute (for example, name and schema to define a Property).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h4 id="_possible_schemas" class="discrete">Possible schemas</h4>
+<div class="paragraph">
+<p>As per DTDL, the schema for Property and Telemetry attributes can be of standard primitive types—integer, double, string, and Boolean—and other types such as DateTime and Duration.</p>
+</div>
+<div class="paragraph">
+<p>In addition to primitive types, Property and Telemetry fields can have these complex types:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Object</p>
+</li>
+<li>
+<p>Map</p>
+</li>
+<li>
+<p>Enum</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Telemetry fields also support the Array type.</p>
+</div>
+<h4 id="_model_inheritance" class="discrete">Model inheritance</h4>
+<div class="paragraph">
+<p>Sometimes, you may want to specialize a model further.</p>
+</div>
+<div class="paragraph">
+<p>For example, it might be useful to have a generic model Room, and specialized variants ConferenceRoom and Gym.</p>
+</div>
+<div class="paragraph">
+<p>To express specialization, DTDL supports inheritance: interfaces can inherit from one or more other interfaces.</p>
+</div>
+<div class="paragraph">
+<p>The following example reimagines the Planet model from the earlier DTDL example as a subtype of a larger CelestialBody model.</p>
+</div>
+<div class="paragraph">
+<p>The "parent" model is defined first, and then the "child" model builds on it by using the field “extends”.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>[
+{
+    "@id": "dtmi:com:contoso:CelestialBody;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Celestial body",
+    "contents": [
+    {
+        "@type": "Property",
+        "name": "name",
+        "schema": "string"
+    },
+    {
+        "@type": "Property",
+        "name": "mass",
+        "schema": "double"
+    },
+    {
+        "@type": "Telemetry",
+        "name": "temperature",
+        "schema": "double"
+    }
+    ]
+},
+{
+    "@id": "dtmi:com:contoso:Planet;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Planet",
+    "extends": "dtmi:com:contoso:CelestialBody;1",
+    "contents": [
+    {
+        "@type": "Relationship",
+        "name": "satellites",
+        "target": "dtmi:com:contoso:Moon;1"
+    },
+    {
+        "@type": "Component",
+        "name": "deepestCrater",
+        "schema": "dtmi:com:contoso:Crater;1"
+    }
+    ]
+},
+{
+    "@id": "dtmi:com:contoso:Crater;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2"
+}
+]</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, CelestialBody contributes a name, a mass, and a temperature to Planet.</p>
+</div>
+<div class="paragraph">
+<p>The extends section is an interface name, or an array of interface names (allowing the extending interface to inherit from multiple parent models if desired).</p>
+</div>
+<div class="paragraph">
+<p>Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.</p>
+</div>
+<div class="paragraph">
+<p>The extending interface cannot change any of the definitions of the parent interfaces; it can only add to them.</p>
+</div>
+<div class="paragraph">
+<p>It also cannot redefine a capability already defined in any of its parent interfaces</p>
+</div>
+<div class="paragraph">
+<p>For example, if a parent interface defines a double property mass, the extending interface cannot contain a declaration of mass, even if it&#8217;s also a double.</p>
+</div>
+<h3 id="_digital_twins_and_graph_construction" class="discrete">digital twins and graph construction</h3>
+<div class="paragraph">
+<p>In an Azure Digital Twins solution, the entities in your environment are represented by digital twins.</p>
+</div>
+<div class="paragraph">
+<p>Each digital twin is an instance of one of your custom-defined digital models.</p>
+</div>
+<div class="paragraph">
+<p>A digital twin can be connected to other digital twins via relationships to form a twin graph (a representation of your entire environment).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-components-azure-digital-twins-solution/media/m11-l02-adt-graph-models-6a4c9f9b.png" alt="m11 l02 adt graph models 6a4c9f9b">
+</div>
+</div>
+<div class="paragraph">
+<p>The image below shows a simplified Contoso Cheese Factory Azure Digital Twins environment expressed as a twin graph.</p>
+</div>
+<div class="paragraph">
+<p>The graph contains seven digital twin nodes connected by relationships. To the left of the twins graph are the corresponding models.</p>
+</div>
+<h4 id="_digital_twins_2" class="discrete">Digital twins</h4>
+<div class="paragraph">
+<p>Since the digital twins nodes that you create in your Azure Digital Twins solution are based on a model type, the first step in adding a digital twin to Azure Digital Twins is to upload a model type to your Azure Digital Twins service.</p>
+</div>
+<div class="paragraph">
+<p>After creating and uploading a model, you can create an instance of the type; the digital twin.</p>
+</div>
+<div class="paragraph">
+<p>For example, after creating a model of type Cheese Cave, you can create one or more digital twins that use this type (for example, a Cheese Cave digital twin called Cave_1, another called Cave_2, etc.).</p>
+</div>
+<h4 id="_relationships_a_graph_of_digital_twins" class="discrete">Relationships: a graph of digital twins</h4>
+<div class="paragraph">
+<p>Twins are connected into a twin graph by their relationships.</p>
+</div>
+<div class="paragraph">
+<p>The relationships that a twin can have are defined as part of its model.</p>
+</div>
+<div class="paragraph">
+<p>Twins are connected into a twin graph by their relationships.</p>
+</div>
+<div class="paragraph">
+<p>The relationships that a twin can have are defined as part of its model.</p>
+</div>
+<div class="paragraph">
+<p>For example, the model Cheese Factory might define a “Has Caves” relationship that targets twins of type Cheese Cave.</p>
+</div>
+<div class="paragraph">
+<p>With this definition, Azure Digital Twins will allow you to create “Has Caves” relationships from any Cheese Factory twin to any Cheese Cave twin.</p>
+</div>
+<div class="paragraph">
+<p>The result of this process is a set of nodes (the digital twins) connected via edges (their relationships) in a graph.</p>
+</div>
+<h4 id="_visualization" class="discrete">Visualization</h4>
+<div class="paragraph">
+<p>While the primary way to interact with your Azure Digital Twins instance is through the APIs and SDKs, it can be helpful to see a visualization of the twins and graphs that you are creating in your instance.</p>
+</div>
+<div class="paragraph">
+<p>Microsoft provides a sample application, the Azure Digital Twins explorer, that can be used to visualize the Azure Digital Twins graph and to edit the twins and models.</p>
 </div>
 </div>
 </div>
