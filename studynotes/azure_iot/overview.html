@@ -192,15 +192,61 @@
 <ul class="sectlevel1">
 <li><a href="#_core_subsystems_of_iot">Core Subsystems of IoT</a></li>
 <li><a href="#_optional_subsystems_of_iot">Optional Subsystems of IoT</a></li>
-<li><a href="#_data_flow_and_processing">Data flow and Processing</a></li>
+<li><a href="#_data_flow_and_processing">Data flow and Processing</a>
+<ul class="sectlevel2">
+<li><a href="#_data_flow_scenarios">Data flow Scenarios</a></li>
+</ul>
+</li>
 <li><a href="#_cross_cutting_architectural_needs">Cross-cutting Architectural Needs</a></li>
 <li><a href="#_iot_hardware_components">IoT Hardware Components</a></li>
-<li><a href="#_review_azure_iot_technologies">Review Azure IoT Technologies</a></li>
-<li><a href="#_iot_device_software_options">IoT device software options</a></li>
-<li><a href="#_cloud_service_components_of_an_iot_solution">Cloud Service Components of an IoT solution</a></li>
-<li><a href="#_iot_hub_2">IoT Hub</a></li>
-<li><a href="#_device_provisioning_service">Device Provisioning Service</a></li>
-<li><a href="#_iot_hub_tiers">IoT Hub Tiers</a></li>
+<li><a href="#_ip_enabled_iot_devices">IP-enabled IoT Devices</a>
+<ul class="sectlevel2">
+<li><a href="#_non_ip_enabled_devices">Non-IP enabled Devices</a></li>
+<li><a href="#_sensors">Sensors</a></li>
+<li><a href="#_iot_edge_devices_and_field_gateways">IoT Edge Devices and Field Gateways</a></li>
+</ul>
+</li>
+<li><a href="#_review_azure_iot_technologies">Review Azure IoT Technologies</a>
+<ul class="sectlevel2">
+<li><a href="#_managed_apaas_solutions">Managed aPaaS Solutions</a></li>
+<li><a href="#_flexible_paas_solutions">Flexible PaaS Solutions</a></li>
+<li><a href="#_iot_edge_and_azure_sphere">IoT Edge and Azure Sphere</a></li>
+<li><a href="#_iot_hub">IoT Hub</a></li>
+<li><a href="#_azure_digital_twins">Azure Digital Twins</a></li>
+<li><a href="#_azure_stream_azure_data_explorer_and_azure_maps">Azure Stream, Azure Data Explorer and Azure Maps</a></li>
+</ul>
+</li>
+<li><a href="#_iot_device_software_options">IoT Device Software Options</a></li>
+<li><a href="#_cloud_service_components_of_an_iot_solution">Cloud Service Components of an IoT solution</a>
+<ul class="sectlevel2">
+<li><a href="#_cloud_gateways">Cloud Gateways</a></li>
+<li><a href="#_data_storage_options">Data Storage Options</a></li>
+<li><a href="#_analytics">Analytics</a></li>
+<li><a href="#_data_visualization">Data visualization</a></li>
+</ul>
+</li>
+<li><a href="#_iot_hub_2">IoT Hub</a>
+<ul class="sectlevel2">
+<li><a href="#_security">Security</a></li>
+<li><a href="#_routing">Routing</a></li>
+<li><a href="#_integration">Integration</a></li>
+<li><a href="#_device_management">Device Management</a></li>
+<li><a href="#_developer">Developer</a></li>
+</ul>
+</li>
+<li><a href="#_device_provisioning_service">Device Provisioning Service</a>
+<ul class="sectlevel2">
+<li><a href="#_provisioning_process">Provisioning Process</a></li>
+<li><a href="#_features">Features</a></li>
+<li><a href="#_when_to_use">When to use</a></li>
+</ul>
+</li>
+<li><a href="#_iot_hub_tiers">IoT Hub Tiers</a>
+<ul class="sectlevel2">
+<li><a href="#_basic_tier">Basic Tier</a></li>
+<li><a href="#_standard_tier">Standard Tier</a></li>
+</ul>
+</li>
 <li><a href="#_message_throughtput_basics">Message Throughtput Basics</a></li>
 <li><a href="#_partition_basics">Partition Basics</a></li>
 <li><a href="#_iot_hub_endpoint_basics">IoT Hub Endpoint Basics</a></li>
@@ -372,10 +418,10 @@
 </li>
 </ul>
 </div>
+<div class="sect2">
+<h3 id="_data_flow_scenarios"><a class="anchor" href="#_data_flow_scenarios"></a>Data flow Scenarios</h3>
 <div class="openblock">
 <div class="content">
-<h3 id="_data_flow_scenarios" class="discrete">Data flow Scenarios</h3>
-<hr>
 <div class="ulist">
 <div class="title">Scenario 1</div>
 <ul>
@@ -440,6 +486,7 @@
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="_cross_cutting_architectural_needs"><a class="anchor" href="#_cross_cutting_architectural_needs"></a>Cross-cutting Architectural Needs</h2>
 <div class="sectionbody">
@@ -485,8 +532,12 @@
 <div class="sect1">
 <h2 id="_iot_hardware_components"><a class="anchor" href="#_iot_hardware_components"></a>IoT Hardware Components</h2>
 <div class="sectionbody">
-<h3 id="_ip_enabled_iot_devices" class="discrete">IP-enabled IoT devices</h3>
-<hr>
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ip_enabled_iot_devices"><a class="anchor" href="#_ip_enabled_iot_devices"></a>IP-enabled IoT Devices</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -500,8 +551,8 @@
 </li>
 </ul>
 </div>
-<h3 id="_non_ip_enabled_devices" class="discrete">Non-IP enabled devices</h3>
-<hr>
+<div class="sect2">
+<h3 id="_non_ip_enabled_devices"><a class="anchor" href="#_non_ip_enabled_devices"></a>Non-IP enabled Devices</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -512,8 +563,9 @@
 </li>
 </ul>
 </div>
-<h3 id="_sensors" class="discrete">Sensors</h3>
-<hr>
+</div>
+<div class="sect2">
+<h3 id="_sensors"><a class="anchor" href="#_sensors"></a>Sensors</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -524,8 +576,9 @@
 </li>
 </ul>
 </div>
-<h3 id="_iot_edge_devices_and_field_gateways" class="discrete">IoT Edge devices and Field gateways</h3>
-<hr>
+</div>
+<div class="sect2">
+<h3 id="_iot_edge_devices_and_field_gateways"><a class="anchor" href="#_iot_edge_devices_and_field_gateways"></a>IoT Edge Devices and Field Gateways</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -557,11 +610,12 @@
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="_review_azure_iot_technologies"><a class="anchor" href="#_review_azure_iot_technologies"></a>Review Azure IoT Technologies</h2>
 <div class="sectionbody">
-<h3 id="_managed_apaas_solutions" class="discrete">Managed aPaaS Solutions</h3>
-<hr>
+<div class="sect2">
+<h3 id="_managed_apaas_solutions"><a class="anchor" href="#_managed_apaas_solutions"></a>Managed aPaaS Solutions</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -575,8 +629,9 @@
 </li>
 </ul>
 </div>
-<h3 id="_flexible_paas_solutions" class="discrete">Flexible PaaS Solutions</h3>
-<hr>
+</div>
+<div class="sect2">
+<h3 id="_flexible_paas_solutions"><a class="anchor" href="#_flexible_paas_solutions"></a>Flexible PaaS Solutions</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -590,8 +645,9 @@
 </li>
 </ul>
 </div>
-<h3 id="_iot_edge_and_azure_sphere" class="discrete">IoT Edge and Azure Sphere</h3>
-<hr>
+</div>
+<div class="sect2">
+<h3 id="_iot_edge_and_azure_sphere"><a class="anchor" href="#_iot_edge_and_azure_sphere"></a>IoT Edge and Azure Sphere</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -611,8 +667,9 @@
 </li>
 </ul>
 </div>
-<h3 id="_iot_hub" class="discrete">IoT Hub</h3>
-<hr>
+</div>
+<div class="sect2">
+<h3 id="_iot_hub"><a class="anchor" href="#_iot_hub"></a>IoT Hub</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -623,8 +680,9 @@
 </li>
 </ul>
 </div>
-<h3 id="_azure_digital_twins" class="discrete">Azure Digital Twins</h3>
-<hr>
+</div>
+<div class="sect2">
+<h3 id="_azure_digital_twins"><a class="anchor" href="#_azure_digital_twins"></a>Azure Digital Twins</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -632,8 +690,9 @@
 </li>
 </ul>
 </div>
-<h3 id="_azure_stream_azure_data_explorer_and_azure_maps" class="discrete">Azure Stream, Azure Data Explorer and Azure Maps</h3>
-<hr>
+</div>
+<div class="sect2">
+<h3 id="_azure_stream_azure_data_explorer_and_azure_maps"><a class="anchor" href="#_azure_stream_azure_data_explorer_and_azure_maps"></a>Azure Stream, Azure Data Explorer and Azure Maps</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -646,8 +705,9 @@
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="_iot_device_software_options"><a class="anchor" href="#_iot_device_software_options"></a>IoT device software options</h2>
+<h2 id="_iot_device_software_options"><a class="anchor" href="#_iot_device_software_options"></a>IoT Device Software Options</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -683,8 +743,8 @@
 <div class="sect1">
 <h2 id="_cloud_service_components_of_an_iot_solution"><a class="anchor" href="#_cloud_service_components_of_an_iot_solution"></a>Cloud Service Components of an IoT solution</h2>
 <div class="sectionbody">
-<h3 id="_cloud_gateways" class="discrete">Cloud Gateways</h3>
-<hr>
+<div class="sect2">
+<h3 id="_cloud_gateways"><a class="anchor" href="#_cloud_gateways"></a>Cloud Gateways</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -720,8 +780,9 @@
 </div>
 <div class="title">Figure 7. Source Microsoft Learn</div>
 </div>
-<h3 id="_data_storage_options" class="discrete">Data Storage Options</h3>
-<hr>
+</div>
+<div class="sect2">
+<h3 id="_data_storage_options"><a class="anchor" href="#_data_storage_options"></a>Data Storage Options</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -742,8 +803,9 @@ You can decide the duration range (for example, the last day, week, or month).</
 </div>
 <div class="title">Figure 8. Source Microsoft Learn</div>
 </div>
-<h3 id="_analytics" class="discrete">Analytics</h3>
-<hr>
+</div>
+<div class="sect2">
+<h3 id="_analytics"><a class="anchor" href="#_analytics"></a>Analytics</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -754,8 +816,9 @@ You can decide the duration range (for example, the last day, week, or month).</
 </li>
 </ul>
 </div>
-<h3 id="_data_visualization" class="discrete">Data visualization</h3>
-<hr>
+</div>
+<div class="sect2">
+<h3 id="_data_visualization"><a class="anchor" href="#_data_visualization"></a>Data visualization</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -765,15 +828,16 @@ You can decide the duration range (for example, the last day, week, or month).</
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="_iot_hub_2"><a class="anchor" href="#_iot_hub_2"></a>IoT Hub</h2>
 <div class="sectionbody">
-<h3 id="_security" class="discrete">Security</h3>
-<hr>
+<div class="sect2">
+<h3 id="_security"><a class="anchor" href="#_security"></a>Security</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>IoT Hub is a managed service that acts as a central message hub for bi-directional communication between your IoT application and the devices it manages.</p>
+<p>IoT Hub is a managed service that acts as a central message hub for <strong>bi-directional communication</strong> between your IoT application and the devices it manages.</p>
 </li>
 <li>
 <p>Per-device authentication enables each device to connect securely to IoT hub and be managed securely by IoT hub.</p>
@@ -802,8 +866,9 @@ You can decide the duration range (for example, the last day, week, or month).</
 </li>
 </ul>
 </div>
-<h3 id="_routing" class="discrete">Routing</h3>
-<hr>
+</div>
+<div class="sect2">
+<h3 id="_routing"><a class="anchor" href="#_routing"></a>Routing</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -824,8 +889,9 @@ You can decide the duration range (for example, the last day, week, or month).</
 </li>
 </ul>
 </div>
-<h3 id="_integration" class="discrete">Integration</h3>
-<hr>
+</div>
+<div class="sect2">
+<h3 id="_integration"><a class="anchor" href="#_integration"></a>Integration</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -849,8 +915,9 @@ You can decide the duration range (for example, the last day, week, or month).</
 </li>
 </ul>
 </div>
-<h3 id="_device_management" class="discrete">Device Management</h3>
-<hr>
+</div>
+<div class="sect2">
+<h3 id="_device_management"><a class="anchor" href="#_device_management"></a>Device Management</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -871,8 +938,9 @@ You can decide the duration range (for example, the last day, week, or month).</
 </li>
 </ul>
 </div>
-<h3 id="_developer" class="discrete">Developer</h3>
-<hr>
+</div>
+<div class="sect2">
+<h3 id="_developer"><a class="anchor" href="#_developer"></a>Developer</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -885,11 +953,12 @@ You can decide the duration range (for example, the last day, week, or month).</
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="_device_provisioning_service"><a class="anchor" href="#_device_provisioning_service"></a>Device Provisioning Service</h2>
 <div class="sectionbody">
-<h3 id="_provisioning_process" class="discrete">Provisioning Process</h3>
-<hr>
+<div class="sect2">
+<h3 id="_provisioning_process"><a class="anchor" href="#_provisioning_process"></a>Provisioning Process</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -907,8 +976,9 @@ You can decide the duration range (for example, the last day, week, or month).</
 </li>
 </ul>
 </div>
-<h3 id="_features" class="discrete">Features</h3>
-<hr>
+</div>
+<div class="sect2">
+<h3 id="_features"><a class="anchor" href="#_features"></a>Features</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -928,8 +998,9 @@ You can decide the duration range (for example, the last day, week, or month).</
 </li>
 </ul>
 </div>
-<h3 id="_when_to_use" class="discrete">When to use</h3>
-<hr>
+</div>
+<div class="sect2">
+<h3 id="_when_to_use"><a class="anchor" href="#_when_to_use"></a>When to use</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -954,6 +1025,7 @@ You can decide the duration range (for example, the last day, week, or month).</
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="_iot_hub_tiers"><a class="anchor" href="#_iot_hub_tiers"></a>IoT Hub Tiers</h2>
 <div class="sectionbody">
@@ -974,8 +1046,8 @@ You can decide the duration range (for example, the last day, week, or month).</
 </li>
 </ul>
 </div>
-<h3 id="_basic_tier" class="discrete">Basic Tier</h3>
-<hr>
+<div class="sect2">
+<h3 id="_basic_tier"><a class="anchor" href="#_basic_tier"></a>Basic Tier</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -986,8 +1058,9 @@ You can decide the duration range (for example, the last day, week, or month).</
 </li>
 </ul>
 </div>
-<h3 id="_standard_tier" class="discrete">Standard Tier</h3>
-<hr>
+</div>
+<div class="sect2">
+<h3 id="_standard_tier"><a class="anchor" href="#_standard_tier"></a>Standard Tier</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -997,6 +1070,7 @@ You can decide the duration range (for example, the last day, week, or month).</
 <p>If you would like to control IoT devices remotely or distribute some of your workloads onto the devices themselves, then you should consider the standard tier.</p>
 </li>
 </ul>
+</div>
 </div>
 </div>
 </div>
