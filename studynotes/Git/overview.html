@@ -282,7 +282,7 @@ If I learn something new in git, I intend to put it here.<br></p>
 <div class="paragraph">
 <p>A <strong>local branch reference</strong> is a file that contains a 40-byte identifier of the commit that the reference points to.<br>
 This file is created at the project&#8217;s <code>.git/refs/head</code> directory.<br>
-Creating a branch in Git just means writing 40 bytes to disk, which is why <code>git branch foo`</code> is so fast.</p>
+Creating a branch in Git just means writing 40 bytes to disk, which is why <code>git branch foo</code> is so fast.</p>
 </div>
 <div class="paragraph">
 <p><strong>Local branch references</strong> are specific to a single local repository.<br>
@@ -365,7 +365,7 @@ You can trigger this process yourself, using <code>git gc</code>.</p>
 <p>Because <strong>references make commits reachable</strong>, creating a branch is a way to "nail down" part of the graph that you might want to come back to later.</p>
 </div>
 <div class="paragraph">
-<p>Neither <code>git merge</code> nor <code>git rebase</code> will change your existing commits (remember, a commit&#8217;s ID is a hash of its contents <em>*and its history*</em>), you can create a temporary branch any time you want to try something you&#8217;re even just a little bit unsure about.</p>
+<p>Neither <code>git merge</code> nor <code>git rebase</code> will change your existing commits (remember, a commit&#8217;s ID is a hash of its contents <em>and its history</em>), you can create a temporary branch any time you want to try something you&#8217;re even just a little bit unsure about.</p>
 </div>
 <div class="paragraph">
 <p><strong>Creating a branch before you try a merge or a rebase is like saving your game before you battle the boss.</strong></p>
@@ -564,7 +564,7 @@ git push -u origin main <i class="conum" data-value="3"></i><b>(3)</b></code></p
 <p>Finding it difficult to summarize your commit? Maybe it includes more than one bug fix or logical change. Consider splitting the commits using <code>git add -p</code></p>
 </li>
 <li>
-<p>It should be possible to review a change request without reading the contents of the bug or task. Don&#8217;t assume the reviwer understands the problem.</p>
+<p>It should be possible to review a change request without reading the contents of the bug or task. Don&#8217;t assume the reviewer understands the problem.</p>
 </li>
 </ul>
 </div>
@@ -630,8 +630,12 @@ be added in issue #124</p>
 <pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">git config --global core.editor "code --wait"</code></pre>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sample_contributing_md_files"><a class="anchor" href="#_sample_contributing_md_files"></a>sample contributing.md files</h2>
+<div class="sectionbody">
 <div class="ulist">
-<div class="title">sample contributing.md files</div>
 <ul>
 <li>
 <p><a href="https://github.com/thoughtbot/factory_bot_rails/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener">Factory Bot rails</a></p>
@@ -646,7 +650,8 @@ be added in issue #124</p>
 <div class="sect1">
 <h2 id="_versioning"><a class="anchor" href="#_versioning"></a>Versioning</h2>
 <div class="sectionbody">
-<h3 id="_version_numbers" class="discrete">Version numbers</h3>
+<div class="sect2">
+<h3 id="_version_numbers"><a class="anchor" href="#_version_numbers"></a>Version numbers</h3>
 <div class="paragraph">
 <p><code>major.minor[.build[.revision]]</code></p>
 </div>
@@ -673,7 +678,9 @@ During CD release components are pushed to a component repository such as Nuget,
 </li>
 </ul>
 </div>
-<h3 id="_semantic_versioning" class="discrete">Semantic Versioning</h3>
+</div>
+<div class="sect2">
+<h3 id="_semantic_versioning"><a class="anchor" href="#_semantic_versioning"></a>Semantic Versioning</h3>
 <div class="paragraph">
 <p>Semantic Versioning is a concept of calculating the version number automatically based on a certain source code repository.</p>
 </div>
@@ -698,6 +705,7 @@ During CD release components are pushed to a component repository such as Nuget,
 </div>
 <div class="paragraph">
 <p>Run semvar during the CI process to make each build uniquely identifiable.</p>
+</div>
 </div>
 </div>
 </div>
