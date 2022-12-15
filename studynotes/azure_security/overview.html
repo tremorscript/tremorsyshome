@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Yield Method :: Tremorscript</title>
-    <link rel="canonical" href="https://tremorscript.com/studynotes/FSharp/YieldMethod.html">
+    <title>Azure Security :: Tremorscript</title>
+    <link rel="canonical" href="https://tremorscript.com/studynotes/azure_security/overview.html">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../_/css/site.css">
     <script>var uiRootPath = '../../_'</script>
@@ -51,50 +51,50 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="overview.html">FSharp Notes</a>
+    <a class="nav-link" href="../FSharp/overview.html">FSharp Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Computation Expressions</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="LogBuilder.html">Log Builder</a>
+    <a class="nav-link" href="../FSharp/LogBuilder.html">Log Builder</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="MaybeBuilder.html">Maybe Builder</a>
+    <a class="nav-link" href="../FSharp/MaybeBuilder.html">Maybe Builder</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="OrElseBuilder.html">OrElse Builder</a>
+    <a class="nav-link" href="../FSharp/OrElseBuilder.html">OrElse Builder</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="IntroducingBind.html">Introducing Bind</a>
+    <a class="nav-link" href="../FSharp/IntroducingBind.html">Introducing Bind</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="WrapperTypes.html">Wrapper Types</a>
+    <a class="nav-link" href="../FSharp/WrapperTypes.html">Wrapper Types</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="WorkflowRulesForWrapperTypes.html">Rules for workflows that use wrapper types</a>
+    <a class="nav-link" href="../FSharp/WorkflowRulesForWrapperTypes.html">Rules for workflows that use wrapper types</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="ComputationExpressionComposition.html">Composition of computation expression</a>
+    <a class="nav-link" href="../FSharp/ComputationExpressionComposition.html">Composition of computation expression</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="ListWrapperTypes.html">List Wrapper Types</a>
+    <a class="nav-link" href="../FSharp/ListWrapperTypes.html">List Wrapper Types</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="IdentityWrapperTypes.html">Identity Wrapper Types</a>
+    <a class="nav-link" href="../FSharp/IdentityWrapperTypes.html">Identity Wrapper Types</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="DoMethod.html">Do Method</a>
-  </li>
-  <li class="nav-item is-current-page" data-depth="3">
-    <a class="nav-link" href="YieldMethod.html">Yield Method</a>
+    <a class="nav-link" href="../FSharp/DoMethod.html">Do Method</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="CombineMethod.html">Combine method</a>
+    <a class="nav-link" href="../FSharp/YieldMethod.html">Yield Method</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="DelayRunMethod.html">Delay and Run Method</a>
+    <a class="nav-link" href="../FSharp/CombineMethod.html">Combine method</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/DelayRunMethod.html">Delay and Run Method</a>
   </li>
 </ul>
   </li>
@@ -125,8 +125,8 @@
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../azure_security/overview.html">Git Notes</a>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="overview.html">Git Notes</a>
   </li>
 </ul>
   </li>
@@ -183,68 +183,32 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Study Notes</a></li>
-    <li><a href="overview.html">FSharp Notes</a></li>
-    <li>Computation Expressions</li>
-    <li><a href="YieldMethod.html">Yield Method</a></li>
+    <li><a href="overview.html">Git Notes</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/FSharp/pages/YieldMethod.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/azure_security/pages/overview.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Yield Method</h1>
+<h1 class="page">Azure Security</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>The MSDN documentation says that it has the signature 'T &#8594; M&lt;'T&gt;, which is exactly the same as the signature for the Return method.
-It must take an unwrapped value and wrap it.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">type TraceBuilder() =
-
-    member this.Bind(x,f) =
-        match x with
-        | None -&gt;
-            printfn "Binding with None. Exiting"
-        | Some a -&gt;
-            printfn "Binding with Some(%A). Continuing" a
-        Option.bind f x
-
-    member this.Return(x) =
-        printfn "Returning an unwrapped %A as an option" x
-        Some x
-
-    member this.ReturnFrom(x) =
-        printfn "Returning an option (%A) directly" x
-        x
-
-    member this.Zero() =
-        printfn "Zero"
-        None
-
-    member this.Yield(x) =
-        printfn "Yield an unwrapped %A as an option" x
-        Some x
-
-    member this.YieldFrom(x) =
-        printfn "Yield an option (%A) directly" x
-        x
-
-//make a new instance
-let trace = new TraceBuilder()
-
-    //test
-    trace {
-        yield! Some 1
-    } |&gt; printfn "Result for yield: %A"</code></pre>
-</div>
+<p>This is my personal short notes from <a href="https://think-like-a-git.net/" class="bare">https://think-like-a-git.net/</a> and various other sources.</p>
 </div>
 <div class="paragraph">
-<p>If <strong>return</strong> and <strong>yield</strong> are basically the same thing, why are there two different keywords?<br>
-The answer is mainly so that you can enforce appropriate syntax by implementing one but not the other.<br>
-For example, the <strong>seq</strong> expression does allow yield but doesn’t allow return, while the <strong>async</strong> does allow return, but does not allow yield.</p>
+<p>If I learn something new in git, I intend to put it here.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_basics"><a class="anchor" href="#_basics"></a>Basics</h2>
+<div class="sectionbody">
+
+</div>
 </div>
 </article>
   </div>
