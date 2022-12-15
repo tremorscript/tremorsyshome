@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Zero Method :: Tremorscript</title>
-    <link rel="canonical" href="https://tremorscript.com/studynotes/FSharp/ZeroMethod.html">
+    <title>Bitwise Operators :: Tremorscript</title>
+    <link rel="canonical" href="https://tremorscript.com/studynotes/CSharp/bitwiseoperators.html">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../_/css/site.css">
     <script>var uiRootPath = '../../_'</script>
@@ -51,50 +51,50 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="overview.html">FSharp Notes</a>
+    <a class="nav-link" href="../FSharp/overview.html">FSharp Notes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Computation Expressions</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="LogBuilder.html">Log Builder</a>
+    <a class="nav-link" href="../FSharp/LogBuilder.html">Log Builder</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="MaybeBuilder.html">Maybe Builder</a>
+    <a class="nav-link" href="../FSharp/MaybeBuilder.html">Maybe Builder</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="OrElseBuilder.html">OrElse Builder</a>
+    <a class="nav-link" href="../FSharp/OrElseBuilder.html">OrElse Builder</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="IntroducingBind.html">Introducing Bind</a>
+    <a class="nav-link" href="../FSharp/IntroducingBind.html">Introducing Bind</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="WrapperTypes.html">Wrapper Types</a>
+    <a class="nav-link" href="../FSharp/WrapperTypes.html">Wrapper Types</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="WorkflowRulesForWrapperTypes.html">Rules for workflows that use wrapper types</a>
+    <a class="nav-link" href="../FSharp/WorkflowRulesForWrapperTypes.html">Rules for workflows that use wrapper types</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="ComputationExpressionComposition.html">Composition of computation expression</a>
+    <a class="nav-link" href="../FSharp/ComputationExpressionComposition.html">Composition of computation expression</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="ListWrapperTypes.html">List Wrapper Types</a>
+    <a class="nav-link" href="../FSharp/ListWrapperTypes.html">List Wrapper Types</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="IdentityWrapperTypes.html">Identity Wrapper Types</a>
+    <a class="nav-link" href="../FSharp/IdentityWrapperTypes.html">Identity Wrapper Types</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="DoMethod.html">Do Method</a>
+    <a class="nav-link" href="../FSharp/DoMethod.html">Do Method</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="YieldMethod.html">Yield Method</a>
+    <a class="nav-link" href="../FSharp/YieldMethod.html">Yield Method</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="CombineMethod.html">Combine method</a>
+    <a class="nav-link" href="../FSharp/CombineMethod.html">Combine method</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="DelayRunMethod.html">Delay and Run Method</a>
+    <a class="nav-link" href="../FSharp/DelayRunMethod.html">Delay and Run Method</a>
   </li>
 </ul>
   </li>
@@ -132,8 +132,8 @@
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../CSharp/bitwiseoperators.html">Bitwise Operators</a>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="bitwiseoperators.html">Bitwise Operators</a>
   </li>
 </ul>
   </li>
@@ -190,83 +190,68 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Study Notes</a></li>
-    <li><a href="ZeroMethod.html">Zero Method</a></li>
+    <li><a href="bitwiseoperators.html">Bitwise Operators</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/FSharp/pages/ZeroMethod.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/CSharp/pages/bitwiseoperators.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Zero Method</h1>
+<h1 class="page">Bitwise Operators</h1>
+<div class="sect1">
+<h2 id="_code_from_shawn_wildermuths_video"><a class="anchor" href="#_code_from_shawn_wildermuths_video"></a>Code from Shawn Wildermuth&#8217;s video</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>What value should you use for Zero?</p>
+<p><a href="https://www.youtube.com/watch?v=qWCUoLCRY38" target="_blank" rel="noopener">Coding Shorts - Bitwise operators</a></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Does the workflow have a concept of “success” or “failure”? If so, use the “failure” value for Zero.</p>
-</li>
-<li>
-<p>Does the workflow have a concept of “sequential processing”? That is, in your workflow you do one step and then another, with some processing behind the scenes. In normal F# code, an expression that did not return anything explicitly would evaluate to unit. So to parallel this case, your Zero should be the wrapped version of unit.</p>
-</li>
-<li>
-<p>Is the workflow primarily concerned with manipulating data structures? If so, Zero should be the “empty” data structure.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p><a href="https://github.com/tremorscript/CSharpLearning/tree/main/src/BitwiseOperators" target="_blank" rel="noopener">Github Projects</a></p>
 </div>
-<div class="listingblock">
+<div class="exampleblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">module Sample3_IntroducingZero =
-    type TraceBuilder() =
-
-        member this.Bind(x,f) =
-            match x with
-            | None -&gt;
-                printfn "Binding with None. Exiting"
-            | Some a -&gt;
-                printfn "Binding with Some(%A). Continuing" a
-            Option.bind f x
-
-        member this.Return(x) =
-            printfn "Returning an unwrapped %A as an option" x
-            Some x
-
-        member this.ReturnFrom(x) =
-            printfn "Returning an option (%A) directly" x
-            x
-
-        member this.Zero() =
-            printfn "Zero"
-            None
-
-    // make an instance of the workflow
-    let trace = new TraceBuilder()
-
-    //test
-    trace {
-        printfn "hello world"
-    } |&gt; printfn "Result for simple expression: %A"
-
-    trace {
-        if false then return 1
-    } |&gt; printfn "Result for if without else: %A"</code></pre>
-</div>
+<div class="paragraph">
+<p>Console.WriteLine("Hello, World!");</p>
 </div>
 <div class="paragraph">
-<p>The test code makes it clear that Zero is being called behind the scenes.
-And None is the return value for the expression as whole.</p>
+<p>Action&lt;int&gt; b = n &#8658; Console.WriteLine(Convert.ToString(n, 2).PadLeft(8, '0'));</p>
 </div>
 <div class="paragraph">
-<p>You not required to have a Zero, but only if it makes sense in the context of the workflow.
-For example seq does not allow zero, but async does:</p>
+<p>b(1); //output - 00000001
+b(1 + 1); //output - 00000010</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-fsharp hljs" data-lang="fsharp">//let s = seq {printfn "zero" }    // Error
-let a = async {printfn "zero" }  // OK</code></pre>
+<div class="paragraph">
+<p>var v = 0b1010;
+var x = 0b0110;
+b(v &amp; x); // 'and' output - 00000010
+b(v | x); // 'or' output - 00001110
+b(v ^ x); // 'xor' output - 00001100</p>
+</div>
+<div class="paragraph">
+<p>var hasAC = Features.AirConditioning;
+var hasBrakes = Features.Brakes;</p>
+</div>
+<div class="paragraph">
+<p>if (hasAC == Features.AirConditioning &amp;&amp; hasBrakes == Features.Brakes)
+{
+    // Do some work
+}</p>
+</div>
+<div class="paragraph">
+<p>var features = Features.AirConditioning | Features.Brakes;
+Console.WriteLine(features);
+b((int)features);</p>
+</div>
+<div class="paragraph">
+<p>if ((features &amp; Features.Brakes) == Features.Brakes)
+{
+    Console.WriteLine("Has Brakes");
+}</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </article>
