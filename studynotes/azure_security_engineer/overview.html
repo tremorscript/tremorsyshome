@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Azure Security Engineer :: Tremorscript</title>
+    <link rel="canonical" href="https://tremorscript.com/studynotes/azure_security_engineer/overview.html">
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://tremorscript.com">Tremorscript</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="studynotes" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Study Notes</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Study Notes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../FSharp/overview.html">FSharp Notes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Computation Expressions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/LogBuilder.html">Log Builder</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/MaybeBuilder.html">Maybe Builder</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/OrElseBuilder.html">OrElse Builder</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/IntroducingBind.html">Introducing Bind</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/WrapperTypes.html">Wrapper Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/WorkflowRulesForWrapperTypes.html">Rules for workflows that use wrapper types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/ComputationExpressionComposition.html">Composition of computation expression</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/ListWrapperTypes.html">List Wrapper Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/IdentityWrapperTypes.html">Identity Wrapper Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/DoMethod.html">Do Method</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/YieldMethod.html">Yield Method</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/CombineMethod.html">Combine method</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/DelayRunMethod.html">Delay and Run Method</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../Git/overview.html">Git Notes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../Devops/devopsfordevelopers.html">Devops for Asp.Net Core developers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../azure_iot/overview.html">Azure IoT</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="overview.html">Azure Security Engineer</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Study Notes</span>
+    <span class="version">default</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../azurearchitecturestarterpack/current/index.html">Azure Architecture Starter Pack</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../azurearchitecturestarterpack/current/index.html">1-beta.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../homesite/current/index.html">Home page</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../homesite/current/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../projectstarterpack/current/inline-text-formatting.html">New Project Starter Pack</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../projectstarterpack/current/inline-text-formatting.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../index.html">Study Notes</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">default</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../homesite/current/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Study Notes</a></li>
+    <li><a href="overview.html">Azure Security Engineer</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/azure_security_engineer/pages/overview.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Azure Security Engineer</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_azure_active_directory">Azure Active Directory</a>
+<ul class="sectlevel2">
+<li><a href="#_azure_ad_editions">Azure AD Editions</a></li>
+</ul>
+</li>
+<li><a href="#_roles_in_azure_ad">Roles in Azure AD</a>
+<ul class="sectlevel2">
+<li><a href="#_available_roles">Available Roles</a></li>
+<li><a href="#_azure_ad_domain_services">Azure AD Domain Services</a></li>
+<li><a href="#_create_and_manage_azure_ad_users">Create and Manage Azure AD users</a></li>
+<li><a href="#_manage_users_with_azure_ad_groups">Manage users with Azure AD groups</a></li>
+<li><a href="#_configure_azure_ad_administrative_units">Configure Azure AD Administrative Units</a></li>
+<li><a href="#_passwordless_authentication_methods">Passwordless authentication methods</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_azure_active_directory"><a class="anchor" href="#_azure_active_directory"></a>Azure Active Directory</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Azure Active Directory (Azure AD) is Microsoft&#8217;s cloud-based identity and access management service, which helps your employees sign in and access resources in:
+* External resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications
+* Internal resources, such as apps on your corporate network and intranet, along with any cloud apps developed by your own organization.</p>
+</div>
+<div class="paragraph">
+<p>A security engineer uses Azure AD to manage identities.</p>
+</div>
+<div class="paragraph">
+<p>A security engineer&#8217;s task includes:
+* Create users, groups, and administrative units to securely access resources and services.
+* Configure access to systems to be passwordless.
+* Define a strategy for using Azure AD and Azure AD Domain Services to lock down access to your solutions.</p>
+</div>
+<div class="sect2">
+<h3 id="_azure_ad_editions"><a class="anchor" href="#_azure_ad_editions"></a>Azure AD Editions</h3>
+<div class="paragraph">
+<p>Azure Active Directory comes in four editions - Free, Microsoft 365 Apps, Premium P1, and Premium P2.</p>
+</div>
+<div class="paragraph">
+<p>The free edition is included with an Azure subscription.</p>
+</div>
+<div class="paragraph">
+<p>The premium editions are available through a Microsoft Enterprise Agreement, the Open Volume License Program, and the Cloud Solution Providers program.</p>
+</div>
+<div class="paragraph">
+<p>Azure and Microsoft 365 subscribers can also buy Azure Active Directory Premium P1 and P2 online.</p>
+</div>
+<div class="sect3">
+<h4 id="_azure_active_directory_free"><a class="anchor" href="#_azure_active_directory_free"></a>Azure Active Directory Free</h4>
+<div class="paragraph">
+<p>Provides user and group management, on-premises directory synchronization, basic reports, and single sign-on across Azure, Microsoft 365, and amany popular SaaS apps.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_azure_active_directory_microsoft_365_apps"><a class="anchor" href="#_azure_active_directory_microsoft_365_apps"></a>Azure Active Directory Microsoft 365 apps</h4>
+<div class="paragraph">
+<p>This edition is included with O365.</p>
+</div>
+<div class="paragraph">
+<p>In addition to the Free features, this edition provides IDAM for Microsoft 365 apps including Branding, MFA, group access management, and self-service password reset for cloud users.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_azure_active_directory_premium_p1"><a class="anchor" href="#_azure_active_directory_premium_p1"></a>Azure Active Directory Premium P1</h4>
+<div class="paragraph">
+<p>In addition to the Free features, P1 also lets your hybrid users access both on-premises and cloud resources.</p>
+</div>
+<div class="paragraph">
+<p>It also supports advanced administration, such as dynamic groups, self-service group management, Microsoft Identity Manager (an on-premises IDAM suite) and cloud write-back capabilities, which allow self-service password reset for your on-premises users.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_azure_active_directory_premium_p2"><a class="anchor" href="#_azure_active_directory_premium_p2"></a>Azure Active Directory Premium P2</h4>
+<div class="paragraph">
+<p>In addition to the Free and P1 features, P2 also offers Azure AD Identity Protection to help provide risk-based Conditional Access to your apps and critical company data and Privileged Identity Management to help discover, restrict, and monitor administrators and their access to resources and provide just-in-time access when needed.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pricing_page"><a class="anchor" href="#_pricing_page"></a>Pricing Page</h4>
+<div class="paragraph">
+<p><a href="https://azure.microsoft.com/pricing/details/active-directory">Azure AD Pricing</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_roles_in_azure_ad"><a class="anchor" href="#_roles_in_azure_ad"></a>Roles in Azure AD</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Users who are assigned to the Global administrator role can read and modify every administrative setting in your Azure AD organization.</p>
+</div>
+<div class="paragraph">
+<p>By default, the person who signs up for an Azure subscription is assigned the Global Administrator role for the Azure AD organization.</p>
+</div>
+<div class="paragraph">
+<p>Only Global administrators and Privileged Role administrators can delegate administrator roles.</p>
+</div>
+<div class="paragraph">
+<p><strong>As a best practice, we recommend that you assign this role to fewer than five people in your organization.</strong></p>
+</div>
+<div class="sect2">
+<h3 id="_available_roles"><a class="anchor" href="#_available_roles"></a>Available Roles</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Application Administrator</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Users in this role can create and manage all aspects of enterprise applications, application registrations, and application proxy settings.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Application Developer</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Can create application registrations independent of the "Users can register applications" setting.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Authentication Administrator</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Users with this role can set or reset any authentication method for non-administrators and some roles.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Azure DevOps Administrator</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Users with this role can manage the Azure DevOps policy to restrict new Azure DevOps organization creation to a set of configurable users or groups.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Azure Information Protection Administrator</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Users with this role have all permissions in the Azure Information Protection Service.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>B2C User Flow Administrator</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Users with this role can create and manage B2C User Flows (also called "built-in" policies) in the Azure portal.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>B2C User Flow Attribute Administrator</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Users with this role add or delete custom attributes available to all user flows in the tenant.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>B2C IEF Keyset Administrator</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>User can create and manage policy keys and secrets for token encryption, token signatures, and claim encryption/decryption.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>B2C IEF Policy Administrator</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Users in this role can create, read, update, and delete all custom policies in Azure AD B2C and therefore have full control over the Identity Experience Framework in the relevant Azure B2C tenant.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Billing Administrator</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Makes purchases, manages subscriptions, manages support tickets, and monitors service health.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Cloud Application Administrator</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Users in this role have the same permissions as the Application Administrator role, excluding the ability to manage application proxy.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Cloud Device Administrator</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Users in this role can enable, disable, and delete devices in Azure AD and read Windows 10 BitLocker keys (if present) in the Azure portal.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Compliance Administrator</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Users in this role have permissions to manage compliance-related features in the compliance portal, Microsoft 365 admin center, Azure, and Microsoft 365 Security and compliance portal.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Compliance Data Administrator</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Users with this role have permissions to track data in the compliance portal, Microsoft 365 admin center, Azure, and Microsoft 365 Security and compliance portal.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Conditional Access Administrator</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Users with this role have the ability to manage Azure AD Conditional Access settings.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Exchange Administrator</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Users with this role have global permissions within Microsoft Exchange Online when the service is present.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Directory Readers</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Users in this rile can read basic directory information.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Global Administrator / Company Adminstrator</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Users with this role have access to all administrative features in Azure AD.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Groups Administrator</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Users in this role can create/manage groups and its settings like naming and expiration policies.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Security Administrator</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Users with this role have permissions to manage security-related features in the Microsoft 365 security center, Azure AD Identity Protection, Azure Information Protection, and Microsoft 365 Security and Compliance Center.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_azure_ad_domain_services"><a class="anchor" href="#_azure_ad_domain_services"></a>Azure AD Domain Services</h3>
+<div class="paragraph">
+<p>Azure Active Directory Domain Services (Azure AD DS) provides managed domain services such as group policy, LDAP, and Kerberos / NTLM authentication that is fully compatible with Windows Server Active Directory.</p>
+</div>
+<div class="paragraph">
+<p>Azure AD DS integrates with your existing Azure AD tenant, which makes it possible for users to sign in using their existing credentials.</p>
+</div>
+<div class="paragraph">
+<p>Azure AD DS replicates identity information from Azure AD. The same set of Azure AD DS features exist for both environments.
+* If you have an existing on-premises AD DS environment, you can synchronize user account information to provided a consistent identity for users.
+* For cloud-only environments, you do not need a traditional on-premises AD DS environment to use the centralized identity services of Azure AD DS.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/azure-active-directory/media/az500-azure-active-directory-domain-services-6692a3ee.png" alt="az500 azure active directory domain services 6692a3ee">
+</div>
+</div>
+<div class="sect3">
+<h4 id="_azure_ad_ds_features_and_benefits"><a class="anchor" href="#_azure_ad_ds_features_and_benefits"></a>Azure AD DS features and benefits</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Simplified deployment experience</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Azure AD DS is enabled for your Azure AD tenant using a single wizard in the Azure portal.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Integrated with Azure AD</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>User accounts, group memberships, and credentials are automatically available from your Azure AD tenant.</p>
+</li>
+<li>
+<p>New users, groups, or changes to attributes from your Azure AD tenant or your on-premises AD DS environment are automatically synchronized to Azure AD DS.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Use your corporate credentials/passwords</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Passwords for users in Azure AD DS are the same as in your Azure AD tenant.</p>
+</li>
+<li>
+<p>Users can use their corporate credentials to domain-join machines, sign in interactively or over remote desktop, and authenticate agains the Azure AD DS managed domain.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>NTLM and Kerberos authentication</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>With support for NTLM and Kerberos authentication, you can deploy applications that rely on Windows-integrated authentication.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>High availability</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Azure AD DS includes multiple domain controllers, which provide high availability for your managed domain.</p>
+</li>
+<li>
+<p>This high availability guarantees service uptime and resilience to failures.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In regions that support Azure Availability Zones, these domain controllers are also distributed across zones for additional resiliency.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Azure AD DS integrates with Azure AD, which itself can synchronize with an on-premises AD DS environment.
+This ability extends central identity use cases to traditional web applications that run in Azure as part of a lift-and-shift strategy.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_create_and_manage_azure_ad_users"><a class="anchor" href="#_create_and_manage_azure_ad_users"></a>Create and Manage Azure AD users</h3>
+<div class="paragraph">
+<p>In Azure AD, every user who needs access to resources needs a user account.</p>
+</div>
+<div class="paragraph">
+<p>A user account is a synced Active Directory Domain Services (AD DS) object or an Azure AD user object that contains all the infomation needed to authenticate and authorize the user during the sign-on process and to build the user&#8217;s access token.</p>
+</div>
+<div class="paragraph">
+<p>Azure AD defines users in three ways:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Cloud Identities</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>These users exist only in Azure AD.</p>
+</li>
+<li>
+<p>Examples are administrator accounts and users that you manage yourself.</p>
+</li>
+<li>
+<p>Their source is Azure AD.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Directory-synchronized identites</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>These users exist in on-premises Active Directory.</p>
+</li>
+<li>
+<p>A synchronization activity that occurs via <strong>Azure AD Connect</strong> brings these users in to Azure.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Guest users</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>These users exist outside Azure.</p>
+</li>
+<li>
+<p>Examples are accounts from other cloud providers and Microsoft accounts.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_manage_users_with_azure_ad_groups"><a class="anchor" href="#_manage_users_with_azure_ad_groups"></a>Manage users with Azure AD groups</h3>
+<div class="paragraph">
+<p>Azure AD allows you to define two different types of groups</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Security groups</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>These are used to manage member and computer access to shared resources for a group of users.</p>
+</li>
+<li>
+<p>For example, you can create a security group for a specific security policy.</p>
+</li>
+<li>
+<p>You can give a set of permissions to all the members at once, instead of having to add permissions to each member individually.</p>
+</li>
+<li>
+<p>This option requires an Azure AD administrator.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Microsoft 365 groups</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>These groups provide collaboration opportunites by giving members access to a shared mailbox, calendar, files, SharePoint site, and more.</p>
+</li>
+<li>
+<p>This option also lets you give people outside of your organization access to a group.</p>
+</li>
+<li>
+<p>This option is available to users as well as admins.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There are different ways you can assign group access rights:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Assigned</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Lets you add specific users to be members of this group and to have unique permissions.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Dynamic User</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Lets you use dynamic membership rules to automatically add and remove members.</p>
+</li>
+<li>
+<p>If a member&#8217;s attributes change, the system reviews your dynamic group rules for the directory to determine if the member meets the rule requirements or no longer meets the rules requirements.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Dynamic Device (Security groups only)</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Lets you use dynamic group rules to automatically add and remove devices.</p>
+</li>
+<li>
+<p>If a device&#8217;s attributes change, the system reviews your dynamic group rules for the directory to determine if the device meets the rule requirements or no longer meets the rules requirements.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configure_azure_ad_administrative_units"><a class="anchor" href="#_configure_azure_ad_administrative_units"></a>Configure Azure AD Administrative Units</h3>
+<div class="paragraph">
+<p>An administrative unit is an Azure AD resource that can be a container for other Azure AD resources.</p>
+</div>
+<div class="paragraph">
+<p>An administrative unit can contain only users and groups.</p>
+</div>
+<div class="paragraph">
+<p>Administrative units restrict permissions in a role to any portion of your organization that you define.</p>
+</div>
+<div class="paragraph">
+<p>For example, use administrative units to delegate the Helpdesk Administrator role to regional support specialists, so they can manage users in the region that they support.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_passwordless_authentication_methods"><a class="anchor" href="#_passwordless_authentication_methods"></a>Passwordless authentication methods</h3>
+<div class="paragraph">
+<p>Sign-in without ever using a password.</p>
+</div>
+<div class="paragraph">
+<p>With passwordless, the password is replaced with something you have plus something you are or something you know.</p>
+</div>
+<div class="paragraph">
+<p>For example, Windows Hello for Business can use a biometric gesture like a face or fingerprint, or a device-specific PIN that isn&#8217;t transmitted over a network.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Windows Hello for Business</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Biometric and PIN credentials are directly tied to the user&#8217;s PC, which prevents access from anyone other than the owner.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>FIDO2 Security Keys</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Generally stored on a USB stick, FIDO2 security keys are an unphishable standards-based passwordless authentication method that can come in any form factor.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Microsoft Authenticator App</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Authenticator App turns any iOS or Android phone into a strong, passwordless credential.</p>
+</li>
+<li>
+<p>Users can sign in to any platform or browser by getting a notification to their phone, matching an number displayed on screen to the one on their phone, and then using their biometric (touch or face) or PIN to confirm.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>FIDO2 Smartcards (preview)</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>New method to use FIDO2 keys for passwordless login via a smartcard.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Temporary Access Pass (preview)</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Time-limited passcode allows you to set up security keys and the Microsoft Authenticator without ever needing to use, much less know, your password!</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>
