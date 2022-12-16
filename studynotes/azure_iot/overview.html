@@ -119,7 +119,13 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="overview.html">Azure IoT</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="iothub.html">Working With IoT Hub</a>
+  </li>
+</ul>
   </li>
 </ul>
   </li>
@@ -329,7 +335,15 @@
 <li><a href="#_azure_blob_storage_on_iot_edge">Azure Blob Storage on IoT Edge</a></li>
 <li><a href="#_manage_iot_devices_by_using_iot_hub_and_apps">Manage IoT devices by using IoT Hub and apps</a></li>
 <li><a href="#_device_configuration_using_device_twins">Device Configuration using Device Twins</a></li>
-<li><a href="#_digital_twins">Digital Twins</a></li>
+<li><a href="#_azure_digital_twins_2">Azure Digital Twins</a>
+<ul class="sectlevel2">
+<li><a href="#_environment_and_service_goals">Environment and Service Goals</a></li>
+<li><a href="#_services_and_data_workflows_that_form_an_azure_digital_twins_solution">Services and Data Workflows that form an Azure Digital Twins Solution</a></li>
+<li><a href="#_azure_digital_twins_models">Azure Digital Twins Models</a></li>
+<li><a href="#_digital_twins_definition_language">Digital Twins Definition Language</a></li>
+<li><a href="#_digital_twins_and_graph_construction">Digital Twins and Graph Construction</a></li>
+</ul>
+</li>
 <li><a href="#_azure_digital_twins_solution_development_tools_and_processes">Azure Digital Twins Solution Development Tools and Processes</a>
 <ul class="sectlevel2">
 <li><a href="#_azure_digital_twins_service_configuration">Azure Digital Twins Service Configuration</a></li>
@@ -8625,14 +8639,18 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 </div>
 </div>
 <div class="sect1">
-<h2 id="_digital_twins"><a class="anchor" href="#_digital_twins"></a>Digital Twins</h2>
+<h2 id="_azure_digital_twins_2"><a class="anchor" href="#_azure_digital_twins_2"></a>Azure Digital Twins</h2>
 <div class="sectionbody">
-<h3 id="_environment_and_service_goals" class="discrete">Environment and service goals</h3>
+<div class="sect2">
+<h3 id="_environment_and_service_goals"><a class="anchor" href="#_environment_and_service_goals"></a>Environment and Service Goals</h3>
 <div class="paragraph">
-<p>Azure Digital Twins is a platform as a service (PaaS) offering that enables the creation of knowledge graphs (a way to integrate information extracted from multiple data sources).</p>
+<p>Azure Digital Twins is a platform as a service (PaaS) offering that enables the creation of knowledge graphs.</p>
 </div>
 <div class="paragraph">
-<p>In the case of Azure Digital Twins, the knowledge graph is based on interconnected digital entities that combine to represent a larger, interactive environment.</p>
+<p>A way to integrate information extracted from multiple data sources.</p>
+</div>
+<div class="paragraph">
+<p>The knowledge graph is based on interconnected digital entities that combine to represent a larger, interactive environment.</p>
 </div>
 <div class="paragraph">
 <p>The size and complexity of the environment is dependent upon your business needs, and could represent things like buildings, factories, farms, energy networks, railways, stadiums, and more—even entire cities.</p>
@@ -8649,7 +8667,7 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 <p>Model any environment, and bring digital twins to life in a scalable and secure manner.</p>
 </li>
 <li>
-<p>Connect assets such as IoT devices and existing business systems</p>
+<p>Connect assets such as IoT devices and existing business systems.</p>
 </li>
 <li>
 <p>Use a robust event system to build dynamic business logic and data processing.</p>
@@ -8664,13 +8682,13 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 <div class="ulist">
 <ul>
 <li>
-<p>Digital twins (in Azure Digital Twins) and device twins (in IoT Hub) may sound similar, but they are two different things.</p>
+<p>Digital Twins (in Azure Digital Twins) and Device Twins (in IoT Hub) may sound similar, but they are two different things.</p>
 </li>
 <li>
-<p>IoT Hub device twins often focus on describing the aspects and capabilities of a device itself</p>
+<p>IoT Hub device twins often focus on describing the aspects and capabilities of a device itself.</p>
 </li>
 <li>
-<p>Digital twins are more conceptual representations that can store user-defined insights about a digital entity or many related entities.</p>
+<p>Digital Twins are more conceptual representations that can store user-defined insights about a digital entity or many related entities.</p>
 </li>
 <li>
 <p>Entities that could be representing a device or many related devices.</p>
@@ -8682,12 +8700,15 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 </div>
 </div>
 </div>
-<h4 id="_simple_azure_digital_twins_environment_scenario" class="discrete">Simple Azure Digital Twins environment scenario</h4>
-<div class="paragraph">
-<p>iamge::https://learn.microsoft.com/en-us/training/wwl-azure/examine-components-azure-digital-twins-solution/media/m11-l02-simple-twins-environment-fb572ff0.png[]</p>
+<div class="sect3">
+<h4 id="_simple_azure_digital_twins_environment_scenario"><a class="anchor" href="#_simple_azure_digital_twins_environment_scenario"></a>Simple Azure Digital Twins environment scenario</h4>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-components-azure-digital-twins-solution/media/m11-l02-simple-twins-environment-fb572ff0.png" alt="m11 l02 simple twins environment fb572ff0">
+</div>
 </div>
 <div class="paragraph">
-<p>Consider the following example where we define an environment that represents a small building (the Azure Digital Twins graph shown above).</p>
+<p>Consider the above example where we define an environment that represents a small building (the Azure Digital Twins graph shown above).</p>
 </div>
 <div class="paragraph">
 <p>In this example, our building is composed of digital twins that represent the floors of the building, and the rooms on each floor.</p>
@@ -8704,21 +8725,25 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 <div class="paragraph">
 <p>The graph shows that our building has two floors, and each floor contains one room, but our environment could be expanded to include more floors and more rooms on each floor, or we could create more levels of detail, such as adding digital twins that represent digital entities within the rooms.</p>
 </div>
-<h3 id="_services_and_data_workflows_that_form_an_azure_digital_twins_solution" class="discrete">Services and data workflows that form an Azure Digital Twins solution</h3>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_services_and_data_workflows_that_form_an_azure_digital_twins_solution"><a class="anchor" href="#_services_and_data_workflows_that_form_an_azure_digital_twins_solution"></a>Services and Data Workflows that form an Azure Digital Twins Solution</h3>
 <div class="paragraph">
 <p>Azure Digital Twins is typically used together with other services to create flexible, connected solutions that use your data in various workflows.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Using event routes, Azure Digital Twins can receive data from upstream services such as IoT Hub or Logic Apps, which are used to deliver telemetry and notifications.</p>
+<p>Using Event Routes, Azure Digital Twins can receive data from upstream services such as IoT Hub or Logic Apps, which are used to deliver telemetry and notifications.</p>
 </li>
 <li>
 <p>Azure Digital Twins can also route data to downstream services, such as Azure Maps and Time Series Insights, for storage, workflow integration, analytics, and more.</p>
 </li>
 </ul>
 </div>
-<h4 id="_data_ingress" class="discrete">Data Ingress</h4>
+<div class="sect3">
+<h4 id="_data_ingress"><a class="anchor" href="#_data_ingress"></a>Data Ingress</h4>
 <div class="paragraph">
 <p>Azure Digital Twins can be driven with data and events from any service—IoT Hub, Logic Apps, your own custom service, and more.</p>
 </div>
@@ -8737,7 +8762,9 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 <div class="paragraph">
 <p>To ingest data from any source into Azure Digital Twins, use an Azure function.</p>
 </div>
-<h4 id="_data_egress_services" class="discrete">Data egress services</h4>
+</div>
+<div class="sect3">
+<h4 id="_data_egress"><a class="anchor" href="#_data_egress"></a>Data Egress</h4>
 <div class="paragraph">
 <p>Azure Digital Twins can send data to connected endpoints. Supported endpoints can be:</p>
 </div>
@@ -8766,7 +8793,9 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 <div class="paragraph">
 <p>For example, if you are also using Azure Maps and want to correlate location with your Azure Digital Twins twin graph, you can use Azure Functions with Event Grid to establish communication between all the services in your deployment.</p>
 </div>
-<h4 id="_azure_digital_twins_in_a_solution_context" class="discrete">Azure Digital Twins in a solution context</h4>
+</div>
+<div class="sect3">
+<h4 id="_azure_digital_twins_in_a_solution_context"><a class="anchor" href="#_azure_digital_twins_in_a_solution_context"></a>Azure Digital Twins in a solution context</h4>
 <div class="paragraph">
 <p>Azure Digital Twins is commonly used in combination with other Azure services as part of a larger IoT solution.</p>
 </div>
@@ -8797,7 +8826,10 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 <img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-components-azure-digital-twins-solution/media/m11-l02-adt-solution-services-24939866.png" alt="m11 l02 adt solution services 24939866">
 </div>
 </div>
-<h3 id="_azure_digital_twins_models" class="discrete">Azure Digital Twins models</h3>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_azure_digital_twins_models"><a class="anchor" href="#_azure_digital_twins_models"></a>Azure Digital Twins Models</h3>
 <div class="paragraph">
 <p>In an Azure Digital Twins solution, Models provide the blueprint that is used to create the digital twin entities within your Azure Digital Twins environment.</p>
 </div>
@@ -8815,7 +8847,8 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 <div class="paragraph">
 <p>Models have names (such as Floor, Room, or TemperatureSensor), and contain elements such as properties, telemetry/events, and relationships that describe how the digital twin entities are related to each other within your environment.</p>
 </div>
-<h4 id="_elements_of_a_model" class="discrete">Elements of a model</h4>
+<div class="sect3">
+<h4 id="_elements_of_a_model"><a class="anchor" href="#_elements_of_a_model"></a>Elements of a model</h4>
 <div class="paragraph">
 <p>Azure Digital Twins models are defined using the Digital Twins Definition Language (DTDL), which is expressed using a JSON-style coding format.</p>
 </div>
@@ -8896,7 +8929,9 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 </li>
 </ul>
 </div>
-<h4 id="_differentiating_between_property_and_telemetry_fields" class="discrete">Differentiating between property and telemetry fields</h4>
+</div>
+<div class="sect3">
+<h4 id="_differentiating_between_property_and_telemetry_fields"><a class="anchor" href="#_differentiating_between_property_and_telemetry_fields"></a>Differentiating between Property and Telemetry Fields</h4>
 <div class="paragraph">
 <p>Since property and telemetry fields could both represent numeric data, it may not be obvious when or where each should be used.</p>
 </div>
@@ -8952,7 +8987,9 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 </li>
 </ul>
 </div>
-<h4 id="_applying_property_and_telemetry_fields_in_an_iot_context" class="discrete">Applying property and telemetry fields in an IoT context</h4>
+</div>
+<div class="sect3">
+<h4 id="_applying_property_and_telemetry_fields_in_an_iot_context"><a class="anchor" href="#_applying_property_and_telemetry_fields_in_an_iot_context"></a>Applying Property and Telemetry Fields in an IoT Context</h4>
 <div class="paragraph">
 <p>When designing a model, a telemetry field is often used in models that represent IoT devices.</p>
 </div>
@@ -8962,7 +8999,9 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 <div class="paragraph">
 <p>A property field is used most often when designing a model because properties provide you with backing storage and the ability to read and query the data fields.</p>
 </div>
-<h4 id="_property_and_telemetry_fields_example" class="discrete">Property and telemetry fields example</h4>
+</div>
+<div class="sect3">
+<h4 id="_property_and_telemetry_fields_example"><a class="anchor" href="#_property_and_telemetry_fields_example"></a>Property and Telemetry Fields Example</h4>
 <div class="paragraph">
 <p>Consider the following example:</p>
 </div>
@@ -8987,11 +9026,15 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 </li>
 </ul>
 </div>
-<h3 id="_digital_twins_definition_language" class="discrete">Digital Twins Definition Language</h3>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_digital_twins_definition_language"><a class="anchor" href="#_digital_twins_definition_language"></a>Digital Twins Definition Language</h3>
 <div class="paragraph">
 <p>Models for Azure Digital Twins are defined using the Digital Twins Definition Language (DTDL), which is based on JSON-LD and is programming-language independent.</p>
 </div>
-<h4 id="_implementation_specifics" class="discrete">Implementation Specifics</h4>
+<div class="sect3">
+<h4 id="_implementation_specifics"><a class="anchor" href="#_implementation_specifics"></a>Implementation Specifics</h4>
 <div class="paragraph">
 <p>For a DTDL model to be compatible with Azure Digital Twins, it must meet these requirements.</p>
 </div>
@@ -9035,7 +9078,9 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 </li>
 </ul>
 </div>
-<h4 id="_example_model_code" class="discrete">Example model code</h4>
+</div>
+<div class="sect3">
+<h4 id="_example_model_code"><a class="anchor" href="#_example_model_code"></a>Example Model Code</h4>
 <div class="paragraph">
 <p>Twin type models can be written in any text editor.</p>
 </div>
@@ -9162,7 +9207,9 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 </li>
 </ul>
 </div>
-<h4 id="_possible_schemas" class="discrete">Possible schemas</h4>
+</div>
+<div class="sect3">
+<h4 id="_possible_schemas"><a class="anchor" href="#_possible_schemas"></a>Possible Schemas</h4>
 <div class="paragraph">
 <p>As per DTDL, the schema for Property and Telemetry attributes can be of standard primitive types—integer, double, string, and Boolean—and other types such as DateTime and Duration.</p>
 </div>
@@ -9185,7 +9232,9 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 <div class="paragraph">
 <p>Telemetry fields also support the Array type.</p>
 </div>
-<h4 id="_model_inheritance" class="discrete">Model inheritance</h4>
+</div>
+<div class="sect3">
+<h4 id="_model_inheritance"><a class="anchor" href="#_model_inheritance"></a>Model Inheritance</h4>
 <div class="paragraph">
 <p>Sometimes, you may want to specialize a model further.</p>
 </div>
@@ -9274,7 +9323,10 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 <div class="paragraph">
 <p>For example, if a parent interface defines a double property mass, the extending interface cannot contain a declaration of mass, even if it&#8217;s also a double.</p>
 </div>
-<h3 id="_digital_twins_and_graph_construction" class="discrete">digital twins and graph construction</h3>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_digital_twins_and_graph_construction"><a class="anchor" href="#_digital_twins_and_graph_construction"></a>Digital Twins and Graph Construction</h3>
 <div class="paragraph">
 <p>In an Azure Digital Twins solution, the entities in your environment are represented by digital twins.</p>
 </div>
@@ -9295,7 +9347,8 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 <div class="paragraph">
 <p>The graph contains seven digital twin nodes connected by relationships. To the left of the twins graph are the corresponding models.</p>
 </div>
-<h4 id="_digital_twins_2" class="discrete">Digital twins</h4>
+<div class="sect3">
+<h4 id="_digital_twins"><a class="anchor" href="#_digital_twins"></a>Digital Twins</h4>
 <div class="paragraph">
 <p>Since the digital twins nodes that you create in your Azure Digital Twins solution are based on a model type, the first step in adding a digital twin to Azure Digital Twins is to upload a model type to your Azure Digital Twins service.</p>
 </div>
@@ -9305,7 +9358,9 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 <div class="paragraph">
 <p>For example, after creating a model of type Cheese Cave, you can create one or more digital twins that use this type (for example, a Cheese Cave digital twin called Cave_1, another called Cave_2, etc.).</p>
 </div>
-<h4 id="_relationships_a_graph_of_digital_twins" class="discrete">Relationships: a graph of digital twins</h4>
+</div>
+<div class="sect3">
+<h4 id="_relationships_a_graph_of_digital_twins"><a class="anchor" href="#_relationships_a_graph_of_digital_twins"></a>Relationships: a graph of digital twins</h4>
 <div class="paragraph">
 <p>Twins are connected into a twin graph by their relationships.</p>
 </div>
@@ -9327,12 +9382,16 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 <div class="paragraph">
 <p>The result of this process is a set of nodes (the digital twins) connected via edges (their relationships) in a graph.</p>
 </div>
-<h4 id="_visualization" class="discrete">Visualization</h4>
+</div>
+<div class="sect3">
+<h4 id="_visualization"><a class="anchor" href="#_visualization"></a>Visualization</h4>
 <div class="paragraph">
 <p>While the primary way to interact with your Azure Digital Twins instance is through the APIs and SDKs, it can be helpful to see a visualization of the twins and graphs that you are creating in your instance.</p>
 </div>
 <div class="paragraph">
 <p>Microsoft provides a sample application, the Azure Digital Twins explorer, that can be used to visualize the Azure Digital Twins graph and to edit the twins and models.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -9458,7 +9517,7 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 </div>
 </div>
 <div class="sect3">
-<h4 id="_create_an_event_route"><a class="anchor" href="#_create_an_event_route"></a>Create an event route</h4>
+<h4 id="_create_an_event_route"><a class="anchor" href="#_create_an_event_route"></a>Create an Event Route</h4>
 <div class="paragraph">
 <p>To actually send data from Azure Digital Twins to an endpoint, you&#8217;ll need to define an event route.</p>
 </div>
@@ -9486,7 +9545,7 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 </div>
 </div>
 <div class="sect4">
-<h5 id="_filter_events"><a class="anchor" href="#_filter_events"></a>Filter events</h5>
+<h5 id="_filter_events"><a class="anchor" href="#_filter_events"></a>Filter Events</h5>
 <div class="paragraph">
 <p>Routes have a filter field.</p>
 </div>
@@ -9520,7 +9579,7 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 </div>
 </div>
 <div class="sect4">
-<h5 id="_basic_filters"><a class="anchor" href="#_basic_filters"></a>Basic filters</h5>
+<h5 id="_basic_filters"><a class="anchor" href="#_basic_filters"></a>Basic Filters</h5>
 <div class="paragraph">
 <p>To use the basic filters, expand the Event types option and select the checkboxes corresponding to the events you&#8217;d like to send to your endpoint.</p>
 </div>
@@ -9531,7 +9590,7 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 </div>
 </div>
 <div class="sect4">
-<h5 id="_advanced_filters"><a class="anchor" href="#_advanced_filters"></a>Advanced filters</h5>
+<h5 id="_advanced_filters"><a class="anchor" href="#_advanced_filters"></a>Advanced Filters</h5>
 <div class="paragraph">
 <p>You can use the advanced filter option to write your own custom filters.</p>
 </div>
@@ -9744,12 +9803,12 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 <p>You can manage the models within your Azure Digital Twins instance using the DigitalTwinModels APIs, the .NET (C#) SDK, or the Azure Digital Twins CLI extension.</p>
 </div>
 <div class="sect3">
-<h4 id="_validating_and_uploading_models"><a class="anchor" href="#_validating_and_uploading_models"></a>Validating and uploading models</h4>
+<h4 id="_validating_and_uploading_models"><a class="anchor" href="#_validating_and_uploading_models"></a>Validating and Uploading Models</h4>
 <div class="paragraph">
 <p>After creating a model, it&#8217;s recommended that you validate your models offline before uploading them to your Azure Digital Twins instance.</p>
 </div>
 <div class="sect4">
-<h5 id="_model_validation_tools"><a class="anchor" href="#_model_validation_tools"></a>Model validation tools</h5>
+<h5 id="_model_validation_tools"><a class="anchor" href="#_model_validation_tools"></a>Model Validation Tools</h5>
 <div class="paragraph">
 <p>Microsoft provides the following tools that can be used to validate Azure Digital Twins models:</p>
 </div>
@@ -9797,7 +9856,7 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 </div>
 </div>
 <div class="sect4">
-<h5 id="_uploading_models_to_azure_digital_twins"><a class="anchor" href="#_uploading_models_to_azure_digital_twins"></a>Uploading models to Azure Digital Twins</h5>
+<h5 id="_uploading_models_to_azure_digital_twins"><a class="anchor" href="#_uploading_models_to_azure_digital_twins"></a>Uploading Models to Azure Digital Twins</h5>
 <div class="paragraph">
 <p>Once you&#8217;re finished creating, extending, or selecting your models, you&#8217;re ready to upload them to your Azure Digital Twins instance for use in your solution.</p>
 </div>
@@ -9862,7 +9921,7 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 </div>
 </div>
 <div class="sect3">
-<h4 id="_update_and_version_models"><a class="anchor" href="#_update_and_version_models"></a>Update and version models</h4>
+<h4 id="_update_and_version_models"><a class="anchor" href="#_update_and_version_models"></a>Update and Version Models</h4>
 <div class="paragraph">
 <p>Once a model is uploaded to your Azure Digital Twins instance, the entire model interface is immutable, which means there&#8217;s no traditional "editing" of models.</p>
 </div>
@@ -9873,7 +9932,7 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 <p>Instead, if you want to make changes to a model - such as updating displayName or description - the way to change the model is to upload a newer version of the model.</p>
 </div>
 <div class="sect4">
-<h5 id="_model_versioning"><a class="anchor" href="#_model_versioning"></a>Model versioning</h5>
+<h5 id="_model_versioning"><a class="anchor" href="#_model_versioning"></a>Model Versioning</h5>
 <div class="paragraph">
 <p>To create a new version of an existing model, start with the DTDL of the original model. Update, add, or remove the fields you would like to change.</p>
 </div>
@@ -9920,7 +9979,7 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 </div>
 </div>
 <div class="sect4">
-<h5 id="_impact_on_twins"><a class="anchor" href="#_impact_on_twins"></a>Impact on twins</h5>
+<h5 id="_impact_on_twins"><a class="anchor" href="#_impact_on_twins"></a>Impact on Twins</h5>
 <div class="paragraph">
 <p>When you create a new twin, since the new model version and the old model version coexist, the new twin can use either the new version of the model or the older version.</p>
 </div>
@@ -9948,7 +10007,7 @@ If you aren&#8217;t familiar with JSON Patch, you can read more here: JsonPatch 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_remove_models"><a class="anchor" href="#_remove_models"></a>Remove models</h4>
+<h4 id="_remove_models"><a class="anchor" href="#_remove_models"></a>Remove Models</h4>
 <div class="paragraph">
 <p>Models can also be removed from the service in one of two ways:</p>
 </div>
@@ -10298,7 +10357,7 @@ If you aren&#8217;t familiar with JSON Patch, you can read more here: JsonPatch 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_data_egress"><a class="anchor" href="#_data_egress"></a>Data egress</h4>
+<h4 id="_data_egress_2"><a class="anchor" href="#_data_egress_2"></a>Data egress</h4>
 <div class="paragraph">
 <p>To provide data to downstream resources, Azure Digital Twins uses digital twin change notification events as a trigger to route data to an Azure Digital Twins endpoint where the information can be accessed and used to accomplish a desired action.</p>
 </div>
