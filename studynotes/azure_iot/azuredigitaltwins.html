@@ -222,7 +222,7 @@
 <ul class="sectlevel1">
 <li><a href="#_environment_and_service_goals">Environment and Service Goals</a>
 <ul class="sectlevel2">
-<li><a href="#_simple_azure_digital_twins_environment_scenario">Simple Azure Digital Twins environment scenario</a></li>
+<li><a href="#_simple_azure_digital_twins_environment_scenario">Simple Azure Digital Twins Environment Scenario</a></li>
 </ul>
 </li>
 <li><a href="#_services_and_data_workflows_that_form_an_azure_digital_twins_solution">Services and Data Workflows that form an Azure Digital Twins Solution</a>
@@ -284,25 +284,6 @@
 <div class="paragraph">
 <p>The size and complexity of the environment is dependent upon your business needs, and could represent things like buildings, factories, farms, energy networks, railways, stadiums, and more—even entire cities.</p>
 </div>
-<div class="paragraph">
-<p>Azure Digital Twins can be used to build customized, connected solutions that:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Model any environment, and bring digital twins to life in a scalable and secure manner.</p>
-</li>
-<li>
-<p>Connect assets such as IoT devices and existing business systems.</p>
-</li>
-<li>
-<p>Use a robust event system to build dynamic business logic and data processing.</p>
-</li>
-<li>
-<p>Integrate with Azure data, analytics, and AI services to help you track the past and then predict the future.</p>
-</li>
-</ul>
-</div>
 <div class="exampleblock">
 <div class="content">
 <div class="ulist">
@@ -327,7 +308,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_simple_azure_digital_twins_environment_scenario"><a class="anchor" href="#_simple_azure_digital_twins_environment_scenario"></a>Simple Azure Digital Twins environment scenario</h3>
+<h3 id="_simple_azure_digital_twins_environment_scenario"><a class="anchor" href="#_simple_azure_digital_twins_environment_scenario"></a>Simple Azure Digital Twins Environment Scenario</h3>
 <div class="imageblock">
 <div class="content">
 <img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-components-azure-digital-twins-solution/media/m11-l02-simple-twins-environment-fb572ff0.png" alt="m11 l02 simple twins environment fb572ff0">
@@ -725,10 +706,9 @@
 <div class="paragraph">
 <p>These external models are also defined in the example code below, but are kept simple so as not to detract from the primary Planet example.</p>
 </div>
-<div class="exampleblock">
+<div class="listingblock">
 <div class="content">
-<div class="paragraph">
-<p>[
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
 {
   "@id": "dtmi:com:contoso:Planet;1",
   "@type": "Interface",
@@ -772,8 +752,7 @@
   "@type": "Interface",
   "@context": "dtmi:dtdl:context;2"
 }
-]</p>
-</div>
+]</code></pre>
 </div>
 </div>
 <div class="paragraph">
