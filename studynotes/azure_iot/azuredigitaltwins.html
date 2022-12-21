@@ -255,19 +255,32 @@
 <li><a href="#_visualization">Visualization</a></li>
 </ul>
 </li>
-<li><a href="#_azure_digital_twins_solution_development_tools_and_processes">Azure Digital Twins Solution Development Tools and Processes</a>
+<li><a href="#_azure_digital_twins_solution_development_tools_and_processes">Azure Digital Twins Solution Development Tools and Processes</a></li>
+<li><a href="#_azure_digital_twins_service_configuration">Azure Digital Twins Service Configuration</a>
 <ul class="sectlevel2">
-<li><a href="#_azure_digital_twins_service_configuration">Azure Digital Twins Service Configuration</a></li>
-<li><a href="#_model_management">Model Management</a></li>
+<li><a href="#_configure_endpoints_and_routes">Configure endpoints and routes</a></li>
+<li><a href="#_create_an_event_route">Create an Event Route</a></li>
+</ul>
+</li>
+<li><a href="#_model_management">Model Management</a>
+<ul class="sectlevel2">
+<li><a href="#_validating_and_uploading_models">Validating and Uploading Models</a></li>
+<li><a href="#_update_and_version_models">Update and Version Models</a></li>
+<li><a href="#_remove_models">Remove Models</a></li>
+</ul>
+</li>
 <li><a href="#_azure_digital_twins_api">Azure Digital Twins API</a></li>
 <li><a href="#_azure_digital_twins_cli">Azure Digital Twins CLI</a></li>
 <li><a href="#_azure_digital_twins_sdk">Azure Digital Twins SDK</a></li>
-<li><a href="#_manage_digital_twins_in_the_graph">Manage digital twins in the graph</a></li>
-<li><a href="#_manage_digital_twin_relationships_in_the_graph">Manage digital twin relationships in the graph</a></li>
-<li><a href="#_azure_digital_twins_queries">Azure Digital Twins queries</a></li>
+<li><a href="#_manage_digital_twins_in_the_graph">Manage Digital Twins in the Graph</a></li>
+<li><a href="#_manage_digital_twin_relationships_in_the_graph">Manage Digital Twin Relationships in the Graph</a></li>
+<li><a href="#_azure_digital_twins_queries">Azure Digital Twins Queries</a></li>
 <li><a href="#_azure_functions_for_azure_digital_twins">Azure Functions for Azure Digital Twins</a></li>
-<li><a href="#_azure_digital_twins_event_data">Azure Digital Twins event data</a></li>
-<li><a href="#_data_ingress_and_egress_processes">Data Ingress and Egress processes</a></li>
+<li><a href="#_azure_digital_twins_event_data">Azure Digital Twins Event data</a></li>
+<li><a href="#_data_ingress_and_egress_processes">Data Ingress and Egress Processes</a>
+<ul class="sectlevel2">
+<li><a href="#_data_ingress_upstream_resources">Data Ingress (upstream resources)</a></li>
+<li><a href="#_data_egress_2">Data Egress</a></li>
 </ul>
 </li>
 </ul>
@@ -1024,8 +1037,11 @@
 <div class="paragraph">
 <p>The Data plane APIs are Azure Digital Twins APIs that are used for data management operations like managing models, twins, graph queries, and event routes.</p>
 </div>
-<div class="sect2">
-<h3 id="_azure_digital_twins_service_configuration"><a class="anchor" href="#_azure_digital_twins_service_configuration"></a>Azure Digital Twins Service Configuration</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_azure_digital_twins_service_configuration"><a class="anchor" href="#_azure_digital_twins_service_configuration"></a>Azure Digital Twins Service Configuration</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The initial setup for a new Azure Digital Twins instance consists of two parts:</p>
 </div>
@@ -1067,8 +1083,8 @@
 <div class="paragraph">
 <p>Common roles that meet this requirement are Owner, Account admin, or the combination of User Access Administrator and Contributor.</p>
 </div>
-<div class="sect3">
-<h4 id="_configure_endpoints_and_routes"><a class="anchor" href="#_configure_endpoints_and_routes"></a>Configure endpoints and routes</h4>
+<div class="sect2">
+<h3 id="_configure_endpoints_and_routes"><a class="anchor" href="#_configure_endpoints_and_routes"></a>Configure endpoints and routes</h3>
 <div class="paragraph">
 <p>In Azure Digital Twins, you can route event notifications to downstream services or connected compute resources.</p>
 </div>
@@ -1159,8 +1175,8 @@
 <p>Once created, the endpoint is available as an endpoint inside of Azure Digital Twins, under the name you chose for the endpoint. You&#8217;ll typically use that name as the target of an event route.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_create_an_event_route"><a class="anchor" href="#_create_an_event_route"></a>Create an Event Route</h4>
+<div class="sect2">
+<h3 id="_create_an_event_route"><a class="anchor" href="#_create_an_event_route"></a>Create an Event Route</h3>
 <div class="paragraph">
 <p>To actually send data from Azure Digital Twins to an endpoint, you&#8217;ll need to define an event route.</p>
 </div>
@@ -1207,8 +1223,8 @@
 <img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-azure-digital-twins-solution-development-tools-processes/media/m11-l03-adt-create-event-route-103cae57.png" alt="m11 l03 adt create event route 103cae57">
 </div>
 </div>
-<div class="sect4">
-<h5 id="_filter_events"><a class="anchor" href="#_filter_events"></a>Filter Events</h5>
+<div class="sect3">
+<h4 id="_filter_events"><a class="anchor" href="#_filter_events"></a>Filter Events</h4>
 <div class="paragraph">
 <p>Routes have a filter field.</p>
 </div>
@@ -1241,8 +1257,8 @@
 <p>You can either select from some basic common filter options, or use the advanced filter options to write your own custom filters.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_basic_filters"><a class="anchor" href="#_basic_filters"></a>Basic Filters</h5>
+<div class="sect3">
+<h4 id="_basic_filters"><a class="anchor" href="#_basic_filters"></a>Basic Filters</h4>
 <div class="paragraph">
 <p>To use the basic filters, expand the Event types option and select the checkboxes corresponding to the events you&#8217;d like to send to your endpoint.</p>
 </div>
@@ -1252,8 +1268,8 @@
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_advanced_filters"><a class="anchor" href="#_advanced_filters"></a>Advanced Filters</h5>
+<div class="sect3">
+<h4 id="_advanced_filters"><a class="anchor" href="#_advanced_filters"></a>Advanced Filters</h4>
 <div class="paragraph">
 <p>You can use the advanced filter option to write your own custom filters.</p>
 </div>
@@ -1457,21 +1473,23 @@
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_model_management"><a class="anchor" href="#_model_management"></a>Model Management</h3>
+</div>
+<div class="sect1">
+<h2 id="_model_management"><a class="anchor" href="#_model_management"></a>Model Management</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Module management operations include validation, upload, retrieval, update, and deletion.</p>
+<p>Model management operations include validation, upload, retrieval, update, and deletion.</p>
 </div>
 <div class="paragraph">
 <p>You can manage the models within your Azure Digital Twins instance using the DigitalTwinModels APIs, the .NET (C#) SDK, or the Azure Digital Twins CLI extension.</p>
 </div>
-<div class="sect3">
-<h4 id="_validating_and_uploading_models"><a class="anchor" href="#_validating_and_uploading_models"></a>Validating and Uploading Models</h4>
+<div class="sect2">
+<h3 id="_validating_and_uploading_models"><a class="anchor" href="#_validating_and_uploading_models"></a>Validating and Uploading Models</h3>
 <div class="paragraph">
 <p>After creating a model, it&#8217;s recommended that you validate your models offline before uploading them to your Azure Digital Twins instance.</p>
 </div>
-<div class="sect4">
-<h5 id="_model_validation_tools"><a class="anchor" href="#_model_validation_tools"></a>Model Validation Tools</h5>
+<div class="sect3">
+<h4 id="_model_validation_tools"><a class="anchor" href="#_model_validation_tools"></a>Model Validation Tools</h4>
 <div class="paragraph">
 <p>Microsoft provides the following tools that can be used to validate Azure Digital Twins models:</p>
 </div>
@@ -1518,8 +1536,8 @@
 </ul>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_uploading_models_to_azure_digital_twins"><a class="anchor" href="#_uploading_models_to_azure_digital_twins"></a>Uploading Models to Azure Digital Twins</h5>
+<div class="sect3">
+<h4 id="_uploading_models_to_azure_digital_twins"><a class="anchor" href="#_uploading_models_to_azure_digital_twins"></a>Uploading Models to Azure Digital Twins</h4>
 <div class="paragraph">
 <p>Once you&#8217;re finished creating, extending, or selecting your models, you&#8217;re ready to upload them to your Azure Digital Twins instance for use in your solution.</p>
 </div>
@@ -1583,8 +1601,8 @@
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_update_and_version_models"><a class="anchor" href="#_update_and_version_models"></a>Update and Version Models</h4>
+<div class="sect2">
+<h3 id="_update_and_version_models"><a class="anchor" href="#_update_and_version_models"></a>Update and Version Models</h3>
 <div class="paragraph">
 <p>Once a model is uploaded to your Azure Digital Twins instance, the entire model interface is immutable, which means there&#8217;s no traditional "editing" of models.</p>
 </div>
@@ -1594,8 +1612,8 @@
 <div class="paragraph">
 <p>Instead, if you want to make changes to a model - such as updating displayName or description - the way to change the model is to upload a newer version of the model.</p>
 </div>
-<div class="sect4">
-<h5 id="_model_versioning"><a class="anchor" href="#_model_versioning"></a>Model Versioning</h5>
+<div class="sect3">
+<h4 id="_model_versioning"><a class="anchor" href="#_model_versioning"></a>Model Versioning</h4>
 <div class="paragraph">
 <p>To create a new version of an existing model, start with the DTDL of the original model. Update, add, or remove the fields you would like to change.</p>
 </div>
@@ -1641,8 +1659,8 @@
 <p>It does not overwrite earlier versions of the model, so multiple versions of the model will coexist in your instance until you remove them.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_impact_on_twins"><a class="anchor" href="#_impact_on_twins"></a>Impact on Twins</h5>
+<div class="sect3">
+<h4 id="_impact_on_twins"><a class="anchor" href="#_impact_on_twins"></a>Impact on Twins</h4>
 <div class="paragraph">
 <p>When you create a new twin, since the new model version and the old model version coexist, the new twin can use either the new version of the model or the older version.</p>
 </div>
@@ -1669,15 +1687,15 @@ If you aren&#8217;t familiar with JSON Patch, you can read more here: JsonPatch 
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_remove_models"><a class="anchor" href="#_remove_models"></a>Remove Models</h4>
+<div class="sect2">
+<h3 id="_remove_models"><a class="anchor" href="#_remove_models"></a>Remove Models</h3>
 <div class="paragraph">
 <p>Models can also be removed from the service in one of two ways:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Decomisioning</strong></p>
+<p><strong>Decommisioning</strong></p>
 <div class="ulist">
 <ul>
 <li>
@@ -1710,8 +1728,8 @@ If you aren&#8217;t familiar with JSON Patch, you can read more here: JsonPatch 
 <div class="paragraph">
 <p>Decommissioning and deletion are separate features and they don&#8217;t impact each other, although they may be used together to remove a model gradually.</p>
 </div>
-<div class="sect4">
-<h5 id="_decommissioning"><a class="anchor" href="#_decommissioning"></a>Decommissioning</h5>
+<div class="sect3">
+<h4 id="_decommissioning"><a class="anchor" href="#_decommissioning"></a>Decommissioning</h4>
 <div class="paragraph">
 <p>Here&#8217;s the C# code to decommission a model:</p>
 </div>
@@ -1726,13 +1744,13 @@ If you aren&#8217;t familiar with JSON Patch, you can read more here: JsonPatch 
 <p>A model&#8217;s decommissioning status is included in the ModelData records returned by the model retrieval APIs.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_deletiom"><a class="anchor" href="#_deletiom"></a>Deletiom</h5>
+<div class="sect3">
+<h4 id="_deletion"><a class="anchor" href="#_deletion"></a>Deletion</h4>
 <div class="paragraph">
 <p>You can delete all models in your instance at once, or you can do it on an individual basis.</p>
 </div>
-<div class="sect5">
-<h6 id="_before_deletion_deletion_requirements"><a class="anchor" href="#_before_deletion_deletion_requirements"></a>Before deletion: Deletion requirements</h6>
+<div class="sect4">
+<h5 id="_before_deletion_deletion_requirements"><a class="anchor" href="#_before_deletion_deletion_requirements"></a>Before deletion: Deletion requirements</h5>
 <div class="paragraph">
 <p>Generally, models can be deleted at any time.</p>
 </div>
@@ -1746,8 +1764,8 @@ If you aren&#8217;t familiar with JSON Patch, you can read more here: JsonPatch 
 <p>You can solve the dependency issue by updating the dependent model to remove the dependencies, or by deleting the dependent model completely.</p>
 </div>
 </div>
-<div class="sect5">
-<h6 id="_during_deletion_deletion_process"><a class="anchor" href="#_during_deletion_deletion_process"></a>During deletion: Deletion process</h6>
+<div class="sect4">
+<h5 id="_during_deletion_deletion_process"><a class="anchor" href="#_during_deletion_deletion_process"></a>During deletion: Deletion process</h5>
 <div class="paragraph">
 <p>Even if a model meets the requirements to delete it immediately, you may want to take steps to avoid unintended consequences (for the twins left behind).</p>
 </div>
@@ -1794,8 +1812,8 @@ If you aren&#8217;t familiar with JSON Patch, you can read more here: JsonPatch 
 </div>
 </div>
 </div>
-<div class="sect5">
-<h6 id="_after_deletion_twins_without_models"><a class="anchor" href="#_after_deletion_twins_without_models"></a>After deletion: Twins without models</h6>
+<div class="sect4">
+<h5 id="_after_deletion_twins_without_models"><a class="anchor" href="#_after_deletion_twins_without_models"></a>After deletion: Twins without models</h5>
 <div class="paragraph">
 <p>Once a model is deleted, any digital twins that were using the model are now considered to be without a model.</p>
 </div>
@@ -1851,8 +1869,8 @@ If you aren&#8217;t familiar with JSON Patch, you can read more here: JsonPatch 
 </ul>
 </div>
 </div>
-<div class="sect5">
-<h6 id="_after_deletion_reuploading_a_model"><a class="anchor" href="#_after_deletion_reuploading_a_model"></a>After deletion: Reuploading a model</h6>
+<div class="sect4">
+<h5 id="_after_deletion_reuploading_a_model"><a class="anchor" href="#_after_deletion_reuploading_a_model"></a>After deletion: Reuploading a model</h5>
 <div class="paragraph">
 <p>After a model has been deleted, you may decide later to upload a new model with the same ID as the one you deleted.</p>
 </div>
@@ -1886,13 +1904,15 @@ If you aren&#8217;t familiar with JSON Patch, you can read more here: JsonPatch 
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_azure_digital_twins_api"><a class="anchor" href="#_azure_digital_twins_api"></a>Azure Digital Twins API</h3>
+</div>
+<div class="sect1">
+<h2 id="_azure_digital_twins_api"><a class="anchor" href="#_azure_digital_twins_api"></a>Azure Digital Twins API</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><a href="https://learn.microsoft.com/en-us/rest/api/azure-digitaltwins/">Rest Api</a></p>
 </div>
 <div class="paragraph">
-<p>There are currently two Azure Digital Twins data plane Postman collections available for you to choose from:</p>
+<p>There are currently two Azure Digital Twins Data Plane Postman collections available for you to choose from:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1907,7 +1927,7 @@ If you aren&#8217;t familiar with JSON Patch, you can read more here: JsonPatch 
 </div>
 </li>
 <li>
-<p><strong>Azure Digital Twins data plane Swagger</strong></p>
+<p><strong>Azure Digital Twins Data Plane Swagger</strong></p>
 <div class="ulist">
 <ul>
 <li>
@@ -1929,68 +1949,94 @@ If you aren&#8217;t familiar with JSON Patch, you can read more here: JsonPatch 
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_azure_digital_twins_cli"><a class="anchor" href="#_azure_digital_twins_cli"></a>Azure Digital Twins CLI</h3>
+</div>
+<div class="sect1">
+<h2 id="_azure_digital_twins_cli"><a class="anchor" href="#_azure_digital_twins_cli"></a>Azure Digital Twins CLI</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><a href="https://learn.microsoft.com/en-us/training/modules/examine-azure-digital-twins-solution-development-tools-processes/6-get-started-with-azure-cli-for-azure-digital-twins">Microsoft Learn</a></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_azure_digital_twins_sdk"><a class="anchor" href="#_azure_digital_twins_sdk"></a>Azure Digital Twins SDK</h3>
+</div>
+<div class="sect1">
+<h2 id="_azure_digital_twins_sdk"><a class="anchor" href="#_azure_digital_twins_sdk"></a>Azure Digital Twins SDK</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><a href="https://learn.microsoft.com/en-us/training/modules/examine-azure-digital-twins-solution-development-tools-processes/7-examine-azure-digital-twins-sdks">Microsoft Learn Samples</a></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_manage_digital_twins_in_the_graph"><a class="anchor" href="#_manage_digital_twins_in_the_graph"></a>Manage digital twins in the graph</h3>
+</div>
+<div class="sect1">
+<h2 id="_manage_digital_twins_in_the_graph"><a class="anchor" href="#_manage_digital_twins_in_the_graph"></a>Manage Digital Twins in the Graph</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><a href="https://learn.microsoft.com/en-us/training/modules/examine-azure-digital-twins-solution-development-tools-processes/8-manage-digital-twins-graph">Microsoft Learn Samples</a></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_manage_digital_twin_relationships_in_the_graph"><a class="anchor" href="#_manage_digital_twin_relationships_in_the_graph"></a>Manage digital twin relationships in the graph</h3>
+</div>
+<div class="sect1">
+<h2 id="_manage_digital_twin_relationships_in_the_graph"><a class="anchor" href="#_manage_digital_twin_relationships_in_the_graph"></a>Manage Digital Twin Relationships in the Graph</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><a href="https://learn.microsoft.com/en-us/training/modules/examine-azure-digital-twins-solution-development-tools-processes/9-manage-digital-twin-relationships-graph">Microsoft Learn Samples</a></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_azure_digital_twins_queries"><a class="anchor" href="#_azure_digital_twins_queries"></a>Azure Digital Twins queries</h3>
+</div>
+<div class="sect1">
+<h2 id="_azure_digital_twins_queries"><a class="anchor" href="#_azure_digital_twins_queries"></a>Azure Digital Twins Queries</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><a href="https://learn.microsoft.com/en-us/training/modules/examine-azure-digital-twins-solution-development-tools-processes/9-manage-digital-twin-relationships-graph">Microsoft Learn Samples</a></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_azure_functions_for_azure_digital_twins"><a class="anchor" href="#_azure_functions_for_azure_digital_twins"></a>Azure Functions for Azure Digital Twins</h3>
+</div>
+<div class="sect1">
+<h2 id="_azure_functions_for_azure_digital_twins"><a class="anchor" href="#_azure_functions_for_azure_digital_twins"></a>Azure Functions for Azure Digital Twins</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><a href="https://learn.microsoft.com/en-us/training/modules/examine-azure-digital-twins-solution-development-tools-processes/11-get-started-with-azure-functions-for-azure-digital-twins">Microsoft Learn Samples</a></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_azure_digital_twins_event_data"><a class="anchor" href="#_azure_digital_twins_event_data"></a>Azure Digital Twins event data</h3>
+</div>
+<div class="sect1">
+<h2 id="_azure_digital_twins_event_data"><a class="anchor" href="#_azure_digital_twins_event_data"></a>Azure Digital Twins Event data</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><a href="https://learn.microsoft.com/en-us/training/modules/examine-azure-digital-twins-solution-development-tools-processes/12-examine-azure-digital-twins-event-data">Microsoft Learn Samples</a></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_data_ingress_and_egress_processes"><a class="anchor" href="#_data_ingress_and_egress_processes"></a>Data Ingress and Egress processes</h3>
+</div>
+<div class="sect1">
+<h2 id="_data_ingress_and_egress_processes"><a class="anchor" href="#_data_ingress_and_egress_processes"></a>Data Ingress and Egress Processes</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>An Azure Digital Twins solution relies on external resources for data inputs and downstream services for analysis, storage, etc.</p>
 </div>
-<div class="sect3">
-<h4 id="_data_ingress_upstream_resources"><a class="anchor" href="#_data_ingress_upstream_resources"></a>Data ingress (upstream resources)</h4>
+<div class="sect2">
+<h3 id="_data_ingress_upstream_resources"><a class="anchor" href="#_data_ingress_upstream_resources"></a>Data Ingress (upstream resources)</h3>
 <div class="paragraph">
 <p>Data can be ingested into Azure Digital Twins through external compute resources such as an Azure Function.</p>
 </div>
-<div class="sect4">
-<h5 id="_ingress_scenario"><a class="anchor" href="#_ingress_scenario"></a>Ingress scenario</h5>
+<div class="sect3">
+<h4 id="_ingress_scenario"><a class="anchor" href="#_ingress_scenario"></a>Ingress Scenario</h4>
 <div class="paragraph">
 <p>IoT Hub is a common source for data input to Azure Digital Twins.</p>
 </div>
 <div class="paragraph">
-<p>Consider a scenario that includes the following items:
-* A thermostat device in IoT Hub, with a known device ID
-* A digital twin to represent the device, with a matching ID
-* When IoT hub receives telemetry containing temperature values from the device, you need to set a temperature Property of the corresponding digital twin.</p>
+<p>Consider a scenario that includes the following items:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A thermostat device in IoT Hub, with a known device ID</p>
+</li>
+<li>
+<p>A digital twin to represent the device, with a matching ID</p>
+</li>
+<li>
+<p>When IoT hub receives telemetry containing temperature values from the device, you need to set a temperature Property of the corresponding digital twin.</p>
+</li>
+</ul>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2019,23 +2065,37 @@ If you aren&#8217;t familiar with JSON Patch, you can read more here: JsonPatch 
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_data_egress_2"><a class="anchor" href="#_data_egress_2"></a>Data egress</h4>
+<div class="sect2">
+<h3 id="_data_egress_2"><a class="anchor" href="#_data_egress_2"></a>Data Egress</h3>
 <div class="paragraph">
 <p>To provide data to downstream resources, Azure Digital Twins uses digital twin change notification events as a trigger to route data to an Azure Digital Twins endpoint where the information can be accessed and used to accomplish a desired action.</p>
 </div>
-<div class="sect4">
-<h5 id="_egress_scenario_in_service_updates"><a class="anchor" href="#_egress_scenario_in_service_updates"></a>Egress scenario (in-service updates)</h5>
+<div class="sect3">
+<h4 id="_egress_scenario_in_service_updates"><a class="anchor" href="#_egress_scenario_in_service_updates"></a>Egress scenario (in-service updates)</h4>
 <div class="paragraph">
 <p>Although Azure Digital Twins relationships connect digital twins as parent and child, properties of a child are not automatically passed up to a parent in the case when a corresponding property is defined.</p>
 </div>
 <div class="paragraph">
-<p>Consider a scenario that includes the following items:
-* An Azure Digital Twins environment contains Room digital twins (such as Room_01, Room_02, etc.) and Thermostat digital twins (such as thermo_0001).
-* The Room digital twins have a rel_has_thermostat relationship and each Room has a Thermostat (establishing a Parent-Child relationship).
-* The Thermostat digital twins have Property and Telemetry fields for temperature data that is coming from IoT hub.
-* Room digital twins have a Property for currentTemp.
-* When a Thermostat digital twin Property changes, you need to update the currentTemp Property of the Room digital twin (the Room digital twin that is the parent of that Thermostat digital twin)</p>
+<p>Consider a scenario that includes the following items:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An Azure Digital Twins environment contains Room digital twins (such as Room_01, Room_02, etc.) and Thermostat digital twins (such as thermo_0001).</p>
+</li>
+<li>
+<p>The Room digital twins have a rel_has_thermostat relationship and each Room has a Thermostat (establishing a Parent-Child relationship).</p>
+</li>
+<li>
+<p>The Thermostat digital twins have Property and Telemetry fields for temperature data that is coming from IoT hub.</p>
+</li>
+<li>
+<p>Room digital twins have a Property for currentTemp.</p>
+</li>
+<li>
+<p>When a Thermostat digital twin Property changes, you need to update the currentTemp Property of the Room digital twin (the Room digital twin that is the parent of that Thermostat digital twin)</p>
+</li>
+</ul>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2043,14 +2103,24 @@ If you aren&#8217;t familiar with JSON Patch, you can read more here: JsonPatch 
 </div>
 </div>
 <div class="paragraph">
-<p>Whenever a Digital Twin Change Notification event occurs for a Thermostat digital twin, the following process is invoked:
-* Data is routed to an Event Grid endpoint.
-* The Event Grid uses an Event Subscription to specify an Azure Function "listener“, creates a new event message using the Azure Digital Twins notification, and uses the new event to pass the required information to the function.
-* The Azure Function extracts the event message data and uses it to obtain the twin&#8217;s ID and Relationship information, uses the Relationship to find the parent Room digital twin, and then updates the currentTemp Property by applying a patch.</p>
+<p>Whenever a Digital Twin Change Notification event occurs for a Thermostat digital twin, the following process is invoked:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data is routed to an Event Grid endpoint.</p>
+</li>
+<li>
+<p>The Event Grid uses an Event Subscription to specify an Azure Function "listener“, creates a new event message using the Azure Digital Twins notification, and uses the new event to pass the required information to the function.</p>
+</li>
+<li>
+<p>The Azure Function extracts the event message data and uses it to obtain the twin&#8217;s ID and Relationship information, uses the Relationship to find the parent Room digital twin, and then updates the currentTemp Property by applying a patch.</p>
+</li>
+</ul>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_egress_scenario_downstream_services"><a class="anchor" href="#_egress_scenario_downstream_services"></a>Egress scenario (downstream services)</h5>
+<div class="sect3">
+<h4 id="_egress_scenario_downstream_services"><a class="anchor" href="#_egress_scenario_downstream_services"></a>Egress Scenario (downstream services)</h4>
 <div class="paragraph">
 <p>Azure Digital Twins feeds data to downstream services by using event notifications and routing.</p>
 </div>
@@ -2099,7 +2169,6 @@ If you aren&#8217;t familiar with JSON Patch, you can read more here: JsonPatch 
 <p>Azure TSI (subscribed to events from the second Event Hubs) processes the incoming events to perform the required data analysis.</p>
 </li>
 </ol>
-</div>
 </div>
 </div>
 </div>
