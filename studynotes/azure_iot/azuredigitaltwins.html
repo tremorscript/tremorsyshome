@@ -1,0 +1,2032 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Tremorscript</title>
+    <link rel="canonical" href="https://tremorscript.com/studynotes/azure_iot/azuredigitaltwins.html">
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://tremorscript.com">Tremorscript</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="studynotes" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Study Notes</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Study Notes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../FSharp/overview.html">FSharp Notes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Computation Expressions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/LogBuilder.html">Log Builder</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/MaybeBuilder.html">Maybe Builder</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/OrElseBuilder.html">OrElse Builder</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/IntroducingBind.html">Introducing Bind</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/WrapperTypes.html">Wrapper Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/WorkflowRulesForWrapperTypes.html">Rules for workflows that use wrapper types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/ComputationExpressionComposition.html">Composition of computation expression</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/ListWrapperTypes.html">List Wrapper Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/IdentityWrapperTypes.html">Identity Wrapper Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/DoMethod.html">Do Method</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/YieldMethod.html">Yield Method</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/CombineMethod.html">Combine method</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/DelayRunMethod.html">Delay and Run Method</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../Git/overview.html">Git Notes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../Devops/devopsfordevelopers.html">Devops for Asp.Net Core developers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="overview.html">Azure IoT</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="iothub.html">Working With IoT Hub</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text">azuredigitaltwins.adoc[]</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../azure_security_engineer/overview.html">Azure Security Engineer</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../CSharp/overview.html">CSharp Notes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../CSharp/bitwiseoperators.html">Bitwise Operators</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Study Notes</span>
+    <span class="version">default</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../azurearchitecturestarterpack/current/index.html">Azure Architecture Starter Pack</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../azurearchitecturestarterpack/current/index.html">1-beta.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../homesite/current/index.html">Home page</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../homesite/current/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../projectstarterpack/current/inline-text-formatting.html">New Project Starter Pack</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../projectstarterpack/current/inline-text-formatting.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../index.html">Study Notes</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">default</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../homesite/current/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/azure_iot/pages/azuredigitaltwins.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_azure_digital_twins"><a class="anchor" href="#_azure_digital_twins"></a>Azure Digital Twins</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_environment_and_service_goals"><a class="anchor" href="#_environment_and_service_goals"></a>Environment and Service Goals</h3>
+<div class="paragraph">
+<p>Azure Digital Twins is a platform as a service (PaaS) offering that enables the creation of knowledge graphs.</p>
+</div>
+<div class="paragraph">
+<p>A way to integrate information extracted from multiple data sources.</p>
+</div>
+<div class="paragraph">
+<p>The knowledge graph is based on interconnected digital entities that combine to represent a larger, interactive environment.</p>
+</div>
+<div class="paragraph">
+<p>The size and complexity of the environment is dependent upon your business needs, and could represent things like buildings, factories, farms, energy networks, railways, stadiums, and more—even entire cities.</p>
+</div>
+<div class="paragraph">
+<p>The digital entities defined within your environment, which are referred to as digital twins within an Azure Digital Twins solution, can be used to gain insights that drive better products, optimized operations, reduced costs, and breakthrough customer experiences.</p>
+</div>
+<div class="paragraph">
+<p>Azure Digital Twins can be used to build customized, connected solutions that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Model any environment, and bring digital twins to life in a scalable and secure manner.</p>
+</li>
+<li>
+<p>Connect assets such as IoT devices and existing business systems.</p>
+</li>
+<li>
+<p>Use a robust event system to build dynamic business logic and data processing.</p>
+</li>
+<li>
+<p>Integrate with Azure data, analytics, and AI services to help you track the past and then predict the future.</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Digital Twins (in Azure Digital Twins) and Device Twins (in IoT Hub) may sound similar, but they are two different things.</p>
+</li>
+<li>
+<p>IoT Hub device twins often focus on describing the aspects and capabilities of a device itself.</p>
+</li>
+<li>
+<p>Digital Twins are more conceptual representations that can store user-defined insights about a digital entity or many related entities.</p>
+</li>
+<li>
+<p>Entities that could be representing a device or many related devices.</p>
+</li>
+<li>
+<p>It is also worth noting that IoT Hub device twins can be connected to Azure Digital Twins (the service) as part of an end-to-end solution that represents devices across services.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_simple_azure_digital_twins_environment_scenario"><a class="anchor" href="#_simple_azure_digital_twins_environment_scenario"></a>Simple Azure Digital Twins environment scenario</h4>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-components-azure-digital-twins-solution/media/m11-l02-simple-twins-environment-fb572ff0.png" alt="m11 l02 simple twins environment fb572ff0">
+</div>
+</div>
+<div class="paragraph">
+<p>Consider the above example where we define an environment that represents a small building (the Azure Digital Twins graph shown above).</p>
+</div>
+<div class="paragraph">
+<p>In this example, our building is composed of digital twins that represent the floors of the building, and the rooms on each floor.</p>
+</div>
+<div class="paragraph">
+<p>The lines on the Graph that connect a Floor to a Room are called relationships.</p>
+</div>
+<div class="paragraph">
+<p>Relationships help to define how our digital twins are related to one another.</p>
+</div>
+<div class="paragraph">
+<p>In this case, the relationship tells us that a floor “contains” rooms.</p>
+</div>
+<div class="paragraph">
+<p>The graph shows that our building has two floors, and each floor contains one room, but our environment could be expanded to include more floors and more rooms on each floor, or we could create more levels of detail, such as adding digital twins that represent digital entities within the rooms.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_services_and_data_workflows_that_form_an_azure_digital_twins_solution"><a class="anchor" href="#_services_and_data_workflows_that_form_an_azure_digital_twins_solution"></a>Services and Data Workflows that form an Azure Digital Twins Solution</h3>
+<div class="paragraph">
+<p>Azure Digital Twins is typically used together with other services to create flexible, connected solutions that use your data in various workflows.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Using Event Routes, Azure Digital Twins can receive data from upstream services such as IoT Hub or Logic Apps, which are used to deliver telemetry and notifications.</p>
+</li>
+<li>
+<p>Azure Digital Twins can also route data to downstream services, such as Azure Maps and Time Series Insights, for storage, workflow integration, analytics, and more.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_data_ingress"><a class="anchor" href="#_data_ingress"></a>Data Ingress</h4>
+<div class="paragraph">
+<p>Azure Digital Twins can be driven with data and events from any service—IoT Hub, Logic Apps, your own custom service, and more.</p>
+</div>
+<div class="paragraph">
+<p>This capability allows you to collect telemetry from physical devices in your environment, and process this data using the Azure Digital Twins graph in the cloud.</p>
+</div>
+<div class="paragraph">
+<p>Instead of having a built-in IoT Hub behind the scenes, Azure Digital Twins allows you to "bring your own" IoT Hub to use with the service.</p>
+</div>
+<div class="paragraph">
+<p>You can use an existing IoT Hub you currently have in production, or deploy a new one to be used for this purpose.</p>
+</div>
+<div class="paragraph">
+<p>This capability gives you full access to all of the device management capabilities of IoT Hub.</p>
+</div>
+<div class="paragraph">
+<p>To ingest data from any source into Azure Digital Twins, use an Azure function.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_data_egress"><a class="anchor" href="#_data_egress"></a>Data Egress</h4>
+<div class="paragraph">
+<p>Azure Digital Twins can send data to connected endpoints. Supported endpoints can be:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Event Hubs</p>
+</li>
+<li>
+<p>Event Grids</p>
+</li>
+<li>
+<p>Service Bus</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Endpoints are attached to Azure Digital Twins using management APIs or the Azure portal.</p>
+</div>
+<div class="paragraph">
+<p>There are many other services where you may want to ultimately direct your data, such as Azure Storage, Azure Maps, or Time Series Insights.</p>
+</div>
+<div class="paragraph">
+<p>To send your data to services like these, attach the destination service to an endpoint.</p>
+</div>
+<div class="paragraph">
+<p>For example, if you are also using Azure Maps and want to correlate location with your Azure Digital Twins twin graph, you can use Azure Functions with Event Grid to establish communication between all the services in your deployment.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_azure_digital_twins_in_a_solution_context"><a class="anchor" href="#_azure_digital_twins_in_a_solution_context"></a>Azure Digital Twins in a solution context</h4>
+<div class="paragraph">
+<p>Azure Digital Twins is commonly used in combination with other Azure services as part of a larger IoT solution.</p>
+</div>
+<div class="paragraph">
+<p>A complete solution using Azure Digital Twins may contain the following parts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Azure Digital Twins service instance. The Azure Digital Twins service stores your twin graph with its state and orchestrates event processing.</p>
+</li>
+<li>
+<p>One or more client apps that may be used when building the Azure Digital Twins solution (to create digital entities and a topology, or to extract insights from the twin graph).</p>
+</li>
+<li>
+<p>One or more external compute resources to process events generated by Azure Digital Twins, or by connected data sources such as devices. One common way to provide compute resources is via Azure Functions.</p>
+</li>
+<li>
+<p>An IoT hub to provide device management and IoT data stream capabilities.</p>
+</li>
+<li>
+<p>Downstream services to handle tasks such as workflow integration (like Logic Apps, cold storage, time series integration, or analytics).</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-components-azure-digital-twins-solution/media/m11-l02-adt-solution-services-24939866.png" alt="m11 l02 adt solution services 24939866">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_azure_digital_twins_models"><a class="anchor" href="#_azure_digital_twins_models"></a>Azure Digital Twins Models</h3>
+<div class="paragraph">
+<p>In an Azure Digital Twins solution, Models provide the blueprint that is used to create the digital twin entities within your Azure Digital Twins environment.</p>
+</div>
+<div class="paragraph">
+<p>Consider this example of an Azure Digital Twins environment expressed as a graph.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-components-azure-digital-twins-solution/media/m11-l02-simple-twins-environment-fb572ff0.png" alt="m11 l02 simple twins environment fb572ff0">
+</div>
+</div>
+<div class="paragraph">
+<p>The nodes that you see in this graph are the digital twin instances that were created using the corresponding Model (either a Floor or a Room model).</p>
+</div>
+<div class="paragraph">
+<p>Models have names (such as Floor, Room, or TemperatureSensor), and contain elements such as properties, telemetry/events, and relationships that describe how the digital twin entities are related to each other within your environment.</p>
+</div>
+<div class="sect3">
+<h4 id="_elements_of_a_model"><a class="anchor" href="#_elements_of_a_model"></a>Elements of a model</h4>
+<div class="paragraph">
+<p>Azure Digital Twins models are defined using the Digital Twins Definition Language (DTDL), which is expressed using a JSON-style coding format.</p>
+</div>
+<div class="paragraph">
+<p>Within a model definition, the top-level code item is an Interface, which encapsulates the entire model.</p>
+</div>
+<div class="paragraph">
+<p>A DTDL model interface may contain zero, one, or many of each of the following fields:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Property</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Properties are data fields that represent the state of an entity.</p>
+</li>
+<li>
+<p>Like the properties in many object-oriented programming languages.</p>
+</li>
+<li>
+<p>Properties have backing storage and can be read at any time.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Telemetry</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Telemetry fields represent measurements or events, and are often used to describe device sensor readings.</p>
+</li>
+<li>
+<p>Unlike properties, telemetry is not stored on a digital twin; it is a series of time-bound data events that need to be handled as they occur.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Component</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Components allow you to build your model interface as an assembly of other interfaces, if you want.</p>
+</li>
+<li>
+<p>An example of a component is a frontCamera interface (and another component interface backCamera) that are used in defining a model for a phone.</p>
+</li>
+<li>
+<p>You must first define an interface for frontCamera as though it were its own model, and then you can reference it when defining Phone.</p>
+</li>
+<li>
+<p>Use a component to describe something that is an integral part of your solution but doesn&#8217;t need a separate identity, and doesn&#8217;t need to be created, deleted, or rearranged in the twin graph independently.</p>
+</li>
+<li>
+<p>If you want entities to have independent existences in the twin graph, represent them as separate digital twins of different models, connected by relationships</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Relationship</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Relationships let you represent how a digital twin can be involved with other digital twins.</p>
+</li>
+<li>
+<p>Relationships can represent different semantic meanings, such as contains ("floor contains room"), cools ("hvac cools room"), isBilledTo ("compressor is billed to user"), etc.</p>
+</li>
+<li>
+<p>Relationships allow the solution to provide a graph of interrelated entities.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_differentiating_between_property_and_telemetry_fields"><a class="anchor" href="#_differentiating_between_property_and_telemetry_fields"></a>Differentiating between Property and Telemetry Fields</h4>
+<div class="paragraph">
+<p>Since property and telemetry fields could both represent numeric data, it may not be obvious when or where each should be used.</p>
+</div>
+<div class="paragraph">
+<p>Here is some more guidance on distinguishing between DTDL property and telemetry fields in Azure Digital Twins.</p>
+</div>
+<div class="paragraph">
+<p>The difference between properties and telemetry for Azure Digital Twins models is as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Properties</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Properties are expected to have backing storage (a stored and accessible value).</p>
+</li>
+<li>
+<p>You can read a property at any time and retrieve its value.</p>
+</li>
+<li>
+<p>If the property is writeable, you can also assign a value to the property.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Telemetry</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Telemetry is more like a stream of events; it’s a set of data messages that have short lifespans.</p>
+</li>
+<li>
+<p>If you don&#8217;t monitor for a telemetry event and take actions when it happens, there is no trace of the event at a later time.</p>
+</li>
+<li>
+<p>You can&#8217;t come back to it and read it later.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>In C# terms, telemetry is like a C# event.</p>
+</li>
+<li>
+<p>In IoT terms, telemetry is typically a data value sent by a device at a specified time interval.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_applying_property_and_telemetry_fields_in_an_iot_context"><a class="anchor" href="#_applying_property_and_telemetry_fields_in_an_iot_context"></a>Applying Property and Telemetry Fields in an IoT Context</h4>
+<div class="paragraph">
+<p>When designing a model, a telemetry field is often used in models that represent IoT devices.</p>
+</div>
+<div class="paragraph">
+<p>In this case, you will typically monitor incoming device data and take actions as the data arrives.</p>
+</div>
+<div class="paragraph">
+<p>A property field is used most often when designing a model because properties provide you with backing storage and the ability to read and query the data fields.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_property_and_telemetry_fields_example"><a class="anchor" href="#_property_and_telemetry_fields_example"></a>Property and Telemetry Fields Example</h4>
+<div class="paragraph">
+<p>Consider the following example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-components-azure-digital-twins-solution/media/m11-l02-telemetry-property-fields-twins-model-89781ba3.png" alt="m11 l02 telemetry property fields twins model 89781ba3">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>IoT hub: IoT device with temperature sensor is connected to IoT hub.</p>
+</li>
+<li>
+<p>Azure Digital Twins model - telemetry field: Azure Function is used to deliver IoT telemetry data to Azure Digital Twins device twin (temp01).</p>
+</li>
+<li>
+<p>Azure Digital Twins model - property field: Monitor temp01 telemetry field events and capture “last received” value and “last received time” value. Store values in last_received and last_received_time property fields.</p>
+</li>
+<li>
+<p>Query model properties: Query as needed to extract most recently reported temperature and time.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_digital_twins_definition_language"><a class="anchor" href="#_digital_twins_definition_language"></a>Digital Twins Definition Language</h3>
+<div class="paragraph">
+<p>Models for Azure Digital Twins are defined using the Digital Twins Definition Language (DTDL), which is based on JSON-LD and is programming-language independent.</p>
+</div>
+<div class="sect3">
+<h4 id="_implementation_specifics"><a class="anchor" href="#_implementation_specifics"></a>Implementation Specifics</h4>
+<div class="paragraph">
+<p>For a DTDL model to be compatible with Azure Digital Twins, it must meet these requirements.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>All top-level DTDL elements in a model must be of type interface.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Azure Digital Twins model APIs can receive JSON objects that represent either an interface or an array of interfaces.</p>
+</li>
+<li>
+<p>As a result, no other DTDL element types are allowed at the top level.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>DTDL for Azure Digital Twins must not define any commands.</p>
+</li>
+<li>
+<p>Azure Digital Twins only allows a single level of component nesting.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This requirement means that an interface that&#8217;s being used as a component can&#8217;t have any components itself.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Interfaces can&#8217;t be defined inline within other DTDL interfaces; they must be defined as separate top-level entities with their own IDs.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Then, when another interface wants to include that interface as a component or through inheritance, it can reference its ID.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_model_code"><a class="anchor" href="#_example_model_code"></a>Example Model Code</h4>
+<div class="paragraph">
+<p>Twin type models can be written in any text editor.</p>
+</div>
+<div class="paragraph">
+<p>Consider a solar system environment that contains models for planets, each with a name, a mass, and a temperature.</p>
+</div>
+<div class="paragraph">
+<p>Each of the planets may also interact with moons that are their satellites, and the planets may contain craters.</p>
+</div>
+<div class="paragraph">
+<p>In the DTDL code example below, the Planet model expresses connections to these other entities by referencing two external models—Moon and Crater.</p>
+</div>
+<div class="paragraph">
+<p>These external models are also defined in the example code below, but are kept simple so as not to detract from the primary Planet example.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>[
+{
+  "@id": "dtmi:com:contoso:Planet;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "displayName": "Planet",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "name",
+      "schema": "string"
+    },
+    {
+      "@type": "Property",
+      "name": "mass",
+      "schema": "double"
+    },
+    {
+      "@type": "Telemetry",
+      "name": "Temperature",
+      "schema": "double"
+    },
+    {
+      "@type": "Relationship",
+      "name": "satellites",
+      "target": "dtmi:com:contoso:Moon;1"
+    },
+    {
+      "@type": "Component",
+      "name": "deepestCrater",
+      "schema": "dtmi:com:contoso:Crater;1"
+    }
+  ]
+},
+{
+  "@id": "dtmi:com:contoso:Crater;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2"
+},
+{
+  "@id": "dtmi:com:contoso:Moon;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2"
+}
+]</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The fields of the model are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>@id</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>An identifier for the model. Must be in the following format: dtmi:&lt;domain&gt;:&lt;unique model identifier&gt;;&lt;model version number&gt;</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>@type</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Identifies the kind of information being described. For an interface, the type is Interface.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>@context</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Sets the context for the JSON document. Models should use the following: dtmi:dtdl:context;2</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>@displayName</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) Allows you to give the model a friendly name if desired.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>contents</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>All remaining interface data is placed here, as an array of attribute definitions.</p>
+</li>
+<li>
+<p>Each attribute must provide an @type (Property, Telemetry, Command, Relationship, or Component) to identify the type of interface information it describes, and then a set of properties that define the actual attribute (for example, name and schema to define a Property).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_possible_schemas"><a class="anchor" href="#_possible_schemas"></a>Possible Schemas</h4>
+<div class="paragraph">
+<p>As per DTDL, the schema for Property and Telemetry attributes can be of standard primitive types—integer, double, string, and Boolean—and other types such as DateTime and Duration.</p>
+</div>
+<div class="paragraph">
+<p>In addition to primitive types, Property and Telemetry fields can have these complex types:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Object</p>
+</li>
+<li>
+<p>Map</p>
+</li>
+<li>
+<p>Enum</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Telemetry fields also support the Array type.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_model_inheritance"><a class="anchor" href="#_model_inheritance"></a>Model Inheritance</h4>
+<div class="paragraph">
+<p>Sometimes, you may want to specialize a model further.</p>
+</div>
+<div class="paragraph">
+<p>For example, it might be useful to have a generic model Room, and specialized variants ConferenceRoom and Gym.</p>
+</div>
+<div class="paragraph">
+<p>To express specialization, DTDL supports inheritance: interfaces can inherit from one or more other interfaces.</p>
+</div>
+<div class="paragraph">
+<p>The following example reimagines the Planet model from the earlier DTDL example as a subtype of a larger CelestialBody model.</p>
+</div>
+<div class="paragraph">
+<p>The "parent" model is defined first, and then the "child" model builds on it by using the field “extends”.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>[
+{
+    "@id": "dtmi:com:contoso:CelestialBody;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Celestial body",
+    "contents": [
+    {
+        "@type": "Property",
+        "name": "name",
+        "schema": "string"
+    },
+    {
+        "@type": "Property",
+        "name": "mass",
+        "schema": "double"
+    },
+    {
+        "@type": "Telemetry",
+        "name": "temperature",
+        "schema": "double"
+    }
+    ]
+},
+{
+    "@id": "dtmi:com:contoso:Planet;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Planet",
+    "extends": "dtmi:com:contoso:CelestialBody;1",
+    "contents": [
+    {
+        "@type": "Relationship",
+        "name": "satellites",
+        "target": "dtmi:com:contoso:Moon;1"
+    },
+    {
+        "@type": "Component",
+        "name": "deepestCrater",
+        "schema": "dtmi:com:contoso:Crater;1"
+    }
+    ]
+},
+{
+    "@id": "dtmi:com:contoso:Crater;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2"
+}
+]</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, CelestialBody contributes a name, a mass, and a temperature to Planet.</p>
+</div>
+<div class="paragraph">
+<p>The extends section is an interface name, or an array of interface names (allowing the extending interface to inherit from multiple parent models if desired).</p>
+</div>
+<div class="paragraph">
+<p>Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.</p>
+</div>
+<div class="paragraph">
+<p>The extending interface cannot change any of the definitions of the parent interfaces; it can only add to them.</p>
+</div>
+<div class="paragraph">
+<p>It also cannot redefine a capability already defined in any of its parent interfaces</p>
+</div>
+<div class="paragraph">
+<p>For example, if a parent interface defines a double property mass, the extending interface cannot contain a declaration of mass, even if it&#8217;s also a double.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_digital_twins_and_graph_construction"><a class="anchor" href="#_digital_twins_and_graph_construction"></a>Digital Twins and Graph Construction</h3>
+<div class="paragraph">
+<p>In an Azure Digital Twins solution, the entities in your environment are represented by digital twins.</p>
+</div>
+<div class="paragraph">
+<p>Each digital twin is an instance of one of your custom-defined digital models.</p>
+</div>
+<div class="paragraph">
+<p>A digital twin can be connected to other digital twins via relationships to form a twin graph (a representation of your entire environment).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-components-azure-digital-twins-solution/media/m11-l02-adt-graph-models-6a4c9f9b.png" alt="m11 l02 adt graph models 6a4c9f9b">
+</div>
+</div>
+<div class="paragraph">
+<p>The image below shows a simplified Contoso Cheese Factory Azure Digital Twins environment expressed as a twin graph.</p>
+</div>
+<div class="paragraph">
+<p>The graph contains seven digital twin nodes connected by relationships. To the left of the twins graph are the corresponding models.</p>
+</div>
+<div class="sect3">
+<h4 id="_digital_twins"><a class="anchor" href="#_digital_twins"></a>Digital Twins</h4>
+<div class="paragraph">
+<p>Since the digital twins nodes that you create in your Azure Digital Twins solution are based on a model type, the first step in adding a digital twin to Azure Digital Twins is to upload a model type to your Azure Digital Twins service.</p>
+</div>
+<div class="paragraph">
+<p>After creating and uploading a model, you can create an instance of the type; the digital twin.</p>
+</div>
+<div class="paragraph">
+<p>For example, after creating a model of type Cheese Cave, you can create one or more digital twins that use this type (for example, a Cheese Cave digital twin called Cave_1, another called Cave_2, etc.).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_relationships_a_graph_of_digital_twins"><a class="anchor" href="#_relationships_a_graph_of_digital_twins"></a>Relationships: a graph of digital twins</h4>
+<div class="paragraph">
+<p>Twins are connected into a twin graph by their relationships.</p>
+</div>
+<div class="paragraph">
+<p>The relationships that a twin can have are defined as part of its model.</p>
+</div>
+<div class="paragraph">
+<p>Twins are connected into a twin graph by their relationships.</p>
+</div>
+<div class="paragraph">
+<p>The relationships that a twin can have are defined as part of its model.</p>
+</div>
+<div class="paragraph">
+<p>For example, the model Cheese Factory might define a “Has Caves” relationship that targets twins of type Cheese Cave.</p>
+</div>
+<div class="paragraph">
+<p>With this definition, Azure Digital Twins will allow you to create “Has Caves” relationships from any Cheese Factory twin to any Cheese Cave twin.</p>
+</div>
+<div class="paragraph">
+<p>The result of this process is a set of nodes (the digital twins) connected via edges (their relationships) in a graph.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_visualization"><a class="anchor" href="#_visualization"></a>Visualization</h4>
+<div class="paragraph">
+<p>While the primary way to interact with your Azure Digital Twins instance is through the APIs and SDKs, it can be helpful to see a visualization of the twins and graphs that you are creating in your instance.</p>
+</div>
+<div class="paragraph">
+<p>Microsoft provides a sample application, the Azure Digital Twins explorer, that can be used to visualize the Azure Digital Twins graph and to edit the twins and models.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_azure_digital_twins_solution_development_tools_and_processes"><a class="anchor" href="#_azure_digital_twins_solution_development_tools_and_processes"></a>Azure Digital Twins Solution Development Tools and Processes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Azure Digital Twins service comes equipped with both control plane APIs and data plane APIs for managing your instance and its elements.</p>
+</div>
+<div class="paragraph">
+<p>The control plane APIs are Azure Resource Manager APIs used to manage your Azure Digital Twins instance as a whole, so they cover operations like creating or deleting your entire instance. You will also use these APIs to create and delete endpoints.</p>
+</div>
+<div class="paragraph">
+<p>The data plane APIs are Azure Digital Twins APIs that are used for data management operations like managing models, twins, graph queries, and event routes.</p>
+</div>
+<div class="sect2">
+<h3 id="_azure_digital_twins_service_configuration"><a class="anchor" href="#_azure_digital_twins_service_configuration"></a>Azure Digital Twins Service Configuration</h3>
+<div class="paragraph">
+<p>The initial setup for a new Azure Digital Twins instance consists of two parts:
+* Create the Azure Digital Twins service instance.
+* Set up user access permissions: Azure users will need to have the Azure Digital Twins Data Owner role on the Azure Digital Twins instance to be able to manage the Azure Digital Twins service and its data.</p>
+</div>
+<div class="paragraph">
+<p>To set up user access permissions in Azure Digital Twins, you will need access to an Azure account that can assign user access permissions for the subscription that you are working in.</p>
+</div>
+<div class="paragraph">
+<p>The account must have role assignments that include the following permissions:
+* Create and manage Azure resources.
+* Manage user access to Azure resources (including granting and delegating permissions).</p>
+</div>
+<div class="paragraph">
+<p>With your Azure Digital Twins instance open in the Azure portal, you can use Access control (IAM), to configure role assignments.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-azure-digital-twins-solution-development-tools-processes/media/m11-l03-adt-create-instance-add-role-assignment-586d27e4.png" alt="m11 l03 adt create instance add role assignment 586d27e4">
+</div>
+<div class="title">Figure 1. Source - Microsoft Learn</div>
+</div>
+<div class="paragraph">
+<p>Common roles that meet this requirement are Owner, Account admin, or the combination of User Access Administrator and Contributor.</p>
+</div>
+<div class="sect3">
+<h4 id="_configure_endpoints_and_routes"><a class="anchor" href="#_configure_endpoints_and_routes"></a>Configure endpoints and routes</h4>
+<div class="paragraph">
+<p>In Azure Digital Twins, you can route event notifications to downstream services or connected compute resources.</p>
+</div>
+<div class="paragraph">
+<p>This routing is done by first setting up endpoints that can receive the events.</p>
+</div>
+<div class="paragraph">
+<p>You can then create event routes that specify which events generated by Azure Digital Twins are delivered to which endpoints.</p>
+</div>
+<div class="paragraph">
+<p>You can manage Azure Digital Twins endpoints and routes in the Azure portal, with the Event Routes APIs, the SDKs, or the Azure Digital Twins CLI.</p>
+</div>
+<div class="paragraph">
+<p>Azure Digital Twins supports the endpoint types listed below. The endpoint must exist before you can link to it.
+* Event Grid
+* Event Hubs
+* Service Bus</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Endpoint</th>
+<th class="tableblock halign-left valign-top">Required resouces</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event Grid endpoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event Grid topic</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event Hubs endpoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event Hubs namespace Event Hubs (Optional) authorization rule for key-based authentication</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service Bus endpoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service Bus namespace Service Bus topic (Optional) authorization rule for key-based authentication</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Once you have created the endpoint resources, you can use them for an Azure Digital Twins endpoint.</p>
+</div>
+<div class="paragraph">
+<p>To create your endpoint in the Azure portal, open your Azure Digital Twins blade, and then select Endpoints from the left-side menu.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-azure-digital-twins-solution-development-tools-processes/media/m11-l03-adt-create-endpoint-330a8fcf.png" alt="m11 l03 adt create endpoint 330a8fcf">
+</div>
+<div class="title">Figure 2. Source - Microsoft Learn</div>
+</div>
+<div class="paragraph">
+<p>In addition to the name and type of your endpoint, you will also need to specify your subscription and select the endpoint resource.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For Event Hubs and Service Bus endpoints, you must also select an Authentication type.</p>
+</div>
+<div class="paragraph">
+<p>You can use key-based authentication with a pre-created authorization rule, or identity-based authentication if you&#8217;ll be using the endpoint with a managed identity for your Azure Digital Twins instance.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Once created, the endpoint is available as an endpoint inside of Azure Digital Twins, under the name you chose for the endpoint. You&#8217;ll typically use that name as the target of an event route.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_create_an_event_route"><a class="anchor" href="#_create_an_event_route"></a>Create an Event Route</h4>
+<div class="paragraph">
+<p>To actually send data from Azure Digital Twins to an endpoint, you&#8217;ll need to define an event route.</p>
+</div>
+<div class="paragraph">
+<p>These routes let developers wire up event flow, throughout the system and to downstream services.</p>
+</div>
+<div class="paragraph">
+<p>An event route definition contains these elements:
+* The route name you want to use.
+* The name of the endpoint you want to use.
+* A filter that defines which events are sent to the endpoint:
+<strong> To disable the route so that no events are sent, use a filter value of false.
+</strong> To enable a route that has no specific filtering, use a filter value of true.
+** For details on any other type of filter, see the Filter events section below.</p>
+</div>
+<div class="paragraph">
+<p>A single route can allow multiple notifications and event types to be selected.</p>
+</div>
+<div class="paragraph">
+<p>To create an event route in the Azure portal, on the left-side menu of your Azure Digital Twins blade, select <strong>Event routes</strong>, and then, on the <strong>Event routes</strong> page, select + <strong>Create an event route</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-azure-digital-twins-solution-development-tools-processes/media/m11-l03-adt-create-event-route-103cae57.png" alt="m11 l03 adt create event route 103cae57">
+</div>
+</div>
+<div class="sect4">
+<h5 id="_filter_events"><a class="anchor" href="#_filter_events"></a>Filter Events</h5>
+<div class="paragraph">
+<p>Routes have a filter field.</p>
+</div>
+<div class="paragraph">
+<p>If the filter value on your route is false, no events will be sent to your endpoint.</p>
+</div>
+<div class="paragraph">
+<p>After enabling the minimal filter of true, endpoints will receive various events from Azure Digital Twins:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Telemetry fired by digital twins using the Azure Digital Twins service API.</p>
+</li>
+<li>
+<p>Twin property change notifications, fired on property changes for any twin in the Azure Digital Twins instance.</p>
+</li>
+<li>
+<p>Life-cycle events, fired when twins or relationships are created or deleted.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can restrict the types of events being sent by defining a more specific filter.</p>
+</div>
+<div class="paragraph">
+<p>To add an event filter while you are creating an event route, use the <strong>Add an event route</strong> filter section of the <strong>Create an event route</strong> page.</p>
+</div>
+<div class="paragraph">
+<p>You can either select from some basic common filter options, or use the advanced filter options to write your own custom filters.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_basic_filters"><a class="anchor" href="#_basic_filters"></a>Basic Filters</h5>
+<div class="paragraph">
+<p>To use the basic filters, expand the Event types option and select the checkboxes corresponding to the events you&#8217;d like to send to your endpoint.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-azure-digital-twins-solution-development-tools-processes/media/m11-l03-adt-create-event-route-103cae57.png" alt="m11 l03 adt create event route 103cae57">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_advanced_filters"><a class="anchor" href="#_advanced_filters"></a>Advanced Filters</h5>
+<div class="paragraph">
+<p>You can use the advanced filter option to write your own custom filters.</p>
+</div>
+<div class="paragraph">
+<p>To create an event route with advanced filter options, toggle the switch for the Advanced editor to enable it.</p>
+</div>
+<div class="paragraph">
+<p>You can then write your own event filters in the Filter box:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-azure-digital-twins-solution-development-tools-processes/media/m11-l03-adt-create-event-route-filter-advanced-db13e6e2.png" alt="m11 l03 adt create event route filter advanced db13e6e2">
+</div>
+</div>
+<div class="paragraph">
+<p>Here are the supported route filters.</p>
+</div>
+<div class="paragraph">
+<p>The detail in the Filter text schema column is the text that can be entered into the filter box.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Filter name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Filter text schema</th>
+<th class="tableblock halign-left valign-top">Supported Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True / False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows creating a route with no filtering, or disabling a route so no events are sent.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;true/false&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true = route is enabled with no filtering; false = route is disabled</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of event flowing through your digital twin instance.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">type = '&lt;eventType&gt;'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Here are the possible event type values: Microsoft.DigitalTwins.Twin.Create Microsoft.DigitalTwins.Twin.Delete Microsoft.DigitalTwins.Twin.Update Microsoft.DigitalTwins.Relationship.Create Microsoft.DigitalTwins.Relationship.Update Microsoft.DigitalTwins.Relationship.Delete microsoft.iot.telemetry</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Source</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of Azure Digital Twins instance.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">source = <code>'&lt;hostname&gt;'</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Here are the possible hostname values: For notifications: <code>&lt;yourDigitalTwinInstance&gt;.api.&lt;yourRegion&gt;.digitaltwins.azure.net</code> For telemetry: <code>&lt;yourDigitalTwinInstance&gt;.api.&lt;yourRegion&gt;.digitaltwins.azure.net/&lt;twinId&gt;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A description of the event in the context of the event source above.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subject = <code>'&lt;subject&gt;'</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Here are the possible subject values: For notifications: The subject is &lt;twinid&gt; or a URI format for subjects, which are uniquely identified by multiple parts or IDs: &lt;twinid&gt;/relationships/&lt;relationshipid&gt; For telemetry: The subject is the component path (if the telemetry is emitted from a twin component), such as comp1.comp2. If the telemetry is not emitted from a component, then its subject field is empty.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data schema</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DTDL model ID.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dataschema = <code>'&lt;model-dtmi-ID&gt;'</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For telemetry: The data schema is the model ID of the twin or the component that emits the telemetry. For example, <code>dtmi:example:com:floor4;2</code> For notifications (create/delete): Data schema can be accessed in the notification body at <code>$body.$metadata.$model</code>. For notifications (update): Data schema can be accessed in the notification body at <code>$body.modelId</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Content type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Content type of data value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datacontenttype = <code>'&lt;contentType&gt;'</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The content type is application/json</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Spec version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The version of the event schema you are using.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">specversion = <code>'&lt;version&gt;'</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The version must be 1.0. This indicates the CloudEvents schema version 1.0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notification body</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reference any property in the data field of a notification.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$body.&lt;property&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any property in the data field can be referenced using <code>$body</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The following data types are supported as values returned by references to the data above:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Data type</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STARTS_WITH(<code>$body.$metadata.$model</code>, <code>'dtmi:example:com:floor'</code>) CONTAINS(subject, <code>'&lt;twinID&gt;'</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$body.errorCode &gt; 200</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Double</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$body.temperature &#8656; 5.5</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$body.poweredOn = true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Null</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$body.prop != null</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The following operators are supported when defining route filters:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Family</th>
+<th class="tableblock halign-left valign-top">Operators</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Logical</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AND, OR, ( )</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json') OR (specversion != '1.0')</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comparison</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;, &#8656;, &gt;, &gt;=, =, !=</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$body.temperature &#8656; 5.5</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The following functions are supported when defining route filters:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Function</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STARTS_WITH(x,y)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns true if the value x starts with the string y.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>STARTS_WITH($body.$metadata.$model, 'dtmi:example:com:floor')</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ENDS_WITH(x,y)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns true if the value x ends with the string y.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ENDS_WITH($body.$metadata.$model, 'floor;1')</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CONTAINS(x,y)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns true if the value x contains the string y.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CONTAINS(subject, '&lt;twinID&gt;')</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When you implement or update a filter, the change may take a few minutes to be reflected in the data pipeline.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_model_management"><a class="anchor" href="#_model_management"></a>Model Management</h3>
+<div class="paragraph">
+<p>Module management operations include validation, upload, retrieval, update, and deletion.</p>
+</div>
+<div class="paragraph">
+<p>You can manage the models within your Azure Digital Twins instance using the DigitalTwinModels APIs, the .NET (C#) SDK, or the Azure Digital Twins CLI extension.</p>
+</div>
+<div class="sect3">
+<h4 id="_validating_and_uploading_models"><a class="anchor" href="#_validating_and_uploading_models"></a>Validating and Uploading Models</h4>
+<div class="paragraph">
+<p>After creating a model, it&#8217;s recommended that you validate your models offline before uploading them to your Azure Digital Twins instance.</p>
+</div>
+<div class="sect4">
+<h5 id="_model_validation_tools"><a class="anchor" href="#_model_validation_tools"></a>Model Validation Tools</h5>
+<div class="paragraph">
+<p>Microsoft provides the following tools that can be used to validate Azure Digital Twins models:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>DTDL Validator:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>The DTDL Validator is a language-agnostic sample app available for validating model documents to make sure the DTDL is correct before uploading it to your instance.</p>
+</li>
+<li>
+<p>It&#8217;s located here: <a href="https://github.com/Azure-Samples/DTDL-Validator">DTDL Validator sample</a>.</p>
+</li>
+<li>
+<p>The DTDL validator sample is built on a .NET DTDL parser library, which is available on NuGet as a client-side library: Microsoft.Azure.DigitalTwins.Parser.</p>
+</li>
+<li>
+<p>You can also use the library directly to design your own validation solution.</p>
+</li>
+<li>
+<p>When using the parser library, make sure to use a version that is compatible with the version that Azure Digital Twins is running.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>DTDL Editor for Visual Studio Code</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>The DTDL extension for Visual Studio Code supports both model authoring and validation.</p>
+</li>
+<li>
+<p>The tool uses Intellisense to help you with the language syntax (including autocompletion) and syntax validation.</p>
+</li>
+<li>
+<p>The full documentation for the DTDL Editor for Visual Studio Code can be found here: DTDL - Visual Studio Marketplace.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_uploading_models_to_azure_digital_twins"><a class="anchor" href="#_uploading_models_to_azure_digital_twins"></a>Uploading Models to Azure Digital Twins</h5>
+<div class="paragraph">
+<p>Once you&#8217;re finished creating, extending, or selecting your models, you&#8217;re ready to upload them to your Azure Digital Twins instance for use in your solution.</p>
+</div>
+<div class="paragraph">
+<p>You can upload models using the following techniques:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Azure Digital Twins REST APIs.</p>
+</li>
+<li>
+<p>Azure CLI commands.</p>
+</li>
+<li>
+<p>Azure Digital Twins SDKs and custom applications.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Microsoft also provides sample applications (based on the SDKs) that can be used to upload your models:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Azure Digital Twins-Explorer:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>The Azure Digital Twins-Explorer is a sample application for the Azure Digital Twins service.</p>
+</li>
+<li>
+<p>It lets you connect to an Azure Digital Twins instance and, among other things, can help you to upload and explore your models.</p>
+</li>
+<li>
+<p>The Azure Digital Twins-explorer can be found here: <a href="https://learn.microsoft.com/en-us/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/">Azure Digital Twins explorer</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Azure Digital Twins tools - UploadModels</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>If you have a large number of models to upload, or if the models have interdependencies that would make ordering individual uploads complicated, you may want to use the UploadModels tool.</p>
+</li>
+<li>
+<p>The tool accepts a list of models (including wildcard and glob support), validates the models using the digital twins parser, orders the models so that "root" models are uploaded first, and then uploads models in batches for fast uploading.</p>
+</li>
+<li>
+<p>The Azure Digital Twins UploadModels tool can be found here: <a href="https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#uploadmodels">Upload Models Tool</a>.</p>
+</li>
+<li>
+<p>You can follow the instructions provided with the sample to configure and use this tool to upload models into your own instance.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_update_and_version_models"><a class="anchor" href="#_update_and_version_models"></a>Update and Version Models</h4>
+<div class="paragraph">
+<p>Once a model is uploaded to your Azure Digital Twins instance, the entire model interface is immutable, which means there&#8217;s no traditional "editing" of models.</p>
+</div>
+<div class="paragraph">
+<p>Azure Digital Twins also doesn&#8217;t allow reupload of the same model.</p>
+</div>
+<div class="paragraph">
+<p>Instead, if you want to make changes to a model - such as updating displayName or description - the way to change the model is to upload a newer version of the model.</p>
+</div>
+<div class="sect4">
+<h5 id="_model_versioning"><a class="anchor" href="#_model_versioning"></a>Model Versioning</h5>
+<div class="paragraph">
+<p>To create a new version of an existing model, start with the DTDL of the original model. Update, add, or remove the fields you would like to change.</p>
+</div>
+<div class="paragraph">
+<p>Next, mark the file as a newer version of the model by updating the ID field of the model.</p>
+</div>
+<div class="paragraph">
+<p>The last section of the model ID, after the ";" character, represents the model number.</p>
+</div>
+<div class="paragraph">
+<p>To indicate that the model version has been updated, increment the number at the end of the ID value.</p>
+</div>
+<div class="paragraph">
+<p>The ID value can be any number greater than the current version number.</p>
+</div>
+<div class="paragraph">
+<p>For example, if your previous model ID looked like this:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>"@id": "dtmi:com:contoso:PatientRoom;1",</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>version 2 of this model might look like this:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>"@id": "dtmi:com:contoso:PatientRoom;2",</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Then, upload the new version of the model to your instance.</p>
+</div>
+<div class="paragraph">
+<p>This version of the model will then be available in your instance to use for digital twins.</p>
+</div>
+<div class="paragraph">
+<p>It does not overwrite earlier versions of the model, so multiple versions of the model will coexist in your instance until you remove them.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_impact_on_twins"><a class="anchor" href="#_impact_on_twins"></a>Impact on Twins</h5>
+<div class="paragraph">
+<p>When you create a new twin, since the new model version and the old model version coexist, the new twin can use either the new version of the model or the older version.</p>
+</div>
+<div class="paragraph">
+<p>Having an older version also means that uploading a new version of a model doesn&#8217;t automatically affect existing twins.</p>
+</div>
+<div class="paragraph">
+<p>The existing twins will remain instances of the old model version.</p>
+</div>
+<div class="paragraph">
+<p>You can update these existing twins to the new model version by patching them.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you aren&#8217;t familiar with JSON Patch, you can read more here: JsonPatch in ASP.NET Core web API
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_remove_models"><a class="anchor" href="#_remove_models"></a>Remove Models</h4>
+<div class="paragraph">
+<p>Models can also be removed from the service in one of two ways:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Decomisioning</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Once a model is decommissioned, you can no longer use it to create new digital twins.</p>
+</li>
+<li>
+<p>Existing digital twins that already use this model aren&#8217;t affected, so you can still update them with things like property changes and adding or deleting relationships.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Deletion</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>This will completely remove the model from the solution.</p>
+</li>
+<li>
+<p>Any twins that were using this model are no longer associated with any valid model, so they&#8217;re treated as though they don&#8217;t have a model at all.</p>
+</li>
+<li>
+<p>You can still read these twins, but won&#8217;t be able to make any updates on them until they&#8217;re reassigned to a different model.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Decommissioning and deletion are separate features and they don&#8217;t impact each other, although they may be used together to remove a model gradually.</p>
+</div>
+<div class="sect4">
+<h5 id="_decommissioning"><a class="anchor" href="#_decommissioning"></a>Decommissioning</h5>
+<div class="paragraph">
+<p>Here&#8217;s the C# code to decommission a model:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>await client.DecommissionModelAsync(dtmiOfPlanetInterface);</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>A model&#8217;s decommissioning status is included in the ModelData records returned by the model retrieval APIs.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_deletiom"><a class="anchor" href="#_deletiom"></a>Deletiom</h5>
+<div class="paragraph">
+<p>You can delete all models in your instance at once, or you can do it on an individual basis.</p>
+</div>
+<div class="sect5">
+<h6 id="_before_deletion_deletion_requirements"><a class="anchor" href="#_before_deletion_deletion_requirements"></a>Before deletion: Deletion requirements</h6>
+<div class="paragraph">
+<p>Generally, models can be deleted at any time.</p>
+</div>
+<div class="paragraph">
+<p>The exception is models that other models depend on, either with an extends relationship or as a component.</p>
+</div>
+<div class="paragraph">
+<p>For example, if a ConferenceRoom model extends a Room model, and has a ACUnit model as a component, you can&#8217;t delete Room or ACUnit until ConferenceRoom removes those respective references.</p>
+</div>
+<div class="paragraph">
+<p>You can solve the dependency issue by updating the dependent model to remove the dependencies, or by deleting the dependent model completely.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_during_deletion_deletion_process"><a class="anchor" href="#_during_deletion_deletion_process"></a>During deletion: Deletion process</h6>
+<div class="paragraph">
+<p>Even if a model meets the requirements to delete it immediately, you may want to take steps to avoid unintended consequences (for the twins left behind).</p>
+</div>
+<div class="paragraph">
+<p>Here are some steps that can help you manage the process:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First, decommission the model.</p>
+</li>
+<li>
+<p>Wait a few minutes, to make sure the service has processed any last-minute twin creation requests sent before the decommission.</p>
+</li>
+<li>
+<p>Query twins by model to see all twins that are using the now-decommissioned model.</p>
+</li>
+<li>
+<p>Delete the twins if you no longer need them, or patch them to a new model if needed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>You can also choose to leave them alone, in which case they&#8217;ll become twins without models once the model is deleted.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Wait for another few minutes to make sure the changes have percolated through.</p>
+</li>
+<li>
+<p>Delete the model.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>To delete a model, use this call:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>await client.DeleteModelAsync(IDToDelete);</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_after_deletion_twins_without_models"><a class="anchor" href="#_after_deletion_twins_without_models"></a>After deletion: Twins without models</h6>
+<div class="paragraph">
+<p>Once a model is deleted, any digital twins that were using the model are now considered to be without a model.</p>
+</div>
+<div class="paragraph">
+<p>Queries aren&#8217;t able to give you a list of the twins in this state—although you can still query the twins by the deleted model to know what twins are affected.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an overview of what you can and can&#8217;t do with twins that don&#8217;t have a model.</p>
+</div>
+<div class="paragraph">
+<p>Things you can do:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Query the twin.</p>
+</li>
+<li>
+<p>Read properties.</p>
+</li>
+<li>
+<p>Read outgoing relationships.</p>
+</li>
+<li>
+<p>Add and delete incoming relationships (as in, other twins can still form relationships to this twin).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The target in the relationship definition can still reflect the DTMI of the deleted model. A relationship with no defined target can also work here.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Delete relationships.</p>
+</li>
+<li>
+<p>Delete the twin.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Things you cannot do:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Edit outgoing relationships (as in, relationships from this twin to other twins).</p>
+</li>
+<li>
+<p>Edit properties.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_after_deletion_reuploading_a_model"><a class="anchor" href="#_after_deletion_reuploading_a_model"></a>After deletion: Reuploading a model</h6>
+<div class="paragraph">
+<p>After a model has been deleted, you may decide later to upload a new model with the same ID as the one you deleted.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s what happens in that case.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>From the solution store&#8217;s perspective, this is the same as uploading a new model. The service doesn&#8217;t remember the old one was ever uploaded.</p>
+</li>
+<li>
+<p>If there are any remaining twins in the graph referencing the deleted model, they&#8217;re no longer orphaned.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The reused model ID is valid again with the new definition.</p>
+</li>
+<li>
+<p>However, if the new definition for the model is different than the model definition that was deleted, these twins may have properties and relationships that match the deleted definition and aren&#8217;t valid with the new one.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Azure Digital Twins doesn&#8217;t prevent this state, so be careful to patch twins appropriately in order to make sure they remain valid through the model definition switch.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_azure_digital_twins_api"><a class="anchor" href="#_azure_digital_twins_api"></a>Azure Digital Twins API</h3>
+<div class="paragraph">
+<p><a href="https://learn.microsoft.com/en-us/rest/api/azure-digitaltwins/">Rest Api</a></p>
+</div>
+<div class="paragraph">
+<p>There are currently two Azure Digital Twins data plane Postman collections available for you to choose from:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Azure Digital Twins Postman Collection</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/microsoft/azure-digital-twins-postman-samples">postman_collection.json</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Azure Digital Twins data plane Swagger</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins">swagger file</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To get the bearer token use the get-access-token command of the cli:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>az account get-access-token --resource 0b07f429-9f4b-4714-9392-cc5e8e80c8b0</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_azure_digital_twins_cli"><a class="anchor" href="#_azure_digital_twins_cli"></a>Azure Digital Twins CLI</h3>
+<div class="paragraph">
+<p><a href="https://learn.microsoft.com/en-us/training/modules/examine-azure-digital-twins-solution-development-tools-processes/6-get-started-with-azure-cli-for-azure-digital-twins">Microsoft Learn</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_azure_digital_twins_sdk"><a class="anchor" href="#_azure_digital_twins_sdk"></a>Azure Digital Twins SDK</h3>
+<div class="paragraph">
+<p><a href="https://learn.microsoft.com/en-us/training/modules/examine-azure-digital-twins-solution-development-tools-processes/7-examine-azure-digital-twins-sdks">Microsoft Learn Samples</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_manage_digital_twins_in_the_graph"><a class="anchor" href="#_manage_digital_twins_in_the_graph"></a>Manage digital twins in the graph</h3>
+<div class="paragraph">
+<p><a href="https://learn.microsoft.com/en-us/training/modules/examine-azure-digital-twins-solution-development-tools-processes/8-manage-digital-twins-graph">Microsoft Learn Samples</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_manage_digital_twin_relationships_in_the_graph"><a class="anchor" href="#_manage_digital_twin_relationships_in_the_graph"></a>Manage digital twin relationships in the graph</h3>
+<div class="paragraph">
+<p><a href="https://learn.microsoft.com/en-us/training/modules/examine-azure-digital-twins-solution-development-tools-processes/9-manage-digital-twin-relationships-graph">Microsoft Learn Samples</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_azure_digital_twins_queries"><a class="anchor" href="#_azure_digital_twins_queries"></a>Azure Digital Twins queries</h3>
+<div class="paragraph">
+<p><a href="https://learn.microsoft.com/en-us/training/modules/examine-azure-digital-twins-solution-development-tools-processes/9-manage-digital-twin-relationships-graph">Microsoft Learn Samples</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_azure_functions_for_azure_digital_twins"><a class="anchor" href="#_azure_functions_for_azure_digital_twins"></a>Azure Functions for Azure Digital Twins</h3>
+<div class="paragraph">
+<p><a href="https://learn.microsoft.com/en-us/training/modules/examine-azure-digital-twins-solution-development-tools-processes/11-get-started-with-azure-functions-for-azure-digital-twins">Microsoft Learn Samples</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_azure_digital_twins_event_data"><a class="anchor" href="#_azure_digital_twins_event_data"></a>Azure Digital Twins event data</h3>
+<div class="paragraph">
+<p><a href="https://learn.microsoft.com/en-us/training/modules/examine-azure-digital-twins-solution-development-tools-processes/12-examine-azure-digital-twins-event-data">Microsoft Learn Samples</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_data_ingress_and_egress_processes"><a class="anchor" href="#_data_ingress_and_egress_processes"></a>Data Ingress and Egress processes</h3>
+<div class="paragraph">
+<p>An Azure Digital Twins solution relies on external resources for data inputs and downstream services for analysis, storage, etc.</p>
+</div>
+<div class="sect3">
+<h4 id="_data_ingress_upstream_resources"><a class="anchor" href="#_data_ingress_upstream_resources"></a>Data ingress (upstream resources)</h4>
+<div class="paragraph">
+<p>Data can be ingested into Azure Digital Twins through external compute resources such as an Azure Function.</p>
+</div>
+<div class="sect4">
+<h5 id="_ingress_scenario"><a class="anchor" href="#_ingress_scenario"></a>Ingress scenario</h5>
+<div class="paragraph">
+<p>IoT Hub is a common source for data input to Azure Digital Twins.</p>
+</div>
+<div class="paragraph">
+<p>Consider a scenario that includes the following items:
+* A thermostat device in IoT Hub, with a known device ID
+* A digital twin to represent the device, with a matching ID
+* When IoT hub receives telemetry containing temperature values from the device, you need to set a temperature Property of the corresponding digital twin.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This example uses a straightforward ID match between the device ID and a corresponding digital twin&#8217;s ID, but it is possible to provide more sophisticated mappings from the device to its twin (such as with a mapping table).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-azure-digital-twins-solution-development-tools-processes/media/m11-l03-adt-telemetry-ingestion-iot-hub-64bbcc4b.png" alt="m11 l03 adt telemetry ingestion iot hub 64bbcc4b">
+</div>
+</div>
+<div class="paragraph">
+<p>In this case, an Azure Function receives the data from IoT hub&#8217;s built-in Event Grid endpoint and uses the Azure Digital Twins APIs to set properties on a digital twin contained within an Azure Digital Twins instance.</p>
+</div>
+<div class="paragraph">
+<p>The Azure Function could also pass temperature telemetry to a Telemetry field of the digital twin.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_data_egress_2"><a class="anchor" href="#_data_egress_2"></a>Data egress</h4>
+<div class="paragraph">
+<p>To provide data to downstream resources, Azure Digital Twins uses digital twin change notification events as a trigger to route data to an Azure Digital Twins endpoint where the information can be accessed and used to accomplish a desired action.</p>
+</div>
+<div class="sect4">
+<h5 id="_egress_scenario_in_service_updates"><a class="anchor" href="#_egress_scenario_in_service_updates"></a>Egress scenario (in-service updates)</h5>
+<div class="paragraph">
+<p>Although Azure Digital Twins relationships connect digital twins as parent and child, properties of a child are not automatically passed up to a parent in the case when a corresponding property is defined.</p>
+</div>
+<div class="paragraph">
+<p>Consider a scenario that includes the following items:
+* An Azure Digital Twins environment contains Room digital twins (such as Room_01, Room_02, etc.) and Thermostat digital twins (such as thermo_0001).
+* The Room digital twins have a rel_has_thermostat relationship and each Room has a Thermostat (establishing a Parent-Child relationship).
+* The Thermostat digital twins have Property and Telemetry fields for temperature data that is coming from IoT hub.
+* Room digital twins have a Property for currentTemp.
+* When a Thermostat digital twin Property changes, you need to update the currentTemp Property of the Room digital twin (the Room digital twin that is the parent of that Thermostat digital twin)</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="hhttps://learn.microsoft.com/en-us/training/wwl-azure/examine-azure-digital-twins-solution-development-tools-processes/media/m11-l03-adt-service-update-process-d64af8fb.png" alt="m11 l03 adt service update process d64af8fb">
+</div>
+</div>
+<div class="paragraph">
+<p>Whenever a Digital Twin Change Notification event occurs for a Thermostat digital twin, the following process is invoked:
+* Data is routed to an Event Grid endpoint.
+* The Event Grid uses an Event Subscription to specify an Azure Function "listener“, creates a new event message using the Azure Digital Twins notification, and uses the new event to pass the required information to the function.
+* The Azure Function extracts the event message data and uses it to obtain the twin&#8217;s ID and Relationship information, uses the Relationship to find the parent Room digital twin, and then updates the currentTemp Property by applying a patch.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_egress_scenario_downstream_services"><a class="anchor" href="#_egress_scenario_downstream_services"></a>Egress scenario (downstream services)</h5>
+<div class="paragraph">
+<p>Azure Digital Twins feeds data to downstream services by using event notifications and routing.</p>
+</div>
+<div class="paragraph">
+<p>Consider a scenario that includes the following items:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An Azure Digital Twins environment contains Room digital twins (such as Room_01, Room_02, etc.) and Thermostat digital twins (such as thermo_0001).</p>
+</li>
+<li>
+<p>The Room digital twins have a rel_has_thermostat relationship and each Room has a Thermostat.</p>
+</li>
+<li>
+<p>Room digital twins also have a Property for currentTemp.</p>
+</li>
+<li>
+<p>The Thermostat digital twins have Property and Telemetry fields for temperature data coming from IoT hub.</p>
+</li>
+<li>
+<p>You need to analyze the temperature Telemetry data using Azure Time Series Insights.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-azure-digital-twins-solution-development-tools-processes/media/m11-l03-adt-downstream-tsi-3f1a5ca4.png" alt="m11 l03 adt downstream tsi 3f1a5ca4">
+</div>
+</div>
+<div class="paragraph">
+<p>Whenever a Digital Twin Telemetry Messages event notification occurs for a Thermostat digital twin, the following process is invoked:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Data is routed to an Event Hubs endpoint.</p>
+</li>
+<li>
+<p>The Event Hubs processes events and triggers an Azure Function.</p>
+</li>
+<li>
+<p>The Azure Function creates a new event for TSI, adds a partition key, and then publishes the new event to another Event Hubs.</p>
+</li>
+<li>
+<p>Azure TSI (subscribed to events from the second Event Hubs) processes the incoming events to perform the required data analysis.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>
