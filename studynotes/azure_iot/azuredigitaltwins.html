@@ -1009,25 +1009,44 @@
 <p>The Azure Digital Twins service comes equipped with both control plane APIs and data plane APIs for managing your instance and its elements.</p>
 </div>
 <div class="paragraph">
-<p>The control plane APIs are Azure Resource Manager APIs used to manage your Azure Digital Twins instance as a whole, so they cover operations like creating or deleting your entire instance. You will also use these APIs to create and delete endpoints.</p>
+<p>The Control plane APIs are Azure Resource Manager APIs used to manage your Azure Digital Twins instance as a whole, so they cover operations like creating or deleting your entire instance.</p>
 </div>
 <div class="paragraph">
-<p>The data plane APIs are Azure Digital Twins APIs that are used for data management operations like managing models, twins, graph queries, and event routes.</p>
+<p>You will also use these APIs to create and delete endpoints.</p>
+</div>
+<div class="paragraph">
+<p>The Data plane APIs are Azure Digital Twins APIs that are used for data management operations like managing models, twins, graph queries, and event routes.</p>
 </div>
 <div class="sect2">
 <h3 id="_azure_digital_twins_service_configuration"><a class="anchor" href="#_azure_digital_twins_service_configuration"></a>Azure Digital Twins Service Configuration</h3>
 <div class="paragraph">
-<p>The initial setup for a new Azure Digital Twins instance consists of two parts:
-* Create the Azure Digital Twins service instance.
-* Set up user access permissions: Azure users will need to have the Azure Digital Twins Data Owner role on the Azure Digital Twins instance to be able to manage the Azure Digital Twins service and its data.</p>
+<p>The initial setup for a new Azure Digital Twins instance consists of two parts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create the Azure Digital Twins service instance.</p>
+</li>
+<li>
+<p>Set up user access permissions: Azure users will need to have the Azure Digital Twins Data Owner role on the Azure Digital Twins instance to be able to manage the Azure Digital Twins service and its data.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>To set up user access permissions in Azure Digital Twins, you will need access to an Azure account that can assign user access permissions for the subscription that you are working in.</p>
 </div>
 <div class="paragraph">
-<p>The account must have role assignments that include the following permissions:
-* Create and manage Azure resources.
-* Manage user access to Azure resources (including granting and delegating permissions).</p>
+<p>The account must have role assignments that include the following permissions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create and manage Azure resources.</p>
+</li>
+<li>
+<p>Manage user access to Azure resources (including granting and delegating permissions).</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>With your Azure Digital Twins instance open in the Azure portal, you can use Access control (IAM), to configure role assignments.</p>
