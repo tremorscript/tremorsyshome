@@ -283,6 +283,24 @@
 <li><a href="#_data_egress_2">Data Egress</a></li>
 </ul>
 </li>
+<li><a href="#_azure_digital_twins_metrics">Azure Digital Twins Metrics</a>
+<ul class="sectlevel2">
+<li><a href="#_ingress_metrics">Ingress Metrics</a></li>
+<li><a href="#_routing_metrics">Routing metrics</a></li>
+<li><a href="#_additional_metrics_categories">Additional Metrics Categories</a></li>
+<li><a href="#_dimensions">Dimensions</a></li>
+</ul>
+</li>
+<li><a href="#_azure_digital_twins_diagnostic_settings">Azure Digital Twins Diagnostic Settings</a>
+<ul class="sectlevel2">
+<li><a href="#_log_schemas">Log Schemas</a></li>
+<li><a href="#_api_log_schemas">Api Log Schemas</a></li>
+<li><a href="#_egress_log_schemas">Egress log schemas</a></li>
+</ul>
+</li>
+<li><a href="#_view_and_query_adt_diagnostic_logs">View and Query ADT Diagnostic Logs</a></li>
+<li><a href="#_azure_digital_twins_alert">Azure Digital Twins Alert</a></li>
+<li><a href="#_azure_resource_health_support_for_adt">Azure Resource Health support for ADT</a></li>
 </ul>
 </div>
 <div class="sect1">
@@ -2171,6 +2189,652 @@ If you aren&#8217;t familiar with JSON Patch, you can read more here: JsonPatch 
 </ol>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_azure_digital_twins_metrics"><a class="anchor" href="#_azure_digital_twins_metrics"></a>Azure Digital Twins Metrics</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Metrics are enabled by default.</p>
+</div>
+<div class="paragraph">
+<p>You can view Azure Digital Twins metrics from the Azure portal.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/monitor-troubleshoot-adt/media/m11-l04-adt-metrics-portal-08c9bcb5.png" alt="m11 l04 adt metrics portal 08c9bcb5">
+</div>
+</div>
+<div class="paragraph">
+<p>You can configure these metrics to track when you are approaching a published service limit for some aspect of your solution.</p>
+</div>
+<div class="paragraph">
+<p>To set this up, use the alerts feature in Azure Monitor.</p>
+</div>
+<div class="paragraph">
+<p>You can define thresholds for these metrics so that you receive an alert when a metric reaches a certain percentage of its published limit.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>TwinCount</strong> - Total number of twins in the ADT instance.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Use this metric to determine if you are approaching the service limit for max number of twins allowed per instance.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>ModelCount</strong> - Total number of models in the Azure ADT instance.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Use this metric to determine if you are approaching the service limit for max number of models allowed per instance.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_ingress_metrics"><a class="anchor" href="#_ingress_metrics"></a>Ingress Metrics</h3>
+<div class="paragraph">
+<p>Metrics having to do with data ingress.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>IngressEvents</strong> - The number of incoming telemetry events into Azure Digital Twins.</p>
+</li>
+<li>
+<p><strong>IngressEventsFailureRate</strong> - The percentage of incoming telemetry events for which the service returns an internal error (500) response code.</p>
+</li>
+<li>
+<p><strong>IngressEventsLatency</strong> - The average time from when an event arrives to when it is egressed by Azure Digital Twins, at which point the service sends a success/fail result.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_routing_metrics"><a class="anchor" href="#_routing_metrics"></a>Routing metrics</h3>
+<div class="paragraph">
+<p>Metrics having to do with routing.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>MessagesRouted</strong> - The number of messages routed to an endpoint Azure service such as Event Hubs, Service Bus, or Event Grid.</p>
+</li>
+<li>
+<p><strong>RoutingFailureRate</strong> - The percentage of events that result in an error as they are routed from Azure Digital Twins to an endpoint Azure Service such as Event Hubs, Service Bus, or Event Grid.</p>
+</li>
+<li>
+<p><strong>RoutingLatency</strong> - Time elapsed between an event getting routed from Azure Digital Twins to when it is posted to the endpoint Azure Service such as Event Hubs, Service Bus, or Event Grid.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_additional_metrics_categories"><a class="anchor" href="#_additional_metrics_categories"></a>Additional Metrics Categories</h3>
+<div class="paragraph">
+<p>Some more metrics the business may want to track:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>API request metrics</strong> - Metrics having to do with API requests, such as the number of API requests, response latency, and the percentage of requests that result in an error message (failure rate).</p>
+</li>
+<li>
+<p><strong>Billing metrics</strong> - Metrics having to do with billing, such as the total number of API requests hitting the Azure Digital Twin Service, the number of messages sent to external endpoints, and the number of query units consumed.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dimensions"><a class="anchor" href="#_dimensions"></a>Dimensions</h3>
+<div class="paragraph">
+<p>Some of the routing metrics provide information per endpoint.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Dimension</th>
+<th class="tableblock halign-left valign-top">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Authentication</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OAuth</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Operation (for API Requests)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.DigitalTwins/digitaltwins/delete,<br>
+Microsoft.DigitalTwins/digitaltwins/write,<br>
+Microsoft.DigitalTwins/digitaltwins/read,<br>
+Microsoft.DigitalTwins/eventroutes/read,<br>
+Microsoft.DigitalTwins/eventroutes/write,<br>
+Microsoft.DigitalTwins/eventroutes/delete,<br>
+Microsoft.DigitalTwins/models/read,<br>
+Microsoft.DigitalTwins/models/write,<br>
+Microsoft.DigitalTwins/models/delete,<br>
+Microsoft.DigitalTwins/query/action</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Endpoint Type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event Grid, Event Hubs, Service Bus</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Protocol</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Result</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Success, Failure</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status Code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">200, 404, 500, and so on.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status Code Class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2xx, 4xx, 5xx, and so on.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status Text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Internal Server Error, Not Found, and so on.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_azure_digital_twins_diagnostic_settings"><a class="anchor" href="#_azure_digital_twins_diagnostic_settings"></a>Azure Digital Twins Diagnostic Settings</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Azure Digital Twins can collect logs for your service instance to monitor its performance, access, and other data.</p>
+</div>
+<div class="paragraph">
+<p>You can configure diagnostic settings to start collecting logs from the Azure portal.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/monitor-troubleshoot-adt/media/m11-l04-adt-diagnostic-settings-portal-051b29e9.png" alt="m11 l04 adt diagnostic settings portal 051b29e9">
+</div>
+</div>
+<div class="paragraph">
+<p>Following are the categories of logs that Azure Digital Twins collects:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>ADTModelsOperation</strong> - Log all API calls pertaining to Models.</p>
+</li>
+<li>
+<p><strong>ADTQueryOperation</strong> - Log all API calls pertaining to queries.</p>
+</li>
+<li>
+<p><strong>ADTEventRoutesOperation</strong> - Log all API calls pertaining to Event Routes as well as egress of events from Azure Digital Twins to an endpoint service like Event Grid, Event Hubs and Service Bus.</p>
+</li>
+<li>
+<p><strong>ADTDigitalTwinsOperation</strong>- Log all API calls pertaining to Azure Digital Twins.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each log category consists of operations of write, read, delete, and action.</p>
+</div>
+<div class="paragraph">
+<p>These map to REST API calls as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Write</strong> - PUT and PATCH</p>
+</li>
+<li>
+<p><strong>Read</strong> - GET</p>
+</li>
+<li>
+<p><strong>Delete</strong> - DELETE</p>
+</li>
+<li>
+<p><strong>Action</strong> - POST</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Below is a comprehensive list of operations and corresponding Azure Digital Twins REST API calls that are logged in each category.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Log Category</th>
+<th class="tableblock halign-left valign-top">Operation</th>
+<th class="tableblock halign-left valign-top">REST API calls and other events</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADTModelsOperation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.DigitalTwins/models/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Digital Twin Models Update API.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.DigitalTwins/models/read</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Digital Twin Models Get By ID and List APIs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.DigitalTwins/models/delete</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Digital Twin Models Delete API.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.DigitalTwins/models/action</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Digital Twin Models Add API.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADTQueryOperation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.DigitalTwins/query/action</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Query Twins API.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADTEventRoutesOperation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.DigitalTwins/eventroutes/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event Routes Add API.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.DigitalTwins/eventroutes/read</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event Routes Get By ID and List APIs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.DigitalTwins/eventroutes/delete</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event Routes Delete API.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.DigitalTwins/eventroutes/action</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Failure while attempting to publish events to an endpoint service (not an API call).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADTDigitalTwinsOperation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.DigitalTwins/digitaltwins/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Digital Twins Add, Add Relationship, Update, Update Component.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.DigitalTwins/digitaltwins/read</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Digital Twins Get By ID, Get Component, Get Relationship by ID, List Incoming Relationships, List Relationships.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.DigitalTwins/digitaltwins/delete</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Digital Twins Delete, Delete Relationship.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.DigitalTwins/digitaltwins/action</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Digital Twins Send Component Telemetry, Send Telemetry.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_log_schemas"><a class="anchor" href="#_log_schemas"></a>Log Schemas</h3>
+<div class="paragraph">
+<p>Each log category has a schema that defines how events in that category are reported.</p>
+</div>
+<div class="paragraph">
+<p>Each individual log entry is stored as text and formatted as JSON blob.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>ADTDigitalTwinsOperation, ADTModelsOperation, and ADTQueryOperation use a consistent API log schema; ADTEventRoutesOperation has its own separate schema.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_api_log_schemas"><a class="anchor" href="#_api_log_schemas"></a>Api Log Schemas</h3>
+<div class="paragraph">
+<p>This log schema is consistent for ADTDigitalTwinsOperation, ADTModelsOperation, and ADTQueryOperation.</p>
+</div>
+<div class="paragraph">
+<p>It contains information pertinent to API calls to an Azure Digital Twins instance.</p>
+</div>
+<div class="paragraph">
+<p>Here are the field and property descriptions for API logs.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field name</th>
+<th class="tableblock halign-left valign-top">Data type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DateTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date and time that this event occurred, in UTC.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ResourceID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Azure Resource Manager ID for the resource where the event took place.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OperationName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of action being performed during the event.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OperationVersion</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The API version utilized during the event.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Category</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of resource being emitted.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ResultType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Outcome of the event.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ResultSignature</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Http status code for the event.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ResultDescription</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Additional details about the event.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DurationMs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">How long it took to perform the event in milliseconds.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CallerIpAddress</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A masked source IP address for the event.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CorrelationId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Guid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Customer provided unique identifier for the event.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The logging severity of the event.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Location</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The region where the event took place.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RequestUri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The endpoint utilized during the event.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Here is an example of a JSON body for these types of logs.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+"time": "2020-03-14T21:11:14.9918922Z",
+"resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+"operationName": "Microsoft.DigitalTwins/digitaltwins/write",
+"operationVersion": "2020-10-31",
+"category": "DigitalTwinOperation",
+"resultType": "Success",
+"resultSignature": "200",
+"resultDescription": "",
+"durationMs": "314",
+"callerIpAddress": "13.68.244.*",
+"correlationId": "2f6a8e64-94aa-492a-bc31-16b9f0b16ab3",
+"level": "4",
+"location": "southcentralus",
+"uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-10-31"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_egress_log_schemas"><a class="anchor" href="#_egress_log_schemas"></a>Egress log schemas</h3>
+<div class="paragraph">
+<p>This is the schema for ADTEventRoutesOperation logs.</p>
+</div>
+<div class="paragraph">
+<p>These contain details pertaining to exceptions and the API operations around egress endpoints connected to an Azure Digital Twins instance.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field name</th>
+<th class="tableblock halign-left valign-top">Data type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DateTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date and time that this event occurred, in UTC.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ResourceId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Azure Resource Manager resource ID for the resource where the event took place.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OperationName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of action being performed during the event.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Category</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of resource being emitted.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ResultDescription</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Additional details about the event.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The logging severity of the event.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Location</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The region where the event took place.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EndpointName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of egress endpoint created in Azure Digital Twins.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Here is an example of a JSON body for these types of logs.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+"time": "2020-11-05T22:18:38.0708705Z",
+"resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+"operationName": "Microsoft.DigitalTwins/eventroutes/action",
+"category": "EventRoutesOperation",
+"resultDescription": "Unable to send EventGrid message to [my-event-grid.westus-1.eventgrid.azure.net] for event Id [f6f45831-55d0-408b-8366-058e81ca6089].",
+"correlationId": "7f73ab45-14c0-491f-a834-0827dbbf7f8e",
+"level": "3",
+"location": "southcentralus",
+"properties": {
+    "endpointName": "endpointEventGridInvalidKey"
+}
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_view_and_query_adt_diagnostic_logs"><a class="anchor" href="#_view_and_query_adt_diagnostic_logs"></a>View and Query ADT Diagnostic Logs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>With diagnostic logs configured, custom queries can be used to troubleshoot issues and generate insights.</p>
+</div>
+<div class="paragraph">
+<p>Log queries are accessible from the Azure portal.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/monitor-troubleshoot-adt/media/m11-l04-adt-log-queries-portal-f1002ef4.png" alt="m11 l04 adt log queries portal f1002ef4">
+</div>
+</div>
+<div class="paragraph">
+<p>Prebuilt example queries have been written for various logs.</p>
+</div>
+<div class="paragraph">
+<p>You can select one of the queries to load it into the query editor and run it to see these logs for your instance.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/monitor-troubleshoot-adt/media/m11-l04-adt-log-query-editor-portal-516bb76a.png" alt="m11 l04 adt log query editor portal 516bb76a">
+</div>
+</div>
+<div class="paragraph">
+<p>In the image above, the left pane includes the following tabs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Tables</strong>: The Tables tab shows the different ADT log categories that are available to use in your queries.</p>
+</li>
+<li>
+<p><strong>Queries</strong>: The Queries tab contains the example queries that you can load into the editor.</p>
+</li>
+<li>
+<p><strong>Filter</strong>: The Filter tab lets you customize a filtered view of the data that the query returns.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_azure_digital_twins_alert"><a class="anchor" href="#_azure_digital_twins_alert"></a>Azure Digital Twins Alert</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Alerts proactively notify you when important conditions are found in your metrics data.</p>
+</div>
+<div class="paragraph">
+<p>They allow you to identify and address issues before the users of your system notice them.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/monitor-troubleshoot-adt/media/m11-l04-adt-alerts-portal-ae673195.png" alt="m11 l04 adt alerts portal ae673195">
+</div>
+</div>
+<div class="paragraph">
+<p>Selecting <strong>New alert rule</strong> opens the <strong>Create alert rule</strong> page.</p>
+</div>
+<div class="paragraph">
+<p>You can follow the prompts to define conditions, action to be triggered, and alert details.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/monitor-troubleshoot-adt/media/m11-l04-adt-create-alert-rule-portal-5b023528.png" alt="m11 l04 adt create alert rule portal 5b023528">
+</div>
+</div>
+<div class="paragraph">
+<p>Referring to the Create alert rule image above:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Scope details should fill automatically with the details for your instance.</p>
+</li>
+<li>
+<p>You will define Condition and Action group details to customize alert triggers and responses.</p>
+</li>
+<li>
+<p>In the Alert rule details section, enter a name and optional description for your rule. You can select the Enable alert rule upon creation checkbox if you want the alert to become active as soon as it is created.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This is also where you select a resource group and Severity level.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_azure_resource_health_support_for_adt"><a class="anchor" href="#_azure_resource_health_support_for_adt"></a>Azure Resource Health support for ADT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Azure Resource Health can help you monitor whether your Azure Digital Twins instance is up and running.</p>
+</div>
+<div class="paragraph">
+<p>You can also use it to learn whether a regional outage is impacting the health of your instance.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/monitor-troubleshoot-adt/media/m11-l04-adt-resource-health-portal-143a0427.png" alt="m11 l04 adt resource health portal 143a0427">
+</div>
+</div>
+<div class="paragraph">
+<p>In the image above, the Azure Digital Twins instance is showing the current state as Available, and you can see that the resource has been available for the previous nine days.</p>
 </div>
 </div>
 </div>
