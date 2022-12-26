@@ -220,7 +220,7 @@
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_features">Features</a>
+<li><a href="#_iot_hub_features">IoT Hub Features</a>
 <ul class="sectlevel2">
 <li><a href="#_security">Security</a></li>
 <li><a href="#_routing">Routing</a></li>
@@ -229,10 +229,10 @@
 <li><a href="#_developer">Developer</a></li>
 </ul>
 </li>
-<li><a href="#_device_provisioning_service">Device Provisioning Service</a>
+<li><a href="#_iot_hub_device_provisioning_service">IoT Hub Device Provisioning Service</a>
 <ul class="sectlevel2">
 <li><a href="#_provisioning_process">Provisioning Process</a></li>
-<li><a href="#_features_2">Features</a></li>
+<li><a href="#_features">Features</a></li>
 <li><a href="#_when_to_use">When to use</a></li>
 </ul>
 </li>
@@ -424,10 +424,18 @@
 </ul>
 </li>
 <li><a href="#_iot_hub_quotas_and_throttling">IoT Hub quotas and throttling</a></li>
+<li><a href="#_iot_solution_business_integration">IoT Solution Business Integration</a>
+<ul class="sectlevel2">
+<li><a href="#_roles_and_responsibilities">Roles and responsibilities</a></li>
+<li><a href="#_downstream_messaging">Downstream Messaging</a></li>
+<li><a href="#_integration_with_event_grid">Integration with Event Grid</a></li>
+<li><a href="#_iot_hub_event_types_and_schema">IoT Hub Event Types and Schema</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="sect1">
-<h2 id="_features"><a class="anchor" href="#_features"></a>Features</h2>
+<h2 id="_iot_hub_features"><a class="anchor" href="#_iot_hub_features"></a>IoT Hub Features</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_security"><a class="anchor" href="#_security"></a>Security</h3>
@@ -443,10 +451,9 @@
 <div class="paragraph">
 <p>IoT Hub Device Provisioning Service automatically provisions devices to the correct IoT Hub when the device first boots up.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
 <p>Multiple authentication types:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -460,16 +467,12 @@
 </li>
 </ul>
 </div>
-</li>
-</ul>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_routing"><a class="anchor" href="#_routing"></a>Routing</h3>
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
 <p>IoT Hub has <strong>built-in routing</strong> and can setup automatic, rules-based message fan-out:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -483,16 +486,12 @@
 </li>
 </ul>
 </div>
-</li>
-</ul>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_integration"><a class="anchor" href="#_integration"></a>Integration</h3>
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
 <p>IoT Hub can integrate with other services:-</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -509,16 +508,12 @@
 </li>
 </ul>
 </div>
-</li>
-</ul>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_device_management"><a class="anchor" href="#_device_management"></a>Device Management</h3>
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
 <p>IoT Hub can manage your devices:-</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -532,34 +527,26 @@
 </li>
 </ul>
 </div>
-</li>
-</ul>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_developer"><a class="anchor" href="#_developer"></a>Developer</h3>
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
 <p>Use Azure IoT device SDK libraries to build applications that run on your devices and interact with IoT Hub.</p>
-</li>
-<li>
+</div>
+<div class="paragraph">
 <p>There is a limit of 50 IoT hubs per subscription. You can request quota increases by contacting support.</p>
-</li>
-</ul>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_device_provisioning_service"><a class="anchor" href="#_device_provisioning_service"></a>Device Provisioning Service</h2>
+<h2 id="_iot_hub_device_provisioning_service"><a class="anchor" href="#_iot_hub_device_provisioning_service"></a>IoT Hub Device Provisioning Service</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_provisioning_process"><a class="anchor" href="#_provisioning_process"></a>Provisioning Process</h3>
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
 <p>Provisioning is a two part process:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -570,25 +557,22 @@
 </li>
 </ul>
 </div>
-</li>
-</ul>
-</div>
 </div>
 <div class="sect2">
-<h3 id="_features_2"><a class="anchor" href="#_features_2"></a>Features</h3>
+<h3 id="_features"><a class="anchor" href="#_features"></a>Features</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Secure attestation support for both X.509 and TPM-based identities</p>
+<p>Secure attestation support for both X.509 and TPM-based identities.</p>
 </li>
 <li>
 <p>Multiple allocation policies to control how the DPS assigns devices to IoT hubs.</p>
 </li>
 <li>
-<p>Monitoring and diagnostic logging</p>
+<p>Monitoring and diagnostic logging.</p>
 </li>
 <li>
-<p>Mult-hub support allows DPS to assign devices to more than one IoT hub across subscriptions.</p>
+<p>Multi-hub support allows DPS to assign devices to more than one IoT hub across subscriptions.</p>
 </li>
 <li>
 <p>Cross-region support to assign devices in other regions.</p>
@@ -626,10 +610,9 @@
 <div class="sect1">
 <h2 id="_iot_hub_tiers"><a class="anchor" href="#_iot_hub_tiers"></a>IoT Hub Tiers</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
 <p>To evaluate which IoT Hub tier is right for you solution, consider the following two questions:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -640,33 +623,22 @@
 </li>
 </ul>
 </div>
-</li>
-</ul>
-</div>
 <div class="sect2">
 <h3 id="_basic_tier"><a class="anchor" href="#_basic_tier"></a>Basic Tier</h3>
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
 <p>This tier enables features for solutions that only need uni-directional communication from devices to the cloud.</p>
-</li>
-<li>
+</div>
+<div class="paragraph">
 <p>If your IoT solution is based around collecting data from devices and analyzing it centrally, then the basic tier is probably right for you.</p>
-</li>
-</ul>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_standard_tier"><a class="anchor" href="#_standard_tier"></a>Standard Tier</h3>
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
 <p>This tier of IoT Hubs enables features for solutions that want to make use of the bi-directional communication capabilities.</p>
-</li>
-<li>
+</div>
+<div class="paragraph">
 <p>If you would like to control IoT devices remotely or distribute some of your workloads onto the devices themselves, then you should consider the standard tier.</p>
-</li>
-</ul>
 </div>
 </div>
 </div>
@@ -674,18 +646,14 @@
 <div class="sect1">
 <h2 id="_iot_hub_message_throughtput"><a class="anchor" href="#_iot_hub_message_throughtput"></a>IoT Hub Message Throughtput</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
 <p>Message traffic is measured for your IoT hub on a per-unit basis.</p>
-</li>
-<li>
+</div>
+<div class="paragraph">
 <p>When you create an IoT hub, you choose its tier and edition, and set the number of units available.</p>
-</li>
-<li>
+</div>
+<div class="paragraph">
 <p>You can purchase up to 200 units for the B1, B2, S1, or S2 edition, or up to 10 units for the B3 or S3 edition.</p>
-</li>
-</ul>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -723,55 +691,35 @@
 <div class="sect1">
 <h2 id="_iot_hub_partition"><a class="anchor" href="#_iot_hub_partition"></a>IoT Hub Partition</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
 <p>Partions can be used to reduce contentions that could occur when concurrently reading and writing to event streams.</p>
-</li>
-<li>
+</div>
+<div class="paragraph">
 <p>The partition limit is chosen when IoT hub is created.</p>
-</li>
-<li>
+</div>
+<div class="paragraph">
 <p>The maximum partition limit is 32 but most IoT hubs only need 4 partitions.</p>
-</li>
-<li>
+</div>
+<div class="paragraph">
 <p>The number of partitions is directly related to the number of concurrent readers you expect to have.</p>
-</li>
-<li>
+</div>
+<div class="paragraph">
 <p>The default value of four partitions should be used unless specified by the architect.</p>
-</li>
-</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_iot_hub_endpoint"><a class="anchor" href="#_iot_hub_endpoint"></a>IoT Hub Endpoint</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
 <p>An endpoint is a service that can retrieve data from other services.</p>
-</li>
-<li>
-<p>Examples of endpoint types:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Device-facing endpoints</strong> that enables devices to perform operations such as sending device-to-cloud messages and receiving cloud-to-device messages.</p>
-</li>
-<li>
-<p><strong>Service-facing management endpoints</strong> that enable back-end apps to perform operations such as device identity management and device twin management.</p>
-</li>
-<li>
-<p><strong>Service facing built-in endpoints</strong> for reading device-to-cloud messages.</p>
-</li>
-<li>
-<p><strong>Custom endpoints</strong> to receive device-to-cloud messages dispatched by a routing rule.</p>
-</li>
-</ul>
 </div>
-</li>
-</ul>
+<div class="paragraph">
+<p>Examples of endpoint types:
+* <strong>Device-facing endpoints</strong> that enables devices to perform operations such as sending device-to-cloud messages and receiving cloud-to-device messages.
+* <strong>Service-facing management endpoints</strong> that enable back-end apps to perform operations such as device identity management and device twin management.
+* <strong>Service facing built-in endpoints</strong> for reading device-to-cloud messages.
+* <strong>Custom endpoints</strong> to receive device-to-cloud messages dispatched by a routing rule.</p>
 </div>
 <div class="sect2">
 <h3 id="_built_in_endpoints"><a class="anchor" href="#_built_in_endpoints"></a>Built-in endpoints</h3>
@@ -847,34 +795,18 @@
 </div>
 <div class="sect2">
 <h3 id="_custom_endpoints"><a class="anchor" href="#_custom_endpoints"></a>Custom endpoints</h3>
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
 <p>These endpoints act as service endpoints and are used as sinks for message routes.</p>
-</li>
-<li>
-<p>Devices cannot write directly to these custom endpoints.</p>
-</li>
-<li>
-<p>The following services are supported as custom endpoints.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Azure Storage containers</p>
-</li>
-<li>
-<p>Event Hubs</p>
-</li>
-<li>
-<p>Service Bus Queues</p>
-</li>
-<li>
-<p>Service Bus Topics</p>
-</li>
-</ul>
 </div>
-</li>
-</ul>
+<div class="paragraph">
+<p>Devices cannot write directly to these custom endpoints.</p>
+</div>
+<div class="paragraph">
+<p>The following services are supported as custom endpoints.
+* Azure Storage containers
+* Event Hubs
+* Service Bus Queues
+* Service Bus Topics</p>
 </div>
 </div>
 </div>
@@ -4703,6 +4635,707 @@ Endpoint
 <p>Check this link to get the details of the <a href="https://learn.microsoft.com/en-us/training/modules/consider-message-processing-options-constraints/4-iot-hub-quotas-throttle">throttles</a></p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_iot_solution_business_integration"><a class="anchor" href="#_iot_solution_business_integration"></a>IoT Solution Business Integration</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_roles_and_responsibilities"><a class="anchor" href="#_roles_and_responsibilities"></a>Roles and responsibilities</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Solution Architects</strong> - Envision and plan the IoT solution.</p>
+</li>
+<li>
+<p><strong>Data Analysts and Engineers</strong> - Process the data generated by the IoT solution</p>
+</li>
+<li>
+<p><strong>IoT hardware manufacturer/integrator</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Manufacturers of IoT hardware, integrators assembling hardware from various manufacturers, or suppliers providing hardware for an IoT deployment manufactured or integrated by other suppliers.</p>
+</li>
+<li>
+<p>Involved in development and integration of firmware, embedded operating systems, and embedded software.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>IoT solution developer</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>The development of an IoT solution is typically done by a solution developer.</p>
+</li>
+<li>
+<p>The IoT solution developer can develop various components of the IoT solution from scratch or integrate various standard or open-source components.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>IoT solution operator</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>After the IoT solution is deployed, it requires long-term operations, monitoring, upgrades, and maintenance.</p>
+</li>
+<li>
+<p>These tasks can be done by an in-house team that consists of information technology specialists, hardware operations and maintenance teams, and domain specialists who monitor the correct behavior of the overall IoT infrastructure.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_downstream_messaging"><a class="anchor" href="#_downstream_messaging"></a>Downstream Messaging</h3>
+<div class="paragraph">
+<p>Azure provides four services that assist IoT hub in delivering event and message data to downstream locations within a solution. These services are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Event Grid</p>
+</li>
+<li>
+<p>Event Hubs</p>
+</li>
+<li>
+<p>Service Bus</p>
+</li>
+<li>
+<p>Azure Storage Queues</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_event_vs_message_services"><a class="anchor" href="#_event_vs_message_services"></a>Event vs. message services</h4>
+<div class="sect4">
+<h5 id="_event"><a class="anchor" href="#_event"></a>Event</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>An event is a lightweight notification of a condition or a state change.</p>
+</li>
+<li>
+<p>The publisher of the event has no expectation about how the event is handled.</p>
+</li>
+<li>
+<p>The consumer of the event decides what to do with the notification.</p>
+</li>
+<li>
+<p>Events can be discrete units or part of a series.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Discrete events report state change and are actionable.</p>
+</li>
+<li>
+<p>To take the next step, the consumer only needs to know that something happened.</p>
+</li>
+<li>
+<p>The event data has information about what happened but doesn&#8217;t have the data that triggered the event.</p>
+</li>
+<li>
+<p>For example, an event notifies consumers that a file was created.</p>
+</li>
+<li>
+<p>It may have general information about the file, but it doesn&#8217;t have the file itself.</p>
+</li>
+<li>
+<p>Discrete events are ideal for serverless solutions that need to scale.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Series events report a condition and are analyzable.</p>
+</li>
+<li>
+<p>The events are time-ordered and interrelated.</p>
+</li>
+<li>
+<p>The consumer needs the sequenced series of events to analyze what happened.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_message"><a class="anchor" href="#_message"></a>Message</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>A message is raw data produced by a service to be consumed or stored elsewhere.</p>
+</li>
+<li>
+<p>The message contains the data that triggered the message pipeline.</p>
+</li>
+<li>
+<p>The publisher of the message has an expectation about how the consumer handles the message.</p>
+</li>
+<li>
+<p>A contract exists between the two sides.</p>
+</li>
+<li>
+<p>For example, the publisher sends a message with the raw data, and expects the consumer to create a file from that data and send a response when the work is done.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_comparison_of_services"><a class="anchor" href="#_comparison_of_services"></a>Comparison of services</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Service</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">When to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event Grid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reactive programming</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event distribution (discrete)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">React to status changes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event Hubs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Big data pipeline</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event streaming (series)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Telemetry and distributed data streaming.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service Bus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">High-value enterprise messaging</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Order processing and financial transactions.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Azure Storage Queues</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Simple, reliable, persistent messaging within and between services</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Very large message stores (over 80 GB), unreliable consumers.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_event_grid"><a class="anchor" href="#_event_grid"></a>Event Grid</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Event Grid is an eventing backplane that enables event-driven, reactive programming.</p>
+</li>
+<li>
+<p>It uses a publish-subscribe model.</p>
+</li>
+<li>
+<p>Publishers emit events, but have no expectation about which events are handled.</p>
+</li>
+<li>
+<p>Subscribers decide which events they want to handle.</p>
+</li>
+<li>
+<p>The event message has the information you need to react to changes in services and applications.</p>
+</li>
+<li>
+<p>Event Grid isn&#8217;t a data pipeline, and doesn&#8217;t deliver the actual object that was updated.</p>
+</li>
+<li>
+<p>Event Grid supports dead-lettering for events that aren&#8217;t delivered to an endpoint.</p>
+</li>
+<li>
+<p>It has the following characteristics:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Dynamically scalable</p>
+</li>
+<li>
+<p>Low cost</p>
+</li>
+<li>
+<p>Serverless</p>
+</li>
+<li>
+<p>At least once delivery</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_event_hubs"><a class="anchor" href="#_event_hubs"></a>Event Hubs</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Azure Event Hubs is a big data pipeline.</p>
+</li>
+<li>
+<p>It facilitates the capture, retention, and replay of telemetry and event stream data.</p>
+</li>
+<li>
+<p>The data can come from many concurrent sources.</p>
+</li>
+<li>
+<p>Event Hubs allows telemetry and event data to be made available to a variety of stream-processing infrastructures and analytics services.</p>
+</li>
+<li>
+<p>It is available either as data streams or bundled event batches.</p>
+</li>
+<li>
+<p>This service provides a single solution that enables rapid data retrieval for real-time processing as well as repeated replay of stored raw data.</p>
+</li>
+<li>
+<p>It can capture the streaming data into a file for processing and analysis.</p>
+</li>
+<li>
+<p>It has the following characteristics:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Low latency</p>
+</li>
+<li>
+<p>Capable of receiving and processing millions of events per second</p>
+</li>
+<li>
+<p>At least once delivery</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_service_bus"><a class="anchor" href="#_service_bus"></a>Service Bus</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Service Bus is intended for traditional enterprise applications.</p>
+</li>
+<li>
+<p>These enterprise applications require transactions, ordering, duplicate detection, and instantaneous consistency.</p>
+</li>
+<li>
+<p>Service Bus enables cloud-native applications to provide reliable state transition management for business processes.</p>
+</li>
+<li>
+<p>When handling high-value messages that cannot be lost or duplicated, use Azure Service Bus.</p>
+</li>
+<li>
+<p>Service Bus also facilitates highly secure communication across hybrid cloud solutions and can connect existing on-premises systems to cloud solutions.</p>
+</li>
+<li>
+<p>Service Bus is a brokered messaging system.</p>
+</li>
+<li>
+<p>It stores messages in a "broker" (for example, a queue) until the consuming party is ready to receive the messages.</p>
+</li>
+<li>
+<p>It has the following characteristics:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reliable asynchronous message delivery (enterprise messaging as a service) that requires polling.</p>
+</li>
+<li>
+<p>Advanced messaging features like FIFO, batching/sessions, transactions, dead-lettering, temporal control, routing and filtering, and duplicate detection</p>
+</li>
+<li>
+<p>At least once delivery</p>
+</li>
+<li>
+<p>Optional in-order delivery</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_azure_storage_queues"><a class="anchor" href="#_azure_storage_queues"></a>Azure Storage queues</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Azure Queue Storage is a service for storing large numbers of messages.</p>
+</li>
+<li>
+<p>You access messages from anywhere in the world via authenticated calls using HTTP or HTTPS. A queue message can be up to 64 KB in size.</p>
+</li>
+<li>
+<p>A queue may contain millions of messages, up to the total capacity limit of a storage account.</p>
+</li>
+<li>
+<p>Queues are commonly used to create a backlog of work to process asynchronously.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_integration_with_event_grid"><a class="anchor" href="#_integration_with_event_grid"></a>Integration with Event Grid</h3>
+<div class="sect3">
+<h4 id="_concepts"><a class="anchor" href="#_concepts"></a>Concepts</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Events</strong> - What happened.</p>
+</li>
+<li>
+<p><strong>Event sources</strong> - Where the event took place.</p>
+</li>
+<li>
+<p><strong>Topics</strong> - The endpoint where publishers send events.</p>
+</li>
+<li>
+<p><strong>Event subscriptions</strong> - The endpoint or built-in mechanism to route events, sometimes to more than one handler. Subscriptions are also used by handlers to intelligently filter incoming events.</p>
+</li>
+<li>
+<p><strong>Event handlers</strong> - The app or service reacting to the event.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_events_definition"><a class="anchor" href="#_events_definition"></a>Events definition</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>An event is the smallest amount of information that fully describes something that happened in the system.</p>
+</li>
+<li>
+<p>Every event has common information like: source of the event, time the event took place, and unique identifier.</p>
+</li>
+<li>
+<p>Every event also has specific information that is only relevant to the specific type of event.</p>
+</li>
+<li>
+<p>For example, an event about a new file being created in Azure Storage has details about the file, such as the lastTimeModified value.</p>
+</li>
+<li>
+<p>Or, an Event Hubs event has the URL of the Capture file.</p>
+</li>
+<li>
+<p>An event of size up to 64 KB is covered by General Availability (GA) Service Level Agreement (SLA).</p>
+</li>
+<li>
+<p>Events over 64 KB are charged in 64-KB increments.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_event_sources_definition"><a class="anchor" href="#_event_sources_definition"></a>Event sources definition</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>An event source is where the event happens.</p>
+</li>
+<li>
+<p>Each event source is related to one or more event types.</p>
+</li>
+<li>
+<p>For example, Azure Storage is the event source for blob created events. IoT Hub is the event source for device created events.</p>
+</li>
+<li>
+<p>Your application is the event source for custom events that you define. Event sources are responsible for sending events to Event Grid.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_topics_definition"><a class="anchor" href="#_topics_definition"></a>Topics definition</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The Event Grid topic provides an endpoint where the source sends events.</p>
+</li>
+<li>
+<p>The publisher creates the Event Grid topic, and decides whether an event source needs one topic or more than one topic.</p>
+</li>
+<li>
+<p>A topic is used for a collection of related events.</p>
+</li>
+<li>
+<p>To respond to certain types of events, subscribers decide which topics to subscribe to.</p>
+</li>
+<li>
+<p>When designing your application, you have flexibility when deciding how many topics to create.</p>
+</li>
+<li>
+<p>For large solutions, create a custom topic for each category of related events.</p>
+</li>
+<li>
+<p>For example, consider an application that sends events related to modifying user accounts and processing orders.</p>
+</li>
+<li>
+<p>It&#8217;s unlikely any event handler wants both categories of events.</p>
+</li>
+<li>
+<p>Create two custom topics and let event handlers subscribe to the one that interests them.</p>
+</li>
+<li>
+<p>For small solutions, you might prefer to send all events to a single topic.</p>
+</li>
+<li>
+<p>Event subscribers can filter for the event types they want.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_event_subscriptions_definition"><a class="anchor" href="#_event_subscriptions_definition"></a>Event subscriptions definition</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>A subscription tells Event Grid which events on a topic you&#8217;re interested in receiving.</p>
+</li>
+<li>
+<p>When creating the subscription, you provide an endpoint for handling the event.</p>
+</li>
+<li>
+<p>You can filter the events that are sent to the endpoint.</p>
+</li>
+<li>
+<p>You can filter by event type, or subject pattern.</p>
+</li>
+<li>
+<p>You can set an expiration for event subscriptions that are only needed for a limited time and when you don&#8217;t want to worry about cleaning up those subscriptions.</p>
+</li>
+<li>
+<p>The event subscription will be expired automatically after the specified date.</p>
+</li>
+<li>
+<p>For example, you might want to set an expiration date when using an event subscription within a test scenario.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_event_handlers_definition"><a class="anchor" href="#_event_handlers_definition"></a>Event handlers definition</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>From an Event Grid perspective, an event handler is the place where the event is sent.</p>
+</li>
+<li>
+<p>The handler takes some further action to process the event. Event Grid supports several handler types.</p>
+</li>
+<li>
+<p>You can use a supported Azure service or your own webhook as the handler.</p>
+</li>
+<li>
+<p>Depending on the type of handler, Event Grid follows different mechanisms to guarantee the delivery of the event.</p>
+</li>
+<li>
+<p>For HTTP webhook event handlers, the event is retried until the handler returns a status code of 200 – OK.</p>
+</li>
+<li>
+<p>For Azure Storage Queue, the events are retried until the Queue service successfully processes the message push into the queue.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_security_2"><a class="anchor" href="#_security_2"></a>Security</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Event Grid provides security for subscribing to topics, and publishing topics.</p>
+</li>
+<li>
+<p>When subscribing, you must have adequate permissions on the resource or Event Grid topic.</p>
+</li>
+<li>
+<p>When publishing, you must have a SAS token or key authentication for the topic.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_event_delivery"><a class="anchor" href="#_event_delivery"></a>Event delivery</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>If Event Grid can&#8217;t confirm that an event has been received by the subscriber&#8217;s endpoint, it redelivers the event.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_batching"><a class="anchor" href="#_batching"></a>Batching</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>When using a custom topic, events must always be published in an array.</p>
+</li>
+<li>
+<p>This can be a batch of one for low-throughput scenarios, however, for high volume use cases, it&#8217;s recommended that you batch several events together per publish to achieve higher efficiency.</p>
+</li>
+<li>
+<p>Batches can be up to 1 MB.</p>
+</li>
+<li>
+<p>Each event should still not be greater than 64 KB (General Availability) or 1 MB (preview).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cost"><a class="anchor" href="#_cost"></a>Cost</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Azure Event Grid uses a pay-per-event pricing model, so you only pay for what you use.</p>
+</li>
+<li>
+<p>The first 100,000 operations per month are free.</p>
+</li>
+<li>
+<p>Operations are defined as event ingress, subscription delivery attempts, management calls, and filtering by subject suffix.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_capabilities"><a class="anchor" href="#_capabilities"></a>Capabilities</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Simplicity - Point and click to aim events from your Azure resource to any event handler or endpoint.</p>
+</li>
+<li>
+<p>Advanced filtering - Filter on event type or event publish path to make sure event handlers only receive relevant events.</p>
+</li>
+<li>
+<p>Fan-out - Subscribe several endpoints to the same event to send copies of the event to as many places as needed.</p>
+</li>
+<li>
+<p>Reliability - 24-hour retry with exponential backoff to make sure events are delivered.</p>
+</li>
+<li>
+<p>Pay-per-event - Pay only for the amount you use Event Grid.</p>
+</li>
+<li>
+<p>High throughput - Build high-volume workloads on Event Grid with support for millions of events per second.</p>
+</li>
+<li>
+<p>Built-in Events - Get up and running quickly with resource-defined built-in events.</p>
+</li>
+<li>
+<p>Custom Events - Use Event Grid route, filter, and reliably deliver custom events in your app.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_iot_hub_event_types_and_schema"><a class="anchor" href="#_iot_hub_event_types_and_schema"></a>IoT Hub Event Types and Schema</h3>
+<div class="paragraph">
+<p>Azure IoT Hub integrates with Azure Event Grid so that you can send event notifications to other services and trigger downstream processes.</p>
+</div>
+<div class="paragraph">
+<p>For example, build an application that updates a database, creates a work ticket, and delivers an email notification every time a new IoT device is registered to your IoT hub.</p>
+</div>
+<div class="sect3">
+<h4 id="_event_types"><a class="anchor" href="#_event_types"></a>Event Types</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Event type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Devices.DeviceCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Published when a device is registered to an IoT hub.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Devices.DeviceDeleted</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Published when a device is deleted from an IoT hub.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Devices.DeviceConnected</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Published when a device is connected to an IoT hub.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Devices.DeviceDisconnected</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Published when a device is disconnected from an IoT hub.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Devices.DeviceTelemetry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Published when a device telemetry message is sent to an IoT hub.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_event_schema"><a class="anchor" href="#_event_schema"></a>Event Schema</h4>
+<div class="paragraph">
+<p>IoT Hub events contain all the information you need to respond to changes in your device lifecycle.</p>
+</div>
+<div class="paragraph">
+<p>You can identify an IoT Hub event by checking that the eventType property starts with Microsoft.Devices.</p>
+</div>
+<div class="sect4">
+<h5 id="_device_connected_schema"><a class="anchor" href="#_device_connected_schema"></a>Device Connected Schema</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[{
+  "id": "f6bbf8f4-d365-520d-a878-17bf7238abd8",
+  "topic": "/SUBSCRIPTIONS/&lt;subscription ID&gt;/RESOURCEGROUPS/&lt;resource group name&gt;/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/&lt;hub name&gt;",
+  "subject": "devices/LogicAppTestDevice",
+  "eventType": "Microsoft.Devices.DeviceConnected",
+  "eventTime": "2018-06-02T19:17:44.4383997Z",
+  "data": {
+      "deviceConnectionStateEventInfo": {
+        "sequenceNumber":
+          "000000000000000001D4132452F67CE200000002000000000000000000000001"
+      },
+    "hubName": "egtesthub1",
+    "deviceId": "LogicAppTestDevice",
+    "moduleId" : "DeviceModuleID",
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_device_connected_schema_2"><a class="anchor" href="#_device_connected_schema_2"></a>Device Connected Schema</h5>
+
+</div>
+</div>
 </div>
 </div>
 </div>
