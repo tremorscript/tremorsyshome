@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>IoT Monitoring and Logging :: Tremorscript</title>
+    <link rel="canonical" href="https://tremorscript.com/studynotes/azure_iot/iotmonitoring.html">
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://tremorscript.com">Tremorscript</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="studynotes" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Study Notes</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Study Notes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../FSharp/overview.html">FSharp Notes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Computation Expressions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/LogBuilder.html">Log Builder</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/MaybeBuilder.html">Maybe Builder</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/OrElseBuilder.html">OrElse Builder</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/IntroducingBind.html">Introducing Bind</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/WrapperTypes.html">Wrapper Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/WorkflowRulesForWrapperTypes.html">Rules for workflows that use wrapper types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/ComputationExpressionComposition.html">Composition of computation expression</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/ListWrapperTypes.html">List Wrapper Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/IdentityWrapperTypes.html">Identity Wrapper Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/DoMethod.html">Do Method</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/YieldMethod.html">Yield Method</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/CombineMethod.html">Combine method</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../FSharp/DelayRunMethod.html">Delay and Run Method</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../Git/overview.html">Git Notes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../Devops/devopsfordevelopers.html">Devops for Asp.Net Core developers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="overview.html">Azure IoT</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="iothub.html">Working With IoT Hub</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="azuredigitaltwins.html">Azure Digital Twins</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="iotmonitoring.html">IoT Monitoring and Logging</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../azure_security_engineer/overview.html">Azure Security Engineer</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../CSharp/overview.html">CSharp Notes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../CSharp/bitwiseoperators.html">Bitwise Operators</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Study Notes</span>
+    <span class="version">default</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../azurearchitecturestarterpack/current/index.html">Azure Architecture Starter Pack</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../azurearchitecturestarterpack/current/index.html">1-beta.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../homesite/current/index.html">Home page</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../homesite/current/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../projectstarterpack/current/inline-text-formatting.html">New Project Starter Pack</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../projectstarterpack/current/inline-text-formatting.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../index.html">Study Notes</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">default</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../homesite/current/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Study Notes</a></li>
+    <li><a href="overview.html">Azure IoT</a></li>
+    <li><a href="iotmonitoring.html">IoT Monitoring and Logging</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/tremorscript/ReferenceGuides/edit/main/docs/modules/azure_iot/pages/iotmonitoring.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">IoT Monitoring and Logging</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_azure_monitor">Azure Monitor</a>
+<ul class="sectlevel2">
+<li><a href="#_overview">Overview</a></li>
+<li><a href="#_what_data_does_azure_monitor_collect">What data does Azure Monitor collect?</a></li>
+<li><a href="#_alerts">Alerts</a></li>
+<li><a href="#_iot_hub_metrics">IoT Hub metrics</a></li>
+<li><a href="#_iot_hub_service_limits">IoT Hub Service Limits</a></li>
+<li><a href="#_resource_logs_and_content">Resource Logs and Content</a></li>
+<li><a href="#_read_logs_from_azure_event_hubs">Read logs from Azure Event Hubs</a></li>
+<li><a href="#_iot_hub_service_health_monitoring">IoT Hub Service Health Monitoring</a></li>
+</ul>
+</li>
+<li><a href="#_device_connection_state_and_lifecycle_notifications">Device Connection State and Lifecycle Notifications</a>
+<ul class="sectlevel2">
+<li><a href="#_device_heartbeat">Device heartbeat</a></li>
+<li><a href="#_device_and_module_lifecycle_notifications">Device and module lifecycle notifications</a></li>
+<li><a href="#_device_identity_properties">Device Identity Properties</a></li>
+<li><a href="#_module_identity_properties">Module Identity Properties</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_azure_monitor"><a class="anchor" href="#_azure_monitor"></a>Azure Monitor</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h3>
+<div class="imageblock">
+<div class="content">
+<img src="https://learn.microsoft.com/en-us/training/wwl-azure/examine-azure-iot-solution-monitoring-logging/media/m09-l01-monitoring-logging-azure-monitor-overview-7616d1b6.png" alt="m09 l01 monitoring logging azure monitor overview 7616d1b6">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The above diagram gives a high-level view of Azure Monitor.</p>
+</li>
+<li>
+<p>At the center of the diagram are the data stores for metrics and logs, which are the two fundamental types of data used by Azure Monitor.</p>
+</li>
+<li>
+<p>On the left are the sources of monitoring data that populate these data stores.</p>
+</li>
+<li>
+<p>On the right are the different functions that Azure Monitor performs with this collected data such as analysis, alerting, and streaming to external systems.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_what_data_does_azure_monitor_collect"><a class="anchor" href="#_what_data_does_azure_monitor_collect"></a>What data does Azure Monitor collect?</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Application monitoring data</strong>: Data about the performance and functionality of the code you have written, regardless of its platform.</p>
+</li>
+<li>
+<p><strong>Guest OS monitoring data</strong>: Data about the operating system on which your application is running. This OS could be running in Azure, another cloud, or on-premises.</p>
+</li>
+<li>
+<p><strong>Azure resource monitoring data</strong>: Data about the operation of an Azure resource.</p>
+</li>
+<li>
+<p><strong>Azure subscription monitoring data</strong>: Data about the operation and management of an Azure subscription, as well as data about the health and operation of Azure itself.</p>
+</li>
+<li>
+<p><strong>Azure tenant monitoring data</strong>: Data about the operation of tenant-level Azure services, such as Azure Active Directory.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>As soon as you create an Azure subscription and start adding resources such as virtual machines and web apps, Azure Monitor starts collecting data.</p>
+</li>
+<li>
+<p>Activity logs record when resources are created or modified.</p>
+</li>
+<li>
+<p>Metrics tell you how the resource is performing and the resources that it&#8217;s consuming.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_alerts"><a class="anchor" href="#_alerts"></a>Alerts</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Alerts in Azure Monitor proactively notify you of critical conditions and potentially attempt to take corrective action.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The diagram below represents the flow of alerts.</p>
+</div>
+<div class="paragraph">
+<p>image::https://learn.microsoft.com/en-us/training/wwl-azure/examine-azure-iot-solution-monitoring-logging/media/m09-l01-monitoring-logging-alerts-flow-52464b0e.png[]</p>
+</div>
+<div class="paragraph">
+<p>Alert rules are separated from alerts and the actions taken when an alert fires.</p>
+</div>
+<div class="paragraph">
+<p>The alert rule captures the target and criteria for alerting.</p>
+</div>
+<div class="paragraph">
+<p>The alert rule can be in an enabled or a disabled state.</p>
+</div>
+<div class="paragraph">
+<p>Alerts only fire when enabled.</p>
+</div>
+<div class="paragraph">
+<p>The following are key attributes of an alert rule:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Target Resource</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Defines the scope and signals available for alerting.</p>
+</li>
+<li>
+<p>A target can be any Azure resource.</p>
+</li>
+<li>
+<p>Example targets: a virtual machine, a storage account, a virtual machine scale set, a Log Analytics workspace, or an Application Insights resource</p>
+</li>
+<li>
+<p>For certain resources (like virtual machines), you can specify multiple resources as the target of the alert rule.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Signal</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Emitted by the target resource.</p>
+</li>
+<li>
+<p>Signals can be of the following types: metric, activity log, Application Insights, and log.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Criteria</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A combination of signal and logic applied on a target resource. Examples:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Percentage CPU &gt; 70%</p>
+</li>
+<li>
+<p>Server Response Time &gt; 4 ms</p>
+</li>
+<li>
+<p>Result count of a log query &gt; 100</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alert Name</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A specific name for the alert rule configured by the user.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alert Description</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A description for the alert rule configured by the user.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Severity</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The severity of the alert after the criteria specified in the alert rule is met. Severity can range from 0 to 4.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Sev 0 = Critical</p>
+</li>
+<li>
+<p>Sev 1 = Error</p>
+</li>
+<li>
+<p>Sev 2 = Warning</p>
+</li>
+<li>
+<p>Sev 3 = Informational</p>
+</li>
+<li>
+<p>Sev 4 = Verbose</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Action</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A specific action taken when the alert is fired.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_iot_hub_metrics"><a class="anchor" href="#_iot_hub_metrics"></a>IoT Hub metrics</h3>
+<div class="paragraph">
+<p><a href="https://learn.microsoft.com/en-us/training/modules/examine-azure-iot-solution-monitoring-logging/3-iot-hub-metrics" class="bare">https://learn.microsoft.com/en-us/training/modules/examine-azure-iot-solution-monitoring-logging/3-iot-hub-metrics</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_iot_hub_service_limits"><a class="anchor" href="#_iot_hub_service_limits"></a>IoT Hub Service Limits</h3>
+<div class="paragraph">
+<p><a href="https://learn.microsoft.com/en-us/training/modules/examine-azure-iot-solution-monitoring-logging/6-quotas-throttling" class="bare">https://learn.microsoft.com/en-us/training/modules/examine-azure-iot-solution-monitoring-logging/6-quotas-throttling</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_resource_logs_and_content"><a class="anchor" href="#_resource_logs_and_content"></a>Resource Logs and Content</h3>
+<div class="paragraph">
+<p>You can send the resource logs that Azure Monitor generates to Azure Monitor logs, Event Hubs, or Azure Storage for custom processing.</p>
+</div>
+<div class="paragraph">
+<p>Choose where you want to send the logs. You can select any combination of the three options:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Archive to a storage account</p>
+</li>
+<li>
+<p>Stream to an Event Hubs</p>
+</li>
+<li>
+<p>Send to Log Analytics</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Azure Monitor tracks different operations that occur in IoT Hub.</p>
+</div>
+<div class="paragraph">
+<p>Each category has a schema that defines how events in that category are reported.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Connections</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The connections category tracks device connect and disconnect events from an IoT hub and errors.</p>
+</li>
+<li>
+<p>This category is useful for identifying unauthorized connection attempts and/or alerting you when the connection to devices is lost.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "records":
+  [
+        {
+            "time": " UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "deviceConnect",
+            "category": "Connections",
+            "level": "Information",
+            "properties": "{\"deviceId\":\"&lt;deviceId&gt;\",\"protocol\":\"&lt;protocol&gt;\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"&lt;maskedIpAddress&gt;\"}",
+            "location": "Resource location"
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cloud-to-device commands</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The cloud-to-device commands category tracks errors that occur at the IoT hub and are related to the cloud-to-device message pipeline.</p>
+</li>
+<li>
+<p>This category includes errors that occur from:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Sending cloud-to-device messages (like unauthorized sender errors).</p>
+</li>
+<li>
+<p>Receiving cloud-to-device messages (like delivery count exceeded errors).</p>
+</li>
+<li>
+<p>Receiving cloud-to-device message feedback (like feedback expired errors).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>This category does not catch errors when the cloud-to-device message is delivered successfully but then improperly handled by the device.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "records":
+    [
+        {
+            "time": " UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "messageExpired",
+            "category": "C2DCommands",
+            "level": "Error",
+            "resultType": "Event status",
+            "resultDescription": "MessageDescription",
+            "properties": "{\"deviceId\":\"&lt;deviceId&gt;\",\"messageId\":\"&lt;messageId&gt;\",\"messageSizeInBytes\":\"&lt;messageSize&gt;\",\"protocol\":\"Amqp\",\"deliveryAcknowledgement\":\"&lt;None, NegativeOnly, PositiveOnly, Full&gt;\",\"deliveryCount\":\"0\",\"expiryTime\":\"&lt;timestamp&gt;\",\"timeInSystem\":\"&lt;timeInSystem&gt;\",\"ttl\":&lt;ttl&gt;, \"EventProcessedUtcTime\":\"&lt;UTC timestamp&gt;\",\"EventEnqueuedUtcTime\":\"&lt;UTC timestamp&gt;\", \"maskedIpAddress\": \"&lt;maskedIpAddress&gt;\", \"statusCode\": \"4XX\"}",
+            "location": "Resource location"
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Device identity operations</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The device identity operations category tracks errors that occur when you attempt to create, update, or delete an entry in your IoT hub&#8217;s identity registry.</p>
+</li>
+<li>
+<p>Tracking this category is useful for provisioning scenarios.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "records":
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "get",
+            "category": "DeviceIdentityOperations",
+            "level": "Error",
+            "resultType": "Event status",
+            "resultDescription": "MessageDescription",
+            "properties": "{\"maskedIpAddress\":\"&lt;maskedIpAddress&gt;\",\"deviceId\":\"&lt;deviceId&gt;\", \"statusCode\":\"4XX\"}",
+            "location": "Resource location"
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Routes</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The message routing category tracks errors that occur during message route evaluation and endpoint health as perceived by IoT Hub.</p>
+</li>
+<li>
+<p>This category includes events such as:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A rule evaluates to "undefined".</p>
+</li>
+<li>
+<p>IoT Hub marks an endpoint as dead.</p>
+</li>
+<li>
+<p>Any errors received from an endpoint.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>This category does not include specific errors about the messages themselves (like device throttling errors), which are reported under the "device telemetry" category.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "records":
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "endpointUnhealthy",
+            "category": "Routes",
+            "level": "Error",
+            "properties": "{\"deviceId\": \"&lt;deviceId&gt;\",\"endpointName\":\"&lt;endpointName&gt;\",\"messageId\":&lt;messageId&gt;,\"details\":\"&lt;errorDetails&gt;\",\"routeName\": \"&lt;routeName&gt;\"}",
+            "location": "Resource location"
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Device Telemetry</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The device telemetry category tracks errors that occur at the IoT hub and are related to the telemetry pipeline.</p>
+</li>
+<li>
+<p>This category includes errors that occur when sending telemetry events (such as throttling) and receiving telemetry events (such as unauthorized reader).</p>
+</li>
+<li>
+<p>This category cannot catch errors caused by code running on the device itself.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "records":
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "ingress",
+            "category": "DeviceTelemetry",
+            "level": "Error",
+            "resultType": "Event status",
+            "resultDescription": "MessageDescription",
+            "properties": "{\"deviceId\":\"&lt;deviceId&gt;\",\"batching\":\"0\",\"messageSizeInBytes\":\"&lt;messageSizeInBytes&gt;\",\"EventProcessedUtcTime\":\"&lt;UTC timestamp&gt;\",\"EventEnqueuedUtcTime\":\"&lt;UTC timestamp&gt;\",\"partitionId\":\"1\"}",
+            "location": "Resource location"
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>File upload operations</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The file upload category tracks errors that occur at the IoT hub and are related to file upload functionality.</p>
+</li>
+<li>
+<p>This category includes:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Errors that occur with the SAS URI, such as when it expires before a device notifies the hub of a completed upload.</p>
+</li>
+<li>
+<p>Failed uploads reported by the device.</p>
+</li>
+<li>
+<p>Errors that occur when a file is not found in storage during IoT Hub notification message creation.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>This category cannot catch errors that directly occur while the device is uploading a file to storage.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "records":
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "ingress",
+            "category": "FileUploadOperations",
+            "level": "Error",
+            "resultType": "Event status",
+            "resultDescription": "MessageDescription",
+            "durationMs": "1",
+            "properties": "{\"deviceId\":\"&lt;deviceId&gt;\",\"protocol\":\"&lt;protocol&gt;\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"blobUri\":\"http//bloburi.com\"}",
+            "location": "Resource location"
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cloud-to-device twin operations</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The cloud-to-device twin operations category tracks service-initiated events on device twins.</p>
+</li>
+<li>
+<p>These operations can include get twin, update or replace tags, and update or replace desired properties.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "records":
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "read",
+            "category": "C2DTwinOperations",
+            "level": "Information",
+            "durationMs": "1",
+            "properties": "{\"deviceId\":\"&lt;deviceId&gt;\",\"sdkVersion\":\"&lt;sdkVersion&gt;\",\"messageSize\":\"&lt;messageSize&gt;\"}",
+            "location": "Resource location"
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Device-to-cloud twin operations</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The device-to-cloud twin operations category tracks device-initiated events on device twins.</p>
+</li>
+<li>
+<p>These operations can include get twin, update reported properties, and subscribe to desired properties.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "records":
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "update",
+            "category": "D2CTwinOperations",
+            "level": "Information",
+            "durationMs": "1",
+            "properties": "{\"deviceId\":\"&lt;deviceId&gt;\",\"protocol\":\"&lt;protocol&gt;\",\"authenticationType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\"}",
+            "location": "Resource location"
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Twin queries</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The twin queries category reports on query requests for device twins that are initiated in the cloud.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "records":
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "query",
+            "category": "TwinQueries",
+            "level": "Information",
+            "durationMs": "1",
+            "properties": "{\"query\":\"&lt;twin query&gt;\",\"sdkVersion\":\"&lt;sdkVersion&gt;\",\"messageSize\":\"&lt;messageSize&gt;\",\"pageSize\":\"&lt;pageSize&gt;\", \"continuation\":\"&lt;true, false&gt;\", \"resultSize\":\"&lt;resultSize&gt;\"}",
+            "location": "Resource location"
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Jobs operations</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The jobs operations category reports on job requests to update device twins or invoke direct methods on multiple devices.</p>
+</li>
+<li>
+<p>These requests are initiated in the cloud.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "records":
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "jobCompleted",
+            "category": "JobsOperations",
+            "level": "Information",
+            "durationMs": "1",
+            "properties": "{\"jobId\":\"&lt;jobId&gt;\", \"sdkVersion\": \"&lt;sdkVersion&gt;\",\"messageSize\": &lt;messageSize&gt;,\"filter\":\"DeviceId IN ['1414ded9-b445-414d-89b9-e48e8c6285d5']\",\"startTimeUtc\":\"Wednesday, September 13, 2017\",\"duration\":\"0\"}",
+            "location": "Resource location"
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Direct methods</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The direct methods category tracks request-response interactions sent to individual devices.</p>
+</li>
+<li>
+<p>These requests are initiated in the cloud.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "records":
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "send",
+            "category": "DirectMethods",
+            "level": "Information",
+            "durationMs": "1",
+            "properties": "{\"deviceId\":&lt;messageSize&gt;, \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}",
+            "location": "Resource location"
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_read_logs_from_azure_event_hubs"><a class="anchor" href="#_read_logs_from_azure_event_hubs"></a>Read logs from Azure Event Hubs</h3>
+<div class="paragraph">
+<p>After you set up event logging through diagnostics settings, you can create applications that read out the logs so that you can take action based on the information in them.</p>
+</div>
+<div class="paragraph">
+<p>This sample code retrieves logs from an Event Hubs:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-csharp hljs" data-lang="csharp">class Program
+{
+    static string connectionString = "{your AMS eventhub endpoint connection string}";
+    static string monitoringEndpointName = "{your AMS Event Hubs endpoint name}";
+    static EventHubClient eventHubClient;
+    //This is the Diagnostic Settings schema
+    class AzureMonitorDiagnosticLog
+    {
+        string time { get; set; }
+        string resourceId { get; set; }
+        string operationName { get; set; }
+        string category { get; set; }
+        string level { get; set; }
+        string resultType { get; set; }
+        string resultDescription { get; set; }
+        string durationMs { get; set; }
+        string callerIpAddress { get; set; }
+        string correlationId { get; set; }
+        string identity { get; set; }
+        string location { get; set; }
+        Dictionary&lt;string, string&gt; properties { get; set; }
+    };
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Monitoring. Press Enter key to exit.\n");
+        eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, monitoringEndpointName);
+        var d2cPartitions = eventHubClient.GetRuntimeInformationAsync().PartitionIds;
+        CancellationTokenSource cts = new CancellationTokenSource();
+        var tasks = new List&lt;Task&gt;();
+        foreach (string partition in d2cPartitions)
+        {
+            tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token));
+        }
+        Console.ReadLine();
+        Console.WriteLine("Exiting...");
+        cts.Cancel();
+        Task.WaitAll(tasks.ToArray());
+    }
+
+    private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct)
+    {
+        var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow);
+        while (true)
+        {
+            if (ct.IsCancellationRequested)
+            {
+                await eventHubReceiver.CloseAsync();
+                break;
+            }
+            EventData eventData = await eventHubReceiver.ReceiveAsync(new TimeSpan(0,0,10));
+            if (eventData != null)
+            {
+                string data = Encoding.UTF8.GetString(eventData.GetBytes());
+                Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data);
+                var deserializer = new JavaScriptSerializer();
+                //deserialize json data to azure monitor object
+                AzureMonitorDiagnosticLog message = new JavaScriptSerializer().Deserialize&lt;AzureMonitorDiagnosticLog&gt;(result);
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_iot_hub_service_health_monitoring"><a class="anchor" href="#_iot_hub_service_health_monitoring"></a>IoT Hub Service Health Monitoring</h3>
+<div class="paragraph">
+<p>Use Azure Resource Health to monitor whether your IoT hub is up and running.</p>
+</div>
+<div class="paragraph">
+<p>You can also learn whether a regional outage is impacting the health of your IoT hub.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_device_connection_state_and_lifecycle_notifications"><a class="anchor" href="#_device_connection_state_and_lifecycle_notifications"></a>Device Connection State and Lifecycle Notifications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Device events enable you to keep your solution healthy.</p>
+</div>
+<div class="sect2">
+<h3 id="_device_heartbeat"><a class="anchor" href="#_device_heartbeat"></a>Device heartbeat</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Knowing whether a device is connected at a particular moment is not as easy as you may think.</p>
+</li>
+<li>
+<p>Continuously testing the connection would be a waste of resources and in some cases, such as low power devices that enter a sleep mode for extended intervals, could be impossible.</p>
+</li>
+<li>
+<p>The IoT Hub identity registry contains a field called <strong>connectionState</strong>, but IoT solutions should not query this field at run time.</p>
+</li>
+<li>
+<p>Only use the connectionState field during development and debugging.</p>
+</li>
+<li>
+<p>For example, do not query the <strong>connectionState</strong> field to check if a device is connected before you send a cloud-to-device message or an SMS.</p>
+</li>
+<li>
+<p>We recommend subscribing to the device disconnected event on Event Grid to get alerts and monitor the device connection state.</p>
+</li>
+<li>
+<p>If your IoT solution needs to know if a device is connected, you can implement the <em>heartbeat</em> pattern.</p>
+</li>
+<li>
+<p>In the heartbeat pattern, the device sends device-to-cloud messages at least once every fixed amount of time (for example, at least once every hour)</p>
+</li>
+<li>
+<p>When this pattern is implemented, even if a device does not have any data to send, it still sends an empty device-to-cloud message (usually with a property that identifies it as a heartbeat).</p>
+</li>
+<li>
+<p>On the service side, the solution maintains a map with the last heartbeat received for each device.</p>
+</li>
+<li>
+<p>If the solution does not receive a heartbeat message within the expected time from the device, it assumes that there is a problem with the device.</p>
+</li>
+<li>
+<p>A more complex implementation could include the information from Azure Monitor and Azure Resource Health to identify devices that are trying to connect or communicate but failing.</p>
+</li>
+<li>
+<p>When you implement the heartbeat pattern, make sure to check IoT Hub Quotas and Throttles.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_device_and_module_lifecycle_notifications"><a class="anchor" href="#_device_and_module_lifecycle_notifications"></a>Device and module lifecycle notifications</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>IoT Hub can notify your IoT solution when an identity is created or deleted by sending lifecycle notifications.</p>
+</li>
+<li>
+<p>To do so, your IoT solution needs to create a route and to set the Data Source equal to <strong>DeviceLifecycleEvents</strong> or <strong>ModuleLifecycleEvents</strong>.</p>
+</li>
+<li>
+<p>By default, no lifecycle notifications are sent, that is, no such routes pre-exist.</p>
+</li>
+<li>
+<p>The notification message includes properties, and body.</p>
+</li>
+<li>
+<p>Properties: Message system properties are prefixed with the /$ symbol.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Notification message for device:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$content-type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">application/json</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$iothub-enqueuedtime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Time when the notification was sent.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$iothub-message-source</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">deviceLifecycleEvents</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$content-encoding</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">utf-8</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">opType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">createDeviceIdentity or deleteDeviceIdentity</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hubName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of IoT Hub</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">deviceId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID of the device</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">operationTimestamp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ISO8601 timestamp of operation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">iothub-message-schema</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">deviceLifecycleNotification</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p>Body: This section is in JSON format and represents the twin of the created device identity. For example,</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "deviceId":"11576-ailn-test-0-67333793211",
+    "etag":"AAAAAAAAAAE=",
+    "properties": {
+        "desired": {
+            "$metadata": {
+                "$lastUpdated": "2016-02-30T16:24:48.789Z"
+            },
+            "$version": 1
+        },
+        "reported": {
+            "$metadata": {
+                "$lastUpdated": "2016-02-30T16:24:48.789Z"
+            },
+            "$version": 1
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_device_identity_properties"><a class="anchor" href="#_device_identity_properties"></a>Device Identity Properties</h3>
+<div class="paragraph">
+<p>Device identities are represented as JSON documents with the following properties:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Options</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">deviceId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">required, read-only on updates</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus certain special characters: - . + % _ # * ? ! ( ) , = @ $ '</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generationId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">required, read-only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An IoT hub-generated, case-sensitive string up to 128 characters long. This value is used to distinguish devices with the same deviceId, when they have been deleted and re-created.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">etag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">required, read-only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A string representing a weak ETag for the device identity, as per RFC7232.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">auth</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">optional</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A composite object containing authentication information and security materials.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">auth.symkey</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">optional</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A composite object containing a primary and a secondary key, stored in base64 format.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">required</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An access indicator. Can be Enabled or Disabled. If Enabled, the device is allowed to connect. If Disabled, this device cannot access any device-facing endpoint.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">statusReason</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">optional</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A 128 character-long string that stores the reason for the device identity status. All UTF-8 characters are allowed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">statusUpdateTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read-only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A temporal indicator, showing the date and time of the last status update.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">connectionState</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read-only</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>A field indicating connection status: either Connected or Disconnected.</p>
+</li>
+<li>
+<p>This field represents the IoT Hub view of the device connection status.</p>
+</li>
+<li>
+<p><em>Important</em>: This field should be used only for development/debugging purposes.</p>
+</li>
+<li>
+<p>The connection state is updated only for devices using MQTT or AMQP.</p>
+</li>
+<li>
+<p>Also, it is based on protocol-level pings (MQTT pings, or AMQP pings), and it can have a maximum delay of only 5 minutes.</p>
+</li>
+<li>
+<p>For these reasons, there can be false positives, such as devices reported as connected but that are disconnected.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">connectionStateUpdatedTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read-only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A temporal indicator, showing the date and last time the connection state was updated.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lastActivityTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read-only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A temporal indicator, showing the date and last time the device connected, received, or sent a message.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_module_identity_properties"><a class="anchor" href="#_module_identity_properties"></a>Module Identity Properties</h3>
+<div class="paragraph">
+<p>Module identities are represented as JSON documents with the following properties:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Options</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">deviceId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">required, read-only on updates</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus certain special characters: - . + % _ # * ? ! ( ) , = @ $ '</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">moduleId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">required, read-only on updates</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus certain special characters: - . + % _ # * ? ! ( ) , = @ $ '</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generationId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">required, read-only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An IoT hub-generated, case-sensitive string up to 128 characters long. This value is used to distinguish devices with the same deviceId, when they have been deleted and re-created.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">etag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">required, read-only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A string representing a weak ETag for the device identity, as per RFC7232</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">auth</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">optional</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A composite object containing authentication information and security materials.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">auth.symkey</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">optional</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A composite object containing a primary and a secondary key, stored in base64 format.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">required</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An access indicator. Can be Enabled or Disabled. If Enabled, the device is allowed to connect. If Disabled, this device cannot access any device-facing endpoint.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">statusReason</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">optional</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A 128 character-long string that stores the reason for the device identity status. All UTF-8 characters are allowed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">statusUpdateTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read-only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A temporal indicator, showing the date and time of the last status update.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">connectionState</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read-only</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>A field indicating connection status: either Connected or Disconnected.</p>
+</li>
+<li>
+<p>This field represents the IoT Hub view of the device connection status.</p>
+</li>
+<li>
+<p><em>Important</em>: This field should be used only for development/debugging purposes.</p>
+</li>
+<li>
+<p>The connection state is updated only for devices using MQTT or AMQP.</p>
+</li>
+<li>
+<p>Also, it is based on protocol-level pings (MQTT pings, or AMQP pings), and it can have a maximum delay of only 5 minutes.</p>
+</li>
+<li>
+<p>For these reasons, there can be false positives, such as devices reported as connected but that are disconnected.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">connectionStateUpdatedTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read-only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A temporal indicator, showing the date and last time the connection state was updated.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lastActivityTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read-only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A temporal indicator, showing the date and last time the device connected, received, or sent a message.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Currently the device SDKs do not support using the \+ and \# characters in the <strong>deviceId</strong> and <strong>moduleId</strong>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>
