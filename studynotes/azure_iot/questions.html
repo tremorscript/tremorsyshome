@@ -1068,19 +1068,15 @@ It is the <code>"/</code> register.</p>
 <li>
 <p><em>What happens when you add the line <code>clipboard+=unnamedplus</code> to your vimrc?</em></p>
 <p>In this case, the content you change, delete, or yank will go directly in the unnamed register and the <code>+</code> register.</p>
-</li>
-</ol>
-</div>
 <div class="paragraph">
 <p>Using the put commands will directly output the <code>+</code> register too.</p>
 </div>
 <div class="paragraph">
 <p>Many find it useful to access the OS clipboard more easily, without the need to specify the <code>+</code> register for reading and writing it.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">How can you append to your macro recording?</dt>
-<dd>
+</li>
+<li>
+<p><em>How can you append to your macro recording?</em></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1103,17 +1099,17 @@ It is the <code>"/</code> register.</p>
 </li>
 </ol>
 </div>
-</dd>
-<dt class="hdlist1">How can you paste or use the content of a register in INSERT mode or COMMAND LINE mode?</dt>
-<dd>
+</li>
+<li>
+<p><em>How can you paste or use the content of a register in INSERT mode or COMMAND LINE mode?</em></p>
 <p><code>Ctrl+R&lt;reg&gt;</code> to put the content of <code>&lt;reg&gt;</code> in your current buffer.</p>
-</dd>
-<dt class="hdlist1">What is an expression register?</dt>
-<dd>
+</li>
+<li>
+<p><em>What is an expression register?</em></p>
 <p>It can evaluate custom functions that you have defined while staying in insert mode.</p>
-</dd>
-<dt class="hdlist1">Give an example of how you can use an expression register?</dt>
-<dd>
+</li>
+<li>
+<p><em>Give an example of how you can use an expression register?</em></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1133,24 +1129,24 @@ It is the <code>"/</code> register.</p>
 </li>
 </ol>
 </div>
-</dd>
-<dt class="hdlist1">How can you clear a register?</dt>
-<dd>
+</li>
+<li>
+<p><em>How can you clear a register?</em></p>
 <p><code>qaq</code><br>
 Beginning a recording also deletes everything which is in this register.<br>
 So you need to just stop the recording by hitting q again to have an empty register.</p>
-</dd>
-<dt class="hdlist1">What is a substitution?</dt>
-<dd>
+</li>
+<li>
+<p><em>What is a substitution?</em></p>
 <p>A substitution is a way to replace some content with some other content, using a range and a count.<br>
 The count will decide how many lines is affected by your substitution from the last line of your range.</p>
-</dd>
-<dt class="hdlist1">What is the default range of a substitution command?</dt>
-<dd>
+</li>
+<li>
+<p><em>What is the default range of a substitution command?</em></p>
 <p>The default range is the current line if you do not specify it.</p>
-</dd>
-<dt class="hdlist1">What is the pattern of the substitution command?</dt>
-<dd>
+</li>
+<li>
+<p><em>What is the pattern of the substitution command?</em></p>
 <p><code>:s/pattern/replacement/flags</code></p>
 <div class="ulist">
 <ul>
@@ -1165,12 +1161,12 @@ The count will decide how many lines is affected by your substitution from the l
 </li>
 </ul>
 </div>
-</dd>
-<dt class="hdlist1">Is the <strong>replacement</strong> mandatory in a substitution command?</dt>
-<dd>
+</li>
+<li>
+<p><em>Is the <strong>replacement</strong> mandatory in a substitution command?</em></p>
 <p>No, if you omit it, the substitute command will delete the pattern matched.</p>
-</dd>
-</dl>
+</li>
+</ol>
 </div>
 </article>
   </div>
