@@ -337,24 +337,32 @@
 <li>
 <p><code>%</code> will move to the matching bracket when the cursor is already on the bracket.</p>
 </li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
 <li>
-<p><code>f&lt;character&gt;</code> will find a character after your cursor.</p>
+<p><code>f&lt;character&gt;</code> will find a character after your cursor on the current line.</p>
 </li>
 <li>
-<p><code>F&lt;character&gt;</code> will find a character before your cursor.</p>
+<p><code>F&lt;character&gt;</code> will find a character before your cursor on the current line.</p>
 </li>
 <li>
-<p><code>t&lt;character&gt;</code> will move to a character after your cursor.</p>
+<p><code>t&lt;character&gt;</code> will move to a character after your cursor on the current line.</p>
 </li>
 <li>
-<p><code>T&lt;character&gt;</code> will move to a character before your cursor.</p>
+<p><code>T&lt;character&gt;</code> will move to a character before your cursor on the current line.</p>
 </li>
 <li>
-<p><code>;</code> will move on the character to go forward.</p>
+<p><code>;</code> will move on the character to go forward on the current line.</p>
 </li>
 <li>
-<p><code>,</code> will move on the character to go backward.</p>
+<p><code>,</code> will move on the character to go backward on the current line.</p>
 </li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><code>&lt;line_number&gt;G</code> will move the cursor to the beginning of the arbitrary line.</p>
 <div class="ulist">
@@ -371,6 +379,10 @@
 <li>
 <p><code>1G</code> or <code>gg</code> will move the cursor to the first line of the file.</p>
 </li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><code>Ctrl+e</code> will scroll the window downwards.</p>
 </li>
@@ -448,13 +460,13 @@
 <p><code>:set &lt;option&gt;?</code> - Return the option&#8217;s value.</p>
 </li>
 <li>
-<p><code>:set &lt;option&gt; = &lt;value&gt;</code> - Set a <code>&lt;value</code> (string or number).</p>
+<p><code>:set &lt;option&gt; = &lt;value&gt;</code> - Set a <code>&lt;value&gt;</code> (string or number).</p>
 </li>
 <li>
-<p><code>:set &lt;option&gt;+=&lt;value&gt;</code> - Add the value <code>&lt;value</code> for a number option, append a string <code>&lt;value</code> for a string option.</p>
+<p><code>:set &lt;option&gt;+=&lt;value&gt;</code> - Add the value <code>&lt;value&gt;</code> for a number option, append a string <code>&lt;value&gt;</code> for a string option.</p>
 </li>
 <li>
-<p><code>:set &lt;option&gt;-=&lt;value&gt;</code> - Subtract the value <code>&lt;value</code> for a number option, delete the string <code>&lt;value&gt;</code> for a string option.</p>
+<p><code>:set &lt;option&gt;-=&lt;value&gt;</code> - Subtract the value <code>&lt;value&gt;</code> for a number option, delete the string <code>&lt;value&gt;</code> for a string option.</p>
 </li>
 <li>
 <p><code>:set &lt;option&gt;&amp;</code> - Reset the option to its default value.</p>
@@ -462,9 +474,17 @@
 <li>
 <p><code>:set filetype?</code> - display the filetype of the current open file.</p>
 </li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p>Drop the prefix <code>:</code> to set these options in your vimrc file.</p>
 </li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><code>:help options</code> - displays the help file for options</p>
 </li>
@@ -488,7 +508,8 @@
 </li>
 <li>
 <p>It can have three different states.</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p>active - The buffer is displayed in the window.</p>
 </li>
@@ -497,6 +518,9 @@
 </li>
 <li>
 <p>inactive - The buffer is not displayed and empty. It is not linked to any file.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -510,7 +534,7 @@
 <p>The buffer id.</p>
 </li>
 <li>
-<p>Indicators. <code>a</code> for active. <code>h</code> for hidden. (space) for inactive.</p>
+<p>Indicators - <code>a</code> for active. <code>h</code> for hidden. <code>(space)</code> for inactive.</p>
 </li>
 <li>
 <p>The name of the buffer. It can be the filepath of the file linked to the buffer.</p>
@@ -587,6 +611,10 @@
 <li>
 <p><code>%bdelete</code> - Delete all buffers.</p>
 </li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><code>:help buffers</code> - displays the help file for buffers</p>
 </li>
@@ -602,6 +630,7 @@
 <h2 id="_windows"><a class="anchor" href="#_windows"></a>Windows</h2>
 <div class="sectionbody">
 <div class="ulist">
+<div class="title">Concept</div>
 <ul>
 <li>
 <p>A window is a space you can use to display the contents of a buffer.</p>
@@ -615,6 +644,7 @@
 </ul>
 </div>
 <div class="ulist">
+<div class="title">Commands</div>
 <ul>
 <li>
 <p><code>Ctrl+W s</code> - Split the current window horizontally.</p>
