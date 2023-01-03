@@ -230,6 +230,7 @@
 <h2 id="_moving_between_modes"><a class="anchor" href="#_moving_between_modes"></a>Moving between modes</h2>
 <div class="sectionbody">
 <div class="ulist">
+<div class="title">Key Mappings</div>
 <ul>
 <li>
 <p><code>Ctrl+c</code> or <code>Ctrl+[</code> or <code>Esc</code> to exit from insert mode or visual mode to normal mode.</p>
@@ -248,6 +249,7 @@
 <h2 id="_working_with_the_buffer_window"><a class="anchor" href="#_working_with_the_buffer_window"></a>Working with the buffer window</h2>
 <div class="sectionbody">
 <div class="ulist">
+<div class="title">Commands</div>
 <ul>
 <li>
 <p><code>:help</code> to open Vim&#8217;s help.</p>
@@ -275,6 +277,7 @@
 <h2 id="_searching"><a class="anchor" href="#_searching"></a>Searching</h2>
 <div class="sectionbody">
 <div class="ulist">
+<div class="title">Key Mappings</div>
 <ul>
 <li>
 <p><code>/</code> for searching.</p>
@@ -285,10 +288,6 @@
 <li>
 <p><code>N</code> for the previous found occurence.</p>
 </li>
-</ul>
-</div>
-<div class="ulist">
-<ul>
 <li>
 <p><code>*</code> in normal mode searches the word under the cursor forwards.</p>
 </li>
@@ -303,6 +302,7 @@
 <h2 id="_undo_redo"><a class="anchor" href="#_undo_redo"></a>Undo-Redo</h2>
 <div class="sectionbody">
 <div class="ulist">
+<div class="title">Key Mappings</div>
 <ul>
 <li>
 <p><code>u</code> will undo your last edit.</p>
@@ -318,6 +318,7 @@
 <h2 id="_cursor_movement"><a class="anchor" href="#_cursor_movement"></a>Cursor movement</h2>
 <div class="sectionbody">
 <div class="ulist">
+<div class="title">Basic movements</div>
 <ul>
 <li>
 <p><code>w</code> will move forward to the next word.</p>
@@ -340,6 +341,7 @@
 </ul>
 </div>
 <div class="ulist">
+<div class="title">Find character inline</div>
 <ul>
 <li>
 <p><code>f&lt;character&gt;</code> will find a character after your cursor on the current line.</p>
@@ -362,6 +364,7 @@
 </ul>
 </div>
 <div class="ulist">
+<div class="title">Jump movement</div>
 <ul>
 <li>
 <p><code>&lt;line_number&gt;G</code> will move the cursor to the beginning of the arbitrary line.</p>
@@ -382,6 +385,7 @@
 </ul>
 </div>
 <div class="ulist">
+<div class="title">Scrolling</div>
 <ul>
 <li>
 <p><code>Ctrl+e</code> will scroll the window downwards.</p>
@@ -400,6 +404,7 @@
 <h2 id="_operators_and_text_objects"><a class="anchor" href="#_operators_and_text_objects"></a>Operators and Text Objects</h2>
 <div class="sectionbody">
 <div class="ulist">
+<div class="title">Key Mappings</div>
 <ul>
 <li>
 <p><code>d</code> is the operator for delete.</p>
@@ -428,10 +433,12 @@
 </ul>
 </div>
 <div class="ulist">
+<div class="title">Concept</div>
 <ul>
 <li>
 <p>In Vim, a <code>word</code> is a text object, as well as a <code>sentence</code> or a <code>paragraph</code>.</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p><code>diw</code> will delete inside the word. It will delete the current word under the cursor.</p>
 </li>
@@ -443,12 +450,16 @@
 </li>
 </ul>
 </div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_options"><a class="anchor" href="#_options"></a>Options</h2>
 <div class="sectionbody">
 <div class="ulist">
+<div class="title">Commands</div>
 <ul>
 <li>
 <p><code>:set no&lt;option&gt;</code> - Unset the option.</p>
@@ -476,14 +487,12 @@
 </li>
 </ul>
 </div>
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
+<div class="title">Vimrc</div>
 <p>Drop the prefix <code>:</code> to set these options in your vimrc file.</p>
-</li>
-</ul>
 </div>
 <div class="ulist">
+<div class="title">Help Commands</div>
 <ul>
 <li>
 <p><code>:help options</code> - displays the help file for options</p>
@@ -499,6 +508,7 @@
 <h2 id="_buffers"><a class="anchor" href="#_buffers"></a>Buffers</h2>
 <div class="sectionbody">
 <div class="ulist">
+<div class="title">Concept</div>
 <ul>
 <li>
 <p>A buffer is an open file in memory.</p>
@@ -525,6 +535,7 @@
 </ul>
 </div>
 <div class="ulist">
+<div class="title">Commands</div>
 <ul>
 <li>
 <p><code>:buffers</code> displays the buffer list. Each line contains:</p>
@@ -550,6 +561,7 @@
 <div class="sect2">
 <h3 id="_navigation"><a class="anchor" href="#_navigation"></a>Navigation</h3>
 <div class="ulist">
+<div class="title">Key Mappings</div>
 <ul>
 <li>
 <p><code>:buffer &lt;ID_or_name&gt;</code> - Move to the buffer using its ID or its name.</p>
@@ -614,6 +626,7 @@
 </ul>
 </div>
 <div class="ulist">
+<div class="title">Help Commands</div>
 <ul>
 <li>
 <p><code>:help buffers</code> - displays the help file for buffers</p>
@@ -644,7 +657,7 @@
 </ul>
 </div>
 <div class="ulist">
-<div class="title">Commands</div>
+<div class="title">Key Mappings</div>
 <ul>
 <li>
 <p><code>Ctrl+W s</code> - Split the current window horizontally.</p>
@@ -733,6 +746,7 @@
 </ul>
 </div>
 <div class="ulist">
+<div class="title">Help commands</div>
 <ul>
 <li>
 <p><code>:help windows</code> - opens the help file for windows.</p>
@@ -757,6 +771,7 @@
 <h2 id="_tabs"><a class="anchor" href="#_tabs"></a>Tabs</h2>
 <div class="sectionbody">
 <div class="ulist">
+<div class="title">Concept</div>
 <ul>
 <li>
 <p>Tabs is a container for a bunch of windows.</p>
@@ -767,6 +782,7 @@
 </ul>
 </div>
 <div class="ulist">
+<div class="title">Key Mappings</div>
 <ul>
 <li>
 <p><code>:tabnew</code> or <code>:tabe</code> - Opens a new tab.</p>
@@ -790,6 +806,11 @@
 </ul>
 </div>
 </li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Help Commands</div>
+<ul>
 <li>
 <p><code>:help tab-page</code> - opens the help file for tab page.</p>
 </li>
